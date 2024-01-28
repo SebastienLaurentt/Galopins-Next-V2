@@ -3,8 +3,8 @@
 function Mentions() {
 
   return (
-    <div className="bg-slate-950 flex flex-col justify-center p-4 md:p-8">
-        <a href="/" className="text-white text-sm md:text-lg md:hover:font-bold ">
+    <div className="bg-slate-950 flex flex-col justify-center p-4 md:p-8 text-white">
+        <a href="/" className="text-sm md:text-lg md:hover:font-bold ">
             Retour à la page d&apos;accueil
         </a>
         <h2 className="text-2xl md:text-3xl text-center mb-4 mt-4">Statuts de l&apos;association &quot;Les Galopins&quot; au 1/09/2004</h2>
