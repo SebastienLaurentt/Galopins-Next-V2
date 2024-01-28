@@ -10,7 +10,7 @@ export default function NotFound() {
         Page non existante
       </h1>
       <Button>
-        <Link href="/"> Retourner à l'accueil </Link>
+        <Link href="/"> Retourner à l&apos;accueil </Link>
       </Button>
     </div>
   );
