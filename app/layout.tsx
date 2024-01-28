@@ -1,4 +1,5 @@
 import { ThemeProvider } from "@/src/theme/ThemeProvider";
+import { Header } from "@/src/theme/features/layout/Header";
 import clsx from "clsx";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -17,9 +18,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className="h-full">
+    <html lang="fr" suppressHydrationWarning>
       <body className={clsx(inter.className, "bg-background h-full")}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>{children}</ThemeProvider>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <div>
+            <Header />
+            <div>{children}</div>
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );
