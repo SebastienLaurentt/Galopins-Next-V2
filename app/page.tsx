@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import img from "../public/home.webp";
+import Section from "@/components/Section/Section";
 
 export default function Home() {
   return (
@@ -22,7 +23,11 @@ export default function Home() {
           className="object-cover absolute inset-y-10 -z-10"
         />
       </div>
-      <div>Yoooo</div>
+      <Section
+        marginBottom="true"
+        marginTop="true"
+        classname=""
+      />
     </main>
   );
 }

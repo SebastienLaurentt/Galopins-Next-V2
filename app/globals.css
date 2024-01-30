@@ -79,7 +79,7 @@
   }
 
   h2 {
-    @apply text-sm;
+    @apply text-3xl font-semibold;
   }
 
   p{
