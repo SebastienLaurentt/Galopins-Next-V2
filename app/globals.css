@@ -75,10 +75,10 @@
   }
 
   h1 {
-    @apply text-xl text-center font-bold;
+    @apply text-xl  font-bold;
   }
 
   h2 {
-    @apply text-sm text-center;
+    @apply text-sm ;
   }
 }
