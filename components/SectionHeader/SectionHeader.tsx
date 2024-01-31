@@ -7,7 +7,7 @@ interface SectionHeaderProps {
 
 const SectionHeader: React.FC<SectionHeaderProps> = ({ title, titleHighlight }) => {
   return (
-    <div>
+    <div className='max-w-[272px]'>
       <h2>{title} <span className='text-green-600'>{titleHighlight}</span></h2>
     </div>
   );

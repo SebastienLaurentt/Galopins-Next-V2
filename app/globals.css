@@ -79,7 +79,7 @@
   }
 
   h2 {
-    @apply text-3xl font-semibold;
+    @apply text-xl font-semibold;
   }
 
   p{
