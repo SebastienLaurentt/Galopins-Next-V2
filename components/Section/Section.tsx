@@ -4,9 +4,10 @@ interface SectionProps {
   classname?: string;
   marginBottom?: string;
   marginTop?: string;
+  children: React.ReactNode;
 }
 
-const Section = ({classname, marginBottom, marginTop  }:SectionProps) => {
+const Section = ({classname, marginBottom, marginTop, children  }:SectionProps) => {
 
   const isMarginBottom = marginBottom ? "mb-8" : "";
   const isMarginTop = marginTop ? "mt-8" : "";
@@ -17,6 +18,7 @@ const Section = ({classname, marginBottom, marginTop  }:SectionProps) => {
         title="Un club qui vadrouille dans la "
         titleHighlight="région"
       />
+      {children}
     </section>
   );
 };
