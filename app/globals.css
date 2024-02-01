@@ -13,7 +13,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 3.9%;
 
-    --primary: 0 0% 9%;
+    --primary: 240, 6%, 10%;
     --primary-foreground: 0 0% 98%;
 
     --secondary: 0 0% 96.1%;
@@ -22,7 +22,7 @@
     --muted: 0 0% 96.1%;
     --muted-foreground: 0 0% 45.1%;
 
-    --accent: 0 0% 96.1%;
+    --accent: 142, 76%, 36%;
     --accent-foreground: 0 0% 9%;
 
     --destructive: 0 84.2% 60.2%;
@@ -75,14 +75,21 @@
   }
 
   h1 {
-    @apply text-4xl  font-bold;
+    @apply text-4xl leading-[3rem] font-bold;
   }
 
   h2 {
-    @apply text-xl font-semibold;
+    @apply text-xl leading-8 font-semibold mb-4 text-primary;
   }
 
   p{
-    @apply text-sm;
+    @apply text-sm leading-5;
+  }
+
+/* Custom Class */
+
+
+  .sectionHeaderDescription{
+    @apply text-secondary font-normal
   }
 }

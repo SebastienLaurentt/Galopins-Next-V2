@@ -43,11 +43,11 @@ const config = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "hsl(var(--primary))",
+          DEFAULT: "#18181B",
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
+          DEFAULT: "rgba(24, 24, 27, 0.60)",
           foreground: "hsl(var(--secondary-foreground))",
         },
         destructive: {
@@ -59,7 +59,7 @@ const config = {
           foreground: "hsl(var(--muted-foreground))",
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
+          DEFAULT: "#16a34a",
           foreground: "hsl(var(--accent-foreground))",
         },
         popover: {

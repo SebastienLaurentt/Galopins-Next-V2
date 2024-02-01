@@ -44,7 +44,7 @@ export default function BurgerMenu({ isOpen, setIsOpen }: IBurgerMenu) {
         onClick={() => setIsOpen(true)}
         aria-label="Ouvrir le menu mobile"
       >
-        <Menu color="#16a34a" size={32} />
+        <Menu color="#fff" size={32} />
       </button>
 
       <nav
