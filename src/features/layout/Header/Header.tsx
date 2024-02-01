@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import logo from "../../../../public/Logo-Black.svg";
 import BurgerMenu from "./BurgerMenu";
-import Link from "next/link";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,9 +12,9 @@ export const Header = () => {
   return (
     <header className="absolute text-white w-full cursor-pointer z-10 ">
       <div className="flex items-center px-6 py-4 justify-between  ">
-        <Link href="/"> 
+        <Link href="/">
           <Image src={logo} alt="Logo Galopins" className="w-16" />
-        </Link> 
+        </Link>
         <BurgerMenu isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
     </header>

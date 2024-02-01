@@ -82,14 +82,13 @@
     @apply text-xl leading-8 font-semibold mb-4 text-primary;
   }
 
-  p{
+  p {
     @apply text-sm leading-5;
   }
 
-/* Custom Class */
+  /* Custom Class */
 
-
-  .sectionHeaderDescription{
-    @apply text-secondary font-normal
+  .sectionHeaderDescription {
+    @apply text-secondary font-normal;
   }
 }

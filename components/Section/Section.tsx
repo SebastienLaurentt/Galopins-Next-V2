@@ -7,8 +7,12 @@ interface SectionProps {
   children: React.ReactNode;
 }
 
-const Section = ({classname, marginBottom, marginTop, children  }:SectionProps) => {
-
+const Section = ({
+  classname,
+  marginBottom,
+  marginTop,
+  children,
+}: SectionProps) => {
   const isMarginBottom = marginBottom ? "mb-8" : "";
   const isMarginTop = marginTop ? "mt-8" : "";
 

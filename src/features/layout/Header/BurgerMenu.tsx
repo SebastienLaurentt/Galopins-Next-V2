@@ -65,7 +65,7 @@ export default function BurgerMenu({ isOpen, setIsOpen }: IBurgerMenu) {
           {/* Menu */}
           <ul className="flex flex-col gap-4 p-4 min-h-screen font-bold ">
             {menuItems.map((item: IMenuItem, key) => (
-              <li key={key} >
+              <li key={key}>
                 <Link
                   href={item.slug}
                   className=""
