@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import Section from "@/components/Section/Section";
 import SectionBg from "@/components/SectionBg/SectionBg";
+import SectionHeader from "@/components/SectionHeader/SectionHeader";
 import { Button } from "@/components/ui/button";
 import logoDrome from "../public/Drome.webp";
 import img from "../public/Home.jpg";
@@ -28,6 +29,10 @@ export default function Home() {
         </div>
       </SectionBg>
       <Section marginBottom="true" marginTop="true" classname="">
+        <SectionHeader
+          title="Un club qui vadrouille dans la "
+          titleHighlight="région"
+        />
         <ul>
           <li>
             <Image src={logoDrome} alt="Les Galopins" />
