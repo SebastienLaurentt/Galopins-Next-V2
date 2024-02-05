@@ -28,6 +28,12 @@ export default function Home() {
           </Button>
         </div>
       </SectionBg>
+      <Section marginBottom="true" marginTop="true" classname=""> 
+        <SectionHeader 
+          title="Quelques informations sur notre "
+          titleHighlight="club"
+        />
+      </Section>
       <Section marginBottom="true" marginTop="true" classname="">
         <SectionHeader
           title="Un club qui vadrouille dans la "
@@ -46,7 +52,6 @@ export default function Home() {
           </li>
         </ul>
       </Section>
-      
     </main>
   );
 }

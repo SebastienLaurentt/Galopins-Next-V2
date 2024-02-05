@@ -3,7 +3,7 @@ import React from "react";
 interface SectionHeaderProps {
   title: string;
   titleHighlight: string;
-  titleDescription: string;
+  titleDescription?: string;
 }
 
 const SectionHeader: React.FC<SectionHeaderProps> = ({
