@@ -91,4 +91,8 @@
   .sectionHeaderDescription {
     @apply text-secondary font-normal;
   }
+
+  .clubIcon {
+    @apply  h-20 w-20;
+  }
 }

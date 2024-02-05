@@ -6,6 +6,8 @@ import SectionHeader from "@/components/SectionHeader/SectionHeader";
 import { Button } from "@/components/ui/button";
 import logoDrome from "../public/Drome.webp";
 import img from "../public/Home.jpg";
+import ClubIcon from "@/components/ClubIcon/ClubIcon";
+import { CalendarCheck, Mountain, Users } from "lucide-react";
 
 export default function Home() {
   return (
@@ -30,7 +32,7 @@ export default function Home() {
       </SectionBg>
       <Section marginBottom="true" marginTop="true" classname=""> 
         <SectionHeader 
-          title="Quelques informations sur notre "
+          title="Quelques chiffres sur notre "
           titleHighlight="club"
         />
         <div>
@@ -38,7 +40,23 @@ export default function Home() {
             
           </div>
           <div>
-            
+            <ul className="flex flex-col gap-y-8">
+            <li className=""> 
+                <ClubIcon iconDescription="Créé en 1954">
+                  <CalendarCheck className="clubIcon"/>
+                </ClubIcon>
+              </li>
+              <li className=""> 
+                <ClubIcon iconDescription="83 adhérents en 2024">
+                  <Users className="clubIcon" />
+                </ClubIcon>
+              </li>
+              <li className=""> 
+                <ClubIcon iconDescription="+200 randonnées en 2023">
+                  <Mountain className="clubIcon"/>
+                </ClubIcon>
+              </li>
+            </ul>
           </div>
         </div>
       </Section>

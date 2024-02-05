@@ -7,9 +7,9 @@ interface HomeIconProps {
 
 const ClubIcon = ({children, iconDescription}: HomeIconProps) => {
   return (
-    <div className='flex flex-col items-center text-center gap-y-2 p-6'>
+    <div className='flex flex-col items-center gap-y-2'>
         {children}
-        <span className=''>{iconDescription}</span>
+        <span className='font-medium text-md'>{iconDescription}</span>
     </div>
 )
 }
