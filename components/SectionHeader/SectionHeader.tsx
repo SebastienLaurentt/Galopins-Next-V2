@@ -3,11 +3,13 @@ import React from "react";
 interface SectionHeaderProps {
   title: string;
   titleHighlight: string;
+  titleDescription: string;
 }
 
 const SectionHeader: React.FC<SectionHeaderProps> = ({
   title,
   titleHighlight,
+  titleDescription,
 }) => {
   return (
     <div className="max-w-[320px] mb-16">
@@ -15,9 +17,7 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
         {title} <span className="text-accent">{titleHighlight}</span>
       </h2>
       <p className="sectionHeaderDescription">
-        {" "}
-        Les Galopins sortent en groupe pour randonner dans les départements de
-        la Drôme, l&apos;Ardèche et le Vaucluse.{" "}
+        {titleDescription}
       </p>
     </div>
   );

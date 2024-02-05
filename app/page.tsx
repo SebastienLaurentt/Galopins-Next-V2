@@ -32,6 +32,7 @@ export default function Home() {
         <SectionHeader
           title="Un club qui vadrouille dans la "
           titleHighlight="région"
+          titleDescription="Les Galopins sortent en groupe pour randonner dans les départements de la Drôme, l'Ardèche et le Vaucluse."
         />
         <ul>
           <li>
@@ -40,11 +41,12 @@ export default function Home() {
               <h3>
 
               </h3>
-              
+
             </div>
           </li>
         </ul>
       </Section>
+      
     </main>
   );
 }
