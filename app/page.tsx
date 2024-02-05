@@ -35,13 +35,13 @@ export default function Home() {
         />
         <ul>
           <li>
-            <Image src={logoDrome} alt="Les Galopins" />
-          </li>
-          <li>
-            <Image src={logoDrome} alt="Les Galopins" />
-          </li>
-          <li>
-            <Image src={logoDrome} alt="Les Galopins" />
+            <div>
+              <Image src={logoDrome} alt="Logo Drôme" />
+              <h3>
+
+              </h3>
+              
+            </div>
           </li>
         </ul>
       </Section>
