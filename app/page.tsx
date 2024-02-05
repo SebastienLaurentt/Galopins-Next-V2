@@ -33,6 +33,14 @@ export default function Home() {
           title="Quelques informations sur notre "
           titleHighlight="club"
         />
+        <div>
+          <div>
+            
+          </div>
+          <div>
+            
+          </div>
+        </div>
       </Section>
       <Section marginBottom="true" marginTop="true" classname="">
         <SectionHeader
