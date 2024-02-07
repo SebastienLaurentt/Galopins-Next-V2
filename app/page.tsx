@@ -13,6 +13,8 @@ import img from "../public/Home.jpg";
 export default function Home() {
   return (
     <main>
+
+      {/* Hero Section */}
       <SectionBg
         bg={img}
         minHeightScreen={false}
@@ -31,15 +33,17 @@ export default function Home() {
           </Button>
         </div>
       </SectionBg>
+
+      {/* Area Section */}
       <Section marginBottom="true" marginTop="true" classname="">
         <SectionHeader
           title="Un club qui vadrouille dans la "
           titleHighlight="région"
         />
-        <div className="mb-8">
+        <div className="mb-16">
           <p>
             Les Galopins sortent en groupe pour randonner dans les départements
-            de la Drôme, l'Ardèche et le Gard.
+            de la Drôme, l'Ardèche et du Gard.
           </p>
         </div>
         <div>
@@ -71,7 +75,9 @@ export default function Home() {
           </ul>
         </div>
       </Section>
-      <Section marginBottom="true" marginTop="true" classname="">
+        
+      {/* Club Section */}
+      <Section marginBottom={true} marginTop={false} classname="">
         <SectionHeader
           title="Quelques chiffres sur notre "
           titleHighlight="club"

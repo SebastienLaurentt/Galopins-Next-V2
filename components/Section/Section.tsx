@@ -1,7 +1,7 @@
 interface SectionProps {
   classname?: string;
-  marginBottom?: string;
-  marginTop?: string;
+  marginBottom?: boolean;
+  marginTop?: boolean;
   children: React.ReactNode;
 }
 
@@ -11,8 +11,8 @@ const Section = ({
   marginTop,
   children,
 }: SectionProps) => {
-  const isMarginBottom = marginBottom ? "mb-8" : "";
-  const isMarginTop = marginTop ? "mt-20" : "";
+  const isMarginBottom = marginBottom ? "mb-20" : "";
+  const isMarginTop = marginTop ? "mt-24" : "";
 
   return (
     <section className={`${classname} ${isMarginBottom} ${isMarginTop} px-6`}>

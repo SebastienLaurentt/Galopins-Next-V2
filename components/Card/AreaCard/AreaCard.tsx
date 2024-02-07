@@ -10,7 +10,7 @@ interface AreaCardProps {
 
 const AreaCard = ({src, alt, areaTitle, areaDescription}: AreaCardProps) => {
   return (
-    <div className='mt-4'>
+    <div className='mb-12'>
       <div className='mb-4'>
         <Image src={src} alt={alt} />
       </div>
