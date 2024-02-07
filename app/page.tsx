@@ -6,6 +6,8 @@ import SectionHeader from "@/components/SectionHeader/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { CalendarCheck, Mountain, Users } from "lucide-react";
 import logoDrome from "../public/Drome.jpg";
+import logoArdeche from "../public/Ardeche.jpg";
+import logoGard from "../public/Gard.jpg";
 import img from "../public/Home.jpg";
 
 export default function Home() {
@@ -37,7 +39,7 @@ export default function Home() {
         <div className="mb-8">
           <p>
             Les Galopins sortent en groupe pour randonner dans les départements
-            de la Drôme, l'Ardèche et le Vaucluse.
+            de la Drôme, l'Ardèche et le Gard.
           </p>
         </div>
         <div>
@@ -45,8 +47,24 @@ export default function Home() {
             <li>
               <AreaCard
                 src={logoDrome}
-                alt="Drome"
+                alt="Lavande de la Drome"
                 areaTitle="Drôme"
+                areaDescription="Le département de la Drôme est un lieu de randonnée idéal pour les Galopins."
+              />
+            </li>
+            <li>
+              <AreaCard
+                src={logoArdeche}
+                alt="Valon Pont d'Arc en Ardèche"
+                areaTitle="Ardèche"
+                areaDescription="Le département de la Drôme est un lieu de randonnée idéal pour les Galopins."
+              />
+            </li>
+            <li>
+              <AreaCard
+                src={logoGard}
+                alt="Pont du Gard"
+                areaTitle="Gard"
                 areaDescription="Le département de la Drôme est un lieu de randonnée idéal pour les Galopins."
               />
             </li>
