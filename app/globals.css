@@ -83,11 +83,11 @@
   }
 
   h3 {
-    @apply text-lg leading-8 font-semibold mb-1 text-primary;
+    @apply text-lg md:text-2xl leading-8 md:leading-10 font-semibold mb-1 text-primary;
   }
 
   p {
-    @apply text-sm leading-5;
+    @apply text-sm md:text-md leading-5 md:leading-6;
   }
 
   /* Custom Class */
