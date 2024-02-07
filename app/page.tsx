@@ -38,15 +38,11 @@ export default function Home() {
         <SectionHeader
           title="Un club qui vadrouille dans la "
           titleHighlight="région"
+          titleDescription="Les Galopins sortent en groupe pour randonner principalement dans
+          les départements de la Drôme, de l&apos;Ardèche et du Gard.
+          Cependant, le Vaucluse et la Lozère peuvent également être choisis
+          pour des randonnées plus lointaines."
         />
-        <div className="mb-12">
-          <p>
-            Les Galopins sortent en groupe pour randonner principalement dans
-            les départements de la Drôme, de l&apos;Ardèche et du Gard.
-            Cependant, le Vaucluse et la Lozère peuvent également être choisis
-            pour des randonnées plus lointaines.
-          </p>
-        </div>
         <div>
           <ul>
             <li>
@@ -82,13 +78,9 @@ export default function Home() {
         <SectionHeader
           title="Plusieurs randonnées chaque "
           titleHighlight="semaine"
+          titleDescription="Chaque semaine, plusieurs types de randonnées sont organisés le
+          Lundi après-midi et le Vendredi pour la journée entière."
         />
-        <div className="mb-12 flex flex-col gap-y-2">
-          <p>
-            Chaque semaine, plusieurs types de randonnées sont organisés le
-            Lundi après-midi et le Vendredi pour la journée entière.
-          </p>
-        </div>
         <div>
           <ul>
             <li>

@@ -92,10 +92,6 @@
 
   /* Custom Class */
 
-  .sectionHeaderDescription {
-    @apply text-secondary font-normal;
-  }
-
   .clubIcon {
     @apply  h-20 md:h-28 w-20 md:w-28;
   }
