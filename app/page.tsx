@@ -75,6 +75,22 @@ export default function Home() {
           </ul>
         </div>
       </Section>
+
+      {/* Parcours Section */}
+      <Section marginBottom={true} marginTop={true} classname="">
+        <SectionHeader
+          title="Plusieurs randonnées chaque "
+          titleHighlight="semaine"
+        />
+        <div className="mb-12">
+          <p>
+            Les Galopins sortent en groupe pour randonner dans les départements
+            de la Drôme, l'Ardèche et du Gard.
+          </p>
+        </div>
+        <div>
+        </div>
+      </Section>
         
       {/* Club Section */}
       <Section marginBottom={true} marginTop={false} classname="">
