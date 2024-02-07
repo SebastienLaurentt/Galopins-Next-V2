@@ -79,7 +79,7 @@
   }
 
   h2 {
-    @apply text-xl leading-8 font-semibold mb-4 text-primary;
+    @apply text-xl md:text-3xl leading-8 md:leading-[48px] font-semibold mb-4 text-primary md:max-w-[500px];
   }
 
   h3 {
