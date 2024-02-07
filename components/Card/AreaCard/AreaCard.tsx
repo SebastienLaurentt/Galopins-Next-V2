@@ -18,7 +18,7 @@ const AreaCard = ({src, alt, areaTitle, areaDescription}: AreaCardProps) => {
         <h3 className=''>
           {areaTitle}
         </h3>
-        <p>
+        <p className='text-sm md:text-sm'>
           {areaDescription}
         </p>
       </div>
