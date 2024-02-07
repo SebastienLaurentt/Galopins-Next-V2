@@ -11,11 +11,11 @@ const Section = ({
   marginTop,
   children,
 }: SectionProps) => {
-  const isMarginBottom = marginBottom ? "mb-32" : "";
-  const isMarginTop = marginTop ? "mt-20" : "";
+  const isMarginBottom = marginBottom ? "mb-32 md:mb-36" : "";
+  const isMarginTop = marginTop ? "mt-20 md:mt-24" : "";
 
   return (
-    <section className={`${classname} ${isMarginBottom} ${isMarginTop} px-6`}>
+    <section className={`${classname} ${isMarginBottom} ${isMarginTop} px-6 md:px-10`}>
       {children}
     </section>
   );
