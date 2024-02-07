@@ -7,15 +7,15 @@ import SectionBg from "@/components/Section/SectionBg/SectionBg";
 import SectionHeader from "@/components/Section/SectionHeader/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { CalendarCheck, Mountain, Users } from "lucide-react";
+import Link from "next/link";
 import logoArdeche from "../public/Ardeche.jpg";
 import logoDrome from "../public/Drome.jpg";
 import logoGard from "../public/Gard.jpg";
 import img from "../public/Home.jpg";
-import Link from "next/link";
 
 export default function Home() {
   return (
-    <main>
+    <main className="mb-20">
       {/* Hero Section */}
       <SectionBg
         bg={img}
@@ -28,9 +28,7 @@ export default function Home() {
             Club de randonnée pédestre à Montélimar
           </p>
           <Button asChild variant="hero">
-            <Link href="/rejoindre"> 
-            Nous contacter
-            </Link>
+            <Link href="/rejoindre">Nous contacter</Link>
           </Button>
         </div>
       </SectionBg>
@@ -133,7 +131,7 @@ export default function Home() {
       </Section>
 
       {/* Club Section */}
-      <Section marginBottom={true} marginTop={false} classname="">
+      <Section marginBottom={false} marginTop={false} classname="">
         <SectionHeader
           title="Quelques chiffres sur notre "
           titleHighlight="club"
@@ -160,6 +158,7 @@ export default function Home() {
             </ul>
           </div>
         </div>
+        <SeeMoreButton href="/club" linkName="Plus d'infos" />
       </Section>
     </main>
   );
