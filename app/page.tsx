@@ -1,13 +1,13 @@
 import Image from "next/image";
 
+import ClubIcon from "@/components/ClubIcon/ClubIcon";
 import Section from "@/components/Section/Section";
 import SectionBg from "@/components/SectionBg/SectionBg";
 import SectionHeader from "@/components/SectionHeader/SectionHeader";
 import { Button } from "@/components/ui/button";
+import { CalendarCheck, Mountain, Users } from "lucide-react";
 import logoDrome from "../public/Drome.webp";
 import img from "../public/Home.jpg";
-import ClubIcon from "@/components/ClubIcon/ClubIcon";
-import { CalendarCheck, Mountain, Users } from "lucide-react";
 
 export default function Home() {
   return (
@@ -30,53 +30,52 @@ export default function Home() {
           </Button>
         </div>
       </SectionBg>
-      <Section marginBottom="true" marginTop="true" classname=""> 
-        <SectionHeader 
+      <Section marginBottom="true" marginTop="true" classname="">
+        <SectionHeader
+          title="Un club qui vadrouille dans la "
+          titleHighlight="région"
+        />
+        <div>
+          <p>Les Galopins sortent en groupe pour randonner dans les départements de la Drôme, l'Ardèche et le Vaucluse.</p>
+        </div>
+        <div>
+          <ul>
+            <li>
+              <div>
+                <Image src={logoDrome} alt="Logo Drôme" />
+                <h3></h3>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </Section>
+      <Section marginBottom="true" marginTop="true" classname="">
+        <SectionHeader
           title="Quelques chiffres sur notre "
           titleHighlight="club"
         />
         <div>
-          <div>
-            
-          </div>
+          <div></div>
           <div>
             <ul className="flex flex-col gap-y-8">
-            <li className=""> 
+              <li className="">
                 <ClubIcon iconDescription="Créé en 1954">
-                  <CalendarCheck className="clubIcon"/>
+                  <CalendarCheck className="clubIcon" />
                 </ClubIcon>
               </li>
-              <li className=""> 
+              <li className="">
                 <ClubIcon iconDescription="83 adhérents en 2024">
                   <Users className="clubIcon" />
                 </ClubIcon>
               </li>
-              <li className=""> 
+              <li className="">
                 <ClubIcon iconDescription="+200 randonnées en 2023">
-                  <Mountain className="clubIcon"/>
+                  <Mountain className="clubIcon" />
                 </ClubIcon>
               </li>
             </ul>
           </div>
         </div>
-      </Section>
-      <Section marginBottom="true" marginTop="true" classname="">
-        <SectionHeader
-          title="Un club qui vadrouille dans la "
-          titleHighlight="région"
-          titleDescription="Les Galopins sortent en groupe pour randonner dans les départements de la Drôme, l'Ardèche et le Vaucluse."
-        />
-        <ul>
-          <li>
-            <div>
-              <Image src={logoDrome} alt="Logo Drôme" />
-              <h3>
-
-              </h3>
-
-            </div>
-          </li>
-        </ul>
       </Section>
     </main>
   );
