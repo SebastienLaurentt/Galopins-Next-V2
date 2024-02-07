@@ -11,6 +11,7 @@ import logoArdeche from "../public/Ardeche.jpg";
 import logoDrome from "../public/Drome.jpg";
 import logoGard from "../public/Gard.jpg";
 import img from "../public/Home.jpg";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -26,11 +27,10 @@ export default function Home() {
           <p className="font-medium text-md w-4/5 mx-auto mb-2 leading-6">
             Club de randonnée pédestre à Montélimar
           </p>
-          <Button
-            variant="hero"
-            href="/"
-          >
+          <Button asChild variant="hero">
+            <Link href="/rejoindre"> 
             Nous contacter
+            </Link>
           </Button>
         </div>
       </SectionBg>
@@ -129,10 +129,7 @@ export default function Home() {
             </li>
           </ul>
         </div>
-        <SeeMoreButton
-          href="/parcours"
-          linkName="Plus d'infos"
-        />
+        <SeeMoreButton href="/parcours" linkName="Plus d'infos" />
       </Section>
 
       {/* Club Section */}
