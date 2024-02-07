@@ -81,10 +81,9 @@ export default function Home() {
           title="Plusieurs randonnées chaque "
           titleHighlight="semaine"
         />
-        <div className="mb-12">
+        <div className="mb-12 flex flex-col gap-y-2">
           <p>
-            Les Galopins sortent en groupe pour randonner dans les départements
-            de la Drôme, l&rsquo;Ardèche et du Gard.
+            Chaque semaine, plusieurs types de randonnées sont organisés le Lundi après-midi et le Vendredi pour la journée entière. 
           </p>
         </div>
         <div>
