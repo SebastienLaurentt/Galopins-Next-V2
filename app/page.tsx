@@ -1,3 +1,4 @@
+import SeeMoreButton from "@/components/Button/SeeMoreButton/SeeMoreButton";
 import AreaCard from "@/components/Card/AreaCard/AreaCard";
 import ParcoursCard from "@/components/Card/ParcoursCard/ParcoursCard";
 import ClubIcon from "@/components/ClubIcon/ClubIcon";
@@ -26,8 +27,8 @@ export default function Home() {
             Club de randonnée pédestre à Montélimar
           </p>
           <Button
+            variant="hero"
             href="/"
-            className="border border-green-600 bg-transparent hover:bg-green-600"
           >
             Nous contacter
           </Button>
@@ -99,7 +100,7 @@ export default function Home() {
                 frequency="2 types de randonnées"
                 case1={
                   <>
-                    <strong>&#x2022; Cool :</strong> 5 - 9 km 
+                    <strong>&#x2022; Cool :</strong> 5 - 9 km
                   </>
                 }
                 case2={
@@ -115,20 +116,23 @@ export default function Home() {
                 area="Vaucluse, Gard ou Lozère"
                 frequency="En alternance"
                 case1={
-                <>
-                  <strong>&#x2022; Semaine A :</strong> Jusqu&apos;à 15 km
-                </>
+                  <>
+                    <strong>&#x2022; Semaine A :</strong> Jusqu&apos;à 15 km
+                  </>
                 }
                 case2={
                   <>
-                   <strong>&#x2022; Semaine B : </strong>  De 15 à 20 km 
+                    <strong>&#x2022; Semaine B : </strong> De 15 à 20 km
                   </>
-                  
                 }
               />
             </li>
           </ul>
         </div>
+        <SeeMoreButton
+          href="/parcours"
+          linkName="Plus d'infos"
+        />
       </Section>
 
       {/* Club Section */}
