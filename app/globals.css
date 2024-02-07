@@ -75,11 +75,15 @@
   }
 
   h1 {
-    @apply text-4xl leading-[3rem] font-bold;
+    @apply text-3xl leading-[3rem] font-bold;
   }
 
   h2 {
-    @apply text-xl leading-8 font-semibold mb-4 text-primary;
+    @apply text-lg leading-8 font-semibold mb-4 text-primary;
+  }
+
+  h3 {
+    @apply text-lg leading-8 font-semibold mb-4 text-primary;
   }
 
   p {

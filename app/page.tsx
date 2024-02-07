@@ -5,7 +5,7 @@ import SectionBg from "@/components/SectionBg/SectionBg";
 import SectionHeader from "@/components/SectionHeader/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { CalendarCheck, Mountain, Users } from "lucide-react";
-import logoDrome from "../public/Drome.webp";
+import logoDrome from "../public/Drome.jpg";
 import img from "../public/Home.jpg";
 
 export default function Home() {
@@ -18,7 +18,7 @@ export default function Home() {
       >
         <div className="pb-4 text-center max-w-[280px] mx-auto text-white">
           <h1 className="mb-2"> LES GALOPINS </h1>
-          <p className="font-medium text-lg w-4/5 mx-auto mb-2 leading-6">
+          <p className="font-medium text-md w-4/5 mx-auto mb-2 leading-6">
             Club de randonnée pédestre à Montélimar
           </p>
           <Button
