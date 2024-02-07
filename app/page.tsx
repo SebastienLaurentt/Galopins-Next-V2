@@ -15,7 +15,7 @@ import img from "../public/Home.jpg";
 
 export default function Home() {
   return (
-    <main className="mb-20">
+    <main className="mb-20 md:mb-24">
       {/* Hero Section */}
       <SectionBg
         bg={img}

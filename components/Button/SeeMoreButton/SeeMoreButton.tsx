@@ -8,7 +8,7 @@ interface SeeMoreButtonProps {
 
 const SeeMoreButton = ({href, linkName }: SeeMoreButtonProps) => {
   return (
-    <div className="flex justify-center mt-12">
+    <div className="flex justify-center mt-12 md:mt-16">
       <Button asChild >
         <Link href={href}> {linkName} </Link>
       </Button>
