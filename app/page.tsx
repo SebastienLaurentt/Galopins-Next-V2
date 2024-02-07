@@ -1,20 +1,19 @@
 import AreaCard from "@/components/Card/AreaCard/AreaCard";
+import ParcoursCard from "@/components/Card/ParcoursCard/ParcoursCard";
 import ClubIcon from "@/components/ClubIcon/ClubIcon";
 import Section from "@/components/Section/Section";
 import SectionBg from "@/components/SectionBg/SectionBg";
 import SectionHeader from "@/components/SectionHeader/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { CalendarCheck, Mountain, Users } from "lucide-react";
-import logoDrome from "../public/Drome.jpg";
 import logoArdeche from "../public/Ardeche.jpg";
+import logoDrome from "../public/Drome.jpg";
 import logoGard from "../public/Gard.jpg";
 import img from "../public/Home.jpg";
-import ParcoursCard from "@/components/Card/ParcoursCard/ParcoursCard";
 
 export default function Home() {
   return (
     <main>
-
       {/* Hero Section */}
       <SectionBg
         bg={img}
@@ -43,7 +42,10 @@ export default function Home() {
         />
         <div className="mb-12">
           <p>
-            Les Galopins sortent en groupe pour randonner principalement dans les départements de la Drôme, de l&apos;Ardèche et du Gard. Cependant, le Vaucluse et la Lozère peuvent également être choisis pour des randonnées plus lointaines. 
+            Les Galopins sortent en groupe pour randonner principalement dans
+            les départements de la Drôme, de l&apos;Ardèche et du Gard.
+            Cependant, le Vaucluse et la Lozère peuvent également être choisis
+            pour des randonnées plus lointaines.
           </p>
         </div>
         <div>
@@ -84,21 +86,51 @@ export default function Home() {
         />
         <div className="mb-12 flex flex-col gap-y-2">
           <p>
-            Chaque semaine, plusieurs types de randonnées sont organisés le Lundi après-midi et le Vendredi pour la journée entière. 
+            Chaque semaine, plusieurs types de randonnées sont organisés le
+            Lundi après-midi et le Vendredi pour la journée entière.
           </p>
         </div>
         <div>
           <ul>
             <li>
-              <ParcoursCard parcoursTitle="Lundi | Après-Midi" area="Drôme ou Ardèche" frequency="2 Types de randonnées" case1="Cool : 5 à 9 km (2-3 h environ)" case2="Classique : 10 à 14 km (200 à 500 m de dénivelé)" />
+              <ParcoursCard
+                parcoursTitle="Lundi | Après-Midi"
+                area="Drôme ou Ardèche"
+                frequency="2 types de randonnées"
+                case1={
+                  <>
+                    <strong>&#x2022; Cool :</strong> 5 - 9 km 
+                  </>
+                }
+                case2={
+                  <>
+                    <strong>&#x2022; Classique :</strong> 10 - 14 km
+                  </>
+                }
+              />
             </li>
             <li>
-              <ParcoursCard parcoursTitle="Vendredi | Journée entière" area="Vaucluse, Gard ou Lozère (100 km max)" frequency="En alternance" case1="Semaine A : Jusqu'à 15 km" case2="Semaine B : De 15 à 20 km" />
+              <ParcoursCard
+                parcoursTitle="Vendredi | Journée entière"
+                area="Vaucluse, Gard ou Lozère"
+                frequency="En alternance"
+                case1={
+                <>
+                  <strong>&#x2022; Semaine A :</strong> Jusqu&apos;à 15 km
+                </>
+                }
+                case2={
+                  <>
+                   <strong>&#x2022; Semaine B : </strong>  De 15 à 20 km 
+                  </>
+                  
+                }
+              />
             </li>
           </ul>
         </div>
       </Section>
-        
+
       {/* Club Section */}
       <Section marginBottom={true} marginTop={false} classname="">
         <SectionHeader
