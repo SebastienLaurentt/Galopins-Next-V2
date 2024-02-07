@@ -35,12 +35,12 @@ export default function Home() {
       </SectionBg>
 
       {/* Area Section */}
-      <Section marginBottom="true" marginTop="true" classname="">
+      <Section marginBottom={true} marginTop={true} classname="">
         <SectionHeader
           title="Un club qui vadrouille dans la "
           titleHighlight="région"
         />
-        <div className="mb-16">
+        <div className="mb-12">
           <p>
             Les Galopins sortent en groupe pour randonner dans les départements
             de la Drôme, l'Ardèche et du Gard.

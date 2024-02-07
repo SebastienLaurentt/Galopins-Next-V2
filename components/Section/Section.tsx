@@ -12,7 +12,7 @@ const Section = ({
   children,
 }: SectionProps) => {
   const isMarginBottom = marginBottom ? "mb-20" : "";
-  const isMarginTop = marginTop ? "mt-24" : "";
+  const isMarginTop = marginTop ? "mt-20" : "";
 
   return (
     <section className={`${classname} ${isMarginBottom} ${isMarginTop} px-6`}>
