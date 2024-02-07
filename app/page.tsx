@@ -1,5 +1,4 @@
-import Image from "next/image";
-
+import AreaCard from "@/components/Card/AreaCard/AreaCard";
 import ClubIcon from "@/components/ClubIcon/ClubIcon";
 import Section from "@/components/Section/Section";
 import SectionBg from "@/components/SectionBg/SectionBg";
@@ -36,15 +35,20 @@ export default function Home() {
           titleHighlight="région"
         />
         <div>
-          <p>Les Galopins sortent en groupe pour randonner dans les départements de la Drôme, l'Ardèche et le Vaucluse.</p>
+          <p>
+            Les Galopins sortent en groupe pour randonner dans les départements
+            de la Drôme, l'Ardèche et le Vaucluse.
+          </p>
         </div>
         <div>
           <ul>
             <li>
-              <div>
-                <Image src={logoDrome} alt="Logo Drôme" />
-                <h3></h3>
-              </div>
+              <AreaCard
+                src={logoDrome}
+                alt="Drome"
+                areaTitle="Drôme"
+                areaDescription="Le département de la Drôme est un lieu de randonnée idéal pour les Galopins."
+              />
             </li>
           </ul>
         </div>
