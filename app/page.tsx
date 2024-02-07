@@ -9,6 +9,7 @@ import logoDrome from "../public/Drome.jpg";
 import logoArdeche from "../public/Ardeche.jpg";
 import logoGard from "../public/Gard.jpg";
 import img from "../public/Home.jpg";
+import ParcoursCard from "@/components/Card/ParcoursCard/ParcoursCard";
 
 export default function Home() {
   return (
@@ -87,6 +88,14 @@ export default function Home() {
           </p>
         </div>
         <div>
+          <ul>
+            <li>
+              <ParcoursCard parcoursTitle="Lundi | Après-Midi" area="Drôme ou Ardèche" frequency="2 Types de randonnées" case1="Cool : 5 à 9 km (2-3 h environ)" case2="Classique : 10 à 14 km (200 à 500 m de dénivelé)" />
+            </li>
+            <li>
+              <ParcoursCard parcoursTitle="Vendredi | Journée entière" area="Vaucluse, Gard ou Lozère (100 km max)" frequency="En alternance" case1="Semaine A : Jusqu'à 15 km" case2="Semaine B : De 15 à 20 km" />
+            </li>
+          </ul>
         </div>
       </Section>
         
