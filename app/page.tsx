@@ -42,8 +42,7 @@ export default function Home() {
         />
         <div className="mb-12">
           <p>
-            Les Galopins sortent en groupe pour randonner dans les départements
-            de la Drôme, l'Ardèche et du Gard.
+            Les Galopins sortent en groupe pour randonner principalement dans les départements de la Drôme, de l&apos;Ardèche et du Gard. Cependant, le Vaucluse et la Lozère peuvent également être choisis pour des randonnées plus lointaines. 
           </p>
         </div>
         <div>
@@ -85,7 +84,7 @@ export default function Home() {
         <div className="mb-12">
           <p>
             Les Galopins sortent en groupe pour randonner dans les départements
-            de la Drôme, l'Ardèche et du Gard.
+            de la Drôme, l&rsquo;Ardèche et du Gard.
           </p>
         </div>
         <div>
