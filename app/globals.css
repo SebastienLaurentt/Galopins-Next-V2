@@ -79,11 +79,11 @@
   }
 
   h2 {
-    @apply text-lg leading-8 font-semibold mb-4 text-primary;
+    @apply text-xl leading-8 font-semibold mb-4 text-primary;
   }
 
   h3 {
-    @apply text-lg leading-8 font-semibold mb-4 text-primary;
+    @apply text-lg leading-8 font-semibold mb-1 text-primary;
   }
 
   p {

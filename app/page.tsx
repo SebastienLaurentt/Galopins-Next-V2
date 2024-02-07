@@ -34,7 +34,7 @@ export default function Home() {
           title="Un club qui vadrouille dans la "
           titleHighlight="région"
         />
-        <div>
+        <div className="mb-8">
           <p>
             Les Galopins sortent en groupe pour randonner dans les départements
             de la Drôme, l'Ardèche et le Vaucluse.
