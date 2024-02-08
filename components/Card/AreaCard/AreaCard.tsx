@@ -8,6 +8,7 @@ interface AreaCardProps {
   tag1?: string;
   tag2?: string;
   tag3?: string;
+  tagsBgColor?: string;
 }
 
 const AreaCard = ({
@@ -18,6 +19,7 @@ const AreaCard = ({
   tag1,
   tag2,
   tag3,
+  tagsBgColor,
 }: AreaCardProps) => {
   return (
     <div className="mb-16">
@@ -30,9 +32,9 @@ const AreaCard = ({
             <h3 className="">{areaTitle}</h3>
           </div>
           <div className="flex gap-x-2">
-            {tag1 && <span className="areaTags">{tag1}</span>}
-            {tag2 && <span className="areaTags">{tag2}</span>}
-            {tag3 && <span className="areaTags">{tag3}</span>}
+            {tag1 && <span className={`areaTags ${tagsBgColor}`}>{tag1}</span>}
+            {tag2 && <span className={`areaTags ${tagsBgColor}`}>{tag2}</span>}
+            {tag3 && <span className={`areaTags ${tagsBgColor}`}>{tag3}</span>}
           </div>
         </div>
 
