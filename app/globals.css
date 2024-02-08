@@ -105,6 +105,6 @@
   }
 
   .areaTags {
-    @apply text-xs md:text-sm bg-accent rounded-xl px-2 py-1 text-white 
+    @apply text-xs md:text-sm rounded-xl px-2 py-1 text-white 
   }
 }

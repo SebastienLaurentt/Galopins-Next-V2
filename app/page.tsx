@@ -53,6 +53,7 @@ export default function Home() {
                 areaDescription="Le département de la Drôme est un lieu de randonnée idéal pour les Galopins."
                 tag1="Montélimar"
                 tag2="Puygiron"
+                tagsBgColor="bg-indigo-800"
               />
             </li>
             <li>
@@ -63,6 +64,7 @@ export default function Home() {
                 areaDescription="Le département de la Drôme est un lieu de randonnée idéal pour les Galopins."
                 tag1="Chomerac"
                 tag2="Vallon"
+                tagsBgColor="bg-accent"
               />
             </li>
             <li>
@@ -73,6 +75,7 @@ export default function Home() {
                 areaDescription="Le département de la Drôme est un lieu de randonnée idéal pour les Galopins."
                 tag1="Aiguèze"
                 tag2="Goudargues"
+                tagsBgColor="bg-cyan-700"
               />
             </li>
           </ul>
