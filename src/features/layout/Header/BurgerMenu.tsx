@@ -55,7 +55,7 @@ export default function BurgerMenu({ isOpen, setIsOpen }: IBurgerMenu) {
         }`}
       >
         {/* Close button */}
-        <div className="px-6 md:px-10 py-4 mb-12">
+        <div className=" px-6 md:px-10 py-4 mb-12">
           <X
             className="ml-auto  mt-4 h-8 md:h-10 w-8 md:w-10"
             onClick={() => setIsOpen(false)}
