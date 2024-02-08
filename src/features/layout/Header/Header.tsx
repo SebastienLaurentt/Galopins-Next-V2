@@ -33,16 +33,16 @@ export const Header = () => {
               <Link href="/">Accueil</Link>
             </li>
             <li>
-              <Link href="/club">Le Club</Link>
+              <Link href="/club">Club</Link>
             </li>
             <li>
-              <Link href="/parcours">Les Parcours</Link>
+              <Link href="/parcours">Parcours</Link>
             </li>
             <li>
-              <Link href="/photos">Nos Photos</Link>
+              <Link href="/photos">Photos</Link>
             </li>
             <li>
-              <Link href="/rejoindre">Nous Rejoindre</Link>
+              <Link href="/rejoindre">Adhésion</Link>
             </li>
           </ul>
         </nav>
