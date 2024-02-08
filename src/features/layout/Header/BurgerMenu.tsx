@@ -33,7 +33,7 @@ export default function BurgerMenu({ isOpen, setIsOpen }: IBurgerMenu) {
       >
         <div className=" px-6 md:px-10 py-4 mb-12">
           <X
-            className="ml-auto  mt-4 h-8 md:h-10 w-8 md:w-10"
+            className="ml-auto  h-8 md:h-10 w-8 md:w-10"
             onClick={() => setIsOpen(false)}
             aria-label="Fermer le menu mobile"
           />
