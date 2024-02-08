@@ -131,9 +131,9 @@ export default function Home() {
         <div>
           <div></div>
           <div>
-            <ul className="flex flex-col gap-y-8">
+            <ul className="flex flex-col lg:flex-row lg:justify-center gap-y-8 lg:gap-y-0 lg:gap-x-16">
               <li className="">
-                <ClubIcon iconDescription="Créé en 1954">
+                <ClubIcon iconDescription="Créé en Septembre 2004">
                   <CalendarCheck className="clubIcon" />
                 </ClubIcon>
               </li>
