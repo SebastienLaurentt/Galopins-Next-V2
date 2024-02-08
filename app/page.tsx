@@ -82,7 +82,7 @@ export default function Home() {
           Lundi après-midi et le Vendredi pour la journée entière."
         />
         <div>
-          <ul>
+          <ul className="xl:flex xl:justify-center xl:gap-x-16">
             <li>
               <ParcoursCard
                 parcoursTitle="Lundi | Après-Midi"

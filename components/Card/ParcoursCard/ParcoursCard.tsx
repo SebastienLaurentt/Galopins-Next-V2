@@ -10,7 +10,7 @@ interface ParcoursCardProps {
 
 const ParcoursCard = ({parcoursTitle, area, frequency, case1, case2 }: ParcoursCardProps) => {
   return (
-    <div className='flex flex-col max-w-[360px] md:max-w-[480px] mx-auto mb-10 text-center'>
+    <div className='flex flex-col max-w-[360px] md:max-w-[480px] xl:max-w-[1280px] xl:w-[500px] mx-auto mb-10 text-center'>
       <div className='bg-green-800 py-4'>
         <h3 className='text-white'>
           {parcoursTitle}
