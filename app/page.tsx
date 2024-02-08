@@ -51,6 +51,8 @@ export default function Home() {
                 alt="Lavande de la Drome"
                 areaTitle="Drôme"
                 areaDescription="Le département de la Drôme est un lieu de randonnée idéal pour les Galopins."
+                tag1="Montélimar"
+                tag2="Puygiron"
               />
             </li>
             <li>
@@ -59,6 +61,8 @@ export default function Home() {
                 alt="Valon Pont d'Arc en Ardèche"
                 areaTitle="Ardèche"
                 areaDescription="Le département de la Drôme est un lieu de randonnée idéal pour les Galopins."
+                tag1="Chomerac"
+                tag2="Vallon"
               />
             </li>
             <li>
@@ -67,6 +71,8 @@ export default function Home() {
                 alt="Pont du Gard"
                 areaTitle="Gard"
                 areaDescription="Le département de la Drôme est un lieu de randonnée idéal pour les Galopins."
+                tag1="Aiguèze"
+                tag2="Goudargues"
               />
             </li>
           </ul>
