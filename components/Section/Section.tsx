@@ -15,7 +15,7 @@ const Section = ({
   const isMarginTop = marginTop ? "mt-20 md:mt-24 xl:mt-28" : "";
 
   return (
-    <section className={`${classname} ${isMarginBottom} ${isMarginTop} px-6 md:px-10 xl:px-16`}>
+    <section className={`${classname} ${isMarginBottom} ${isMarginTop} px-6 md:px-10 xl:px-16 2xl:max-w-[1280px] 2xl:mx-auto`}>
       {children}
     </section>
   );

@@ -11,7 +11,7 @@ export const Header = () => {
 
   return (
     <header className="absolute text-white w-full z-10 ">
-      <div className="flex items-center px-6 md:px-10 xl:px-16 py-4 justify-between   ">
+      <div className="flex items-center px-6 md:px-10 xl:px-16 2xl:max-w-[1280px] 2xl:mx-auto py-4 justify-between   ">
         <Link href="/">
           <Image src={logo} alt="Logo Galopins" className="w-16 md:w-20 lg:w-24" />
         </Link>
