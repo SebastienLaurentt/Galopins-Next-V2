@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Footer } from "@/src/features/layout/Footer/Footer";
+import ScrollToTopButton from "@/components/Button/ScrollToTopButton/ScrollToTopButton";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,6 +27,7 @@ export default function RootLayout({
             <Header />
               <div className="flex-1">{children}</div>
             <Footer />
+            <ScrollToTopButton />
           </div>
         </ThemeProvider>
       </body>

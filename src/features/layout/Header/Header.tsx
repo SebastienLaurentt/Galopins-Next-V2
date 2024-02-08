@@ -16,7 +16,7 @@ export const Header = () => {
           <Image src={logo} alt="Logo Galopins" className="w-16 md:w-20 lg:w-24" />
         </Link>
 
-        <nav className="hidden lg:block lg:text-md">
+        <nav className="hidden lg:block lg:text-md font-medium">
           <ul className="flex gap-4">
             <li>
               <Link href="/">Accueil</Link>
