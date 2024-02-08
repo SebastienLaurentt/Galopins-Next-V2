@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import navData from "../../../../data/navData";
 import logo from "../../../../public/Logo-Black2.svg";
 import BurgerMenu from "./BurgerMenu";
 
@@ -29,21 +30,11 @@ export const Header = () => {
 
         <nav className="hidden lg:block lg:text-md font-medium">
           <ul className="flex gap-4">
-            <li>
-              <Link href="/">Accueil</Link>
-            </li>
-            <li>
-              <Link href="/club">Club</Link>
-            </li>
-            <li>
-              <Link href="/parcours">Parcours</Link>
-            </li>
-            <li>
-              <Link href="/photos">Photos</Link>
-            </li>
-            <li>
-              <Link href="/rejoindre">Adhésion</Link>
-            </li>
+            {navData.map((link) => (
+              <li key={link.name}>
+                <Link href={link.href}>{link.name}</Link>
+              </li>
+            ))}
           </ul>
         </nav>
 
