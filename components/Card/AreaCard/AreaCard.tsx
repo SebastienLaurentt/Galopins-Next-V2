@@ -15,9 +15,22 @@ const AreaCard = ({src, alt, areaTitle, areaDescription}: AreaCardProps) => {
         <Image src={src} alt={alt} />
       </div>
       <div>
-        <h3 className=''>
-          {areaTitle}
-        </h3>
+        <div className='flex items-center gap-x-4'>
+          <div>
+            <h3 className=''>
+              {areaTitle}
+            </h3>
+          </div>
+          <div className='flex gap-x-2'>
+            <span className='areaTags'>
+              Montélimar
+            </span>
+            <span className='areaTags'>
+              Puygiron
+            </span>
+          </div>
+        </div>
+
         <p className='text-sm md:text-sm'>
           {areaDescription}
         </p>

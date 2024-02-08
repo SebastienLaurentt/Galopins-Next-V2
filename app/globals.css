@@ -103,4 +103,8 @@
   .mentionsUl {
     @apply text-sm md:text-md leading-5 md:leading-6 list-disc ml-5 my-2;
   }
+
+  .areaTags {
+    @apply text-xs md:text-sm bg-accent rounded-xl px-2 py-1 text-white 
+  }
 }
