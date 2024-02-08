@@ -75,7 +75,7 @@
   }
 
   h1 {
-    @apply text-3xl md:text-5xl leading-[3rem] md:leading-[4rem] font-bold;
+    @apply text-3xl md:text-5xl lg:text-7xl leading-[3rem] md:leading-[4rem] lg:leading-[5rem] font-bold;
   }
 
   h2 {
