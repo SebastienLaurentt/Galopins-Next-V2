@@ -46,7 +46,7 @@ export default function BurgerMenu({ isOpen, setIsOpen }: IBurgerMenu) {
         onClick={() => setIsOpen(true)}
         aria-label="Ouvrir le menu mobile"
       >
-        <Menu color="#fff" className="h-8 md:h-10 w-8 md:w-10 " />
+        <Menu color="#fff" className="h-8 md:h-10 w-8 md:w-10" />
       </button>
 
       <nav
