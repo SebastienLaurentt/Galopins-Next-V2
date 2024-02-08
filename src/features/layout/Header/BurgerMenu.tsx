@@ -4,6 +4,8 @@ import Link from "next/link";
 import { Dispatch, SetStateAction } from "react";
 import navData from "../../../../data/navData";
 import logo from "../../../../public/Logo-Black.svg";
+import { usePathname } from "next/navigation";
+;
 
 interface IBurgerMenu {
   isOpen: boolean;
@@ -11,6 +13,9 @@ interface IBurgerMenu {
 }
 
 export default function BurgerMenu({ isOpen, setIsOpen }: IBurgerMenu) {
+
+  const pathname = usePathname()
+
   return (
     <>
       <button
@@ -37,7 +42,7 @@ export default function BurgerMenu({ isOpen, setIsOpen }: IBurgerMenu) {
         <ul className="flex flex-col gap-4 p-4 font-bold text-md md:text-lg">
           {navData.map((link) => (
             <li key={link.name}>
-              <Link href={link.href}>{link.burgerMenuName}</Link>
+              <Link href={link.href} className={pathname === link.href ? "border-b-2 border-white" : ""}>{link.burgerMenuName}</Link>
             </li>
           ))}
         </ul>
