@@ -95,4 +95,12 @@
   .clubIcon {
     @apply  h-20 md:h-28 w-20 md:w-28;
   }
+
+  .mentionsH2 {
+    @apply mt-12 mb-4 md:max-w-max;
+  }
+
+  .mentionsUl {
+    @apply text-sm md:text-md leading-5 md:leading-6 list-disc ml-5 my-2;
+  }
 }
