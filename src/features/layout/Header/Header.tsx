@@ -32,7 +32,7 @@ export const Header = () => {
           <ul className="flex gap-4">
             {navData.map((link) => (
               <li key={link.name}>
-                <Link href={link.href}>{link.name}</Link>
+                <Link href={link.href} className={pathname === link.href ? "border-b-2 border-white" : ""}>{link.name}</Link>
               </li>
             ))}
           </ul>
