@@ -3,7 +3,7 @@ import Section from '@/components/Section/Section'
 import SectionHeader from '@/components/Section/SectionHeader/SectionHeader'
 import React from 'react'
 
-function Rejoindre() {
+function Adhesion() {
   return (
     <main className="mb-20 md:mb-24 lg:mb-32">
       <PageTitle
@@ -28,4 +28,4 @@ function Rejoindre() {
   )
 }
 
-export default Rejoindre
+export default Adhesion
