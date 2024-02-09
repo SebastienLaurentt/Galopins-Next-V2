@@ -54,7 +54,12 @@ function Parcours() {
           </ul>
         </div>
       </Section>
-
+      <Section marginBottom={true} marginTop={false} classname="">
+        <SectionHeader
+          title="Un programme pour la saison "
+          titleHighlight="2023/2024"
+        />
+      </Section>
     </main>
   );
 }
