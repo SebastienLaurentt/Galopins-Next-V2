@@ -8,7 +8,6 @@ function Photos() {
     <main className="mb-20 md:mb-24 lg:mb-32">
     <PageTitle
       title="Nos Photos"
-      titleDescription="Venez découvrir Les paysages de nos dernières randonnées !"
     />
     <Section marginBottom={true} marginTop={false} classname="">
       <SectionHeader
