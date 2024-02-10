@@ -1,14 +1,13 @@
 "use client";
 
+import PageTitle from "@/components/PageTitle/PageTitle";
 import Section from "@/components/Section/Section";
 
 function Mentions() {
   return (
     <main className="mb-20 md:mb-24 lg:mb-32">
       <Section marginBottom={false} marginTop={true}>
-        <h1 className="text-center mb-16">
-          Statuts de l&apos;association &quot;Les Galopins&quot; au 1/09/2004
-        </h1>
+        <PageTitle title="Statuts de l&apos;association &quot;Les Galopins&quot; au 1/09/2004" />
         <h2 className="mentionsH2">Article 1 : Constitution et dénomination</h2>
         <p>
           Il est formé, entre les adhérents aux présents statuts, une
