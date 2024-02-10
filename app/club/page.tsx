@@ -5,8 +5,8 @@ import SectionHeader from "@/components/Section/SectionHeader/SectionHeader";
 import Image from "next/image";
 
 import imgEquipe from "../../public/PhotosEquipe.jpg";
-import imgRustrel2 from "../../public/Rustrel2.jpg";
 import imgRustrel from "../../public/Rustrel.jpg";
+import imgRustrel2 from "../../public/Rustrel2.jpg";
 
 function Club() {
   return (
@@ -47,23 +47,20 @@ function Club() {
           </div>
         </div>
         <div>
-          <div className="mb-4 md:mb-8">
-            <h3> Des événements conviviaux </h3>
-            <p>
-              Tous les 2 mois, un restaurant est organisé le vendredi soir ou samedi midi. En début
-              d&apos;année, la galette des rois est aussi l&apos;occasion de se
-              retrouver pour partager un moment festif. C&apos;est également le
-              cas fin Juin où un repas en plein air clôture la fin de saison. Le
-              club participe financièrement à ces événements.
-            </p>
-          </div>
-          <div>
-            <Image
-              src={imgEquipe}
-              alt="Carrières d'Ocre de Rustrel"
-              className=""
-            />
-          </div>
+          <h3> Des événements conviviaux </h3>
+          <p>
+            Tous les 2 mois, un restaurant est organisé le vendredi soir ou
+            samedi midi. En début d&apos;année, la galette des rois est aussi
+            l&apos;occasion de se retrouver pour partager un moment festif.
+            C&apos;est également le cas fin Juin où un repas en plein air
+            clôture la fin de saison. Le club participe financièrement à ces
+            événements.
+          </p>
+          <Image
+            src={imgEquipe}
+            alt="Carrières d'Ocre de Rustrel"
+            className="mt-4 md:mt-8"
+          />
         </div>
       </Section>
 
@@ -73,7 +70,8 @@ function Club() {
           titleHighlight="non lucratif"
         />
         <p>
-          Notre club est une association à but non lucratif régie par la loi de 1901.
+          Notre club est une association à but non lucratif régie par la loi de
+          1901.
         </p>
         <SeeMoreButton href="/mentions" linkName="Voir les mentions" />
       </Section>
