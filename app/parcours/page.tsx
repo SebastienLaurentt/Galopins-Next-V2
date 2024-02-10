@@ -17,11 +17,11 @@ function Parcours() {
         />
         <div className="mb-16 md:mb-32">
           <h3> Les possibilités </h3>
-          <p className="mb-4">
+          <p className="mb-4 md:mb-6">
             Des randonnées sont proposées le Lundi après-midi et le Vendredi à
             la journée :
           </p>
-          <ul className="flex flex-col xl:flex-row xl:justify-center gap-y-10 xl:gap-y-0 xl:gap-x-16">
+          <ul className="flex flex-col lg:flex-row lg:justify-center gap-y-10 xl:gap-y-0 lg:gap-x-16">
             <li>
               <ParcoursCard
                 parcoursTitle="Lundi | Après-Midi"
@@ -41,7 +41,7 @@ function Parcours() {
             </li>
             <li>
               <ParcoursCard
-                parcoursTitle="Vendredi | Journée entière"
+                parcoursTitle="Vendredi | Journée"
                 area="Vaucluse, Gard ou Lozère"
                 frequency="En alternance"
                 case1={

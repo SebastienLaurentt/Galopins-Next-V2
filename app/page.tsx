@@ -91,7 +91,7 @@ export default function Home() {
           Lundi après-midi et le Vendredi pour la journée entière."
         />
         <div>
-          <ul className="flex flex-col xl:flex-row xl:justify-center gap-y-10 xl:gap-y-0 xl:gap-x-16">
+          <ul className="flex flex-col lg:flex-row lg:justify-center gap-y-10 xl:gap-y-0 lg:gap-x-16">
             <li>
               <ParcoursCard
                 parcoursTitle="Lundi | Après-Midi"
@@ -111,7 +111,7 @@ export default function Home() {
             </li>
             <li>
               <ParcoursCard
-                parcoursTitle="Vendredi | Journée entière"
+                parcoursTitle="Vendredi | Journée"
                 area="Vaucluse, Gard ou Lozère"
                 frequency="En alternance"
                 case1={
