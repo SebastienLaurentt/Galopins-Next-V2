@@ -1,7 +1,9 @@
-import PageTitle from '@/components/PageTitle/PageTitle'
-import Section from '@/components/Section/Section'
-import SectionHeader from '@/components/Section/SectionHeader/SectionHeader'
-import React from 'react'
+import PageTitle from "@/components/PageTitle/PageTitle";
+import Section from "@/components/Section/Section";
+import SectionHeader from "@/components/Section/SectionHeader/SectionHeader";
+
+import Image from "next/image";
+import imgAdhesion from "../../public/Adhesion.webp";
 
 function Adhesion() {
   return (
@@ -13,19 +15,43 @@ function Adhesion() {
       <Section marginBottom={true} marginTop={false} classname="">
         <SectionHeader
           title="Comment se préparer à "
-          titleHighlight="randonner"
+          titleHighlight="randonner ? "
         />
+        <div className="">
+          <div>
+            <Image
+              src={imgAdhesion}
+              alt="Carrières d'Ocre de Rustrel"
+              className="mb-4"
+            />
+          </div>
+          <div className="flex flex-col justify-center ">
+            <p className="mb-4">
+              Pour rejoindre le club il est nécessaire de fournir un certificat
+              médical validant l&apos;aptitude à la randonnée ainsi qu&apos;une
+              copie d&apos;attestation de responsabilité civile ou carte FFRP.
+            </p>
+            <p className="mb-4">
+              Les chaussures de randonnées sont obligatoires (baskets non
+              autorisées). Une polaire et un coupe vent sont conseillés selon la
+              saison. Les accompagnateurs se réservent le droit de refuser les
+              personnes mal équipées.
+            </p>
+            <p >
+              Un montant de 15€ ainsi que le formulaire d&apos;inscription ci-dessous seront demandés afin de valider l&apos;adhésion.
+            </p>
+          </div>
+        </div>
       </Section>
-      
+
       <Section marginBottom={true} marginTop={false} classname="">
         <SectionHeader
           title=" Des questions ?"
           titleHighlight="Contactez-nous ! "
-      />
-
+        />
       </Section>
     </main>
-  )
+  );
 }
 
-export default Adhesion
+export default Adhesion;
