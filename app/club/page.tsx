@@ -1,16 +1,16 @@
-import SeeMoreButton from '@/components/Button/SeeMoreButton/SeeMoreButton'
-import PageTitle from '@/components/PageTitle/PageTitle'
-import Section from '@/components/Section/Section'
-import SectionHeader from '@/components/Section/SectionHeader/SectionHeader'
-import Image from 'next/image'
-import React from 'react'
+import SeeMoreButton from "@/components/Button/SeeMoreButton/SeeMoreButton";
+import PageTitle from "@/components/PageTitle/PageTitle";
+import Section from "@/components/Section/Section";
+import SectionHeader from "@/components/Section/SectionHeader/SectionHeader";
+import Image from "next/image";
 
-import imgRustrel from "../../public/Rustrel.jpg";
 import imgEquipe from "../../public/PhotosEquipe.jpg";
+import imgRustrel2 from "../../public/Rustrel2.jpg";
+import imgRustrel from "../../public/Rustrel.jpg";
 
 function Club() {
   return (
-    <main className="mb-20 md:mb-16 lg:mb-32">
+    <main className="mb-20 md:mb-24 lg:mb-32">
       <PageTitle
         title="Le Club"
         titleDescription="Pour en apprendre davantage sur les status de notre club mais aussi les activités en dehors des randonnées !"
@@ -20,36 +20,53 @@ function Club() {
           title="Un esprit convivial durant et à côté des "
           titleHighlight="randonnées"
         />
-        <div className='mb-16 md:mb-32 md: gap-x-16 lg:gap-x-32 md:flex w-full'>
-          <div className='flex flex-col justify-center md:w-2/5'>
-            <p className='mb-2 md:mb-8'>
-            Chaque année, une sortie en bus est organisée et reste ouverte aux non-adhérents. 
+        <div className="mb-16 md:mb-32 md:gap-x-8 lg:gap-x-12 xl:gap-x-28 md:flex w-full">
+          <div className="flex flex-col justify-center md:w-2/5">
+            <h3 className="mb-4"> Des sorties plus calmes </h3>
+            <p className="mb-2 md:mb-8">
+              Chaque année, une sortie en bus est organisée et reste ouverte aux
+              non-adhérents.
             </p>
-
-            <p className='mb-4 md:mb-0'>
-            Des lieux tels que St Guilhem le Désert, La St Baume, Les sentiers de Pagnol, mais aussi les
-            carrières d&apos;ocre de Rustrel, Le pont du Gard ou L&apos;étang du Vaccarès ont déjà été visités.
+            <p className="mb-4 md:mb-0">
+              Des lieux tels que St Guilhem le Désert, Les sentiers de Pagnol,
+              mais aussi les carrières d&apos;ocre de Rustrel, Le pont du Gard
+              ou L&apos;étang du Vaccarès ont déjà été visités.
             </p>
           </div>
-          <div className='md:w-3/5'>
-            <Image src={imgRustrel} alt="Carrières d'Ocre de Rustrel" className='' />
+          <div className="md:w-3/5 xl:w-4/5">
+            <Image
+              src={imgRustrel}
+              alt="Carrières d'Ocre de Rustrel"
+              className="lg:hidden"
+            />
+            <Image
+              src={imgRustrel2}
+              alt="Carrières d'Ocre de Rustrel"
+              className="hidden lg:block"
+            />
           </div>
         </div>
         <div>
-          <div className='mb-4 md:mb-8'>
+          <div className="mb-4 md:mb-8">
+            <h3 className="mb-4"> Des événements conviviaux </h3>
             <p>
-            Afin de garder un côté convivial, tous les 2 mois un restaurant est organisé
-            (vendredi soir ou samedi midi). En début d'année, la galette des rois est aussi l'occasion de
-            se retrouver pour partager un moment festif. C'est également le cas fin Juin où un repas en
-            plein air clôture la fin de saison. Le club participe financièrement à ces événements.
+              Tous les 2 mois, un restaurant est organisé le vendredi soir ou samedi midi. En début
+              d&apos;année, la galette des rois est aussi l&apos;occasion de se
+              retrouver pour partager un moment festif. C&apos;est également le
+              cas fin Juin où un repas en plein air clôture la fin de saison. Le
+              club participe financièrement à ces événements.
             </p>
           </div>
           <div>
-            <Image src={imgEquipe} alt="Carrières d'Ocre de Rustrel" className='' />
+            <Image
+              src={imgEquipe}
+              alt="Carrières d'Ocre de Rustrel"
+              className=""
+            />
           </div>
         </div>
       </Section>
-      
+
       <Section marginBottom={true} marginTop={false} classname="">
         <SectionHeader
           title="Une association à but "
@@ -57,9 +74,8 @@ function Club() {
         />
         <SeeMoreButton href="/mentions" linkName="Voir les mentions" />
       </Section>
-
     </main>
-  )
+  );
 }
 
-export default Club
+export default Club;
