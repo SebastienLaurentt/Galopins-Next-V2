@@ -29,7 +29,7 @@ const AreaCard = ({
       <div>
         <div className="flex items-center gap-x-4">
           <div>
-            <h3 className="">{areaTitle}</h3>
+            <h3 className="mb-1">{areaTitle}</h3>
           </div>
           <div className="flex gap-x-2">
             {tag1 && <span className={`areaTags ${tagsBgColor}`}>{tag1}</span>}
