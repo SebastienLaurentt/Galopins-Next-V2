@@ -22,7 +22,7 @@ function Club() {
         />
         <div className="mb-16 md:mb-32 md:gap-x-8 lg:gap-x-12 xl:gap-x-28 md:flex w-full">
           <div className="flex flex-col justify-center md:w-2/5">
-            <h3 className="mb-4"> Des sorties plus calmes </h3>
+            <h3> Des sorties plus calmes </h3>
             <p className="mb-2 md:mb-8">
               Chaque année, une sortie en bus est organisée et reste ouverte aux
               non-adhérents.
@@ -48,7 +48,7 @@ function Club() {
         </div>
         <div>
           <div className="mb-4 md:mb-8">
-            <h3 className="mb-4"> Des événements conviviaux </h3>
+            <h3> Des événements conviviaux </h3>
             <p>
               Tous les 2 mois, un restaurant est organisé le vendredi soir ou samedi midi. En début
               d&apos;année, la galette des rois est aussi l&apos;occasion de se
