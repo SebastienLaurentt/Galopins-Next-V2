@@ -42,7 +42,7 @@ export default function BurgerMenu({ isOpen, setIsOpen }: IBurgerMenu) {
         <ul className="flex flex-col gap-4 p-4 font-bold text-md md:text-lg">
           {navData.map((link) => (
             <li key={link.name}>
-              <Link href={link.href} className={pathname === link.href ? "border-b-2 border-white" : ""}>{link.burgerMenuName}</Link>
+              <Link href={link.href} className={pathname === link.href ? "border-b-2 border-white" : ""} onClick={() => setIsOpen(false)}>{link.burgerMenuName}</Link>
             </li>
           ))}
         </ul>
