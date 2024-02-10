@@ -15,7 +15,7 @@ function Parcours() {
           title="Plusieurs randonnées chaque "
           titleHighlight="semaine"
         />
-        <div className="mb-16 md:mb-32">
+        <div className="mb-12 md:mb-20">
           <h3> Les possibilités </h3>
           <p className="mb-4 md:mb-6">
             Des randonnées sont proposées le Lundi après-midi et le Vendredi à
