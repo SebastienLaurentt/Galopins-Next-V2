@@ -75,8 +75,8 @@ function Club() {
           titleHighlight="non lucratif"
         />
         <p>
-          Notre club est une association à but non lucratif régie par la loi de
-          1901.
+          Notre club est une association à but non lucratif régie par la loi du
+          1er juillet 1901 et au décret du 16 août 1901.
         </p>
         <LinkButton
           seeMoreButton={true}
