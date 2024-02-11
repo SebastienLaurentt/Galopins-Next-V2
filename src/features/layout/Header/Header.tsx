@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import navData from "../../../../data/navData";
-import logo from "../../../../public/Logo-Black2.svg";
+import logo from "../../../../public/images/Logo-Black2.svg";
 import BurgerMenu from "./BurgerMenu";
 
 export const Header = () => {

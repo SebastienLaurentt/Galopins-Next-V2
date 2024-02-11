@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Dispatch, SetStateAction } from "react";
 import navData from "../../../../data/navData";
-import logo from "../../../../public/Logo-Black.svg";
+import logo from "../../../../public/images/Logo-Black.svg";
 import { usePathname } from "next/navigation";
 ;
 

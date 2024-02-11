@@ -8,10 +8,10 @@ import SectionHeader from "@/components/Section/SectionHeader/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { CalendarCheck, Mountain, Users } from "lucide-react";
 import Link from "next/link";
-import logoArdeche from "../public/Ardeche.jpg";
-import logoDrome from "../public/Drome.jpg";
-import logoGard from "../public/Gard.jpg";
-import img from "../public/Home.jpg";
+import logoArdeche from "../public/images/Ardeche.jpg";
+import logoDrome from "../public/images/Drome.jpg";
+import logoGard from "../public/images/Gard.jpg";
+import img from "../public/images/Home.jpg";
 
 export default function Home() {
   return (

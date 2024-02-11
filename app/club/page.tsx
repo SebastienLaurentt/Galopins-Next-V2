@@ -5,9 +5,9 @@ import Image from "next/image";
 
 import LinkButton from "@/components/Button/LinkButton/LinkButton";
 import SubSection from "@/components/SubSection/SubSection";
-import imgEquipe from "../../public/PhotosEquipe.jpg";
-import imgRustrel from "../../public/Rustrel.jpg";
-import imgRustrel2 from "../../public/Rustrel2.jpg";
+import imgEquipe from "../../public/images/PhotosEquipe.jpg";
+import imgRustrel from "../../public/images/Rustrel.jpg";
+import imgRustrel2 from "../../public/images/Rustrel2.jpg";
 
 function Club() {
   return (
