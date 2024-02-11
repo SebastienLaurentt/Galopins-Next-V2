@@ -7,6 +7,8 @@ import Image from "next/image";
 import imgEquipe from "../../public/PhotosEquipe.jpg";
 import imgRustrel from "../../public/Rustrel.jpg";
 import imgRustrel2 from "../../public/Rustrel2.jpg";
+import { Sub } from "@radix-ui/react-dropdown-menu";
+import SubSection from "@/components/SubSection/SubSection";
 
 function Club() {
   return (
@@ -46,8 +48,7 @@ function Club() {
             />
           </div>
         </div>
-        <div>
-          <h3> Des événements conviviaux </h3>
+        <SubSection marginBottom={false} marginTop={false} classname="" title="Des événements conviviaux">
           <p>
             Tous les 2 mois, un restaurant est organisé le vendredi soir ou
             samedi midi. En début d&apos;année, la galette des rois est aussi
@@ -61,7 +62,7 @@ function Club() {
             alt="Carrières d'Ocre de Rustrel"
             className="mt-4 md:mt-8"
           />
-        </div>
+        </SubSection>
       </Section>
 
       <Section marginBottom={true} marginTop={false} classname="">
