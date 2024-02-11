@@ -113,20 +113,15 @@ function Parcours() {
           title="Programme de la saison "
           titleHighlight="2023/2024"
         />
-        <SubSection marginBottom={true} marginTop={false} classname="">
           <p>
             Les programmes des randonnées sont établis pour une période de 4
             mois. Vous pouvez choisir puis télécharger le programme que vous
             souhaitez ci-dessous.
           </p>
           <ProgDownload />
-        </SubSection>
-        <SubSection
-          marginBottom={false}
-          marginTop={false}
-          classname=""
-          title="Détails des programmes"
-        >
+          <p className="pt-8 pb-4">
+            Les randonnées y sont classées par couleur de cette manière. 
+          </p>
           <ul className="flex flex-wrap gap-6 justify-around">
             <li>
               <ParcoursTags
@@ -155,7 +150,6 @@ function Parcours() {
               />{" "}
             </li>
           </ul>
-        </SubSection>
       </Section>
     </main>
   );
