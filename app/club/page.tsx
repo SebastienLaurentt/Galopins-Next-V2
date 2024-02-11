@@ -1,14 +1,13 @@
-import SeeMoreButton from "@/components/Button/SeeMoreButton/SeeMoreButton";
 import PageTitle from "@/components/PageTitle/PageTitle";
 import Section from "@/components/Section/Section";
 import SectionHeader from "@/components/Section/SectionHeader/SectionHeader";
 import Image from "next/image";
 
+import LinkButton from "@/components/Button/LinkButton/LinkButton";
+import SubSection from "@/components/SubSection/SubSection";
 import imgEquipe from "../../public/PhotosEquipe.jpg";
 import imgRustrel from "../../public/Rustrel.jpg";
 import imgRustrel2 from "../../public/Rustrel2.jpg";
-import { Sub } from "@radix-ui/react-dropdown-menu";
-import SubSection from "@/components/SubSection/SubSection";
 
 function Club() {
   return (
@@ -48,7 +47,12 @@ function Club() {
             />
           </div>
         </div>
-        <SubSection marginBottom={false} marginTop={false} classname="" title="Des événements conviviaux">
+        <SubSection
+          marginBottom={false}
+          marginTop={false}
+          classname=""
+          title="Des événements conviviaux"
+        >
           <p>
             Tous les 2 mois, un restaurant est organisé le vendredi soir ou
             samedi midi. En début d&apos;année, la galette des rois est aussi
@@ -74,7 +78,11 @@ function Club() {
           Notre club est une association à but non lucratif régie par la loi de
           1901.
         </p>
-        <SeeMoreButton href="/mentions" linkName="Voir les mentions" />
+        <LinkButton
+          seeMoreButton={true}
+          href="/mentions"
+          linkName="Voir les mentions"
+        />
       </Section>
     </main>
   );
