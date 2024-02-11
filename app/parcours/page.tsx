@@ -73,7 +73,7 @@ function Parcours() {
           marginBottom={false}
           marginTop={false}
           childrenClassname="xl:flex xl:flex-row-reverse xl:gap-x-8 w-full"
-          titleClassname="xl: hidden"
+          titleClassname="xl:hidden"
           title="Les lieux de rendez-vous"
         >
           <div className="xl:w-3/5">
