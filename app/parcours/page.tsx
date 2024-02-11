@@ -84,9 +84,10 @@ function Parcours() {
       </Section>
       <Section marginBottom={true} marginTop={false} classname="">
         <SectionHeader
-          title="Un programme pour la saison "
+          title="Programme de la saison "
           titleHighlight="2023/2024"
         />
+        <p>Les programmes des randonnées sont établis pour une période de 4 mois. Vous pouvez choisir puis télécharger le programme que vous souhaitez ci-dessous.</p>
       </Section>
     </main>
   );

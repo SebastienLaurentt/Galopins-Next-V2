@@ -1,5 +1,4 @@
 import LinkButton from "@/components/Button/LinkButton/LinkButton";
-import SeeMoreButton from "@/components/Button/SeeMoreButton/SeeMoreButton";
 import AreaCard from "@/components/Card/AreaCard/AreaCard";
 import ParcoursCard from "@/components/Card/ParcoursCard/ParcoursCard";
 import ClubIcon from "@/components/ClubIcon/ClubIcon";
@@ -129,7 +128,11 @@ export default function Home() {
             </li>
           </ul>
         </div>
-        <LinkButton seeMoreButton={true} href="/parcours" linkName="Plus d'infos" />
+        <LinkButton
+          seeMoreButton={true}
+          href="/parcours"
+          linkName="Plus d'infos"
+        />
       </Section>
 
       {/* Club Section */}
