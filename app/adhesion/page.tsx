@@ -4,6 +4,9 @@ import SectionHeader from "@/components/Section/SectionHeader/SectionHeader";
 
 import Image from "next/image";
 import imgAdhesion from "../../public/images/Adhesion.webp";
+import DownloadButton from "@/components/Button/DownloadButton/DownloadButton";
+
+const admissionPdf = `/pdf/Admission_Galopins.pdf`;
 
 function Adhesion() {
   return (
@@ -37,9 +40,16 @@ function Adhesion() {
               saison. Les accompagnateurs se réservent le droit de refuser les
               personnes mal équipées.
             </p>
-            <p >
-              Un montant de 15€ ainsi que le formulaire d&apos;inscription ci-dessous seront demandés afin de valider l&apos;adhésion.
+            <p>
+              Un montant de 15€ ainsi que le formulaire d&apos;inscription
+              ci-dessous seront demandés afin de valider l&apos;adhésion.
             </p>
+            <DownloadButton
+              href={admissionPdf}
+              fileName="Admission_Galopins.pdf"
+              linkName="Télécharger le formulaire"
+              classname="mt-4"
+            />
           </div>
         </div>
       </Section>
