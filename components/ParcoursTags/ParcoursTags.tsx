@@ -1,17 +1,17 @@
+import { Mountain } from "lucide-react";
+
 interface ParcoursTagsProps {
-  tagName:string;
-  classname?:string;
+  tagDescription: string;
+  tagColor?: string;
 }
 
-
-function ParcoursTags ({tagName, classname }: ParcoursTagsProps) {
-
-  return(
-          <span className={`p-2 rounded-md w-min-20 text-black font-bold ${classname}`}>
-              {tagName}
-          </span>
-      )
+function ParcoursTags({ tagDescription, tagColor }: ParcoursTagsProps) {
+  return (
+    <div className="flex flex-col gap-y-2 items-center ">
+      <Mountain className={`h-16 w-16 p-4 rounded-xl ${tagColor}`}/>
+      <p className="max-w-[120px] md:max-w-[140px] text-center">{tagDescription}</p>
+    </div>
+  );
 }
-
 
 export default ParcoursTags;
