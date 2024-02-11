@@ -1,9 +1,12 @@
+import DownloadButton from "@/components/Button/DownloadButton/DownloadButton";
 import LinkButton from "@/components/Button/LinkButton/LinkButton";
 import ParcoursCard from "@/components/Card/ParcoursCard/ParcoursCard";
 import PageTitle from "@/components/PageTitle/PageTitle";
 import Section from "@/components/Section/Section";
 import SectionHeader from "@/components/Section/SectionHeader/SectionHeader";
 import SubSection from "@/components/SubSection/SubSection";
+
+const Prog2023 = `/pdf/TRIMESTRE1_2024.pdf`;
 
 function Parcours() {
   return (
@@ -17,7 +20,12 @@ function Parcours() {
           title="Plusieurs randonnées chaque "
           titleHighlight="semaine"
         />
-        <SubSection marginBottom={true} marginTop={false} classname="" title="Les possibilités">
+        <SubSection
+          marginBottom={true}
+          marginTop={false}
+          classname=""
+          title="Les possibilités"
+        >
           <p className="mb-4 md:mb-6">
             Des randonnées sont proposées le Lundi après-midi et le Vendredi à
             la journée :
@@ -59,7 +67,12 @@ function Parcours() {
             </li>
           </ul>
         </SubSection>
-        <SubSection marginBottom={false} marginTop={true} classname="" title="Les lieux de rendez-vous">
+        <SubSection
+          marginBottom={false}
+          marginTop={true}
+          classname=""
+          title="Les lieux de rendez-vous"
+        >
           <p className="mb-2 md:mb-8">
             Les Galopins se déplacent toujours en covoiturage afin de limiter le
             nombre de voitures. Le tarif est laissé à l&apos;appréciation du
@@ -87,7 +100,11 @@ function Parcours() {
           title="Programme de la saison "
           titleHighlight="2023/2024"
         />
-        <p>Les programmes des randonnées sont établis pour une période de 4 mois. Vous pouvez choisir puis télécharger le programme que vous souhaitez ci-dessous.</p>
+        <p>
+          Les programmes des randonnées sont établis pour une période de 4 mois.
+          Vous pouvez choisir puis télécharger le programme que vous souhaitez
+          ci-dessous.
+        </p>
       </Section>
     </main>
   );
