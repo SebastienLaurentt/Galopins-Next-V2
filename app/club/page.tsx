@@ -27,13 +27,13 @@ function Club() {
               Chaque année, une sortie en bus est organisée et reste ouverte aux
               non-adhérents.
             </p>
-            <p className="mb-4 md:mb-0">
+            <p>
               Des lieux tels que St Guilhem le Désert, Les sentiers de Pagnol,
               mais aussi les carrières d&apos;ocre de Rustrel, Le pont du Gard
               ou L&apos;étang du Vaccarès ont déjà été visités.
             </p>
           </div>
-          <div className="md:w-3/5 xl:w-4/5">
+          <div className="md:w-3/5 xl:w-4/5 mt-4 md:mb-0">
             <Image
               src={imgRustrel}
               alt="Carrières d'Ocre de Rustrel"
