@@ -74,9 +74,14 @@ function Club() {
           title="Une association à but "
           titleHighlight="non lucratif"
         />
-        <p>
+        <p className="mb-2 md:mb-8">
           Notre club est une association à but non lucratif régie par la loi du
           1er juillet 1901 et au décret du 16 août 1901.
+        </p>
+        <p>
+          Les Galopins ont pour but d’organiser des activités pédestres simples,
+          accessibles à tous, destinées à la découverte de la nature dans la
+          bonne humeur et la convivialité.
         </p>
         <LinkButton
           seeMoreButton={true}
