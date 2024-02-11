@@ -14,7 +14,7 @@ const SubSection = ({
   children,
 }: SubSectionProps) => {
   const isMarginBottom = marginBottom ? "mb-12 md:mb-20" : "";
-  const isMarginTop = marginTop ? "" : "";
+  const isMarginTop = marginTop ? "mt-8" : "";
 
   return (
     <div className={`${classname} ${isMarginBottom} ${isMarginTop}    `}>
