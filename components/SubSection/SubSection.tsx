@@ -17,10 +17,10 @@ const SubSection = ({
   const isMarginTop = marginTop ? "" : "";
 
   return (
-    <section className={`${classname} ${isMarginBottom} ${isMarginTop}    `}>
+    <div className={`${classname} ${isMarginBottom} ${isMarginTop}    `}>
       <h3>{title}</h3>
       {children}
-    </section>
+    </div>
   );
 };
 
