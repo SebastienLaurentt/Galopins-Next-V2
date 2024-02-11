@@ -2,6 +2,7 @@ import DownloadButton from "@/components/Button/DownloadButton/DownloadButton";
 import LinkButton from "@/components/Button/LinkButton/LinkButton";
 import ParcoursCard from "@/components/Card/ParcoursCard/ParcoursCard";
 import PageTitle from "@/components/PageTitle/PageTitle";
+import ProgDownload from "@/components/ProgDownload/ProgDownload";
 import Section from "@/components/Section/Section";
 import SectionHeader from "@/components/Section/SectionHeader/SectionHeader";
 import SubSection from "@/components/SubSection/SubSection";
@@ -105,6 +106,7 @@ function Parcours() {
           Vous pouvez choisir puis télécharger le programme que vous souhaitez
           ci-dessous.
         </p>
+        <ProgDownload />
       </Section>
     </main>
   );
