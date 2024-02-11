@@ -20,15 +20,15 @@ function Adhesion() {
           title="Comment se préparer à "
           titleHighlight="randonner ? "
         />
-        <div className="">
-          <div>
+        <div className="xl:flex xl:flex-row-reverse xl:gap-x-8 w-full">
+          <div className="xl:w-3/5">
             <Image
               src={imgAdhesion}
               alt="Carrières d'Ocre de Rustrel"
-              className="mb-4 md:mb-8"
+              className="mb-4 md:mb-8 xl:mb-0 "
             />
           </div>
-          <div className="flex flex-col justify-center ">
+          <div className="flex flex-col justify-center xl:w-2/5 ">
             <p className="mb-4">
               Pour rejoindre le club il est nécessaire de fournir un certificat
               médical validant l&apos;aptitude à la randonnée ainsi qu&apos;une
