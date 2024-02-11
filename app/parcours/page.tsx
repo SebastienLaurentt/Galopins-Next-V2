@@ -72,6 +72,7 @@ function Parcours() {
           </p>
           <LinkButton
             href="https://www.google.fr/maps/@44.5748529,4.7550546,3a,75y,247.31h,73.37t/data=!3m6!1e1!3m4!1s2s3LYTC7lpNn_U2tl5-w3A!2e0!7i16384!8i8192?entry=tts"
+            targetBlank="_blank"
             linkName="Voir sur Google Maps"
             classname="mb-6 md:mb-8"
           />

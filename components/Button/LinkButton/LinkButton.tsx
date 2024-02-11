@@ -4,6 +4,7 @@ import Link from "next/link";
 interface LinkButtonProps {
   seeMoreButton?: boolean;
   href: string;
+  targetBlank?: string;
   linkName: string;
   classname?: string;
 }
@@ -11,6 +12,7 @@ interface LinkButtonProps {
 const LinkButton = ({
   seeMoreButton,
   href,
+  targetBlank,
   linkName,
   classname,
 }: LinkButtonProps) => {
@@ -21,7 +23,7 @@ const LinkButton = ({
   return (
     <div className={`${isSeeMoreButton} ${classname}`}>
       <Button asChild variant="link">
-        <Link href={href} target="_blank">
+        <Link href={href} target={targetBlank}>
           {" "}
           {linkName}{" "}
         </Link>
