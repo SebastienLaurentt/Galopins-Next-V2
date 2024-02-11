@@ -3,6 +3,7 @@ import ParcoursCard from "@/components/Card/ParcoursCard/ParcoursCard";
 import PageTitle from "@/components/PageTitle/PageTitle";
 import Section from "@/components/Section/Section";
 import SectionHeader from "@/components/Section/SectionHeader/SectionHeader";
+import SubSection from "@/components/SubSection/SubSection";
 
 function Parcours() {
   return (
@@ -16,8 +17,7 @@ function Parcours() {
           title="Plusieurs randonnées chaque "
           titleHighlight="semaine"
         />
-        <div className="mb-12 md:mb-20">
-          <h3> Les possibilités </h3>
+        <SubSection marginBottom={true} marginTop={false} classname="" title="Les possibilités">
           <p className="mb-4 md:mb-6">
             Des randonnées sont proposées le Lundi après-midi et le Vendredi à
             la journée :
@@ -58,7 +58,7 @@ function Parcours() {
               />
             </li>
           </ul>
-        </div>
+        </SubSection>
         <div>
           <h3> Les lieux de rendez-vous </h3>
           <p className="mb-2 md:mb-8">

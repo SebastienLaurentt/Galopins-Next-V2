@@ -17,8 +17,8 @@ const SubSection = ({
   const isMarginTop = marginTop ? "" : "";
 
   return (
-    <section className={`${classname} ${isMarginBottom} ${isMarginTop} px-6 md:px-10 xl:px-16 2xl:max-w-[1280px] 2xl:mx-auto`}>
-      {title}
+    <section className={`${classname} ${isMarginBottom} ${isMarginTop}    `}>
+      <h3>{title}</h3>
       {children}
     </section>
   );
