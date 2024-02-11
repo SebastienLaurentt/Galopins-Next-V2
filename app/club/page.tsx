@@ -21,7 +21,11 @@ function Club() {
           title="Un esprit convivial durant et à côté des "
           titleHighlight="randonnées"
         />
-        <div className="mb-12 md:mb-20 md:gap-x-8 lg:gap-x-12 xl:gap-x-28 md:flex w-full">
+        <SubSection
+          marginBottom={true}
+          marginTop={false}
+          childrenClassname="md:gap-x-8 lg:gap-x-12 xl:gap-x-28 md:flex w-full"
+        >
           <div className="flex flex-col justify-center md:w-2/5">
             <h3> Des sorties plus calmes </h3>
             <p className="mb-2 md:mb-8">
@@ -46,7 +50,7 @@ function Club() {
               className="hidden lg:block"
             />
           </div>
-        </div>
+        </SubSection>
         <SubSection
           marginBottom={false}
           marginTop={false}
