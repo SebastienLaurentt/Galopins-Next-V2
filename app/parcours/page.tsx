@@ -1,3 +1,4 @@
+import LinkButton from "@/components/Button/LinkButton/LinkButton";
 import ParcoursCard from "@/components/Card/ParcoursCard/ParcoursCard";
 import PageTitle from "@/components/PageTitle/PageTitle";
 import Section from "@/components/Section/Section";
@@ -60,16 +61,24 @@ function Parcours() {
         </div>
         <div>
           <h3> Les lieux de rendez-vous </h3>
-          <p>
-            Les Galopins se déplacent toujours en covoiturage afin de limiter le nombre de voitures. Le tarif est laissé à l&apos;appréciation du conducteur.
+          <p className="mb-2 md:mb-8">
+            Les Galopins se déplacent toujours en covoiturage afin de limiter le
+            nombre de voitures. Le tarif est laissé à l&apos;appréciation du
+            conducteur.
           </p>
-          <p>
+          <p className="mb-2">
             Le lundi, le lieu de rendez-vous avant chaque départ est situé sur
             le parking en face du 95 Route de Valence (Bar le Provence) avec une
             heure de départ fixée à 13h30.
           </p>
+          <LinkButton
+            href="https://www.google.fr/maps/@44.5748529,4.7550546,3a,75y,247.31h,73.37t/data=!3m6!1e1!3m4!1s2s3LYTC7lpNn_U2tl5-w3A!2e0!7i16384!8i8192?entry=tts"
+            linkName="Voir sur Google Maps"
+            classname="mb-6 md:mb-8"
+          />
           <p>
-            Le vendredi, les lieux de rendez-vous et de départ seront précisés par mail ou sur le site par l&apos;accompagnateur.
+            Le vendredi, les lieux de rendez-vous et de départ seront précisés
+            par mail ou sur le site par l&apos;accompagnateur.
           </p>
         </div>
       </Section>
