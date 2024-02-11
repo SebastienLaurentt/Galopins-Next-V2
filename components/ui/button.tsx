@@ -13,6 +13,8 @@ const buttonVariants = cva(
           "text-primary shadow ",
         hero:
           "border border-green-600 bg-transparent hover:bg-green-600",
+        download:
+          "border border-green-600 bg-transparent hover:bg-green-600",
         destructive:
           "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
         outline:
