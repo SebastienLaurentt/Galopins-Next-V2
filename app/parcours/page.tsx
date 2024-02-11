@@ -59,8 +59,7 @@ function Parcours() {
             </li>
           </ul>
         </SubSection>
-        <div>
-          <h3> Les lieux de rendez-vous </h3>
+        <SubSection marginBottom={false} marginTop={true} classname="" title="Les lieux de rendez-vous">
           <p className="mb-2 md:mb-8">
             Les Galopins se déplacent toujours en covoiturage afin de limiter le
             nombre de voitures. Le tarif est laissé à l&apos;appréciation du
@@ -80,7 +79,7 @@ function Parcours() {
             Le vendredi, les lieux de rendez-vous et de départ seront précisés
             par mail ou sur le site par l&apos;accompagnateur.
           </p>
-        </div>
+        </SubSection>
       </Section>
       <Section marginBottom={true} marginTop={false} classname="">
         <SectionHeader
