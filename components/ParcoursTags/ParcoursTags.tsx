@@ -7,7 +7,7 @@ interface ParcoursTagsProps {
 function ParcoursTags ({tagName, classname }: ParcoursTagsProps) {
 
   return(
-          <span className={`p-2 xl:p-4 rounded-lg inline text-black font-bold ${classname}`}>
+          <span className={`p-2 rounded-md w-min-20 text-black font-bold ${classname}`}>
               {tagName}
           </span>
       )

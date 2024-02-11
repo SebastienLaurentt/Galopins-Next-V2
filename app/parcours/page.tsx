@@ -1,7 +1,7 @@
-import DownloadButton from "@/components/Button/DownloadButton/DownloadButton";
 import LinkButton from "@/components/Button/LinkButton/LinkButton";
 import ParcoursCard from "@/components/Card/ParcoursCard/ParcoursCard";
 import PageTitle from "@/components/PageTitle/PageTitle";
+import ParcoursTags from "@/components/ParcoursTags/ParcoursTags";
 import ProgDownload from "@/components/ProgDownload/ProgDownload";
 import Section from "@/components/Section/Section";
 import SectionHeader from "@/components/Section/SectionHeader/SectionHeader";
@@ -70,7 +70,7 @@ function Parcours() {
         </SubSection>
         <SubSection
           marginBottom={false}
-          marginTop={true}
+          marginTop={false}
           classname=""
           title="Les lieux de rendez-vous"
         >
@@ -107,6 +107,38 @@ function Parcours() {
           ci-dessous.
         </p>
         <ProgDownload />
+        <SubSection marginBottom={false} marginTop={true} classname="" title="Détails des programmes">
+          <ul className="flex flex-col  gap-y-4 md:gap-y-8">
+            <li>
+              <p className="leading-8">
+                {" "}
+                <ParcoursTags classname="bg-white border" tagName="BLANC" /> : Rando{" "}
+                <strong>cool</strong> du Lundi en Drôme / Ardèche
+              </p>
+            </li>
+            <li>
+              <p className="leading-8">
+                {" "}
+                <ParcoursTags classname="bg-cyan-500 w-20" tagName="BLEU" /> : Rando{" "}
+                <strong>classique</strong> du Lundi en Drôme
+              </p>
+            </li>
+            <li>
+              <p className="leading-8">
+                {" "}
+                <ParcoursTags classname="bg-yellow-400" tagName="JAUNE" /> :
+                Rando <strong>classique</strong> du Lundi en Ardèche
+              </p>
+            </li>
+            <li>
+              <p className="leading-8">
+                {" "}
+                <ParcoursTags classname="bg-emerald-400" tagName="VERT" /> : les
+                randonnées du Vendredi
+              </p>
+            </li>
+          </ul>
+        </SubSection>
       </Section>
     </main>
   );
