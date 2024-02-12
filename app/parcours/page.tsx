@@ -8,7 +8,7 @@ import SectionHeader from "@/components/Section/SectionHeader/SectionHeader";
 import SubSection from "@/components/SubSection/SubSection";
 
 import Image from "next/image";
-import parcoursImg from "../../public/images/parcours.webp";
+import parcoursImg from "../../public/images/Parcours.webp";
 
 function Parcours() {
   return (
