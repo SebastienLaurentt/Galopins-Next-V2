@@ -1,5 +1,5 @@
 import LinkButton from "@/components/Button/LinkButton/LinkButton";
-import ImgAnimation from "@/components/ImgAnimation/Img.Animation";
+import ImgAnimation from "@/components/ImgAnimation/ImgAnimation";
 import Section from "@/components/Section/Section";
 
 export default function NotFound() {
