@@ -28,7 +28,7 @@ export default function Home() {
             Club de randonnée pédestre à Montélimar
           </p>
           <Button asChild variant="hero">
-            <Link href="/rejoindre">Nous contacter</Link>
+            <Link href="/adhesion">Nous contacter</Link>
           </Button>
         </div>
       </SectionBg>
