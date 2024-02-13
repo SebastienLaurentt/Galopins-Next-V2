@@ -1,4 +1,5 @@
 import PageTitle from '@/components/PageTitle/PageTitle'
+import PhotosCarrousel from '@/components/PhotosCarrousel/PhotosCarrousel'
 import Section from '@/components/Section/Section'
 import SectionHeader from '@/components/Section/SectionHeader/SectionHeader'
 import React from 'react'
@@ -14,6 +15,7 @@ function Photos() {
         title="Les paysages de nos dernières "
         titleHighlight="randonnées"
       />
+      <PhotosCarrousel />
     </Section>
   </main>
   )
