@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Dispatch, SetStateAction } from "react";
 import navData from "../../../../data/navData";
-import logo from "../../../../public/images/Logo-Black.svg";
+import logo from "../../../../public/images/Logo-Black2.svg";
 import { usePathname } from "next/navigation";
 ;
 
@@ -50,7 +50,7 @@ export default function BurgerMenu({ isOpen, setIsOpen }: IBurgerMenu) {
         <Image
           src={logo}
           alt="Logo Galopins"
-          className="w-40 md:w-60 mx-auto"
+          className="mt-16 w-32 md:w-48 mx-auto"
         />
       </nav>
     </>
