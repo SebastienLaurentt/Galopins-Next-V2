@@ -1,7 +1,7 @@
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useEffect } from "react";
 import navData from "../../../../data/navData";
 import logo from "../../../../public/images/Logo-Black2.svg";
 import { usePathname } from "next/navigation";
@@ -15,6 +15,20 @@ interface IBurgerMenu {
 export default function BurgerMenu({ isOpen, setIsOpen }: IBurgerMenu) {
 
   const pathname = usePathname()
+
+  useEffect(() => {
+    // Désactiver le défilement de la page principale lorsque le menu est ouvert
+    if (isOpen) {
+      document.documentElement.classList.add("overflow-hidden");
+    } else {
+      document.documentElement.classList.remove("overflow-hidden");
+    }
+
+    // Nettoyage de l'effet
+    return () => {
+      document.documentElement.classList.remove("overflow-hidden");
+    };
+  }, [isOpen]);
 
   return (
     <>
