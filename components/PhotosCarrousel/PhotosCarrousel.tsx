@@ -78,8 +78,16 @@ const PhotosCarrousel = () => {
         </SelectContent>
       </Select>
       {selectedRandoData && selectedRandoData.pictures && (
-        <div>
-          <ul className="flex justify-center">
+        <div >
+          <ul className="flex justify-center text-secondary my-4 md:mt-8 md:mb-6 md:gap-x-4">
+            <li>
+              <PhotoIcon
+                number={selectedRandoData.distance + " km"}
+                description="de distance"
+              >
+                <GiPathDistance className="iconPhoto" />
+              </PhotoIcon>
+            </li>
             <li>
               <PhotoIcon
                 number={selectedRandoData.memberNumber}
@@ -96,17 +104,10 @@ const PhotosCarrousel = () => {
                 <GiHiking className="iconPhoto" />
               </PhotoIcon>
             </li>
-            <li>
-              <PhotoIcon
-                number={selectedRandoData.distance + " km"}
-                description="de distance"
-              >
-                <GiPathDistance className="iconPhoto" />
-              </PhotoIcon>
-            </li>
+
           </ul>
 
-          <div className="gap-4"> 
+          <div className="flex flex-col gap-4"> 
           {selectedRandoData.pictures.map((picture, index) => (
             <div key={index} className="mx-auto">
               <Image
