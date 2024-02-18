@@ -93,8 +93,8 @@ const PhotosCarrousel = () => {
         <Image
           src={picture}
           alt={`Randonnée image ${index + 1}`}
-          width={500}
-          height={500}
+          width={1000}
+          height={200}
           objectFit="cover" // Adapter l'image au conteneur sans déformer l'image
         />
       </div>
