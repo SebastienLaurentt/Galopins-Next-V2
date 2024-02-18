@@ -11,13 +11,6 @@ import {
 } from "@/components/ui/select";
 import axios from "axios";
 
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -33,7 +26,7 @@ interface RandoData {
 const PhotosCarrousel = () => {
   const [randosData, setRandosData] = useState<RandoData[]>([]); // State with all Rando Data
   const [selectedRandoDestination, setSelectedRandoDestination] =
-    useState("Test"); // State with name about the selected Rando
+    useState(""); // State with name about the selected Rando
   const [loadingFetch, setLoadingFetch] = useState(true);
 
   // Fetch all Randos Data
@@ -53,18 +46,16 @@ const PhotosCarrousel = () => {
         console.error("Erreur lors de la récupération des données :", error);
       })
       .finally(() => {
-        // Marquez le chargement comme terminé, que ce soit réussi ou échoué
+
         setLoadingFetch(false);
       });
   }, []);
 
-  // Set the state of the
   const handleRandoChange = (newValue: string) => {
     setSelectedRandoDestination(newValue);
   };
 
-  // Collect datas of the selectedRando with find method to allow a match with his name
-  // between the states selectedRandoName and randosData
+
   const selectedRandoData = randosData.find(
     (rando) => rando.destination === selectedRandoDestination
   );
@@ -87,21 +78,21 @@ const PhotosCarrousel = () => {
         </SelectContent>
       </Select>
       {selectedRandoData && selectedRandoData.pictures && (
-  <div className="flex flex-col gap-4"> {/* Modifier selon le nombre de colonnes souhaité */}
-    {selectedRandoData.pictures.map((picture, index) => (
-      <div key={index} className="mx-auto">
-        <Image
-          src={picture}
-          alt={`Randonnée image ${index + 1}`}
-          width={1000}
-          height={200}
-          objectFit="cover" // Adapter l'image au conteneur sans déformer l'image
-        />
-      </div>
-    ))}
-  </div>
-)}
-
+        <div className="flex flex-col gap-4">
+          {selectedRandoData.pictures.map((picture, index) => (
+            <div key={index} className="mx-auto">
+              
+              <Image
+                src={picture}
+                alt={`Randonnée image ${index + 1}`}
+                width={1000}
+                height={200}
+                objectFit="cover" 
+              />
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
