@@ -11,7 +11,9 @@ import Link from "next/link";
 import logoArdeche from "../public/images/Ardeche.jpg";
 import logoDrome from "../public/images/Drome.jpg";
 import logoGard from "../public/images/Gard.jpg";
-import img from "../public/images/Home.jpg";
+import img from "../public/images/Home2.webp";
+
+
 
 export default function Home() {
   return (
