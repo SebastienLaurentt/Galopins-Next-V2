@@ -47,7 +47,7 @@ const config = {
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
-          DEFAULT: "rgba(24, 24, 27, 0.60)",
+          DEFAULT: "#082f49",
           foreground: "hsl(var(--secondary-foreground))",
         },
         destructive: {
