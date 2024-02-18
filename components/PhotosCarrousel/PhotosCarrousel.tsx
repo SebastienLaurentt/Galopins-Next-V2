@@ -13,6 +13,9 @@ import axios from "axios";
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { BsPeopleFill } from "react-icons/bs";
+import { GiHiking, GiPathDistance } from "react-icons/gi";
+import PhotoIcon from "../PhotoIcon/PhotoIcon";
 
 interface RandoData {
   date: string;
@@ -25,8 +28,7 @@ interface RandoData {
 
 const PhotosCarrousel = () => {
   const [randosData, setRandosData] = useState<RandoData[]>([]); // State with all Rando Data
-  const [selectedRandoDestination, setSelectedRandoDestination] =
-    useState(""); // State with name about the selected Rando
+  const [selectedRandoDestination, setSelectedRandoDestination] = useState(""); // State with name about the selected Rando
   const [loadingFetch, setLoadingFetch] = useState(true);
 
   // Fetch all Randos Data
@@ -46,7 +48,6 @@ const PhotosCarrousel = () => {
         console.error("Erreur lors de la récupération des données :", error);
       })
       .finally(() => {
-
         setLoadingFetch(false);
       });
   }, []);
@@ -54,7 +55,6 @@ const PhotosCarrousel = () => {
   const handleRandoChange = (newValue: string) => {
     setSelectedRandoDestination(newValue);
   };
-
 
   const selectedRandoData = randosData.find(
     (rando) => rando.destination === selectedRandoDestination
@@ -78,19 +78,47 @@ const PhotosCarrousel = () => {
         </SelectContent>
       </Select>
       {selectedRandoData && selectedRandoData.pictures && (
-        <div className="flex flex-col gap-4">
+        <div>
+          <ul className="flex justify-center">
+            <li>
+              <PhotoIcon
+                number={selectedRandoData.memberNumber}
+                description="Galopins"
+              >
+                <BsPeopleFill className="iconPhoto" />
+              </PhotoIcon>
+            </li>
+            <li>
+              <PhotoIcon
+                number={selectedRandoData.elevation + " m"}
+                description="de dénivelé"
+              >
+                <GiHiking className="iconPhoto" />
+              </PhotoIcon>
+            </li>
+            <li>
+              <PhotoIcon
+                number={selectedRandoData.distance + " km"}
+                description="de distance"
+              >
+                <GiPathDistance className="iconPhoto" />
+              </PhotoIcon>
+            </li>
+          </ul>
+
+          <div className="gap-4"> 
           {selectedRandoData.pictures.map((picture, index) => (
             <div key={index} className="mx-auto">
-              
               <Image
                 src={picture}
                 alt={`Randonnée image ${index + 1}`}
                 width={1000}
                 height={200}
-                objectFit="cover" 
+                objectFit="cover"
               />
             </div>
           ))}
+          </div>
         </div>
       )}
     </div>

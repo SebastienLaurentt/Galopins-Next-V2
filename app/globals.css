@@ -107,4 +107,9 @@
   .areaTags {
     @apply text-xs md:text-sm rounded-xl px-2 py-1 text-white 
   }
+
+  .iconPhoto {
+    @apply text-3xl md:text-4xl 2xl:text-5xl
+  }
+  
 }
