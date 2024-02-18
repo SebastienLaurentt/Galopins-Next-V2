@@ -50,7 +50,6 @@ export default function Home() {
                 src={logoDrome}
                 alt="Lavande de la Drome"
                 areaTitle="Drôme"
-                areaDescription="Le département de la Drôme est un lieu de randonnée idéal pour les Galopins."
                 tag1="Montélimar"
                 tag2="Puygiron"
                 tagsBgColor="bg-indigo-800"
@@ -61,7 +60,6 @@ export default function Home() {
                 src={logoArdeche}
                 alt="Valon Pont d'Arc en Ardèche"
                 areaTitle="Ardèche"
-                areaDescription="Le département de la Drôme est un lieu de randonnée idéal pour les Galopins."
                 tag1="Chomerac"
                 tag2="Vallon"
                 tagsBgColor="bg-accent"
@@ -72,7 +70,6 @@ export default function Home() {
                 src={logoGard}
                 alt="Pont du Gard"
                 areaTitle="Gard"
-                areaDescription="Le département de la Drôme est un lieu de randonnée idéal pour les Galopins."
                 tag1="Aiguèze"
                 tag2="Goudargues"
                 tagsBgColor="bg-cyan-700"

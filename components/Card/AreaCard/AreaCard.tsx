@@ -4,7 +4,7 @@ interface AreaCardProps {
   src: StaticImageData;
   alt: string;
   areaTitle: string;
-  areaDescription: string;
+  areaDescription?: string;
   tag1?: string;
   tag2?: string;
   tag3?: string;
@@ -23,11 +23,8 @@ const AreaCard = ({
 }: AreaCardProps) => {
   return (
     <div className="mb-16">
-      <div className="mb-4">
-        <Image src={src} alt={alt} />
-      </div>
       <div>
-        <div className="flex items-center gap-x-4">
+        <div className="flex items-center gap-x-4 mb-4">
           <div>
             <h3 className="mb-1">{areaTitle}</h3>
           </div>
@@ -36,6 +33,9 @@ const AreaCard = ({
             {tag2 && <span className={`areaTags ${tagsBgColor}`}>{tag2}</span>}
             {tag3 && <span className={`areaTags ${tagsBgColor}`}>{tag3}</span>}
           </div>
+        </div>
+        <div className="">
+        <Image src={src} alt={alt} />
         </div>
 
         <p className="text-sm md:text-sm">{areaDescription}</p>
