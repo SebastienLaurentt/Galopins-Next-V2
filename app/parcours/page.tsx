@@ -7,8 +7,15 @@ import Section from "@/components/Section/Section";
 import SectionHeader from "@/components/Section/SectionHeader/SectionHeader";
 import SubSection from "@/components/SubSection/SubSection";
 
+import { Metadata } from "next";
 import Image from "next/image";
 import parcoursImg from "../../public/images/Parcours.webp";
+
+export const metadata: Metadata = {
+  title: "Les Galopins de Montélimar",
+  description:
+    "Pour en savoir plus sur les types de randonnées que nous proposons mais aussi sur le programme de la saison à venir !",
+};
 
 function Parcours() {
   return (

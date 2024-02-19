@@ -8,6 +8,13 @@ import SubSection from "@/components/SubSection/SubSection";
 import imgEquipe from "../../public/images/PhotosEquipe.jpg";
 import imgRustrel from "../../public/images/Rustrel.jpg";
 import imgRustrel2 from "../../public/images/Rustrel2.jpg";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Les Galopins de Montélimar",
+  description:
+    "Pour en apprendre davantage sur les status de notre club mais aussi les activités en dehors des randonnées !",
+};
 
 function Club() {
   return (

@@ -2,12 +2,19 @@
 
 import PageTitle from "@/components/PageTitle/PageTitle";
 import Section from "@/components/Section/Section";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Les Galopins de Montélimar",
+  description:
+    "Les mentions légales de l'association Les Galopins de Montélimar.",
+};
 
 function Mentions() {
   return (
     <main className="mb-20 md:mb-24 lg:mb-32">
       <Section marginBottom={false} marginTop={true}>
-        <PageTitle title="Statuts de l&apos;association &quot;Les Galopins&quot; au 1/09/2004" />
+        <PageTitle title='Statuts de l&apos;association "Les Galopins" au 1/09/2004' />
         <h2 className="mentionsH2">Article 1 : Constitution et dénomination</h2>
         <p>
           Il est formé, entre les adhérents aux présents statuts, une

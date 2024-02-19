@@ -7,13 +7,18 @@ import SectionBg from "@/components/Section/SectionBg/SectionBg";
 import SectionHeader from "@/components/Section/SectionHeader/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { CalendarCheck, Mountain, Users } from "lucide-react";
+import { Metadata } from "next";
 import Link from "next/link";
 import logoArdeche from "../public/images/Ardeche.jpg";
 import logoDrome from "../public/images/Drome.jpg";
 import logoGard from "../public/images/Gard.jpg";
 import img from "../public/images/Home.jpg";
 
-
+export const metadata: Metadata = {
+  title: "Les Galopins de Montélimar",
+  description:
+    "Bienvenue sur le site de notre club de randonnée pédestre situé à Montélimar !",
+};
 
 export default function Home() {
   return (

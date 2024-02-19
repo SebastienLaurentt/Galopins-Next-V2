@@ -1,18 +1,12 @@
-import { ThemeProvider } from "@/src/theme/ThemeProvider";
+import ScrollToTopButton from "@/components/Button/ScrollToTopButton/ScrollToTopButton";
+import { Footer } from "@/src/features/layout/Footer/Footer";
 import { Header } from "@/src/features/layout/Header/Header";
+import { ThemeProvider } from "@/src/theme/ThemeProvider";
 import clsx from "clsx";
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Footer } from "@/src/features/layout/Footer/Footer";
-import ScrollToTopButton from "@/components/Button/ScrollToTopButton/ScrollToTopButton";
 
 const inter = Inter({ subsets: ["latin"] });
-
-export const metadata: Metadata = {
-  title: "Les Galopins de Montélimar",
-  description: "Bienvenue sur le site de notre club de randonnée pédestre situé à Montélimar !",
-};
 
 export default function RootLayout({
   children,
@@ -25,7 +19,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <div className=" flex flex-col h-full">
             <Header />
-              <div className="flex-1">{children}</div>
+            <div className="flex-1">{children}</div>
             <Footer />
             <ScrollToTopButton />
           </div>

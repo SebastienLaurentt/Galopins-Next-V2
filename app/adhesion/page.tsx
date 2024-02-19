@@ -5,8 +5,15 @@ import SectionHeader from "@/components/Section/SectionHeader/SectionHeader";
 import Image from "next/image";
 import imgAdhesion from "../../public/images/Adhesion.webp";
 import DownloadButton from "@/components/Button/DownloadButton/DownloadButton";
+import { Metadata } from "next";
 
 const admissionPdf = `/pdf/Admission_Galopins.pdf`;
+
+export const metadata: Metadata = {
+  title: "Les Galopins de Montélimar",
+  description:
+    "Nos conseils et recommandations si vous souhaitez rejoindre Les Galopins !",
+};
 
 function Adhesion() {
   return (
