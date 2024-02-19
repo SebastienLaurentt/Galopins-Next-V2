@@ -26,7 +26,7 @@ interface RandoData {
   pictures?: string[];
 }
 
-const PhotosCarrousel = () => {
+const PhotosDisplay = () => {
   const [randosData, setRandosData] = useState<RandoData[]>([]); // State with all Rando Data
   const [selectedRandoDestination, setSelectedRandoDestination] = useState(""); // State with name about the selected Rando
   const [loadingFetch, setLoadingFetch] = useState(true);
@@ -79,34 +79,36 @@ const PhotosCarrousel = () => {
       </Select>
       {selectedRandoData && selectedRandoData.pictures && (
         <div >
-          <h3> {selectedRandoData.destination} </h3>
-          <ul className="flex justify-center text-secondary my-4 md:mt-8 md:mb-6 md:gap-x-4">
-            <li>
-              <PhotoIcon
-                number={selectedRandoData.distance + " km"}
-                description="de distance"
-              >
-                <GiPathDistance className="iconPhoto" />
-              </PhotoIcon>
-            </li>
-            <li>
-              <PhotoIcon
-                number={selectedRandoData.memberNumber}
-                description="Galopins"
-              >
-                <BsPeopleFill className="iconPhoto" />
-              </PhotoIcon>
-            </li>
-            <li>
-              <PhotoIcon
-                number={selectedRandoData.elevation + " m"}
-                description="de dénivelé"
-              >
-                <GiHiking className="iconPhoto" />
-              </PhotoIcon>
-            </li>
+          <div className="my-8 md:mt-16 md:mb-12">
+            <h3 className="text-center"> {selectedRandoData.destination} </h3>
+            <ul className="flex md:gap-x-4 justify-center text-secondary ">
+              <li>
+                <PhotoIcon
+                  number={selectedRandoData.distance + " km"}
+                  description="de distance"
+                >
+                  <GiPathDistance className="iconPhoto" />
+                </PhotoIcon>
+              </li>
+              <li>
+                <PhotoIcon
+                  number={selectedRandoData.memberNumber}
+                  description="Galopins"
+                >
+                  <BsPeopleFill className="iconPhoto" />
+                </PhotoIcon>
+              </li>
+              <li>
+                <PhotoIcon
+                  number={selectedRandoData.elevation + " m"}
+                  description="de dénivelé"
+                >
+                  <GiHiking className="iconPhoto" />
+                </PhotoIcon>
+              </li>
+            </ul>           
+          </div>
 
-          </ul>
 
           <div className="flex flex-col gap-4"> 
           {selectedRandoData.pictures.map((picture, index) => (
@@ -127,4 +129,4 @@ const PhotosCarrousel = () => {
   );
 };
 
-export default PhotosCarrousel;
+export default PhotosDisplay;
