@@ -24,7 +24,7 @@ const AreaCard = ({
   return (
     <div className="mb-16">
       <div>
-        <div className="flex items-center gap-x-4 mb-4">
+        <div className="flex items-center gap-x-4 mb-2">
           <div>
             <h3 className="mb-1">{areaTitle}</h3>
           </div>
