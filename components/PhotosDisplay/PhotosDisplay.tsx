@@ -40,7 +40,7 @@ const PhotosDisplay = () => {
 
         if (response.data.data.length > 0) {
           setSelectedRandoDestination(
-            response.data.data[response.data.data.length - 1].destination
+            response.data.data[0].destination
           );
         }
       })
