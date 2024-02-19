@@ -64,7 +64,7 @@ const PhotosCarrousel = () => {
     <div className="flex flex-col items-center gap-y-4">
       <Select onValueChange={handleRandoChange}>
         <SelectTrigger className="w-[233px]">
-          <SelectValue placeholder="Choisir une randonnée" />
+          <SelectValue placeholder="Choisir une randonnée"> Choisir une randonnée </SelectValue>
         </SelectTrigger>
         <SelectContent>
           <SelectGroup>
@@ -79,6 +79,7 @@ const PhotosCarrousel = () => {
       </Select>
       {selectedRandoData && selectedRandoData.pictures && (
         <div >
+          <h3> {selectedRandoData.destination} </h3>
           <ul className="flex justify-center text-secondary my-4 md:mt-8 md:mb-6 md:gap-x-4">
             <li>
               <PhotoIcon
