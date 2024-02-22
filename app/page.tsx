@@ -69,7 +69,7 @@ export default function Home() {
                 areaTitle="Ardèche"
                 tag1="Chomerac"
                 tag2="Vallon"
-                tagsBgColor="bg-accent"
+                tagsBgColor="bg-green-700"
               />
             </li>
             <li>
