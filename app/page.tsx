@@ -11,7 +11,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import logoArdeche from "../public/images/Ardeche.jpg";
 import logoDrome from "../public/images/Drome.jpg";
-import logoGard from "../public/images/Gard.jpg";
+import logoVaucluse from "../public/images/Vaucluse.jpg";
 import img from "../public/images/Home.jpg";
 
 export const metadata: Metadata = {
@@ -74,18 +74,18 @@ export default function Home() {
             </li>
             <li>
               <AreaCard
-                src={logoGard}
-                alt="Pont du Gard"
-                areaTitle="Gard"
-                tag1="Aiguèze"
-                tag2="Goudargues"
+                src={logoVaucluse}
+                alt="Gordes"
+                areaTitle="Vaucluse"
+                tag1="Gordes"
+                tag2="Gigondas"
                 tagsBgColor="bg-cyan-700"
               />
             </li>
           </ul>
         </div>
       </Section>
-
+      
       {/* Parcours Section */}
       <Section marginBottom={true} marginTop={true} classname="">
         <SectionHeader
