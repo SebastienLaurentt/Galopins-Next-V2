@@ -10,7 +10,7 @@ import { CalendarCheck, Mountain, Users } from "lucide-react";
 import { Metadata } from "next";
 import Link from "next/link";
 import logoArdeche from "../public/images/Ardeche2.webp";
-import logoDrome from "../public/images/Drome.jpg";
+import logoDrome from "../public/images/Drome2.webp";
 import logoVaucluse from "../public/images/Vaucluse.webp";
 import img from "../public/images/Home.webp";
 
