@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { CalendarCheck, Mountain, Users } from "lucide-react";
 import { Metadata } from "next";
 import Link from "next/link";
-import logoArdeche from "../public/images/Ardeche.jpg";
+import logoArdeche from "../public/images/Ardeche2.webp";
 import logoDrome from "../public/images/Drome.jpg";
 import logoVaucluse from "../public/images/Vaucluse.webp";
 import img from "../public/images/Home2.webp";
