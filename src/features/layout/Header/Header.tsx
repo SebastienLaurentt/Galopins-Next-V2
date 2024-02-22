@@ -17,7 +17,7 @@ export const Header = () => {
 
   return (
     <header
-      className={`${headerPosition} text-dark w-full z-10 ${headerBgColor}`}
+      className={`${headerPosition} text-dark font-bold w-full z-10 ${headerBgColor}`}
     >
       <div className="flex items-center px-6 md:px-10 xl:px-16 xl:max-w-[1280px] xl:mx-auto py-4 lg:py-6 justify-between ">
         <Link href="/">
