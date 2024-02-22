@@ -6,8 +6,8 @@ import Image from "next/image";
 import LinkButton from "@/components/Button/LinkButton/LinkButton";
 import SubSection from "@/components/SubSection/SubSection";
 import imgEquipe from "../../public/images/PhotoEquipe.png";
-import imgRustrel from "../../public/images/Rustrel.jpg";
-import imgRustrel2 from "../../public/images/Rustrel2.jpg";
+import imgFontaine from "../../public/images/FontaineVaucluse.png";
+import imgAbbaye from "../../public/images/AbbayeSenanque.png";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -47,13 +47,13 @@ function Club() {
           </div>
           <div className="md:w-3/5 xl:w-4/5 mt-4 md:mb-0">
             <Image
-              src={imgRustrel}
+              src={imgFontaine}
               alt="Carrières d'Ocre de Rustrel"
               className="lg:hidden"
               priority
             />
             <Image
-              src={imgRustrel2}
+              src={imgAbbaye}
               alt="Carrières d'Ocre de Rustrel"
               className="hidden lg:block"
               priority
