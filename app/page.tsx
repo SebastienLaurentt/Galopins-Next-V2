@@ -12,7 +12,7 @@ import Link from "next/link";
 import logoArdeche from "../public/images/Ardeche2.webp";
 import logoDrome from "../public/images/Drome.jpg";
 import logoVaucluse from "../public/images/Vaucluse.webp";
-import img from "../public/images/Home3.webp";
+import img from "../public/images/Home.webp";
 
 export const metadata: Metadata = {
   title: "Les Galopins de Montélimar",
