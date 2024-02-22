@@ -1,5 +1,5 @@
 import PageTitle from '@/components/PageTitle/PageTitle'
-import PhotosCarrousel from '@/components/PhotosDisplay/PhotosDisplay'
+import PhotosDisplay from '@/components/PhotosDisplay/PhotosDisplay'
 import Section from '@/components/Section/Section'
 import SectionHeader from '@/components/Section/SectionHeader/SectionHeader'
 import { Metadata } from 'next'
@@ -22,7 +22,7 @@ function Photos() {
         title="Les paysages de nos dernières "
         titleHighlight="randonnées"
       />
-      <PhotosCarrousel />
+      <PhotosDisplay />
     </Section>
   </main>
   )

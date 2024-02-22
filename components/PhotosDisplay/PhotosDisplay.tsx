@@ -15,6 +15,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { BsPeopleFill } from "react-icons/bs";
 import { GiHiking, GiPathDistance } from "react-icons/gi";
+import ImgAnimation from "../ImgAnimation/ImgAnimation";
 import PhotoIcon from "../PhotoIcon/PhotoIcon";
 
 interface RandoData {
@@ -31,6 +32,9 @@ const PhotosDisplay = () => {
   const [selectedRandoDestination, setSelectedRandoDestination] = useState(""); // State with name about the selected Rando
   const [loadingFetch, setLoadingFetch] = useState(true);
 
+  const animation =
+    "https://lottie.host/5b46926b-3fb0-4a93-b3a6-a96ffb7c537b/ZaidZSakBt.json";
+
   // Fetch all Randos Data
   useEffect(() => {
     axios
@@ -39,9 +43,7 @@ const PhotosDisplay = () => {
         setRandosData(response.data.data);
 
         if (response.data.data.length > 0) {
-          setSelectedRandoDestination(
-            response.data.data[0].destination
-          );
+          setSelectedRandoDestination(response.data.data[0].destination);
         }
       })
       .catch((error) => {
@@ -62,67 +64,86 @@ const PhotosDisplay = () => {
 
   return (
     <div className="flex flex-col items-center gap-y-4">
-      <Select onValueChange={handleRandoChange}>
-        <SelectTrigger className="w-[233px]">
-          <SelectValue placeholder="Choisir une randonnée"> Choisir une randonnée </SelectValue>
-        </SelectTrigger>
-        <SelectContent>
-          <SelectGroup>
-            <SelectLabel>Randonnées</SelectLabel>
-            {randosData.map((rando) => (
-              <SelectItem value={rando.destination} key={rando.destination}>
-                {rando.date} - {rando.destination}
-              </SelectItem>
-            ))}
-          </SelectGroup>
-        </SelectContent>
-      </Select>
-      {selectedRandoData && selectedRandoData.pictures && (
-        <div >
-          <div className="my-8 md:mt-16 md:mb-12">
-            <h3 className="text-center"> {selectedRandoData.destination} </h3>
-            <ul className="flex md:gap-x-4 justify-center text-secondary ">
-              <li>
-                <PhotoIcon
-                  number={selectedRandoData.distance + " km"}
-                  description="de distance"
-                >
-                  <GiPathDistance className="iconPhoto" />
-                </PhotoIcon>
-              </li>
-              <li>
-                <PhotoIcon
-                  number={selectedRandoData.memberNumber}
-                  description="Galopins"
-                >
-                  <BsPeopleFill className="iconPhoto" />
-                </PhotoIcon>
-              </li>
-              <li>
-                <PhotoIcon
-                  number={selectedRandoData.elevation + " m"}
-                  description="de dénivelé"
-                >
-                  <GiHiking className="iconPhoto" />
-                </PhotoIcon>
-              </li>
-            </ul>           
+      {loadingFetch ? (
+        <div>
+          <div className="mb-8 lg:mb-16 xl:mb-8">
+            <p>Les photos sont en cours de chargement ! Veuillez patienter ... </p>
+          </div>
+          <ImgAnimation animation={animation} />
+        </div>
+      ) : (
+        <div>
+          <div className="flex justify-center">
+            <Select onValueChange={handleRandoChange}>
+              <SelectTrigger className="w-[233px]">
+                <SelectValue placeholder="Choisir une randonnée">
+                  {" "}
+                  Choisir une randonnée{" "}
+                </SelectValue>
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  <SelectLabel>Randonnées</SelectLabel>
+                  {randosData.map((rando) => (
+                    <SelectItem
+                      value={rando.destination}
+                      key={rando.destination}
+                    >
+                      {rando.date} - {rando.destination}
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
+              </SelectContent>
+            </Select>
           </div>
 
+          {selectedRandoData && selectedRandoData.pictures && ( 
+            <div>
+              <div className="my-8 md:mt-16 md:mb-12">
+                <h3 className="text-center"> {selectedRandoData.destination} </h3>
+                <ul className="flex md:gap-x-4 justify-center text-secondary ">
+                  <li>
+                    <PhotoIcon
+                      number={selectedRandoData.distance + " km"}
+                      description="de distance"
+                    >
+                      <GiPathDistance className="iconPhoto" />
+                    </PhotoIcon>
+                  </li>
+                  <li>
+                    <PhotoIcon
+                      number={selectedRandoData.memberNumber}
+                      description="Galopins"
+                    >
+                      <BsPeopleFill className="iconPhoto" />
+                    </PhotoIcon>
+                  </li>
+                  <li>
+                    <PhotoIcon
+                      number={selectedRandoData.elevation + " m"}
+                      description="de dénivelé"
+                    >
+                      <GiHiking className="iconPhoto" />
+                    </PhotoIcon>
+                  </li>
+                </ul>
+              </div>
 
-          <div className="flex flex-col gap-4"> 
-          {selectedRandoData.pictures.map((picture, index) => (
-            <div key={index} className="mx-auto">
-              <Image
-                src={picture}
-                alt={`Randonnée image ${index + 1}`}
-                width={1000}
-                height={200}
-                objectFit="cover"
-              />
+              <div className="flex flex-col gap-4">
+                {selectedRandoData.pictures.map((picture, index) => (
+                  <div key={index} className="mx-auto">
+                    <Image
+                      src={picture}
+                      alt={`Randonnée image ${index + 1}`}
+                      width={1000}
+                      height={200}
+                      objectFit="cover"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
-          ))}
-          </div>
+          )}
         </div>
       )}
     </div>
