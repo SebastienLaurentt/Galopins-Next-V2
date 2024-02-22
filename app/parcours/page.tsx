@@ -127,7 +127,7 @@ function Parcours() {
         </p>
         <ProgDownload />
         <p className="pt-8 pb-4">
-          Les randonnées y sont classées avec ce code couleur.
+          Les randonnées y sont classées par code couleur.
         </p>
         <ul className="flex flex-wrap gap-6 justify-around">
           <li>

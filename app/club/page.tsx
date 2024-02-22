@@ -40,9 +40,9 @@ function Club() {
               non-adhérents.
             </p>
             <p>
-              Des lieux tels que St Guilhem le Désert, Les sentiers de Pagnol,
-              mais aussi les carrières d&apos;ocre de Rustrel, Le pont du Gard
-              ou L&apos;étang du Vaccarès ont déjà été visités.
+              Des lieux tels que St Guilhem le Désert, les sentiers de Pagnol,
+              mais aussi la Fontaine du Vaucluse, l&apos;Abbaye de Senanque ou le pont du Gard
+              ont déjà été visités.
             </p>
           </div>
           <div className="md:w-3/5 xl:w-4/5 mt-4 md:mb-0">
