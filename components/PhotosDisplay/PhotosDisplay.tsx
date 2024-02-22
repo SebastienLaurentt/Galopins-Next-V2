@@ -77,7 +77,7 @@ const PhotosDisplay = () => {
         <div>
           <div className="flex justify-center">
             <Select onValueChange={handleRandoChange}>
-              <SelectTrigger className="w-[233px]">
+              <SelectTrigger className="w-[233px]" aria-label="Choisir une randonnée">
                 <SelectValue placeholder="Choisir une randonnée">
                   {" "}
                   Choisir une randonnée{" "}
