@@ -35,7 +35,9 @@ export const Header = () => {
                 <Link
                   href={link.href}
                   className={
-                    pathname === link.href ? "border-b-2 border-black font-bold" : ""
+                    pathname === link.href
+                      ? "border-b-2 border-black font-bold"
+                      : ""
                   }
                 >
                   {link.name}
