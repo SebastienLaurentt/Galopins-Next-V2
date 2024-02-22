@@ -35,8 +35,8 @@ const ProgDownload = () => {
 
   return (
     <div className="flex flex-col md:flex-row  md:items-center gap-y-2 gap-x-2 mt-4">
-      <Select onValueChange={handleSelection} aria-label="Choisir un programme">
-        <SelectTrigger className="w-[233px]">
+      <Select onValueChange={handleSelection} >
+        <SelectTrigger className="w-[233px]" aria-label="Choisir un programme">
           <SelectValue placeholder="Choisir un programme" />
         </SelectTrigger>
         <SelectContent>
