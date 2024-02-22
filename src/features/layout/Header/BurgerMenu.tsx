@@ -42,13 +42,13 @@ export default function BurgerMenu({ isOpen, setIsOpen }: IBurgerMenu) {
           isOpen ? "left-0" : "left-full"
         }`}
       >
-        <div className=" px-6 md:px-10 py-4 mb-12">
-          <X
-            className="ml-auto  h-8 md:h-10 w-8 md:w-10"
-            onClick={() => setIsOpen(false)}
-            aria-label="Fermer le menu mobile"
-          />
-        </div>
+        <button
+          className="w-full flex justify-end px-6 md:px-10 py-3"
+          onClick={() => setIsOpen(false)}
+          aria-label="Fermer le menu mobile"
+        >
+          <X className="  h-8 md:h-10 w-8 md:w-10" />
+        </button>
 
         <Image
           src={logo}
