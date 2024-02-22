@@ -24,7 +24,7 @@ export const Header = () => {
           <Image
             src={logo}
             alt="Logo Galopins"
-            className="w-20 lg:w-24 h-8 md:h-10  lg:h-12"
+            className="w-20 lg:w-24 h-10 lg:h-12"
           />
         </Link>
 

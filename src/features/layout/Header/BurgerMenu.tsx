@@ -56,7 +56,7 @@ export default function BurgerMenu({ isOpen, setIsOpen }: IBurgerMenu) {
         <Image
           src={logo}
           alt="Logo Galopins"
-          className="mt-16 w-36 md:w-48 mx-auto"
+          className="mt-16 w-40 h-20 md:w-48 mx-auto"
         />
 
         <ul className="flex flex-col gap-4 p-4 font-bold text-md md:text-lg mt-16">
