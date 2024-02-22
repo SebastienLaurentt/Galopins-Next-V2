@@ -66,8 +66,8 @@ const PhotosDisplay = () => {
     <div className="flex flex-col items-center gap-y-4">
       {loadingFetch ? (
         <div>
-          <div className="mb-8 lg:mb-16 xl:mb-8">
-            <p>
+          <div className="mb-4">
+            <p className="text-center">
               Les photos sont en cours de chargement ! Veuillez patienter ...{" "}
             </p>
           </div>
