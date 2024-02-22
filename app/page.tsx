@@ -11,7 +11,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import logoArdeche from "../public/images/Ardeche.jpg";
 import logoDrome from "../public/images/Drome.jpg";
-import logoVaucluse from "../public/images/Vaucluse3.webp";
+import logoVaucluse from "../public/images/Vaucluse.webp";
 import img from "../public/images/Home2.webp";
 
 export const metadata: Metadata = {
