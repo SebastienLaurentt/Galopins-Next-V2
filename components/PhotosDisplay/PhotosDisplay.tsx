@@ -42,9 +42,9 @@ const PhotosDisplay = () => {
       .then((response) => {
         setRandosData(response.data.data);
 
-        if (response.data.data.length > 0) {
-          setSelectedRandoDestination(response.data.data[0].destination);
-        }
+        // if (response.data.data.length > 0) {
+        //   setSelectedRandoDestination(response.data.data[0].destination);
+        // }
       })
       .catch((error) => {
         console.error("Erreur lors de la récupération des données :", error);
@@ -67,7 +67,9 @@ const PhotosDisplay = () => {
       {loadingFetch ? (
         <div>
           <div className="mb-8 lg:mb-16 xl:mb-8">
-            <p>Les photos sont en cours de chargement ! Veuillez patienter ... </p>
+            <p>
+              Les photos sont en cours de chargement ! Veuillez patienter ...{" "}
+            </p>
           </div>
           <ImgAnimation animation={animation} />
         </div>
@@ -97,10 +99,13 @@ const PhotosDisplay = () => {
             </Select>
           </div>
 
-          {selectedRandoData && selectedRandoData.pictures && ( 
+          {selectedRandoData && selectedRandoData.pictures && (
             <div>
               <div className="my-8 md:mt-16 md:mb-12">
-                <h3 className="text-center"> {selectedRandoData.destination} </h3>
+                <h3 className="text-center">
+                  {" "}
+                  {selectedRandoData.destination}{" "}
+                </h3>
                 <ul className="flex md:gap-x-4 justify-center text-secondary ">
                   <li>
                     <PhotoIcon
