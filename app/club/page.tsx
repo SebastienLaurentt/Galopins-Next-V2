@@ -50,11 +50,13 @@ function Club() {
               src={imgRustrel}
               alt="Carrières d'Ocre de Rustrel"
               className="lg:hidden"
+              priority
             />
             <Image
               src={imgRustrel2}
               alt="Carrières d'Ocre de Rustrel"
               className="hidden lg:block"
+              priority
             />
           </div>
         </SubSection>
