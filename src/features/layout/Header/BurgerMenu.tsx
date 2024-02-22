@@ -43,7 +43,7 @@ export default function BurgerMenu({ isOpen, setIsOpen }: IBurgerMenu) {
         }`}
       >
         <button
-          className="w-full flex justify-end px-6 md:px-10 py-3"
+          className="w-full flex justify-end px-8 md:px-10 py-4"
           onClick={() => setIsOpen(false)}
           aria-label="Fermer le menu mobile"
         >
@@ -53,7 +53,7 @@ export default function BurgerMenu({ isOpen, setIsOpen }: IBurgerMenu) {
         <Image
           src={logo}
           alt="Logo Galopins"
-          className="mt-16 w-40 h-20 md:w-48 mx-auto"
+          className="mt-28 mx-auto"
         />
 
         <ul className="flex flex-col gap-4 p-4 font-medium text-md md:text-lg mt-16">
