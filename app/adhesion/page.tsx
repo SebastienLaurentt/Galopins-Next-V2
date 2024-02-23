@@ -31,8 +31,9 @@ function Adhesion() {
           <div className="xl:w-3/5">
             <Image
               src={imgAdhesion}
-              alt="Carrières d'Ocre de Rustrel"
-              className="mb-4 md:mb-8 xl:mb-0 "
+              alt=""
+              className="mb-4 md:mb-8 xl:mb-0"
+              priority
             />
           </div>
           <div className="flex flex-col justify-center xl:w-2/5 ">
