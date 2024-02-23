@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/src/theme/ThemeProvider";
 import clsx from "clsx";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import CookiesWindow from "@/components/CookiesWindow/CookiesWindow";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,6 +22,7 @@ export default function RootLayout({
             <Header />
             <div className="flex-1">{children}</div>
             <Footer />
+            <CookiesWindow />
             <ScrollToTopButton />
           </div>
         </ThemeProvider>

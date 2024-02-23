@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Cookies from "universal-cookie";
 
-export default function PopupPlausible() {
+export default function CookiesWindow() {
   const [isClose, setIsClose] = useState(true);
 
   const displayClass = !isClose ? "left-4" : "-left-full";
@@ -13,13 +13,13 @@ export default function PopupPlausible() {
 
     // Save "close" state info in cookies
     const cookie = new Cookies();
-    cookie.set("valentingrenier-popup", "closed");
+    cookie.set("lesgalopins-cookiesinfo", "closed");
   }
 
   useEffect(() => {
     // Get the popup status from cookies
     const cookie = new Cookies();
-    const popupStatus = cookie.get("valentingrenier-popup");
+    const popupStatus = cookie.get("lesgalopins-cookiesinfo");
 
     // Check the value of the cookie
     if (popupStatus === "closed") {
@@ -48,7 +48,7 @@ export default function PopupPlausible() {
         className="bg-danube-950 text-white font-semibold py-1 px-4 rounded-lg"
         onClick={handleClick}
       >
-        C'est compris
+        C&apos;est compris
       </button>
     </div>
   );
