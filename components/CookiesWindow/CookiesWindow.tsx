@@ -2,11 +2,12 @@
 
 import { useState, useEffect } from "react";
 import Cookies from "universal-cookie";
+import { Button } from "../ui/button";
 
 export default function CookiesWindow() {
   const [isClose, setIsClose] = useState(true);
 
-  const displayClass = !isClose ? "left-6 md:left-10 " : "-left-full";
+  const displayClass = !isClose ? "left-6 md:left-10" : "-left-full";
 
   function handleClick() {
     setIsClose(true);
@@ -33,23 +34,24 @@ export default function CookiesWindow() {
 
   return (
     <div
-      className={`bg-secondary text-white  fixed  ${displayClass} bottom-14 mr-16 md:mr-20 xl:ml-10 xl:max-w-[300px]  p-4  shadow-lg rounded-xl  transition-position duration-700`}
+      className={`bg-secondary text-white fixed ${displayClass} bottom-14 max-w-[300px] mx-auto p-4 text-xs shadow-lg rounded-xl  transition-position duration-700`}
     >
-      <span className="font-bold">Collecte de cookies</span>
-      <div className="mb-2">
-        <p className="text-xs leading-normal mb-0">
-          Des données sont récoltés pour optimiser le fonctionnement du site. Aucune donnée personnelle vous concernant n&apos;est collectée. 
-          <span className="ml-2 font-semibold">
-            <a href="/mentions">En savoir plus</a>
-          </span>
+      <div className="mb-4">
+        <p className=" leading-normal text-xs mb-0">
+          Des cookies sont récoltés pour optimiser le fonctionnement du site.
+          Aucune donnée personnelle vous concernant n&apos;est collectée.
         </p>
       </div>
-      <button
-        className="bg-danube-950 text-white font-semibold py-1  rounded-lg"
-        onClick={handleClick}
-      >
-        C&apos;est compris
-      </button>
+
+      <div className="flex justify-between items-center">
+        <span className="font-semibold">
+          <a href="/mentions">En savoir plus</a>
+        </span>
+        <Button onClick={handleClick} className="bg-accent text-white text-xs px-6">
+          {" "}
+          Ok !{" "}
+        </Button>
+      </div>
     </div>
   );
 }
