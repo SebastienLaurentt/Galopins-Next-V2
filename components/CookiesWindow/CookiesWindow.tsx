@@ -7,7 +7,7 @@ import { Button } from "../ui/button";
 export default function CookiesWindow() {
   const [isClose, setIsClose] = useState(true);
 
-  const displayClass = !isClose ? "left-6 md:left-10" : "-left-full";
+  const displayClass = !isClose ? "left-6 md:left-10 xl:left-16 2xl:left-10" : "-left-full";
 
   function handleClick() {
     setIsClose(true);
@@ -34,12 +34,12 @@ export default function CookiesWindow() {
 
   return (
     <div
-      className={`bg-secondary text-white fixed ${displayClass} bottom-14 max-w-[300px] mx-auto p-4 text-xs shadow-lg rounded-xl  transition-position duration-700`}
+      className={`bg-secondary text-white fixed ${displayClass} bottom-24 max-w-[280px]  p-4 text-xs shadow-lg rounded-xl  transition-position duration-700`}
     >
       <div className="mb-4">
         <p className=" leading-normal text-xs mb-0">
           Des cookies sont récoltés pour optimiser le fonctionnement du site.
-          Aucune donnée personnelle vous concernant n&apos;est collectée.
+          Aucune donnée personnelle n&apos;est collectée.
         </p>
       </div>
 
