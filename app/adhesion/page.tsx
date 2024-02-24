@@ -6,6 +6,7 @@ import Image from "next/image";
 import imgAdhesion from "../../public/images/Adhesion.webp";
 import DownloadButton from "@/components/Button/DownloadButton/DownloadButton";
 import { Metadata } from "next";
+import Contact from "@/components/Contact/Contact";
 
 const admissionPdf = `/pdf/Admission_Galopins.pdf`;
 
@@ -67,6 +68,7 @@ function Adhesion() {
           title=" Des questions ?"
           titleHighlight="Contactez-nous ! "
         />
+        <Contact />
       </Section>
     </main>
   );
