@@ -1,15 +1,22 @@
-"use server"
-import { Resend } from "resend"
+"use server";
+import { Resend } from "resend";
 
 interface State {
   error: string | null
   success: boolean
 }
 
-export const runtime = 'edge';
-export const dynamic = 'force-dynamic';
+// Fonction asynchrone qui renvoie la valeur de runtime
+export async function getRuntime(): Promise<string> {
+  return 'edge';
+}
 
-export const sendEmail = async (prevState: State, formData: FormData) => {
+// Fonction asynchrone qui renvoie la valeur de dynamic
+export async function getDynamic(): Promise<string> {
+  return 'force-dynamic';
+}
+
+export async function sendEmail(prevState: State, formData: FormData) {
   const name = formData.get("name") as string
   const email = formData.get("email") as string
   const message = formData.get("message") as string
