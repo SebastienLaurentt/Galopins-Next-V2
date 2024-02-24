@@ -41,7 +41,7 @@ function Club() {
             </p>
             <p>
               Des lieux tels que St Guilhem le Désert, les sentiers de Pagnol,
-              mais aussi la Fontaine du Vaucluse, l&apos;Abbaye de Senanque ou le pont du Gard
+              mais aussi la Fontaine de Vaucluse, l&apos;Abbaye de Senanque ou le pont du Gard
               ont déjà été visités.
             </p>
           </div>
