@@ -5,6 +5,10 @@ interface State {
   error: string | null
   success: boolean
 }
+
+export const runtime = 'edge';
+export const dynamic = 'force-dynamic';
+
 export const sendEmail = async (prevState: State, formData: FormData) => {
   const name = formData.get("name") as string
   const email = formData.get("email") as string
