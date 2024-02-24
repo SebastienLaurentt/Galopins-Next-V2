@@ -6,7 +6,7 @@ import Image from "next/image";
 import LinkButton from "@/components/Button/LinkButton/LinkButton";
 import SubSection from "@/components/SubSection/SubSection";
 import imgEquipe from "../../public/images/PhotoEquipe.png";
-import imgFontaine from "../../public/images/FontaineVaucluse.png";
+import imgDigue from "../../public/images/Digue.webp";
 import imgAbbaye from "../../public/images/AbbayeSenanque.png";
 import { Metadata } from "next";
 
@@ -47,7 +47,7 @@ function Club() {
           </div>
           <div className="md:w-3/5 xl:w-4/5 mt-4 md:mb-0">
             <Image
-              src={imgFontaine}
+              src={imgDigue}
               alt="Carrières d'Ocre de Rustrel"
               className="lg:hidden"
               priority
