@@ -30,7 +30,7 @@ export default function Form() {
           type="text"
           id="name"
           name="name"
-          placeholder="Full Name"
+          placeholder="Nom"
           className="w-full rounded-md border border-gray-300 bg-white py-3 px-6 text-base font-medium text-gray-700 outline-none focus:border-purple-500 focus:shadow-md"
         />
       </div>
@@ -39,12 +39,12 @@ export default function Form() {
           htmlFor="email"
           className="mb-3 block text-base font-medium text-black"
         >
-          Adresse E-Mail
+          Adresse e-mail
         </label>
         <input
           type="email"
           id="email"
-          name="email"
+          name="Adresse e-mail"
           placeholder="example@domain.com"
           className="w-full rounded-md border border-gray-300 bg-white py-3 px-6 text-base font-medium text-gray-700 outline-none focus:border-purple-500 focus:shadow-md"
         />
@@ -60,7 +60,7 @@ export default function Form() {
           rows={4}
           id="message"
           name="message"
-          placeholder="Type your message"
+          placeholder="Votre message"
           className="w-full resize-none rounded-md border border-gray-300 bg-white py-3 px-6 text-base font-medium text-gray-700 outline-none focus:border-purple-500 focus:shadow-md"
         ></textarea>
       </div>
