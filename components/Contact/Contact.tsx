@@ -24,7 +24,7 @@ export default function Form() {
           htmlFor="name"
           className="mb-3 block text-base font-medium text-black"
         >
-          Full Name
+          Nom 
         </label>
         <input
           type="text"
@@ -39,7 +39,7 @@ export default function Form() {
           htmlFor="email"
           className="mb-3 block text-base font-medium text-black"
         >
-          Email Address
+          Adresse E-Mail
         </label>
         <input
           type="email"
@@ -54,7 +54,7 @@ export default function Form() {
           htmlFor="message"
           className="mb-3 block text-base font-medium text-black"
         >
-          Message
+          Votre Message
         </label>
         <textarea
           rows={4}
@@ -69,7 +69,7 @@ export default function Form() {
           className="hover:shadow-form rounded-md bg-purple-500 py-3 px-8 text-base font-semibold text-white outline-none"
           type="submit"
         >
-          Submit
+          Envoyer
         </button>
       </div>
     </form>
