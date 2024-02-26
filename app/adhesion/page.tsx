@@ -75,13 +75,13 @@ function Adhesion() {
             <p className="mb-8 md:mb-24 ">
               Mr Alain Bourseau <br /> Président des Galopins
             </p>
-            <ul className="flex flex-col gap-y-12 g">
+            <ul className="flex flex-col gap-y-4 md:gap-y-12">
               <li>
                 <div className="flex flex-row md:gap-y-2  gap-x-8 ">
                   <Phone size={48} />
                   <div className="flex flex-col">
                     <span>Téléphone</span>
-                    <span>06 80 07 07 29</span>
+                    <span>06 24 01 60 30</span>
                   </div>
                 </div>
               </li>
@@ -90,7 +90,7 @@ function Adhesion() {
                   <Mail size={48} />
                   <div className="flex flex-col">
                     <span>Email</span>
-                    <span>alain.bourseau@email.com</span>
+                    <span>alain.bourseau@wanadoo.fr</span>
                   </div>
                 </div>
               </li>
