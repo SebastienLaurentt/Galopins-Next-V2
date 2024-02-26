@@ -2,6 +2,7 @@
 import { useEffect } from "react";
 import { useFormState } from "react-dom";
 import { sendEmail } from "../../src/actions";
+import { Button } from "../ui/button";
 
 export default function Form() {
   const [sendEmailState, sendEmailAction] = useFormState(sendEmail, {
@@ -24,14 +25,14 @@ export default function Form() {
           htmlFor="name"
           className="mb-3 block text-base font-medium text-black"
         >
-          Nom 
+          Nom - Prénom
         </label>
         <input
           type="text"
           id="name"
           name="name"
-          placeholder="Nom"
-          className="w-full rounded-md border border-gray-300 bg-white py-3 px-6 text-base font-medium text-gray-700 outline-none focus:border-purple-500 focus:shadow-md"
+          placeholder="Nom - Prénom"
+          className="w-full rounded-md border border-gray-300 bg-white py-3 px-6 text-base font-medium text-gray-700 outline-none focus:border-accent focus:shadow-md"
         />
       </div>
       <div className="mb-5">
@@ -44,9 +45,9 @@ export default function Form() {
         <input
           type="email"
           id="email"
-          name="Adresse e-mail"
-          placeholder="example@domain.com"
-          className="w-full rounded-md border border-gray-300 bg-white py-3 px-6 text-base font-medium text-gray-700 outline-none focus:border-purple-500 focus:shadow-md"
+          name="email"
+          placeholder="exemple@email.com"
+          className="w-full rounded-md border border-gray-300 bg-white py-3 px-6 text-base font-medium text-gray-700 outline-none focus:border-accent focus:shadow-md"
         />
       </div>
       <div className="mb-5">
@@ -60,17 +61,14 @@ export default function Form() {
           rows={4}
           id="message"
           name="message"
-          placeholder="Votre message"
-          className="w-full resize-none rounded-md border border-gray-300 bg-white py-3 px-6 text-base font-medium text-gray-700 outline-none focus:border-purple-500 focus:shadow-md"
+          placeholder="Description de votre demande"
+          className="w-full resize-none rounded-md border border-gray-300 bg-white py-3 px-6 text-base font-medium text-gray-700 outline-none focus:border-accent focus:shadow-md"
         ></textarea>
       </div>
       <div>
-        <button
-          className="hover:shadow-form rounded-md bg-purple-500 py-3 px-8 text-base font-semibold text-white outline-none"
-          type="submit"
-        >
+        <Button type="submit" aria-label="Envoyer le formulaire" className="bg-green-700 hover:bg-accent text-white">
           Envoyer
-        </button>
+        </Button>
       </div>
     </form>
   );
