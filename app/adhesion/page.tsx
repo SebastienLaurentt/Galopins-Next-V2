@@ -72,11 +72,13 @@ function Adhesion() {
         <div className="flex flex-col gap-y-16 md:flex-row md:justify-between md:gap-x-12">
           <div className="md:w-1/2">
             <h3>Par téléphone ou email</h3>
-            <p className="mb-8 md:mb-24 ">Mr Alain Bourseau <br /> Président des Galopins</p>
-            <ul className="flex flex-col gap-y-12 bg-secondary p-4 text-white rounded-lg">
+            <p className="mb-8 md:mb-24 ">
+              Mr Alain Bourseau <br /> Président des Galopins
+            </p>
+            <ul className="flex flex-col gap-y-12 g">
               <li>
-              <div className="flex flex-row md:gap-y-2  gap-x-8 ">
-                  <Phone size={48}/>
+                <div className="flex flex-row md:gap-y-2  gap-x-8 ">
+                  <Phone size={48} />
                   <div className="flex flex-col">
                     <span>Téléphone</span>
                     <span>06 80 07 07 29</span>
