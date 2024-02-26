@@ -70,12 +70,12 @@ function Adhesion() {
           titleHighlight="Contactez-nous ! "
         />
         <div className="flex flex-col gap-y-16 md:flex-row md:justify-between md:gap-x-12">
-          <div className="md:w-2/5">
+          <div className="md:w-1/2">
             <h3>Par téléphone ou email</h3>
-            <p className="mb-8 md:mb-12">Mr Alain Bourseau, Président des Galopins</p>
-            <ul className="flex flex-col gap-y-12">
+            <p className="mb-8 md:mb-24 ">Mr Alain Bourseau <br /> Président des Galopins</p>
+            <ul className="flex flex-col gap-y-12 bg-secondary p-4 text-white rounded-lg">
               <li>
-              <div className="flex flex-row md:flex-col md:text-center md:gap-y-2 items-center gap-x-8">
+              <div className="flex flex-row md:gap-y-2  gap-x-8 ">
                   <Phone size={48}/>
                   <div className="flex flex-col">
                     <span>Téléphone</span>
@@ -84,7 +84,7 @@ function Adhesion() {
                 </div>
               </li>
               <li>
-                <div className="flex flex-row md:flex-col md:text-center md:gap-y-2 items-center gap-x-8">
+                <div className="flex flex-row  md:gap-y-2 gap-x-8">
                   <Mail size={48} />
                   <div className="flex flex-col">
                     <span>Email</span>
@@ -94,7 +94,7 @@ function Adhesion() {
               </li>
             </ul>
           </div>
-          <div className="md:w-3/5">
+          <div className="md:w-1/2">
             <h3>Par formulaire de contact</h3>
             <Contact />
           </div>
