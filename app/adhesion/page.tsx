@@ -2,11 +2,12 @@ import PageTitle from "@/components/PageTitle/PageTitle";
 import Section from "@/components/Section/Section";
 import SectionHeader from "@/components/Section/SectionHeader/SectionHeader";
 
+import DownloadButton from "@/components/Button/DownloadButton/DownloadButton";
+import Contact from "@/components/Contact/Contact";
+import { Mail, Phone } from "lucide-react";
+import { Metadata } from "next";
 import Image from "next/image";
 import imgAdhesion from "../../public/images/Adhesion.webp";
-import DownloadButton from "@/components/Button/DownloadButton/DownloadButton";
-import { Metadata } from "next";
-import Contact from "@/components/Contact/Contact";
 
 const admissionPdf = `/pdf/Admission_Galopins.pdf`;
 
@@ -68,7 +69,36 @@ function Adhesion() {
           title=" Des questions ?"
           titleHighlight="Contactez-nous ! "
         />
-        <Contact />
+        <div className="flex flex-col gap-y-16 md:flex-row md:justify-between md:gap-x-12">
+          <div className="md:w-2/5">
+            <h3>Par téléphone ou email</h3>
+            <p className="mb-8 md:mb-12">Mr Alain Bourseau, Président des Galopins</p>
+            <ul className="flex flex-col gap-y-12">
+              <li>
+              <div className="flex flex-row md:flex-col md:text-center md:gap-y-2 items-center gap-x-8">
+                  <Phone size={48}/>
+                  <div className="flex flex-col">
+                    <span>Téléphone</span>
+                    <span>06 80 07 07 29</span>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div className="flex flex-row md:flex-col md:text-center md:gap-y-2 items-center gap-x-8">
+                  <Mail size={48} />
+                  <div className="flex flex-col">
+                    <span>Email</span>
+                    <span>alain.bourseau@email.com</span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div className="md:w-3/5">
+            <h3>Par formulaire de contact</h3>
+            <Contact />
+          </div>
+        </div>
       </Section>
     </main>
   );
