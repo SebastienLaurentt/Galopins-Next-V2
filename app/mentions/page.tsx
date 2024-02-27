@@ -13,7 +13,7 @@ function Mentions() {
   return (
     <main className="mb-20 md:mb-24 lg:mb-32">
       <Section marginBottom={false} marginTop={true}>
-        <PageTitle title='Statuts de l&apos;association "Les Galopins" au 1/09/2004' />
+        <PageTitle title='Statuts de l&apos;association'/>
         <h2 className="mentionsH2">Article 1 : Constitution et dénomination</h2>
         <p>
           Il est formé, entre les adhérents aux présents statuts, une
