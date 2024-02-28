@@ -64,7 +64,17 @@ export default function Form() {
 
   useEffect(() => {
     if (sendEmailState.success) {
+      setFormData({
+        name: "",
+        email: "",
+        message: ""
+      });
       setFormFeedback("Merci ! Nous vous recontacterons bientôt !");
+      // Clear feedback after 5 seconds
+      const timer = setTimeout(() => {
+        setFormFeedback("");
+      }, 5000);
+      return () => clearTimeout(timer);
     }
     if (sendEmailState.error) {
       setFormFeedback("Erreur lors de l'envoi de l'email. Veuillez réessayer.");
@@ -127,4 +137,5 @@ export default function Form() {
     </form>
   );
 }
+
 
