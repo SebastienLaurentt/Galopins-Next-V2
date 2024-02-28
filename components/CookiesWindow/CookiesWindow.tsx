@@ -43,11 +43,8 @@ export default function CookiesWindow() {
         </p>
       </div>
 
-      <div className="flex justify-between items-center">
-        <span className="font-semibold">
-          <a href="/mentions">En savoir plus</a>
-        </span>
-        <Button onClick={handleClick} className="bg-accent text-white text-xs px-6">
+      <div className="flex ">
+        <Button onClick={handleClick} className="bg-green-700 hover:bg-accent text-white text-xs ">
           {" "}
           Ok !{" "}
         </Button>
