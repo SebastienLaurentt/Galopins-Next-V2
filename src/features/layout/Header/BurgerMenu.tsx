@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Dispatch, SetStateAction, useEffect } from "react";
 import navData from "../../../../data/navData";
-import logo from "../../../../public/images/logoGalopins.png";
+import logo from "../../../../public/images/logoGalopins.svg";
 interface IBurgerMenu {
   isOpen: boolean;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
@@ -38,7 +38,7 @@ export default function BurgerMenu({ isOpen, setIsOpen }: IBurgerMenu) {
       </button>
 
       <nav
-        className={`flex-col min-h-screen top-0 w-full fixed bg-white text-center transition-all duration-500 ease-in-out  ${
+        className={`flex-col min-h-screen top-0 w-full fixed bg-secondary text-center transition-all duration-500 ease-in-out  ${
           isOpen ? "left-0" : "left-full"
         }`}
       >
@@ -53,17 +53,17 @@ export default function BurgerMenu({ isOpen, setIsOpen }: IBurgerMenu) {
         <Image
           src={logo}
           alt="Logo Galopins"
-          className="mt-28 mx-auto"
+          className="mt-16 w-80 mx-auto"
         />
 
-        <ul className="flex flex-col gap-4 p-4 font-medium text-md md:text-lg mt-16">
+        <ul className="flex flex-col gap-4 p-4 font-medium text-md md:text-lg mt-8">
           {navData.map((link) => (
             <li key={link.name}>
               <Link
                 href={link.href}
                 className={
                   pathname === link.href
-                    ? "border-b-2 border-black font-bold"
+                    ? "border-b-2 border-white font-bold"
                     : ""
                 }
                 onClick={() => setIsOpen(false)}
