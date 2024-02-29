@@ -12,7 +12,7 @@ export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
-  const headerBgColor = pathname === "/" ? "" : "bg-white";
+  const headerBgColor = pathname === "/" ? "" : "bg-secondary";
   const headerPosition = pathname === "/" ? "absolute " : "";
 
   return (
