@@ -19,7 +19,7 @@ export const Header = () => {
     <header
       className={`${headerPosition} text-white font-bold w-full z-10 ${headerBgColor}`}
     >
-      <div className="flex items-center px-6 md:px-10 xl:px-16 xl:max-w-[1280px] xl:mx-auto py-4 justify-between ">
+      <div className="flex items-center px-6 md:px-10 xl:px-16 xl:max-w-[1280px] xl:mx-auto py-2 justify-between ">
         <Link href="/">
           <Image
             src={logo}
