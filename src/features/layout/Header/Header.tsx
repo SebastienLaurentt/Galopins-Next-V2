@@ -19,6 +19,7 @@ export const Header = () => {
     <header
       className={`${headerPosition} text-white font-bold w-full z-10 ${headerBgColor}`}
     >
+      {/* Logo */}
       <div className="flex items-center px-6 md:px-10 xl:px-16 xl:max-w-[1280px] xl:mx-auto py-2 justify-between ">
         <Link href="/">
           <Image
@@ -28,6 +29,7 @@ export const Header = () => {
           />
         </Link>
 
+        {/* Nav */}
         <nav className="hidden lg:block lg:text-md font-medium">
           <ul className="flex gap-4">
             {navData.map((link) => (
@@ -47,6 +49,7 @@ export const Header = () => {
           </ul>
         </nav>
 
+        {/* BurgerMenu Component */}
         <div className="h-8 md:h-10 flex items-center lg:hidden ">
           <BurgerMenu isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>

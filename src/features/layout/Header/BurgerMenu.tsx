@@ -5,23 +5,23 @@ import { usePathname } from "next/navigation";
 import { Dispatch, SetStateAction, useEffect } from "react";
 import navData from "../../../../data/navData";
 import logo from "../../../../public/images/logoGalopins.svg";
-interface IBurgerMenu {
+
+interface BurgerMenuProps {
   isOpen: boolean;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
 }
 
-export default function BurgerMenu({ isOpen, setIsOpen }: IBurgerMenu) {
+export default function BurgerMenu({ isOpen, setIsOpen }: BurgerMenuProps) {
   const pathname = usePathname();
 
   useEffect(() => {
-    // Désactiver le défilement de la page principale lorsque le menu est ouvert
+    // Disable scroll is BurgerMenu is open
     if (isOpen) {
       document.documentElement.classList.add("overflow-hidden");
     } else {
       document.documentElement.classList.remove("overflow-hidden");
     }
 
-    // Nettoyage de l'effet
     return () => {
       document.documentElement.classList.remove("overflow-hidden");
     };
@@ -29,6 +29,7 @@ export default function BurgerMenu({ isOpen, setIsOpen }: IBurgerMenu) {
 
   return (
     <>
+      {/* Open BurgerMenu */}
       <button
         className=""
         onClick={() => setIsOpen(true)}
@@ -42,6 +43,8 @@ export default function BurgerMenu({ isOpen, setIsOpen }: IBurgerMenu) {
           isOpen ? "left-0" : "left-full"
         }`}
       >
+
+        {/* Close BurgerMenu */}
         <button
           className="w-full flex justify-end px-8 md:px-10 py-4"
           onClick={() => setIsOpen(false)}
@@ -50,12 +53,10 @@ export default function BurgerMenu({ isOpen, setIsOpen }: IBurgerMenu) {
           <X className="  h-8 md:h-10 w-8 md:w-10" />
         </button>
 
-        <Image
-          src={logo}
-          alt="Logo Galopins"
-          className="mt-16 w-80 mx-auto"
-        />
+        {/* Logo */}
+        <Image src={logo} alt="Logo Galopins" className="mt-16 w-80 mx-auto" />
 
+        {/* Page link lists */}
         <ul className="flex flex-col gap-4 p-4 font-medium text-md md:text-lg mt-8">
           {navData.map((link) => (
             <li key={link.name}>
