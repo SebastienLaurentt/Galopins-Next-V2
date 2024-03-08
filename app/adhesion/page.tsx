@@ -24,6 +24,8 @@ function Adhesion() {
         title="Adhésion"
         titleDescription="Nos conseils et recommandations si vous souhaitez nous rejoindre !"
       />
+
+      {/* First Section : Adhesion */}
       <Section marginBottom={true} marginTop={false} classname="">
         <SectionHeader
           title="Comment se préparer à "
@@ -64,6 +66,7 @@ function Adhesion() {
         </div>
       </Section>
 
+      {/* Second Section : Contact */}
       <Section marginBottom={true} marginTop={false} classname="">
         <SectionHeader
           title=" Des questions ?"

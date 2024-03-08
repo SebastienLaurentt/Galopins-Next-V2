@@ -5,10 +5,10 @@ import Image from "next/image";
 
 import LinkButton from "@/components/Button/LinkButton/LinkButton";
 import SubSection from "@/components/SubSection/SubSection";
-import imgEquipe from "../../public/images/PhotoEquipe.png";
-import imgDigue from "../../public/images/Digue.webp";
-import imgAbbaye from "../../public/images/AbbayeSenanque.png";
 import { Metadata } from "next";
+import imgAbbaye from "../../public/images/AbbayeSenanque.png";
+import imgDigue from "../../public/images/Digue.webp";
+import imgEquipe from "../../public/images/PhotoEquipe.png";
 
 export const metadata: Metadata = {
   title: "Les Galopins de Montélimar",
@@ -28,6 +28,7 @@ function Club() {
           title="Un esprit convivial durant et à côté des "
           titleHighlight="randonnées"
         />
+
         <SubSection
           marginBottom={true}
           marginTop={false}
@@ -41,8 +42,8 @@ function Club() {
             </p>
             <p>
               Des lieux tels que St Guilhem le Désert, les sentiers de Pagnol,
-              mais aussi la Fontaine de Vaucluse, l&apos;Abbaye de Senanque ou le pont du Gard
-              ont déjà été visités.
+              mais aussi la Fontaine de Vaucluse, l&apos;Abbaye de Senanque ou
+              le pont du Gard ont déjà été visités.
             </p>
           </div>
           <div className="md:w-3/5 xl:w-4/5 mt-4 md:mb-0">
@@ -60,6 +61,7 @@ function Club() {
             />
           </div>
         </SubSection>
+
         <SubSection
           marginBottom={false}
           marginTop={false}
