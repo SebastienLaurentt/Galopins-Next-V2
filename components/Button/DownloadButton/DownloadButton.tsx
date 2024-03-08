@@ -7,7 +7,12 @@ interface DownloadButtonProps {
   classname?: string;
 }
 
-const DownloadButton = ({ href, fileName, linkName, classname }: DownloadButtonProps) => {
+const DownloadButton = ({
+  href,
+  fileName,
+  linkName,
+  classname,
+}: DownloadButtonProps) => {
   return (
     <div className={`${classname}`}>
       <Button variant="download">

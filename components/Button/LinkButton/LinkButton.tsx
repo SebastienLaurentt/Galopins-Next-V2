@@ -24,8 +24,7 @@ const LinkButton = ({
     <div className={`${isSeeMoreButton} ${classname}`}>
       <Button asChild variant="link">
         <Link href={href} target={targetBlank}>
-          {" "}
-          {linkName}{" "}
+          {linkName}
         </Link>
       </Button>
     </div>
