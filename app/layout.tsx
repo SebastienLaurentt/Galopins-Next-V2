@@ -17,7 +17,6 @@ export default function RootLayout({
   return (
     <html lang="fr" className="h-full" suppressHydrationWarning>
       <body className={clsx(inter.className, "h-full")}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <div className=" flex flex-col h-full">
             <Header />
             <div className="flex-1">{children}</div>
@@ -25,7 +24,6 @@ export default function RootLayout({
             <CookiesWindow />
             <ScrollToTopButton />
           </div>
-        </ThemeProvider>
       </body>
     </html>
   );
