@@ -28,8 +28,11 @@ interface RandoData {
 }
 
 const PhotosDisplay = () => {
-  const [randosData, setRandosData] = useState<RandoData[]>([]); // State with all Rando Data
-  const [selectedRandoDestination, setSelectedRandoDestination] = useState(""); // State with name about the selected Rando
+  // State with all Rando Data
+  const [randosData, setRandosData] = useState<RandoData[]>([]); 
+
+  // Selected Rando's Name State
+  const [selectedRandoDestination, setSelectedRandoDestination] = useState(""); 
   const [loadingFetch, setLoadingFetch] = useState(true);
 
   const animation =
@@ -41,10 +44,6 @@ const PhotosDisplay = () => {
       .get("https://young-oasis-97886-5eb78d4cde61.herokuapp.com/api/randos/")
       .then((response) => {
         setRandosData(response.data.data);
-
-        // if (response.data.data.length > 0) {
-        //   setSelectedRandoDestination(response.data.data[0].destination);
-        // }
       })
       .catch((error) => {
         console.error("Erreur lors de la récupération des données :", error);
@@ -64,6 +63,8 @@ const PhotosDisplay = () => {
 
   return (
     <div className="flex flex-col items-center gap-y-4">
+      {/* Loading if fetch not done */}
+      {/* Rando selection */}
       {loadingFetch ? (
         <div>
           <div className="mb-4">
@@ -99,6 +100,7 @@ const PhotosDisplay = () => {
             </Select>
           </div>
 
+          {/* Selected Rando data infos */}
           {selectedRandoData && selectedRandoData.pictures && (
             <div>
               <div className="my-8 md:mt-16 md:mb-12">
@@ -134,6 +136,7 @@ const PhotosDisplay = () => {
                 </ul>
               </div>
 
+              {/* Selected Rando data infos */}
               <div className="flex flex-col gap-4">
                 {selectedRandoData.pictures.map((picture, index) => (
                   <div key={index} className="mx-auto">

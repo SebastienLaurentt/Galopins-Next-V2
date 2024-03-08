@@ -3,7 +3,7 @@ interface SubSectionProps {
   marginBottom?: boolean;
   marginTop?: boolean;
   titleClassname?: string;
-  title?:string;
+  title?: string;
   childrenClassname?: string;
   children: React.ReactNode;
 }
@@ -21,11 +21,9 @@ const SubSection = ({
   const isMarginTop = marginTop ? "mt-8" : "";
 
   return (
-    <div className={`${classname} ${isMarginBottom} ${isMarginTop}    `}>
+    <div className={`${classname} ${isMarginBottom} ${isMarginTop}`}>
       <h3 className={titleClassname}>{title}</h3>
-      <div className={childrenClassname}>
-      {children}
-      </div>
+      <div className={childrenClassname}>{children}</div>
     </div>
   );
 };

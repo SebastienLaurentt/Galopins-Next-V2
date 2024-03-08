@@ -2,7 +2,7 @@
 
 import { Player } from "@lottiefiles/react-lottie-player";
 
-export default function ImgAnimation ({ animation }: { animation: string }) {
+export default function ImgAnimation({ animation }: { animation: string }) {
   return (
     <Player
       autoplay

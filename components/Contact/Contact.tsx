@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useFormState } from "react-dom";
 import { sendEmail } from "../../src/actions";
 import { Button } from "../ui/button";
@@ -13,31 +13,31 @@ export default function Form() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: ""
+    message: "",
   });
 
   const [formErrors, setFormErrors] = useState({
     name: false,
     email: false,
-    message: false
+    message: false,
   });
 
   const [formFeedback, setFormFeedback] = useState("");
 
-  const handleInputChange = (event:any) => {
+  const handleInputChange = (event: any) => {
     const { name, value } = event.target;
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value,
     });
     // Clear error message if field is filled
     setFormErrors({
       ...formErrors,
-      [name]: false
+      [name]: false,
     });
   };
 
-  const handleSubmit = (event:any) => {
+  const handleSubmit = (event: any) => {
     event.preventDefault();
     let hasErrors = false;
     // Check if all fields are filled
@@ -45,7 +45,7 @@ export default function Form() {
       if (!value.trim()) {
         setFormErrors((prevErrors) => ({
           ...prevErrors,
-          [key]: true
+          [key]: true,
         }));
         hasErrors = true;
       }
@@ -67,7 +67,7 @@ export default function Form() {
       setFormData({
         name: "",
         email: "",
-        message: ""
+        message: "",
       });
       setFormFeedback("Merci ! Nous vous recontacterons bientôt !");
       // Clear feedback after 5 seconds
@@ -84,7 +84,10 @@ export default function Form() {
   return (
     <form onSubmit={handleSubmit}>
       <div className="mb-5">
-        <label htmlFor="name" className="mb-3 block text-base font-medium text-black">
+        <label
+          htmlFor="name"
+          className="mb-3 block text-base font-medium text-black"
+        >
           Nom - Prénom
         </label>
         <input
@@ -94,12 +97,21 @@ export default function Form() {
           value={formData.name}
           onChange={handleInputChange}
           placeholder="Nom - Prénom"
-          className={`w-full rounded-md border ${formErrors.name ? 'border-red-500' : 'border-gray-300'} bg-white py-3 px-6 text-base font-medium text-gray-700 outline-none focus:border-accent focus:shadow-md`}
+          className={`w-full rounded-md border ${
+            formErrors.name ? "border-red-500" : "border-gray-300"
+          } bg-white py-3 px-6 text-base font-medium text-gray-700 outline-none focus:border-accent focus:shadow-md`}
         />
-        {formErrors.name && <p className="text-red-500 text-sm mt-1">Ce champ est requis.</p>}
+        {/* If name is null when submit */}
+        {formErrors.name && (
+          <p className="text-red-500 text-sm mt-1">Ce champ est requis.</p>
+        )}
       </div>
+
       <div className="mb-5">
-        <label htmlFor="email" className="mb-3 block text-base font-medium text-black">
+        <label
+          htmlFor="email"
+          className="mb-3 block text-base font-medium text-black"
+        >
           Adresse e-mail
         </label>
         <input
@@ -109,12 +121,21 @@ export default function Form() {
           value={formData.email}
           onChange={handleInputChange}
           placeholder="exemple@email.com"
-          className={`w-full rounded-md border ${formErrors.email ? 'border-red-500' : 'border-gray-300'} bg-white py-3 px-6 text-base font-medium text-gray-700 outline-none focus:border-accent focus:shadow-md`}
+          className={`w-full rounded-md border ${
+            formErrors.email ? "border-red-500" : "border-gray-300"
+          } bg-white py-3 px-6 text-base font-medium text-gray-700 outline-none focus:border-accent focus:shadow-md`}
         />
-        {formErrors.email && <p className="text-red-500 text-sm mt-1">Ce champ est requis.</p>}
+        {/* If email is null when submit */}
+        {formErrors.email && (
+          <p className="text-red-500 text-sm mt-1">Ce champ est requis.</p>
+        )}
       </div>
+
       <div className="mb-5">
-        <label htmlFor="message" className="mb-3 block text-base font-medium text-black">
+        <label
+          htmlFor="message"
+          className="mb-3 block text-base font-medium text-black"
+        >
           Votre Message
         </label>
         <textarea
@@ -124,18 +145,37 @@ export default function Form() {
           value={formData.message}
           onChange={handleInputChange}
           placeholder="Description de votre demande"
-          className={`w-full resize-none rounded-md border ${formErrors.message ? 'border-red-500' : 'border-gray-300'} bg-white py-3 px-6 text-base font-medium text-gray-700 outline-none focus:border-accent focus:shadow-md`}
+          className={`w-full resize-none rounded-md border ${
+            formErrors.message ? "border-red-500" : "border-gray-300"
+          } bg-white py-3 px-6 text-base font-medium text-gray-700 outline-none focus:border-accent focus:shadow-md`}
         />
-        {formErrors.message && <p className="text-red-500 text-sm mt-1">Ce champ est requis.</p>}
+        {/* If textarea is null when submit */}
+        {formErrors.message && (
+          <p className="text-red-500 text-sm mt-1">Ce champ est requis.</p>
+        )}
       </div>
+
       <div className="flex items-center">
-        <Button type="submit" aria-label="Envoyer le formulaire" className="bg-green-700 hover:bg-accent text-white">
+        <Button
+          type="submit"
+          aria-label="Envoyer le formulaire"
+          className="bg-green-700 hover:bg-accent text-white"
+        >
           Envoyer
         </Button>
-        {formFeedback && <p className={`text-sm ml-3 ${sendEmailState.success ? 'text-green-600 font-bold' : 'text-red-600 font-bold'}`}>{formFeedback}</p>}
+        {/* If no formErrors and submission */}
+        {formFeedback && (
+          <p
+            className={`text-sm ml-3 ${
+              sendEmailState.success
+                ? "text-green-600 font-bold"
+                : "text-red-600 font-bold"
+            }`}
+          >
+            {formFeedback}
+          </p>
+        )}
       </div>
     </form>
   );
 }
-
-

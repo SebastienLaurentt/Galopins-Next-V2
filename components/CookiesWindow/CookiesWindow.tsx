@@ -7,7 +7,9 @@ import { Button } from "../ui/button";
 export default function CookiesWindow() {
   const [isClose, setIsClose] = useState(true);
 
-  const displayClass = !isClose ? "left-6 md:left-10 xl:left-16 2xl:left-10" : "-left-full";
+  const displayClass = !isClose
+    ? "left-6 md:left-10 xl:left-16 2xl:left-10"
+    : "-left-full";
 
   function handleClick() {
     setIsClose(true);
@@ -44,9 +46,11 @@ export default function CookiesWindow() {
       </div>
 
       <div className="flex ">
-        <Button onClick={handleClick} className="bg-green-700 hover:bg-accent text-white text-xs ">
-          {" "}
-          Ok !{" "}
+        <Button
+          onClick={handleClick}
+          className="bg-green-700 hover:bg-accent text-white text-xs "
+        >
+          Ok !
         </Button>
       </div>
     </div>

@@ -16,10 +16,10 @@ const TRIMESTRE1_2024 = `/pdf/TRIMESTRE1_2024.pdf`;
 const TRIMESTRE3_2023 = `/pdf/TRIMESTRE3_2023.pdf`;
 
 const ProgDownload = () => {
-  // État pour stocker le fichier PDF sélectionné
+  // Selected pdf state
   const [selectedPDF, setSelectedPDF] = useState('');
 
-  // Mise à jour de l'état en fonction de la sélection de l'utilisateur
+  // Set pdf selected state
   const handleSelection = (value: string) => {
     switch (value) {
       case '1T2024':
