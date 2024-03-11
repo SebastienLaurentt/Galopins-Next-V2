@@ -22,7 +22,7 @@ function SectionBg({
   return (
     <section
       id={`${id}`}
-      className={` ${className} ${isMinHeightScreen} relative px-6 md:px-10 xl:px-16 bg-center bg-cover w-full`}
+      className={` ${className} ${isMinHeightScreen} relative w-full bg-cover bg-center px-6 md:px-10 xl:px-16`}
       style={{
         backgroundImage: bg
           ? `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${bg.src})`

@@ -9,7 +9,7 @@ const ClubIcon = ({ children, iconDescription }: HomeIconProps) => {
   return (
     <div className="flex flex-col items-center gap-y-2">
       {children}
-      <span className="font-medium text-md lg:text-lg lg:max-w-[210px] text-center">
+      <span className="text-center text-md font-medium lg:max-w-[210px] lg:text-lg">
         {iconDescription}
       </span>
     </div>

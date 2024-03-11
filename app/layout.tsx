@@ -39,7 +39,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#ffffff" />
       </head>
       <body className={clsx(inter.className, "h-full")}>
-        <div className=" flex flex-col h-full">
+        <div className=" flex h-full flex-col">
           <Header />
           <div className="flex-1">{children}</div>
           <Footer />

@@ -39,7 +39,7 @@ function Parcours() {
             Des randonnées sont proposées le Lundi après-midi et le Vendredi à
             la journée :
           </p>
-          <ul className="flex flex-col lg:flex-row lg:justify-center gap-y-10 xl:gap-y-0 lg:gap-x-16">
+          <ul className="flex flex-col gap-y-10 lg:flex-row lg:justify-center lg:gap-x-16 xl:gap-y-0">
             <li>
               <ParcoursCard
                 parcoursTitle="Lundi | Après-Midi"
@@ -126,10 +126,10 @@ function Parcours() {
           ci-dessous.
         </p>
         <ProgDownload />
-        <p className="pt-8 pb-4">
+        <p className="pb-4 pt-8">
           Les randonnées y sont classées par code couleur.
         </p>
-        <ul className="flex flex-wrap gap-6 justify-around">
+        <ul className="flex flex-wrap justify-around gap-6">
           <li>
             <ParcoursTags
               tagColor="bg-white border"

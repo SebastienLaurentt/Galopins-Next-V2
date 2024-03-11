@@ -1,6 +1,5 @@
-'use client'
+"use client";
 
-import { useState } from 'react';
 import {
   Select,
   SelectContent,
@@ -10,6 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useState } from "react";
 import DownloadButton from "../Button/DownloadButton/DownloadButton";
 
 const TRIMESTRE1_2024 = `/pdf/TRIMESTRE1_2024.pdf`;
@@ -17,40 +17,44 @@ const TRIMESTRE3_2023 = `/pdf/TRIMESTRE3_2023.pdf`;
 
 const ProgDownload = () => {
   // Selected pdf state
-  const [selectedPDF, setSelectedPDF] = useState('');
+  const [selectedPDF, setSelectedPDF] = useState("");
 
   // Set pdf selected state
   const handleSelection = (value: string) => {
     switch (value) {
-      case '1T2024':
+      case "1T2024":
         setSelectedPDF(TRIMESTRE1_2024);
         break;
-      case '3T2023':
+      case "3T2023":
         setSelectedPDF(TRIMESTRE3_2023);
         break;
       default:
-        setSelectedPDF('');
+        setSelectedPDF("");
     }
   };
 
   return (
-    <div className="flex flex-col md:flex-row  md:items-center gap-y-2 gap-x-2 mt-4">
-      <Select onValueChange={handleSelection} >
+    <div className="mt-4 flex flex-col  gap-2 md:flex-row md:items-center">
+      <Select onValueChange={handleSelection}>
         <SelectTrigger className="w-[233px]" aria-label="Choisir un programme">
           <SelectValue placeholder="Choisir un programme" />
         </SelectTrigger>
         <SelectContent>
           <SelectGroup>
             <SelectLabel>Programmes</SelectLabel>
-            <SelectItem value="1T2024">1<sup>er</sup> Trimestre 2024</SelectItem>
-            <SelectItem value="3T2023">3<sup>ème</sup> Trimestre 2023</SelectItem>
+            <SelectItem value="1T2024">
+              1<sup>er</sup> Trimestre 2024
+            </SelectItem>
+            <SelectItem value="3T2023">
+              3<sup>ème</sup> Trimestre 2023
+            </SelectItem>
           </SelectGroup>
         </SelectContent>
       </Select>
       {selectedPDF && (
         <DownloadButton
           href={selectedPDF}
-          fileName={selectedPDF.split('/').pop() ?? ''}
+          fileName={selectedPDF.split("/").pop() ?? ""}
           linkName="Télécharger le programme"
           classname=""
         />

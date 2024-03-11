@@ -106,12 +106,12 @@ const PhotosDisplay = () => {
           {/* Selected Rando data infos */}
           {selectedRandoData && selectedRandoData.pictures && (
             <div>
-              <div className="my-8 md:mt-16 md:mb-12">
+              <div className="my-8 md:mb-12 md:mt-16">
                 <h3 className="text-center">
                   {" "}
                   {selectedRandoData.destination}{" "}
                 </h3>
-                <ul className="flex md:gap-x-4 justify-center text-secondary ">
+                <ul className="flex justify-center text-secondary md:gap-x-4 ">
                   <li>
                     <PhotoIcon
                       number={selectedRandoData.distance + " km"}

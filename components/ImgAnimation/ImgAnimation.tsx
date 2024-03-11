@@ -8,7 +8,7 @@ export default function ImgAnimation({ animation }: { animation: string }) {
       autoplay
       loop
       src={animation}
-      className="h-[250px] md:h-[350px]  w-[250px] md:w-[350px]"
+      className="size-[250px] md:size-[350px]"
     ></Player>
   );
 }

@@ -99,11 +99,11 @@ export default function Form() {
           placeholder="Nom - Prénom"
           className={`w-full rounded-md border ${
             formErrors.name ? "border-red-500" : "border-gray-300"
-          } bg-white py-3 px-6 text-base font-medium text-gray-700 outline-none focus:border-accent focus:shadow-md`}
+          } bg-white px-6 py-3 text-base font-medium text-gray-700 outline-none focus:border-accent focus:shadow-md`}
         />
         {/* If name is null when submit */}
         {formErrors.name && (
-          <p className="text-red-500 text-sm mt-1">Ce champ est requis.</p>
+          <p className="mt-1 text-sm text-red-500">Ce champ est requis.</p>
         )}
       </div>
 
@@ -123,11 +123,11 @@ export default function Form() {
           placeholder="exemple@email.com"
           className={`w-full rounded-md border ${
             formErrors.email ? "border-red-500" : "border-gray-300"
-          } bg-white py-3 px-6 text-base font-medium text-gray-700 outline-none focus:border-accent focus:shadow-md`}
+          } bg-white px-6 py-3 text-base font-medium text-gray-700 outline-none focus:border-accent focus:shadow-md`}
         />
         {/* If email is null when submit */}
         {formErrors.email && (
-          <p className="text-red-500 text-sm mt-1">Ce champ est requis.</p>
+          <p className="mt-1 text-sm text-red-500">Ce champ est requis.</p>
         )}
       </div>
 
@@ -147,11 +147,11 @@ export default function Form() {
           placeholder="Description de votre demande"
           className={`w-full resize-none rounded-md border ${
             formErrors.message ? "border-red-500" : "border-gray-300"
-          } bg-white py-3 px-6 text-base font-medium text-gray-700 outline-none focus:border-accent focus:shadow-md`}
+          } bg-white px-6 py-3 text-base font-medium text-gray-700 outline-none focus:border-accent focus:shadow-md`}
         />
         {/* If textarea is null when submit */}
         {formErrors.message && (
-          <p className="text-red-500 text-sm mt-1">Ce champ est requis.</p>
+          <p className="mt-1 text-sm text-red-500">Ce champ est requis.</p>
         )}
       </div>
 
@@ -159,17 +159,17 @@ export default function Form() {
         <Button
           type="submit"
           aria-label="Envoyer le formulaire"
-          className="bg-green-700 hover:bg-accent text-white"
+          className="bg-green-700 text-white hover:bg-accent"
         >
           Envoyer
         </Button>
         {/* If no formErrors and submission */}
         {formFeedback && (
           <p
-            className={`text-sm ml-3 ${
+            className={`ml-3 text-sm ${
               sendEmailState.success
-                ? "text-green-600 font-bold"
-                : "text-red-600 font-bold"
+                ? "font-bold text-green-600"
+                : "font-bold text-red-600"
             }`}
           >
             {formFeedback}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Cookies from "universal-cookie";
 import { Button } from "../ui/button";
 
@@ -36,10 +36,10 @@ export default function CookiesWindow() {
 
   return (
     <div
-      className={`bg-secondary text-white fixed ${displayClass} bottom-14 md:bottom-16 max-w-[280px]  p-4 text-xs shadow-lg rounded-xl  transition-position duration-700`}
+      className={`fixed bg-secondary text-white ${displayClass} bottom-14 max-w-[280px] rounded-xl p-4 text-xs shadow-lg duration-700 md:bottom-16`}
     >
       <div className="mb-4">
-        <p className=" leading-normal text-xs mb-0">
+        <p className=" mb-0 text-xs leading-normal">
           Des cookies sont récoltés pour optimiser le fonctionnement du site.
           Aucune donnée personnelle n&apos;est collectée.
         </p>
@@ -48,7 +48,7 @@ export default function CookiesWindow() {
       <div className="flex ">
         <Button
           onClick={handleClick}
-          className="bg-green-700 hover:bg-accent text-white text-xs "
+          className="bg-green-700 text-xs text-white hover:bg-accent "
         >
           Ok !
         </Button>
