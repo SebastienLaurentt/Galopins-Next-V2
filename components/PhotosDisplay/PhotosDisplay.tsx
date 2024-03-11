@@ -29,10 +29,10 @@ interface RandoData {
 
 const PhotosDisplay = () => {
   // State with all Rando Data
-  const [randosData, setRandosData] = useState<RandoData[]>([]); 
+  const [randosData, setRandosData] = useState<RandoData[]>([]);
 
   // Selected Rando's Name State
-  const [selectedRandoDestination, setSelectedRandoDestination] = useState(""); 
+  const [selectedRandoDestination, setSelectedRandoDestination] = useState("");
   const [loadingFetch, setLoadingFetch] = useState(true);
 
   const animation =
@@ -78,7 +78,10 @@ const PhotosDisplay = () => {
         <div>
           <div className="flex justify-center">
             <Select onValueChange={handleRandoChange}>
-              <SelectTrigger className="w-[233px]" aria-label="Choisir une randonnée">
+              <SelectTrigger
+                className="w-[233px]"
+                aria-label="Choisir une randonnée"
+              >
                 <SelectValue placeholder="Choisir une randonnée">
                   {" "}
                   Choisir une randonnée{" "}
@@ -136,7 +139,7 @@ const PhotosDisplay = () => {
                 </ul>
               </div>
 
-              {/* Selected Rando data infos */}
+              {/* Selected Rando photos */}
               <div className="flex flex-col gap-4">
                 {selectedRandoData.pictures.map((picture, index) => (
                   <div key={index} className="mx-auto">
