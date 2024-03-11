@@ -46,7 +46,7 @@ function Club() {
               le pont du Gard ont déjà été visités.
             </p>
           </div>
-          <div className="md:w-3/5 xl:w-4/5 mt-4 md:mb-0">
+          <div className="mt-4 md:mb-0 md:w-3/5 xl:w-4/5">
             <Image
               src={imgDigue}
               alt="Carrières d'Ocre de Rustrel"

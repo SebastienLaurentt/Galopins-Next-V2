@@ -31,7 +31,7 @@ function Adhesion() {
           title="Comment se préparer à "
           titleHighlight="randonner ? "
         />
-        <div className="xl:flex xl:flex-row-reverse xl:gap-x-8 w-full">
+        <div className="w-full xl:flex xl:flex-row-reverse xl:gap-x-8">
           <div className="xl:w-3/5">
             <Image
               src={imgAdhesion}
@@ -80,7 +80,7 @@ function Adhesion() {
             </p>
             <ul className="flex flex-col gap-y-4 md:gap-y-12">
               <li>
-                <div className="flex flex-row md:gap-y-2  gap-x-8 ">
+                <div className="flex flex-row gap-x-8  md:gap-y-2 ">
                   <Phone size={48} />
                   <div className="flex flex-col">
                     <span>Téléphone</span>
@@ -89,7 +89,7 @@ function Adhesion() {
                 </div>
               </li>
               <li>
-                <div className="flex flex-row  md:gap-y-2 gap-x-8">
+                <div className="flex flex-row  gap-x-8 md:gap-y-2">
                   <Mail size={48} />
                   <div className="flex flex-col">
                     <span>Email</span>

@@ -11,8 +11,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import logoArdeche from "../public/images/Ardeche.webp";
 import logoDrome from "../public/images/Drome.webp";
-import logoVaucluse from "../public/images/Vaucluse.webp";
 import img from "../public/images/Home.webp";
+import logoVaucluse from "../public/images/Vaucluse.webp";
 
 export const metadata: Metadata = {
   title: "Les Galopins de Montélimar",
@@ -23,16 +23,15 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className="mb-20 md:mb-24 lg:mb-32">
-      
       {/* Hero Section */}
       <SectionBg
         bg={img}
         minHeightScreen={false}
         className="flex flex-col justify-center"
       >
-        <div className="pb-4 lg:pb-16 xl:pb-0 xl:pt-24 text-center  max-w-[280px] md:max-w-[400px] lg:max-w-[500px] xl:max-w-[1280px] mx-auto  text-white">
+        <div className="mx-auto max-w-[280px] pb-4 text-center text-white  md:max-w-[400px] lg:max-w-[500px] lg:pb-16 xl:max-w-screen-xl xl:pb-0  xl:pt-24">
           <h1 className="mb-2 md:mb-4"> LES GALOPINS </h1>
-          <p className="font-medium text-md  lg:text-2xl w-4/5 lg:w-4/5 mx-auto  mb-2 md:mb-4 leading-6 md:leading-8 lg:leading-9">
+          <p className="mx-auto mb-2  w-4/5 text-md font-medium leading-6  md:mb-4 md:leading-8 lg:w-4/5 lg:text-2xl lg:leading-9">
             Club de randonnée pédestre à Montélimar
           </p>
           <Button asChild variant="hero">
@@ -86,7 +85,7 @@ export default function Home() {
           </ul>
         </div>
       </Section>
-      
+
       {/* Parcours Section */}
       <Section marginBottom={true} marginTop={true} classname="">
         <SectionHeader
@@ -96,7 +95,7 @@ export default function Home() {
           Lundi après-midi et le Vendredi pour la journée entière."
         />
         <div>
-          <ul className="flex flex-col lg:flex-row lg:justify-center gap-y-10 xl:gap-y-0 lg:gap-x-16">
+          <ul className="flex flex-col gap-y-10 lg:flex-row lg:justify-center lg:gap-x-16 xl:gap-y-0">
             <li>
               <ParcoursCard
                 parcoursTitle="Lundi | Après-Midi"
@@ -149,7 +148,7 @@ export default function Home() {
         <div>
           <div></div>
           <div>
-            <ul className="flex flex-col lg:flex-row lg:justify-center gap-y-8 lg:gap-y-0 lg:gap-x-16">
+            <ul className="flex flex-col gap-y-8 lg:flex-row lg:justify-center lg:gap-x-16 lg:gap-y-0">
               <li className="">
                 <ClubIcon iconDescription="Créé en Septembre 2004">
                   <CalendarCheck className="clubIcon" />
