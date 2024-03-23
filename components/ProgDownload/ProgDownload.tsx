@@ -13,6 +13,7 @@ import { useState } from "react";
 import DownloadButton from "../Button/DownloadButton/DownloadButton";
 
 const TRIMESTRE1_2024 = `/pdf/TRIMESTRE1_2024.pdf`;
+const TRIMESTRE2_2024 = `/pdf/TRIMESTRE2_2024.pdf`;
 const TRIMESTRE3_2023 = `/pdf/TRIMESTRE3_2023.pdf`;
 
 const ProgDownload = () => {
@@ -22,6 +23,9 @@ const ProgDownload = () => {
   // Set pdf selected state
   const handleSelection = (value: string) => {
     switch (value) {
+      case "2T2024":
+        setSelectedPDF(TRIMESTRE2_2024);
+        break;
       case "1T2024":
         setSelectedPDF(TRIMESTRE1_2024);
         break;
@@ -42,6 +46,9 @@ const ProgDownload = () => {
         <SelectContent>
           <SelectGroup>
             <SelectLabel>Programmes</SelectLabel>
+            <SelectItem value="2T2024">
+              2<sup>ème</sup> Trimestre 2024
+            </SelectItem>
             <SelectItem value="1T2024">
               1<sup>er</sup> Trimestre 2024
             </SelectItem>
