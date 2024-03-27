@@ -20,7 +20,7 @@ function AccountLinkButton({
   return (
     <button onClick={onClick}>
       <Link
-        className={`flex rounded-lg p-3 md:text-md 2xl:text-xl  ${classname} ${bgColor}`}
+        className={`flex rounded-lg p-3 md:text-md   ${classname} ${bgColor}`}
         href={href}
         target="_blank"
       >
