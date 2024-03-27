@@ -149,7 +149,7 @@ const AccountRandoAdd = () => {
   return (
     <div className="min-h-screen bg-stone-300 p-4 ">
       <AccountHeader />
-      <main>
+      <main className="text-white">
         <h3 className="m-4 text-center text-black">
           Formulaire d&apos;ajout d&apos;une nouvelle randonnée
         </h3>
