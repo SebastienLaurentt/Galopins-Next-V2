@@ -12,7 +12,7 @@ function AccountHeader() {
   };
 
   return (
-    <header className="bg-stone-300 p-4">
+    <header className="bg-stone-300 p-4 text-white">
       <ul className="flex flex-wrap justify-center gap-4">
         <li>
           <AccountLinkButton
