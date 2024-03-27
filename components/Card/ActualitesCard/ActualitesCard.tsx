@@ -6,8 +6,8 @@ interface ActualitesCardProps {
 
 const ActualitesCard = ({ title, date, description }: ActualitesCardProps) => {
   return (
-    <div className="w-[320px] rounded-xl border p-4 text-left shadow-lg lg:w-[440px] xl:w-[500px]">
-      <h4 className="mb-2 text-md font-bold md:mb-4 md:text-xl md:leading-8">
+    <div className="flex flex-col justify-between border-2 p-4 shadow-lg md:min-h-56 md:p-8 ">
+      <h4 className="mb-2 text-md  font-bold md:mb-4 md:text-xl md:leading-8 xl:text-2xl">
         {title}
       </h4>
       <p className="mb-2 text-pretty md:mb-4">{description}</p>

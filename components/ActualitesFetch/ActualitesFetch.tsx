@@ -25,7 +25,7 @@ function ActualitesFetch() {
   }, []);
 
   return (
-    <ul className="flex flex-col items-center justify-center gap-y-4 md:flex-row md:gap-x-4 lg:gap-x-12 xl:gap-x-16">
+    <ul className=" grid w-full grid-cols-1 gap-y-4 px-4 md:grid-cols-2 md:gap-4 lg:gap-8 lg:px-8 ">
       {actualitesData.map((actu) => (
         <li key={actu.title} className="">
           <ActualitesCard

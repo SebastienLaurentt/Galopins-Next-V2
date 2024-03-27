@@ -18,7 +18,7 @@ function Actualites() {
         title="Les Dernières Actualités"
         titleDescription="Pour en savoir plus sur les dernières actualités du club !"
       />
-      <Section marginBottom={true} marginTop={false} classname="">
+      <Section marginBottom={true} marginTop={false} classname="w-full">
         <SectionHeader
           title="Quoi de nouveau chez les"
           titleHighlight="Galopins ?"
