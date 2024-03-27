@@ -1,19 +1,23 @@
 "use client";
 
+import { useAuth } from "@/components/AccountComponent/Auth/Auth";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { BiArrowBack } from "react-icons/bi";
+import { BiArrowBack, BiHide, BiShow } from "react-icons/bi";
 import AccountLinkButton from "../../components/AccountComponent/Button/AccountLinkButton";
 import ValidationButton from "../../components/AccountComponent/Button/ValidationButton";
-import { useAuth } from "@/components/AccountComponent/Auth/Auth";
-
 
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<null | string>(null);
+  const [showPassword, setShowPassword] = useState(false); // État pour gérer l'affichage du mot de passe
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   const { isLogged, login } = useAuth();
   console.log(`Is Logged = ${isLogged}`);
@@ -76,10 +80,10 @@ export default function Login() {
               required
             />
           </div>
-          <div className="flex flex-col items-center gap-y-1">
+          <div className="relative flex flex-col items-center gap-y-1">
             <label htmlFor="password">Mot de passe</label>
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               id="password"
               className="rounded-md p-1 text-black"
               value={password}
@@ -89,6 +93,14 @@ export default function Login() {
               }}
               required
             />
+            {/* Icône pour afficher/masquer le mot de passe */}
+            <button
+              type="button"
+              className="absolute inset-y-9 right-0 flex items-center p-2 text-black"
+              onClick={togglePasswordVisibility}
+            >
+              {showPassword ? <BiHide /> : <BiShow />}
+            </button>
           </div>
           {error && <p className="text-red-500">{error}</p>}
           <ValidationButton buttonName="Se connecter" />
