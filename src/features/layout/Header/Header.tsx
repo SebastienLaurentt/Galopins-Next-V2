@@ -17,7 +17,7 @@ export const Header = () => {
 
   return (
     <header
-      className={`${headerPosition} ${headerVisibility} z-10 w-full font-medium`}
+      className={`${headerPosition} ${headerVisibility} z-10 w-full font-semibold`}
     >
       {/* Logo */}
       <div className="flex items-center justify-between px-6 py-3 md:px-10 xl:mx-auto xl:max-w-screen-xl xl:px-16 ">
@@ -38,7 +38,7 @@ export const Header = () => {
                   href={link.href}
                   className={
                     pathname === link.href
-                      ? "border-b-2 border-black font-bold"
+                      ? "border-b-2 border-black font-extrabold"
                       : ""
                   }
                 >

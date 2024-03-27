@@ -38,6 +38,7 @@ function Adhesion() {
               alt=""
               className="mb-4 md:mb-8 xl:mb-0"
               priority
+              placeholder="blur"
             />
           </div>
           <div className="flex flex-col justify-center xl:w-2/5 ">

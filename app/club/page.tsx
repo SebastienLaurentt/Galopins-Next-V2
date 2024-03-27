@@ -52,12 +52,14 @@ function Club() {
               alt="Carrières d'Ocre de Rustrel"
               className="lg:hidden"
               priority
+              placeholder="blur"
             />
             <Image
               src={imgAbbaye}
               alt="Carrières d'Ocre de Rustrel"
               className="hidden lg:block"
               priority
+              placeholder="blur"
             />
           </div>
         </SubSection>

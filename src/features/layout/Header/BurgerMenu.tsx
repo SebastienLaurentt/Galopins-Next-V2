@@ -53,17 +53,17 @@ export default function BurgerMenu({ isOpen, setIsOpen }: BurgerMenuProps) {
         </button>
 
         {/* Logo */}
-        <Image src={logo} alt="Logo Galopins" className="mx-auto mt-16 w-60" />
+        <Image src={logo} alt="Logo Galopins" className="mx-auto mt-16 w-40" />
 
         {/* Page link lists */}
-        <ul className="mt-8 flex flex-col gap-4 p-4 text-md font-medium md:text-lg">
+        <ul className="mt-8 flex flex-col gap-4 p-4 text-md font-semibold md:text-lg">
           {navData.map((link) => (
             <li key={link.name}>
               <Link
                 href={link.href}
                 className={
                   pathname === link.href
-                    ? "border-b-2 border-black font-bold"
+                    ? "border-b-2 border-black font-extrabold"
                     : ""
                 }
                 onClick={() => setIsOpen(false)}
