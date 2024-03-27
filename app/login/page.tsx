@@ -1,6 +1,5 @@
 "use client";
 
-import { useAuth } from "@/components/Auth";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
@@ -8,6 +7,7 @@ import { useState } from "react";
 import { BiArrowBack } from "react-icons/bi";
 import AccountLinkButton from "../../components/AccountComponent/Button/AccountLinkButton";
 import ValidationButton from "../../components/AccountComponent/Button/ValidationButton";
+import { useAuth } from "@/components/AccountComponent/Auth/Auth";
 
 export default function Login() {
   const [username, setUsername] = useState("");
