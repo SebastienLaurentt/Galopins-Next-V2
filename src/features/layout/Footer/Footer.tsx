@@ -7,7 +7,7 @@ export const Footer = () => {
 
   const pathname = usePathname();
 
-  const footerVisibility = pathname === "/login" ? "hidden" : "";
+  const footerVisibility = /^\/(login|account)/.test(pathname) ? "hidden" : "";
 
   return (
     <footer className={` ${footerVisibility} bg-secondary text-white`}>

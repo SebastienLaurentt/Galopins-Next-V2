@@ -14,7 +14,8 @@ export const Header = () => {
 
   const headerBgColor = pathname === "/" ? "" : "bg-white";
   const headerPosition = pathname === "/" ? "absolute bg-white" : "";
-  const headerVisibility = pathname === "/login" ? "hidden" : "";
+  const headerVisibility = /^\/(login|account)/.test(pathname) ? "hidden" : "";
+
 
   return (
     <header
