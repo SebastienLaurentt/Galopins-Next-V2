@@ -60,7 +60,7 @@ function AccountRando() {
 
   return (
     <div className="flex flex-col ">
-      <h5 className="mb-4 text-center"> Tableau de gestion des randonnées </h5>
+      <h5 className="mb-4 text-center text-xl"> Tableau de gestion des randonnées </h5>
       <div className="mb-2 flex items-start justify-start">
         <AccountLinkButton
           bgColor="bg-green-800"

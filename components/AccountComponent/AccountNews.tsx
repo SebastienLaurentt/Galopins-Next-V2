@@ -56,7 +56,7 @@ function AccountNews() {
 
   return (
     <div className="">
-      <h5 className="mb-4 text-center">
+      <h5 className="mb-4 text-center text-xl">
         {" "}
         Tableau de gestion des dernières infos{" "}
       </h5>
