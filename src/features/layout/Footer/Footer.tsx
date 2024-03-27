@@ -1,9 +1,17 @@
+'use client'
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export const Footer = () => {
+
+  const pathname = usePathname();
+
+  const footerVisibility = pathname === "/login" ? "hidden" : "";
+
   return (
-    <footer className="bg-secondary text-white">
-      <div className="flex text-xs md:text-sm items-center px-6 md:px-10 xl:px-16 xl:max-w-[1280px] xl:mx-auto py-4 justify-between items-center ">
+    <footer className={` ${footerVisibility} bg-secondary text-white`}>
+      <div className="flex items-center justify-between px-6 py-4 text-xs md:px-10 md:text-sm xl:mx-auto xl:max-w-screen-xl xl:px-16 ">
         <span className="">@2024 - Les Galopins</span>
         <span className="">
           <Link href="/mentions"> Mentions légales </Link>
