@@ -6,9 +6,11 @@ interface ActualitesCardProps {
 
 const ActualitesCard = ({ title, date, description }: ActualitesCardProps) => {
   return (
-    <div className="rounded-lg border p-4 text-left shadow-lg">
-      <h4 className="mb-2 text-md font-bold xl:text-xl">{title}</h4>
-      <p className="mb-2 text-pretty">{description}</p>
+    <div className="w-[320px] rounded-xl border p-4 text-left shadow-lg lg:w-[440px] xl:w-[500px]">
+      <h4 className="mb-2 text-md font-bold md:mb-4 md:text-xl md:leading-8">
+        {title}
+      </h4>
+      <p className="mb-2 text-pretty md:mb-4">{description}</p>
       <p className="italic">le {date}</p>
     </div>
   );
