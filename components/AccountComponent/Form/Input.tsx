@@ -57,7 +57,7 @@ const Input = ({
         value={value}
         onChange={handleChange}
         placeholder={placeholder}
-        className="text-black rounded-md p-2"
+        className="rounded-md p-2 text-black"
         required
       />
     </div>
