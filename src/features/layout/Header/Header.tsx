@@ -16,7 +16,9 @@ export const Header = () => {
   const headerPosition = pathname === "/" ? "absolute bg-white" : "";
 
   return (
-    <header className={`${headerPosition} z-10 w-full ${headerBgColor}`}>
+    <header
+      className={`${headerPosition} z-10 w-full font-medium ${headerBgColor}`}
+    >
       {/* Logo */}
       <div className="flex items-center justify-between px-6 py-2 md:px-10 xl:mx-auto xl:max-w-screen-xl xl:px-16 ">
         <Link href="/">
