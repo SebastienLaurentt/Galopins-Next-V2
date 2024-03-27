@@ -4,32 +4,34 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import ActualitesCard from "../Card/ActualitesCard/ActualitesCard";
 
-interface InfoData {
+interface ActualitesFetchProps {
   title: string;
   date: string;
   description: string;
 }
 
-function News() {
-  const [infosData, setInfosData] = useState<InfoData[]>([]);
+function ActualitesFetch() {
+  const [actualitesData, setActualitesData] = useState<ActualitesFetchProps[]>(
+    []
+  );
 
   // Fetch all Randos Data
   useEffect(() => {
     axios
       .get("https://young-oasis-97886-5eb78d4cde61.herokuapp.com/api/lastinfos")
       .then((response) => {
-        setInfosData(response.data.data);
+        setActualitesData(response.data.data);
       });
   }, []);
 
   return (
     <ul className="">
-      {infosData.map((info) => (
-        <li className="mx-4 mb-10 text-center xl:mx-6">
+      {actualitesData.map((actu) => (
+        <li key={actu.title} className="mx-4 mb-10 text-center xl:mx-6">
           <ActualitesCard
-            title={info.title}
-            date={info.date}
-            description={info.description}
+            title={actu.title}
+            date={actu.date}
+            description={actu.description}
           />
         </li>
       ))}
@@ -37,4 +39,4 @@ function News() {
   );
 }
 
-export default News;
+export default ActualitesFetch;

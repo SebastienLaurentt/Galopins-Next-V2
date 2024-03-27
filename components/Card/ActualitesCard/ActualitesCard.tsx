@@ -1,15 +1,11 @@
-import Image from "next/image";
+interface ActualitesCardProps {
+  title: string;
+  date: string;
+  description: string;
+}
 
-interface ActualitesCardProps {}
-
-const ActualitesCard = ({
-
-}: ActualitesCardProps) => {
-  return (
-    <div className="">
-      Yooo
-    </div>
-  );
+const ActualitesCard = ({title, date, description}: ActualitesCardProps) => {
+  return <div className="">Yooo</div>;
 };
 
 export default ActualitesCard;
