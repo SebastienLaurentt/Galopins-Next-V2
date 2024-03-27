@@ -5,32 +5,30 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import navData from "../../../../data/navData";
-import logo from "../../../../public/images/logoGalopins.svg";
+import logo from "../../../../public/images/logoGalopins.png";
 import BurgerMenu from "./BurgerMenu";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
-  const headerBgColor = pathname === "/" ? "" : "bg-secondary";
-  const headerPosition = pathname === "/" ? "absolute " : "";
+  const headerBgColor = pathname === "/" ? "" : "bg-white";
+  const headerPosition = pathname === "/" ? "absolute bg-white" : "";
 
   return (
-    <header
-      className={`${headerPosition} text-white font-bold w-full z-10 ${headerBgColor}`}
-    >
+    <header className={`${headerPosition} z-10 w-full ${headerBgColor}`}>
       {/* Logo */}
-      <div className="flex items-center px-6 md:px-10 xl:px-16 xl:max-w-[1280px] xl:mx-auto py-2 justify-between ">
+      <div className="flex items-center justify-between px-6 py-2 md:px-10 xl:mx-auto xl:max-w-screen-xl xl:px-16 ">
         <Link href="/">
           <Image
             src={logo}
             alt="Logo Galopins"
-            className="w-20 md:w-24 lg:w-28 text-white"
+            className="w-20 text-white md:w-24 lg:w-28"
           />
         </Link>
 
         {/* Nav */}
-        <nav className="hidden lg:block lg:text-md font-medium">
+        <nav className="hidden lg:block lg:text-md">
           <ul className="flex gap-4">
             {navData.map((link) => (
               <li key={link.name}>
@@ -38,7 +36,7 @@ export const Header = () => {
                   href={link.href}
                   className={
                     pathname === link.href
-                      ? "border-b-2 border-white "
+                      ? "border-b-2 border-black font-bold"
                       : ""
                   }
                 >
@@ -50,7 +48,7 @@ export const Header = () => {
         </nav>
 
         {/* BurgerMenu Component */}
-        <div className="h-8 md:h-10 flex items-center lg:hidden ">
+        <div className="flex h-8 items-center font-bold md:h-10 lg:hidden ">
           <BurgerMenu isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>
       </div>
