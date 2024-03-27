@@ -58,7 +58,7 @@ export default function Login() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center gap-y-4 bg-stone-300">
+    <main className="flex min-h-screen flex-col items-center justify-center gap-y-4 bg-stone-300 text-white">
       <div className="rounded-md bg-slate-900 p-8">
         <h3 className="text-center">Les Galopins</h3>
         <form onSubmit={handleSubmit} className="flex flex-col gap-y-4">
