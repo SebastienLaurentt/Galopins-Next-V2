@@ -7,8 +7,9 @@ import Input from '../../../../components/AccountComponent/Form/Input';
 import AccountHeader from '../../../../components/AccountComponent/AccountHeader';
 import Textarea from '../../../../components/AccountComponent/Form/Textarea';
 import ValidationButton from '../../../../components/AccountComponent/Button/ValidationButton';
-import { useAuth } from '@/components/Auth';
+
 import { useParams, useRouter } from 'next/navigation';
+import { useAuth } from '@/components/AccountComponent/Auth/Auth';
 
 const AccountNewsUpdate = () => {
   const { id } = useParams(); // Obtenir l'ID de la nouvelle depuis l'URL

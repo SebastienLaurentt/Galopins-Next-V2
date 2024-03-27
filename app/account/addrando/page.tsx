@@ -1,24 +1,23 @@
-'use client'
+"use client";
 
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import Cookies from 'js-cookie';
-import { useNavigate } from 'react-router';
-import Input from '../../../components/AccountComponent/Form/Input';
-import AccountHeader from '../../../components/AccountComponent/AccountHeader';
-import imageCompression from 'browser-image-compression';
-import { AiOutlinePicture } from 'react-icons/ai';
-import ValidationButton from '../../../components/AccountComponent/Button/ValidationButton';
-import { RotatingLines } from  'react-loader-spinner'
-import { useAuth } from '@/components/Auth';
-import { useRouter } from 'next/navigation';
+import { useAuth } from "@/components/AccountComponent/Auth/Auth";
+import axios from "axios";
+import imageCompression from "browser-image-compression";
+import Cookies from "js-cookie";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { AiOutlinePicture } from "react-icons/ai";
+import { RotatingLines } from "react-loader-spinner";
+import AccountHeader from "../../../components/AccountComponent/AccountHeader";
+import ValidationButton from "../../../components/AccountComponent/Button/ValidationButton";
+import Input from "../../../components/AccountComponent/Form/Input";
 
 const AccountRandoAdd = () => {
-  const [date, setDate] = useState('');
-  const [destination, setDestination] = useState('');
-  const [memberNumber, setMemberNumber] = useState('');
-  const [elevation, setElevation] = useState('');
-  const [distance, setDistance] = useState('');
+  const [date, setDate] = useState("");
+  const [destination, setDestination] = useState("");
+  const [memberNumber, setMemberNumber] = useState("");
+  const [elevation, setElevation] = useState("");
+  const [distance, setDistance] = useState("");
   const [pictures, setPictures] = useState<string[]>([]);
   const [loadingImages, setLoadingImages] = useState(false);
   const [loadingSubmit, setLoadingSubmit] = useState(false);
@@ -28,13 +27,11 @@ const AccountRandoAdd = () => {
   const router = useRouter();
 
   useEffect(() => {
-
     if (!isLogged) {
       // Redirigez l'utilisateur vers la page de connexion s'il n'est pas connecté
-      router.push('/login');
+      router.push("/login");
       return;
     }
-
   }, [isLogged, router]);
 
   const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -45,17 +42,21 @@ const AccountRandoAdd = () => {
       const imageArray = await Promise.all(
         Array.from(files).map(async (file) => {
           try {
-            const compressedImage = await imageCompression(file, { maxSizeMB: 0.1 });
+            const compressedImage = await imageCompression(file, {
+              maxSizeMB: 0.1,
+            });
             const base64Image = await convertToBase64(compressedImage);
             return base64Image;
           } catch (error) {
-            console.error('Erreur lors de la compression de l\'image :', error);
+            console.error("Erreur lors de la compression de l'image :", error);
             return null;
           }
         })
       );
 
-      const filteredImages = imageArray.filter(image => image !== null) as string[];
+      const filteredImages = imageArray.filter(
+        (image) => image !== null
+      ) as string[];
 
       setPictures(filteredImages);
       setLoadingImages(false);
@@ -76,12 +77,17 @@ const AccountRandoAdd = () => {
   const renderSelectedImageCount = () => {
     if (!loadingSubmit && !showSuccessMessage && pictures.length === 0) {
       return (
-        <span className="text-red-500 mt-2 text-md">Aucune image sélectionnée</span>
+        <span className="mt-2 text-md text-red-500">
+          Aucune image sélectionnée
+        </span>
       );
     } else if (pictures.length > 0) {
       return (
-        <span className="text-green-600 mt-2 text-md">
-          {pictures.length} {pictures.length === 1 ? 'image sélectionnée' : 'images sélectionnées'} 
+        <span className="mt-2 text-md text-green-600">
+          {pictures.length}{" "}
+          {pictures.length === 1
+            ? "image sélectionnée"
+            : "images sélectionnées"}
         </span>
       );
     } else {
@@ -94,15 +100,15 @@ const AccountRandoAdd = () => {
 
     try {
       setLoadingSubmit(true);
-      const token = Cookies.get('token');
+      const token = Cookies.get("token");
 
       if (!token) {
-        console.error('Le token n\'est pas disponible.');
+        console.error("Le token n'est pas disponible.");
         return;
       }
 
       const response = await axios.post(
-        'https://young-oasis-97886-5eb78d4cde61.herokuapp.com/api/randos',
+        "https://young-oasis-97886-5eb78d4cde61.herokuapp.com/api/randos",
         {
           date,
           destination,
@@ -113,18 +119,15 @@ const AccountRandoAdd = () => {
         },
         {
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
         }
       );
 
-      setDate('');
-      setDestination('');
-      setMemberNumber(''),
-      setElevation(''),
-      setDistance(''),
-      setPictures([]);
+      setDate("");
+      setDestination("");
+      setMemberNumber(""), setElevation(""), setDistance(""), setPictures([]);
 
       console.log(response.data);
 
@@ -134,10 +137,10 @@ const AccountRandoAdd = () => {
       // Hide success message after 2 seconds
       setTimeout(() => {
         setShowSuccessMessage(false);
-        router.push('/account');
+        router.push("/account");
       }, 3000);
     } catch (error) {
-      console.error('Erreur lors de l\'ajout d\'informations :', error);
+      console.error("Erreur lors de l'ajout d'informations :", error);
     } finally {
       setLoadingSubmit(false);
     }
@@ -147,53 +150,53 @@ const AccountRandoAdd = () => {
     <div className="min-h-screen bg-stone-300 p-4 ">
       <AccountHeader />
       <main>
-        <h3 className="text-black text-center m-4">
+        <h3 className="m-4 text-center text-black">
           Formulaire d&apos;ajout d&apos;une nouvelle randonnée
         </h3>
-    
-        <div className="flex flex-col justify-center items-center justify-center bg-stone-300 p-4 mt-8">
+
+        <div className="mt-8 flex flex-col items-center justify-center bg-stone-300 p-4">
           <form
             onSubmit={handleSubmit}
-            className='flex flex-col gap-y-4 text-center bg-slate-900 p-8 rounded-md'
+            className="flex flex-col gap-y-4 rounded-md bg-slate-900 p-8 text-center"
           >
-            <Input 
-              inputName='Date'
-              value={date}  
+            <Input
+              inputName="Date"
+              value={date}
               setter={setDate}
-              placeholder='JJ/MM/AAAA'
+              placeholder="JJ/MM/AAAA"
               isDate={true}
             />
-            <Input 
-              inputName='Destination'
-              value={destination}  
+            <Input
+              inputName="Destination"
+              value={destination}
               setter={setDestination}
-              placeholder='Destination de la randonnée...'
+              placeholder="Destination de la randonnée..."
             />
-            <Input 
-              inputName='Nombre de Galopins'
-              value={memberNumber}  
+            <Input
+              inputName="Nombre de Galopins"
+              value={memberNumber}
               setter={setMemberNumber}
-              placeholder='Nombre de Galopins...'
+              placeholder="Nombre de Galopins..."
               isNumber={true}
             />
-            <Input 
-              inputName='Dénivelé (en m)'
-              value={elevation}  
+            <Input
+              inputName="Dénivelé (en m)"
+              value={elevation}
               setter={setElevation}
-              placeholder='Dénivelé de la randonnée...'
+              placeholder="Dénivelé de la randonnée..."
               isNumber={true}
             />
-            <Input 
-              inputName='Distance (en km)'
-              value={distance}  
+            <Input
+              inputName="Distance (en km)"
+              value={distance}
               setter={setDistance}
-              placeholder='Distance de la randonnée...'
+              placeholder="Distance de la randonnée..."
               isNumber={true}
             />
-            <div className='flex flex-col gap-y-1 text-md'>
+            <div className="flex flex-col gap-y-1 text-md">
               <label>
                 Images
-                <div className="flex flex-col items-center justify-center   cursor-pointer">
+                <div className="flex cursor-pointer flex-col items-center   justify-center">
                   <AiOutlinePicture size={64} />
                   <p className="mb-0">
                     <span className="text-md">
@@ -210,8 +213,8 @@ const AccountRandoAdd = () => {
                 />
               </label>
               {/* Conditionally render the Loader based on the loading state */}
-              {loadingImages && 
-                <span className='flex justify-center'>
+              {loadingImages && (
+                <span className="flex justify-center">
                   <RotatingLines
                     strokeColor="green"
                     strokeWidth="5"
@@ -220,33 +223,33 @@ const AccountRandoAdd = () => {
                     visible={true}
                   />
                 </span>
-              }
+              )}
               {/* Display number of images selected */}
               {renderSelectedImageCount()}
             </div>
             {/* Conditionally render the Loader based on the loading state */}
-            {loadingSubmit ? (
-              <span className='flex justify-center'>
-                <RotatingLines
-                  strokeColor="green"
-                  strokeWidth="5"
-                  animationDuration="0.5"
-                  width="32"
-                  visible={true}
-                />
-              </span>
-            ) : null /* Don't render the button if loadingSubmit is true */}
+            {
+              loadingSubmit ? (
+                <span className="flex justify-center">
+                  <RotatingLines
+                    strokeColor="green"
+                    strokeWidth="5"
+                    animationDuration="0.5"
+                    width="32"
+                    visible={true}
+                  />
+                </span>
+              ) : null /* Don't render the button if loadingSubmit is true */
+            }
             {/* Conditionally render the success message */}
             {showSuccessMessage && (
-              <span className="text-green-600 mt-2 text-md">
-                Rando créée ! Vous allez être redirigé. 
+              <span className="mt-2 text-md text-green-600">
+                Rando créée ! Vous allez être redirigé.
               </span>
             )}
             {/* Render the button outside the form to prevent it from re-rendering */}
             {!loadingSubmit && !showSuccessMessage && (
-              <ValidationButton
-                buttonName='Créer la nouvelle information'
-              />
+              <ValidationButton buttonName="Créer la nouvelle information" />
             )}
           </form>
         </div>
