@@ -1,3 +1,4 @@
+import ActualitesFetch from "@/components/ActualitesFetch/ActualitesFetch";
 import PageTitle from "@/components/PageTitle/PageTitle";
 import Section from "@/components/Section/Section";
 import SectionHeader from "@/components/Section/SectionHeader/SectionHeader";
@@ -22,6 +23,7 @@ function Actualites() {
           title="Quoi de nouveau chez les"
           titleHighlight="Galopins ?"
         />
+        <ActualitesFetch />
       </Section>
     </main>
   );
