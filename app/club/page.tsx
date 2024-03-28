@@ -82,6 +82,7 @@ function Club() {
             src={imgEquipe}
             alt="Carrières d'Ocre de Rustrel"
             className="mt-4 md:mt-8"
+            placeholder="blur"
           />
         </SubSection>
       </Section>
