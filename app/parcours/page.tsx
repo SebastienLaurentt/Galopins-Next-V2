@@ -60,7 +60,7 @@ function Parcours() {
             <li>
               <ParcoursCard
                 parcoursTitle="Vendredi | Journée"
-                area="Vaucluse, Gard ou Lozère"
+                area="Vaucluse ou Gard"
                 frequency="En alternance"
                 case1={
                   <>
