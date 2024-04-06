@@ -34,9 +34,6 @@ export default function Home() {
           <p className="mx-auto mb-2  w-4/5 text-md font-medium leading-6  md:mb-4 md:leading-8 lg:w-4/5 lg:text-2xl lg:leading-9">
             Club de randonnée pédestre à Montélimar
           </p>
-          <Button asChild variant="hero">
-            <Link href="/adhesion">Nous contacter</Link>
-          </Button>
         </div>
       </SectionBg>
 
