@@ -34,7 +34,7 @@ export default function BurgerMenu({ isOpen, setIsOpen }: BurgerMenuProps) {
         onClick={() => setIsOpen(true)}
         aria-label="Ouvrir le menu mobile"
       >
-        MENU
+        Menu
       </button>
 
       <nav
@@ -48,7 +48,7 @@ export default function BurgerMenu({ isOpen, setIsOpen }: BurgerMenuProps) {
           onClick={() => setIsOpen(false)}
           aria-label="Fermer le menu mobile"
         >
-          FERMER
+          Fermer
         </button>
 
         {/* Logo */}
