@@ -49,7 +49,7 @@ export default function BurgerMenu({ isOpen, setIsOpen }: BurgerMenuProps) {
           onClick={() => setIsOpen(false)}
           aria-label="Fermer le menu mobile"
         >
-          <X className="  size-8 md:size-10" />
+          Fermer
         </button>
 
         {/* Logo */}
