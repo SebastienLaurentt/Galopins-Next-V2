@@ -8,7 +8,7 @@ import "./globals.css";
 import { AuthProvider } from "@/components/AccountComponent/Auth/Auth";
 
 const roboto = Roboto({
-  weight: '400',
+  weight: ['400', '500', '700'],
   subsets: ['latin'],
 })
 

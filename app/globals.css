@@ -79,11 +79,11 @@
   }
 
   h2 {
-    @apply text-xl md:text-3xl leading-8 md:leading-[48px] font-semibold mb-4 text-primary max-w-[320px] md:max-w-[460px] lg:max-w-[480px];
+    @apply text-xl md:text-3xl leading-8 md:leading-[48px] font-bold mb-4 text-primary max-w-[320px] md:max-w-[460px] lg:max-w-[480px];
   }
 
   h3 {
-    @apply text-lg md:text-2xl leading-8 md:leading-10 font-semibold mb-4 md:mb-6 lg:mb-8 text-primary;
+    @apply text-lg md:text-2xl leading-8 md:leading-10 font-medium mb-4 md:mb-6 lg:mb-8 text-primary;
   }
 
   p {
