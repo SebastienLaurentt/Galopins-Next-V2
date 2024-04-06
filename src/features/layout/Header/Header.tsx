@@ -31,14 +31,14 @@ export const Header = () => {
 
         {/* Nav */}
         <nav className="hidden lg:block lg:text-md">
-          <ul className="flex gap-3">
+          <ul className="flex gap-3 ">
             {navData.map((link) => (
               <li key={link.name}>
                 <Link
                   href={link.href}
                   className={
                     pathname === link.href
-                      ? "border-b-2 border-black font-bold"
+                      ? "border-b-2 border-black font-bold "
                       : ""
                   }
                 >
@@ -50,7 +50,7 @@ export const Header = () => {
         </nav>
 
         {/* BurgerMenu Component */}
-        <div className="flex h-8 items-center font-bold md:h-10 lg:hidden ">
+        <div className="flex h-8 items-center md:h-10 lg:hidden ">
           <BurgerMenu isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>
       </div>
