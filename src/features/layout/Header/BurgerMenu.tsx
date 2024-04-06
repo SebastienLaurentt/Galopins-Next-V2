@@ -45,7 +45,7 @@ export default function BurgerMenu({ isOpen, setIsOpen }: BurgerMenuProps) {
       >
         {/* Close BurgerMenu */}
         <button
-          className="flex w-full justify-end px-8 py-4 md:px-10"
+          className="flex w-full justify-end px-6 py-4 md:px-10"
           onClick={() => setIsOpen(false)}
           aria-label="Fermer le menu mobile"
         >
