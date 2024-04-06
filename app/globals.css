@@ -79,7 +79,7 @@
   }
 
   h2 {
-    @apply text-xl md:text-3xl leading-8 md:leading-[48px] font-semibold mb-4 text-primary max-w-[320px] md:max-w-[500px];
+    @apply text-xl md:text-3xl leading-8 md:leading-[48px] font-semibold mb-4 text-primary max-w-[320px] md:max-w-[460px];
   }
 
   h3 {
