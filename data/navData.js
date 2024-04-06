@@ -2,32 +2,32 @@ const navData = [
   {
     href: "/",
     name: "Accueil",
-    burgerMenuName: "Accueil",
+    burgerMenuName: "ACCUEIL",
   },
   {
     href: "/club",
     name: "Club",
-    burgerMenuName: "Le Club",
+    burgerMenuName: "CLUB",
   },
   {
     href: "/parcours",
     name: "Parcours",
-    burgerMenuName: "Les Parcours",
+    burgerMenuName: "PARCOURS",
   },
   {
     href: "/photos",
     name: "Photos",
-    burgerMenuName: "Nos Photos",
+    burgerMenuName: "PHOTOS",
   },
   {
     href: "/actualites",
     name: "Actualités",
-    burgerMenuName: "Actualités",
+    burgerMenuName: "ACTUALITES",
   },
   {
     href: "/adhesion",
     name: "Adhésion",
-    burgerMenuName: "Adhésion",
+    burgerMenuName: "ADHESION",
   },
 ];
 

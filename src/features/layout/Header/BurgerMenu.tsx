@@ -1,9 +1,9 @@
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Dispatch, SetStateAction, useEffect } from "react";
 import navData from "../../../../data/navData";
 import logo from "../../../../public/images/logoGalopins.png";
+import Image from "next/image";
 
 interface BurgerMenuProps {
   isOpen: boolean;
@@ -38,38 +38,61 @@ export default function BurgerMenu({ isOpen, setIsOpen }: BurgerMenuProps) {
       </button>
 
       <nav
-        className={`fixed top-0 min-h-screen w-full flex-col bg-white  text-center transition-all duration-500 ease-in-out  ${
-          isOpen ? "left-0" : "left-full"
+        className={`fixed left-0 top-0 flex h-screen w-full flex-col justify-between  bg-white px-6 py-3 text-center transition-all duration-500 ease-out md:px-10  ${
+          isOpen ? "translate-y-0" : "translate-y-full opacity-0"
         }`}
       >
-        {/* Close BurgerMenu */}
-        <button
-          className="flex w-full justify-end p-6 text-sm font-bold md:px-10"
-          onClick={() => setIsOpen(false)}
-          aria-label="Fermer le menu mobile"
+        <div
+          className={`flex items-center justify-between font-bold transition-opacity delay-500 duration-1000 ease-out ${
+            isOpen ? "opacity-100" : "opacity-0"
+          }`}
         >
-          Fermer
-        </button>
+          <Image src={logo} alt="Logo Galopins" className="w-24" />
+          {/* <span className="text-lg">LES GALOPINS</span> */}
+          {/* Close BurgerMenu */}
+          <button
+            className=" "
+            onClick={() => setIsOpen(false)}
+            aria-label="Fermer le menu mobile"
+          >
+            Fermer
+          </button>
+        </div>
 
         {/* Logo */}
-        <Image src={logo} alt="Logo Galopins" className="mx-auto mt-32 w-60" />
+        {/* <Image src={logo} alt="Logo Galopins" className="mx-auto mt-32 w-60" /> */}
 
-        {/* Page link lists */}
-        <ul className="mt-8 flex flex-col gap-3 p-4 text-lg font-medium">
-          {navData.map((link) => (
-            <li key={link.name}>
-              <Link
-                href={link.href}
-                className={
-                  pathname === link.href ? "border-b-2 border-black" : ""
-                }
-                onClick={() => setIsOpen(false)}
-              >
-                {link.burgerMenuName}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <div className="">
+          {/* Page link lists */}
+          <ul
+            className={` mb-12 flex  flex-col text-right text-3xl font-medium delay-500 duration-700 ease-out ${
+              isOpen ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            {navData.map((link) => (
+              <li key={link.name}>
+                <Link
+                  href={link.href}
+                  className={
+                    pathname === link.href ? "border-b-4 border-black" : ""
+                  }
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.burgerMenuName}
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          <div
+            className={`flex flex-col items-end text-lg  delay-500 duration-500 ease-out ${
+              isOpen ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <span>Club de randonnée</span>
+            <span className="">Montélimar</span>
+          </div>
+        </div>
       </nav>
     </>
   );
