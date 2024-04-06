@@ -1,4 +1,3 @@
-import { X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -53,10 +52,10 @@ export default function BurgerMenu({ isOpen, setIsOpen }: BurgerMenuProps) {
         </button>
 
         {/* Logo */}
-        <Image src={logo} alt="Logo Galopins" className="mx-auto mt-16 w-60" />
+        <Image src={logo} alt="Logo Galopins" className="mx-auto mt-32 w-60" />
 
         {/* Page link lists */}
-        <ul className="mt-8 flex flex-col gap-4 p-4 text-lg font-semibold md:text-lg">
+        <ul className="mt-8 flex flex-col gap-4 p-4 text-xl font-semibold">
           {navData.map((link) => (
             <li key={link.name}>
               <Link
