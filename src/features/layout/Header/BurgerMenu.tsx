@@ -38,7 +38,7 @@ export default function BurgerMenu({ isOpen, setIsOpen }: BurgerMenuProps) {
       </button>
 
       <nav
-        className={`fixed left-0 top-0 flex h-screen w-full flex-col justify-between  bg-white px-6 py-3 text-center transition-all duration-500 ease-out md:px-10  ${
+        className={`fixed left-0 top-0 flex h-screen w-full flex-col justify-between  bg-white px-6 pt-3 pb-12 text-center transition-all duration-500 ease-out md:px-10  ${
           isOpen ? "translate-y-0" : "translate-y-full opacity-0"
         }`}
       >
