@@ -29,9 +29,9 @@ export default function Home() {
         minHeightScreen={false}
         className="flex flex-col justify-center"
       >
-        <div className="mx-auto max-w-[280px] pb-4 text-center text-white  md:max-w-[400px] lg:max-w-[500px] lg:pb-16 xl:max-w-screen-xl xl:pb-0  xl:pt-24">
+        <div className="mx-auto max-w-[260px] pb-4 text-center text-white  md:max-w-[400px] lg:max-w-[500px] lg:pb-16 xl:max-w-screen-xl xl:pb-0  xl:pt-24">
           <h1 className="mb-2 md:mb-4"> LES GALOPINS </h1>
-          <p className="mx-auto mb-2  w-4/5 text-md font-medium leading-6  md:mb-4 md:leading-8 lg:w-4/5 lg:text-2xl lg:leading-9">
+          <p className="mx-auto mb-2  w-4/5 text-md font-medium leading-6  md:mb-4 md:leading-7 lg:w-4/5 lg:text-2xl lg:leading-9">
             Club de randonnée pédestre à Montélimar
           </p>
         </div>
