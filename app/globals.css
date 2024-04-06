@@ -93,7 +93,7 @@
   /* Custom Class */
 
   .clubIcon {
-    @apply  h-20 md:h-28 w-20 md:w-28;
+    @apply h-20 md:h-28 w-20 md:w-28;
   }
 
   .mentionsH2 {
@@ -105,11 +105,11 @@
   }
 
   .areaTags {
-    @apply text-xs md:text-sm rounded-xl px-2 py-1 text-white 
+    @apply text-xs md:text-sm rounded-xl px-2 py-1 text-white;
   }
 
   .iconPhoto {
-    @apply text-3xl md:text-4xl 2xl:text-5xl
+    @apply text-3xl md:text-4xl 2xl:text-5xl;
   }
-  
+
 }

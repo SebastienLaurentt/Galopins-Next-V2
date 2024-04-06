@@ -16,9 +16,7 @@ export const Header = () => {
   const headerVisibility = /^\/(login|account)/.test(pathname) ? "hidden" : "";
 
   return (
-    <header
-      className={`${headerPosition} ${headerVisibility} z-10 w-full`}
-    >
+    <header className={`${headerPosition} ${headerVisibility} z-10 w-full`}>
       {/* Logo */}
       <div className="flex items-center justify-between px-6 py-4 md:px-10 xl:mx-auto xl:max-w-screen-xl xl:px-16 ">
         <Link href="/">
@@ -31,15 +29,14 @@ export const Header = () => {
 
         {/* Nav */}
         <nav className="hidden lg:block lg:text-md">
-          <ul className="flex gap-3 ">
+          <ul className="flex gap-3">
             {navData.map((link) => (
               <li key={link.name}>
                 <Link
                   href={link.href}
                   className={
-                    pathname === link.href
-                      ? "border-b-2 border-black font-bold "
-                      : ""
+                    "relative w-fit block after:block after:content-[''] after:absolute after:h-[2px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-500 after:origin-left font-medium" +
+                    (pathname === link.href ? " border-b-[2px] border-black" : "")
                   }
                 >
                   {link.name}
