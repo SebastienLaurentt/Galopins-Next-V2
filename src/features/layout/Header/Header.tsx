@@ -31,7 +31,7 @@ export const Header = () => {
 
         {/* Nav */}
         <nav className="hidden lg:block lg:text-md">
-          <ul className="flex gap-4">
+          <ul className="flex gap-3">
             {navData.map((link) => (
               <li key={link.name}>
                 <Link
