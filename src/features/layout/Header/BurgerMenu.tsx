@@ -1,9 +1,9 @@
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Dispatch, SetStateAction, useEffect } from "react";
 import navData from "../../../../data/navData";
 import logo from "../../../../public/images/logoGalopins.png";
-import Image from "next/image";
 
 interface BurgerMenuProps {
   isOpen: boolean;
@@ -38,7 +38,7 @@ export default function BurgerMenu({ isOpen, setIsOpen }: BurgerMenuProps) {
       </button>
 
       <nav
-        className={`fixed left-0 top-0 flex h-screen w-full flex-col justify-between  bg-white px-6 pt-3 pb-12 text-center transition-all duration-500 ease-out md:px-10  ${
+        className={`fixed left-0 top-0 flex h-screen w-full flex-col justify-between  bg-white px-6 pb-24 pt-3 text-center transition-all duration-500 ease-out md:px-10  ${
           isOpen ? "translate-y-0" : "translate-y-full opacity-0"
         }`}
       >
@@ -65,7 +65,7 @@ export default function BurgerMenu({ isOpen, setIsOpen }: BurgerMenuProps) {
         <div className="">
           {/* Page link lists */}
           <ul
-            className={` mb-12 flex  flex-col text-right text-3xl font-medium delay-500 duration-700 ease-out ${
+            className={` mb-8 flex  flex-col text-right text-3xl font-medium delay-500 duration-700 ease-out ${
               isOpen ? "opacity-100" : "opacity-0"
             }`}
           >
