@@ -44,7 +44,7 @@ export default function BurgerMenu({ isOpen, setIsOpen }: BurgerMenuProps) {
       >
         {/* Close BurgerMenu */}
         <button
-          className="flex w-full justify-end px-6 py-4 font-bold md:px-10"
+          className="flex w-full justify-end p-6 text-sm font-bold md:px-10"
           onClick={() => setIsOpen(false)}
           aria-label="Fermer le menu mobile"
         >
@@ -61,9 +61,7 @@ export default function BurgerMenu({ isOpen, setIsOpen }: BurgerMenuProps) {
               <Link
                 href={link.href}
                 className={
-                  pathname === link.href
-                    ? "border-b-2 border-black"
-                    : ""
+                  pathname === link.href ? "border-b-2 border-black" : ""
                 }
                 onClick={() => setIsOpen(false)}
               >
