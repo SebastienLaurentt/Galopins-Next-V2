@@ -20,12 +20,12 @@ export const Header = () => {
       className={`${headerPosition} ${headerVisibility} z-10 w-full font-semibold`}
     >
       {/* Logo */}
-      <div className="flex items-center justify-between px-6 py-3 md:px-10 xl:mx-auto xl:max-w-screen-xl xl:px-16 ">
+      <div className="flex items-center justify-between px-6 py-4 md:px-10 xl:mx-auto xl:max-w-screen-xl xl:px-16 ">
         <Link href="/">
           <Image
             src={logo}
             alt="Logo Galopins"
-            className="w-20 text-white md:w-24 lg:w-28"
+            className="w-24 text-white lg:w-28"
           />
         </Link>
 
