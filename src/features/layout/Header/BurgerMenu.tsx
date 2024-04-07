@@ -61,7 +61,7 @@ export default function BurgerMenu({ isOpen, setIsOpen }: BurgerMenuProps) {
         <div className="">
           {/* Page link lists */}
           <ul
-            className={` mb-8 flex  flex-col px-6 text-right text-3xl font-medium leading-[52px] delay-500 duration-700 ease-out ${
+            className={` mb-8 flex  flex-col px-6 text-right text-2xl font-medium leading-[44px] delay-500 duration-700 ease-out ${
               isOpen ? "opacity-100" : "opacity-0"
             }`}
           >
@@ -81,7 +81,7 @@ export default function BurgerMenu({ isOpen, setIsOpen }: BurgerMenuProps) {
           </ul>
 
           <div
-            className={`flex flex-col items-end bg-secondary text-lg italic py-2 leading-7 text-white delay-500 duration-500 ease-out ${
+            className={`flex flex-col items-end bg-secondary py-3 text-lg italic leading-7 text-white delay-500 duration-500 ease-out ${
               isOpen ? "opacity-100" : "opacity-0"
             }`}
           >

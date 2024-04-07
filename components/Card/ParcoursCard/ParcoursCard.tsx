@@ -21,7 +21,7 @@ const ParcoursCard = ({
         <h3 className="mb-1 text-white">{parcoursTitle}</h3>
         <span className="mb-2 text-white md:text-md">{area}</span>
       </div>
-      <div className="border-x-2 border-b-2  border-green-800 py-4 md:text-md">
+      <div className="border-x-2 border-b-2  border-secondary py-4 md:text-md">
         <span>{frequency}</span>
         <ul>
           <li>{case1}</li>
