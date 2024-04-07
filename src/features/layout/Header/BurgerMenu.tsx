@@ -38,7 +38,7 @@ export default function BurgerMenu({ isOpen, setIsOpen }: BurgerMenuProps) {
       </button>
 
       <nav
-        className={`fixed left-0 top-0 flex h-screen w-full flex-col justify-between  bg-white px-6 pb-24 pt-3 text-center transition-all duration-500 ease-out md:px-10  ${
+        className={`fixed left-0 top-0 flex h-screen w-full flex-col justify-between  bg-white px-6 pb-28 pt-3 text-center transition-all duration-500 ease-out md:px-10  ${
           isOpen ? "translate-y-0" : "translate-y-full opacity-0"
         }`}
       >
@@ -48,7 +48,6 @@ export default function BurgerMenu({ isOpen, setIsOpen }: BurgerMenuProps) {
           }`}
         >
           <Image src={logo} alt="Logo Galopins" className="w-24" />
-          {/* <span className="text-lg">LES GALOPINS</span> */}
           {/* Close BurgerMenu */}
           <button
             className=" "
@@ -59,13 +58,10 @@ export default function BurgerMenu({ isOpen, setIsOpen }: BurgerMenuProps) {
           </button>
         </div>
 
-        {/* Logo */}
-        {/* <Image src={logo} alt="Logo Galopins" className="mx-auto mt-32 w-60" /> */}
-
         <div className="">
           {/* Page link lists */}
           <ul
-            className={` mb-8 flex  flex-col text-right text-3xl font-medium delay-500 duration-700 ease-out ${
+            className={` mb-8 flex  flex-col text-right text-3xl font-medium leading-[52px] delay-500 duration-700 ease-out ${
               isOpen ? "opacity-100" : "opacity-0"
             }`}
           >
@@ -85,7 +81,7 @@ export default function BurgerMenu({ isOpen, setIsOpen }: BurgerMenuProps) {
           </ul>
 
           <div
-            className={`flex flex-col items-end text-lg  delay-500 duration-500 ease-out ${
+            className={`flex flex-col items-end text-lg  italic leading-7 delay-500 duration-500 ease-out ${
               isOpen ? "opacity-100" : "opacity-0"
             }`}
           >
