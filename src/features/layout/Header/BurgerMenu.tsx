@@ -38,12 +38,12 @@ export default function BurgerMenu({ isOpen, setIsOpen }: BurgerMenuProps) {
       </button>
 
       <nav
-        className={`fixed left-0 top-0 flex h-screen w-full flex-col justify-between  bg-white px-6 pb-28 pt-3 text-center transition-all duration-500 ease-out md:px-10  ${
+        className={`fixed left-0 top-0 flex h-screen w-full flex-col justify-between  bg-white pb-28 pt-3 text-center transition-all duration-500 ease-out md:px-10  ${
           isOpen ? "translate-y-0" : "translate-y-full opacity-0"
         }`}
       >
         <div
-          className={`flex items-center justify-between font-bold transition-opacity delay-500 duration-1000 ease-out ${
+          className={`flex items-center justify-between px-6 font-bold transition-opacity delay-500 duration-1000 ease-out ${
             isOpen ? "opacity-100" : "opacity-0"
           }`}
         >
@@ -61,7 +61,7 @@ export default function BurgerMenu({ isOpen, setIsOpen }: BurgerMenuProps) {
         <div className="">
           {/* Page link lists */}
           <ul
-            className={` mb-8 flex  flex-col text-right text-3xl font-medium leading-[52px] delay-500 duration-700 ease-out ${
+            className={` mb-8 flex  flex-col px-6 text-right text-3xl font-medium leading-[52px] delay-500 duration-700 ease-out ${
               isOpen ? "opacity-100" : "opacity-0"
             }`}
           >
@@ -81,12 +81,12 @@ export default function BurgerMenu({ isOpen, setIsOpen }: BurgerMenuProps) {
           </ul>
 
           <div
-            className={`flex flex-col items-end text-lg  italic leading-7 delay-500 duration-500 ease-out ${
+            className={`flex flex-col items-end bg-secondary text-lg italic py-2 leading-7 text-white delay-500 duration-500 ease-out ${
               isOpen ? "opacity-100" : "opacity-0"
             }`}
           >
-            <span>Club de randonnée</span>
-            <span className="">Montélimar</span>
+            <span className="px-6">Club de randonnée</span>
+            <span className="px-6">Montélimar</span>
           </div>
         </div>
       </nav>
