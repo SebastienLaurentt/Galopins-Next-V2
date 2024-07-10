@@ -6,11 +6,18 @@ import { Header } from "@/src/features/layout/Header/Header";
 import clsx from "clsx";
 import { Lato } from "next/font/google";
 import "./globals.css";
+import { Metadata } from "next";
 
 const lato = Lato({
   weight: ["400", "700"],
   subsets: ["latin"],
 });
+
+export const metadata: Metadata = {
+  title: "Les Galopins de Montélimar",
+  description:
+    "Bienvenue sur le site de notre club de randonnée pédestre situé à Montélimar !",
+};
 
 export default function RootLayout({
   children,

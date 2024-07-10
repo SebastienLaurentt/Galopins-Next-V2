@@ -1,25 +1,46 @@
+"use client";
+
 import LinkButton from "@/components/Button/LinkButton/LinkButton";
 import AreaCard from "@/components/Card/AreaCard/AreaCard";
 import ParcoursCard from "@/components/Card/ParcoursCard/ParcoursCard";
 import ClubIcon from "@/components/ClubIcon/ClubIcon";
 import Section from "@/components/Section/Section";
 import SectionHeader from "@/components/Section/SectionHeader/SectionHeader";
-import { Button } from "@/components/ui/button";
 import { CalendarCheck, Mountain, Users } from "lucide-react";
-import { Metadata } from "next";
-import Link from "next/link";
+import { useEffect } from "react";
 import logoArdeche from "../public/images/Ardeche.webp";
 import logoDrome from "../public/images/Drome.webp";
 import img from "../public/images/Home.webp";
 import logoVaucluse from "../public/images/Vaucluse.webp";
 
-export const metadata: Metadata = {
-  title: "Les Galopins de Montélimar",
-  description:
-    "Bienvenue sur le site de notre club de randonnée pédestre situé à Montélimar !",
-};
+interface RellaxOptions {
+  speed?: number;
+  center?: boolean;
+  wrapper?: HTMLElement | null;
+  round?: boolean;
+  vertical?: boolean;
+  horizontal?: boolean;
+  callback?(position: { x: number; y: number }): void;
+}
+
+// Définir la classe Rellax
+class Rellax {
+  constructor(selector: string | HTMLElement, options?: RellaxOptions) {}
+  refresh(): void {}
+  destroy(): void {}
+}
 
 export default function Home() {
+  useEffect(() => {
+    new Rellax(".parallax", {
+      speed: -2,
+      center: false,
+      wrapper: null,
+      round: true,
+      vertical: true,
+      horizontal: false,
+    });
+  }, []);
   return (
     <main className="mb-20 md:mb-24 lg:mb-32">
       {/* Hero Section */}
@@ -37,7 +58,7 @@ export default function Home() {
 
       <section className="parallax-container mx-auto mt-4 flex lg:mt-5 xl:hidden">
         <div
-          className="parallax relative mx-auto h-[300px] w-full overflow-hidden md:h-[400px] lg:h-[500px]"
+          className="parallax relative mx-auto h-[300px] w-full overflow-hidden bg-cover bg-center bg-no-repeat md:h-[400px] lg:h-[500px] lg:bg-fixed"
           style={{ backgroundImage: `url(${img.src})` }}
         >
           <div className="parallax-overlay absolute inset-0 z-0 bg-black opacity-50"></div>
@@ -46,11 +67,11 @@ export default function Home() {
 
       <section className="parallax-container mx-auto mt-8 hidden xl:flex xl:px-4">
         <div
-          className="parallax relative mx-auto w-full overflow-hidden rounded-3xl lg:h-[600px] 2xl:h-[800px]"
+          className="parallax relative mx-auto w-full overflow-hidden rounded-3xl bg-cover bg-center bg-no-repeat lg:h-[600px] lg:bg-fixed 2xl:h-[800px]"
           style={{ backgroundImage: `url(${img.src})` }}
         >
-          <div className="parallax-overlay absolute bg-black opacity-50"></div>
-          <div className="relative mx-auto text-center text-white lg:mt-40 2xl:mt-56 lg:max-w-[680px] lg:space-y-4 ">
+          <div className="parallax-overlay absolute inset-0 bg-black opacity-50"></div>
+          <div className="relative mx-auto text-center text-white lg:mt-40 lg:max-w-[680px] lg:space-y-4 2xl:mt-56 ">
             <h1>Les Galopins de Montélimar</h1>
             <p className="text-md leading-6">
               Bienvenue sur le site de notre club.
