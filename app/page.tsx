@@ -46,11 +46,11 @@ export default function Home() {
 
       <section className="parallax-container mx-auto mt-8 hidden xl:flex xl:px-4">
         <div
-          className="parallax relative mx-auto w-full overflow-hidden rounded-3xl lg:h-[600px]"
+          className="parallax relative mx-auto w-full overflow-hidden rounded-3xl lg:h-[600px] 2xl:h-[800px]"
           style={{ backgroundImage: `url(${img.src})` }}
         >
           <div className="parallax-overlay absolute bg-black opacity-50"></div>
-          <div className="relative mx-auto text-center text-white lg:mt-40 lg:max-w-[680px] lg:space-y-4 ">
+          <div className="relative mx-auto text-center text-white lg:mt-40 2xl:mt-56 lg:max-w-[680px] lg:space-y-4 ">
             <h1>Les Galopins de Montélimar</h1>
             <p className="text-md leading-6">
               Bienvenue sur le site de notre club.
