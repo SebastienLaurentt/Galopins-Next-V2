@@ -25,7 +25,7 @@ export default function Home() {
       {/* Hero Section */}
 
       <Section>
-        <div className="mx-auto mt-20 flex max-w-[340px] flex-col items-center space-y-2 text-center md:max-w-[570px] lg:mb-4 lg:mt-32 lg:max-w-[680px] lg:space-y-4 xl:hidden">
+        <div className="mx-auto mt-16 flex max-w-[340px] flex-col items-center space-y-2 text-center md:max-w-[570px] lg:mb-4 lg:mt-32 lg:max-w-[680px] lg:space-y-4 xl:hidden">
           <h1> Les Galopins de Montélimar </h1>
           <p className="text-sm leading-5 md:text-md md:leading-6">
             Bienvenue sur le site de notre club.
