@@ -87,7 +87,7 @@ function Parcours() {
             <Image
               src={parcoursImg}
               alt="Randonneurs dans les bois"
-              className="mb-4 md:mb-8 xl:mb-0"
+              className="mb-4 rounded-lg md:mb-8 xl:mb-0"
             />
           </div>
           <div className="flex flex-col justify-center xl:w-2/5">

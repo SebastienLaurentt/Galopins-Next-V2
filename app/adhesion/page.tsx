@@ -36,7 +36,7 @@ function Adhesion() {
             <Image
               src={imgAdhesion}
               alt=""
-              className="mb-4 md:mb-8 xl:mb-0"
+              className="mb-4 rounded-lg md:mb-8 xl:mb-0"
               priority
               placeholder="blur"
             />

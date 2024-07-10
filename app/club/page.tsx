@@ -50,14 +50,14 @@ function Club() {
             <Image
               src={imgDigue}
               alt="Carrières d'Ocre de Rustrel"
-              className="lg:hidden"
+              className="rounded-lg lg:hidden"
               priority
               placeholder="blur"
             />
             <Image
               src={imgAbbaye}
               alt="Carrières d'Ocre de Rustrel"
-              className="hidden lg:block"
+              className="hidden rounded-lg lg:block"
               priority
               placeholder="blur"
             />
@@ -81,7 +81,7 @@ function Club() {
           <Image
             src={imgEquipe}
             alt="Carrières d'Ocre de Rustrel"
-            className="mt-4 md:mt-8"
+            className="mt-4 rounded-lg md:mt-8"
             placeholder="blur"
           />
         </SubSection>

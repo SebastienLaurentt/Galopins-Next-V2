@@ -7,12 +7,11 @@ import SectionHeader from "@/components/Section/SectionHeader/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { CalendarCheck, Mountain, Users } from "lucide-react";
 import { Metadata } from "next";
-import Image from "next/image";
+import Link from "next/link";
 import logoArdeche from "../public/images/Ardeche.webp";
 import logoDrome from "../public/images/Drome.webp";
 import img from "../public/images/Home.webp";
 import logoVaucluse from "../public/images/Vaucluse.webp";
-import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Les Galopins de Montélimar",
@@ -24,42 +23,43 @@ export default function Home() {
   return (
     <main className="mb-20 md:mb-24 lg:mb-32">
       {/* Hero Section */}
-      {/* <SectionBg
-        bg={img}
-        minHeightScreen={false}
-        className="flex flex-col justify-center"
-      >
-        <div className="mx-auto max-w-[260px] pb-4 text-center text-white  md:max-w-[400px] lg:max-w-[500px] lg:pb-16 xl:max-w-screen-xl xl:pb-0  xl:pt-24">
-          <h1 className="mb-2 md:mb-4"> LES GALOPINS </h1>
-          <p className="mx-auto mb-2  w-4/5 text-md font-medium leading-6  md:mb-4 md:leading-7 lg:w-4/5 lg:text-2xl lg:leading-9">
-            Club de randonnée pédestre à Montélimar
-          </p>
-        </div>
-      </SectionBg> */}
+
       <Section>
-        <div className="mx-auto mb-4 mt-16 max-w-[340px] space-y-2 text-center md:max-w-[570px] lg:mb-4 lg:mt-32 lg:max-w-[680px] lg:space-y-4 xl:mt-20">
+        <div className="mx-auto mt-20 flex max-w-[340px] flex-col items-center space-y-2 text-center md:max-w-[570px] lg:mb-4 lg:mt-32 lg:max-w-[680px] lg:space-y-4 xl:hidden">
           <h1> Les Galopins de Montélimar </h1>
-          <p className="text-sm leading-5 md:text-md md:leading-6 lg:text-lg lg:leading-8">
+          <p className="text-sm leading-5 md:text-md md:leading-6">
             Bienvenue sur le site de notre club.
             <br />
             Découvrez notre histoire, nos parcours ou nos dernières photos !
           </p>
-          <Button asChild className="bg-green-700 text-white">
-            <Link href="/photos">
-            Nos Photos
-            </Link>
-          </Button>
         </div>
       </Section>
 
-      <Section>
-        <div>
-          <div className="relative mx-auto w-full overflow-hidden rounded-3xl ">
-            <Image src={img} alt="yyy" className="w-full" />
-            <div className="absolute inset-0 bg-black opacity-50"></div>
+      <section className="parallax-container mx-auto mt-4 flex lg:mt-5 xl:hidden">
+        <div
+          className="parallax relative mx-auto h-[300px] w-full overflow-hidden md:h-[400px] lg:h-[500px]"
+          style={{ backgroundImage: `url(${img.src})` }}
+        >
+          <div className="parallax-overlay absolute inset-0 z-0 bg-black opacity-50"></div>
+        </div>
+      </section>
+
+      <section className="parallax-container mx-auto mt-8 hidden xl:flex xl:px-4">
+        <div
+          className="parallax relative mx-auto w-full overflow-hidden rounded-3xl lg:h-[600px]"
+          style={{ backgroundImage: `url(${img.src})` }}
+        >
+          <div className="parallax-overlay absolute bg-black opacity-50"></div>
+          <div className="relative mx-auto text-center text-white lg:mt-40 lg:max-w-[680px] lg:space-y-4 ">
+            <h1>Les Galopins de Montélimar</h1>
+            <p className="text-md leading-6">
+              Bienvenue sur le site de notre club.
+              <br />
+              Découvrez notre histoire, nos parcours ou nos dernières photos !
+            </p>
           </div>
         </div>
-      </Section>
+      </section>
 
       {/* Area Section */}
       <Section marginBottom={true} marginTop={true} classname="">

@@ -35,7 +35,7 @@ const AreaCard = ({
           </div>
         </div>
         <div className="">
-          <Image src={src} alt={alt} placeholder="blur" className="rounded-md" />
+          <Image src={src} alt={alt} placeholder="blur" className="rounded-lg" />
         </div>
 
         <p className="text-sm md:text-sm">{areaDescription}</p>

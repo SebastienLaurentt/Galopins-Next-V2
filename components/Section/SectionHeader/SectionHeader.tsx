@@ -16,7 +16,7 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
       <h2>
         {title} <span className="text-accent">{titleHighlight}</span>
       </h2>
-      <p>{titleDescription}</p>
+      <p className="">{titleDescription}</p>
     </div>
   );
 };
