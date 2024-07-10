@@ -12,11 +12,10 @@ export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
-  const headerPosition = pathname === "/" ? "absolute bg-white" : "";
   const headerVisibility = /^\/(login|account)/.test(pathname) ? "hidden" : "";
 
   return (
-    <header className={`${headerPosition} ${headerVisibility} z-10 w-full`}>
+    <header className={`${headerVisibility} z-10 w-full`}>
       {/* Logo */}
       <div className="flex items-center justify-between px-6 py-3 md:px-10 xl:mx-auto xl:max-w-screen-xl xl:px-16 ">
         <Link href="/">

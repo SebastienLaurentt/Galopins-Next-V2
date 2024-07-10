@@ -3,16 +3,16 @@ import AreaCard from "@/components/Card/AreaCard/AreaCard";
 import ParcoursCard from "@/components/Card/ParcoursCard/ParcoursCard";
 import ClubIcon from "@/components/ClubIcon/ClubIcon";
 import Section from "@/components/Section/Section";
-import SectionBg from "@/components/Section/SectionBg/SectionBg";
 import SectionHeader from "@/components/Section/SectionHeader/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { CalendarCheck, Mountain, Users } from "lucide-react";
 import { Metadata } from "next";
-import Link from "next/link";
+import Image from "next/image";
 import logoArdeche from "../public/images/Ardeche.webp";
 import logoDrome from "../public/images/Drome.webp";
 import img from "../public/images/Home.webp";
 import logoVaucluse from "../public/images/Vaucluse.webp";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Les Galopins de Montélimar",
@@ -24,7 +24,7 @@ export default function Home() {
   return (
     <main className="mb-20 md:mb-24 lg:mb-32">
       {/* Hero Section */}
-      <SectionBg
+      {/* <SectionBg
         bg={img}
         minHeightScreen={false}
         className="flex flex-col justify-center"
@@ -35,7 +35,31 @@ export default function Home() {
             Club de randonnée pédestre à Montélimar
           </p>
         </div>
-      </SectionBg>
+      </SectionBg> */}
+      <Section>
+        <div className="mx-auto mb-4 mt-20 max-w-[340px] space-y-2 text-center md:max-w-[460px] lg:mb-4 lg:mt-32 lg:max-w-[680px] lg:space-y-4 xl:mt-20">
+          <h1> Les Galopins de Montélimar </h1>
+          <p className="text-sm leading-5 md:text-md md:leading-6 lg:text-lg lg:leading-8">
+            Bienvenue sur le site de notre club.
+            <br />
+            Découvrez notre histoire, nos parcours ou nos dernières photos !
+          </p>
+          <Button asChild className="bg-green-600 text-white">
+            <Link href="/photos">
+            Nos Photos
+            </Link>
+          </Button>
+        </div>
+      </Section>
+
+      <Section>
+        <div>
+          <div className="relative mx-auto w-full overflow-hidden rounded-3xl ">
+            <Image src={img} alt="yyy" className="w-full" />
+            <div className="absolute inset-0 bg-black opacity-50"></div>
+          </div>
+        </div>
+      </Section>
 
       {/* Area Section */}
       <Section marginBottom={true} marginTop={true} classname="">
