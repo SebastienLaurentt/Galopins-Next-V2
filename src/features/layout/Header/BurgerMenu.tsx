@@ -30,7 +30,7 @@ export default function BurgerMenu({ isOpen, setIsOpen }: BurgerMenuProps) {
     <>
       {/* Open BurgerMenu */}
       <button
-        className="font-bold"
+        className="font-bold md:text-md"
         onClick={() => setIsOpen(true)}
         aria-label="Ouvrir le menu mobile"
       >

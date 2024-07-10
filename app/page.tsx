@@ -37,14 +37,14 @@ export default function Home() {
         </div>
       </SectionBg> */}
       <Section>
-        <div className="mx-auto mb-4 mt-20 max-w-[340px] space-y-2 text-center md:max-w-[460px] lg:mb-4 lg:mt-32 lg:max-w-[680px] lg:space-y-4 xl:mt-20">
+        <div className="mx-auto mb-4 mt-16 max-w-[340px] space-y-2 text-center md:max-w-[570px] lg:mb-4 lg:mt-32 lg:max-w-[680px] lg:space-y-4 xl:mt-20">
           <h1> Les Galopins de Montélimar </h1>
           <p className="text-sm leading-5 md:text-md md:leading-6 lg:text-lg lg:leading-8">
             Bienvenue sur le site de notre club.
             <br />
             Découvrez notre histoire, nos parcours ou nos dernières photos !
           </p>
-          <Button asChild className="bg-green-600 text-white">
+          <Button asChild className="bg-green-700 text-white">
             <Link href="/photos">
             Nos Photos
             </Link>
