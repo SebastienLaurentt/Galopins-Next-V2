@@ -41,8 +41,12 @@ export default function Home() {
 
       <section className="mt-4 xl:hidden">
         <div>
-          <div className="relative mx-auto w-full overflow-hidden ">
-            <Image src={img} alt="yyy" className="w-full" />
+          <div className="relative mx-auto h-[300px] w-full overflow-hidden md:h-[400px] lg:h-[500px]">
+            <Image
+              src={img}
+              alt="yyy"
+              className="size-full scale-125 object-cover object-center"
+            />
             <div className="absolute inset-0 bg-black opacity-50"></div>
           </div>
         </div>
