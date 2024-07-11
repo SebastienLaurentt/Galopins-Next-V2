@@ -32,7 +32,7 @@ export default function Home() {
             <br />
             Découvrez notre histoire, nos parcours ou nos dernières photos !
           </p>
-          <Button asChild variant="green" className="z-30 flex md:hidden">
+          <Button asChild variant="green" className="flex md:hidden">
             <Link href="/photos">Nos Photos</Link>
           </Button>
         </div>
