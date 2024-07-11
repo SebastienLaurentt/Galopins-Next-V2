@@ -4,34 +4,16 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import navData from "../../../../data/navData";
 import logo from "../../../../public/images/logoGalopins.png";
 import BurgerMenu from "./BurgerMenu";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isLargeScreen, setIsLargeScreen] = useState(false);
   const pathname = usePathname();
 
   const headerVisibility = /^\/(login|account)/.test(pathname) ? "hidden" : "";
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsLargeScreen(window.innerWidth >= 768); // Supposons que le point de rupture 'md' soit 768px
-    };
-
-    window.addEventListener("resize", handleResize);
-    handleResize(); // Vérification initiale
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  const filteredNavData = isLargeScreen
-    ? navData.filter((link) => link.name !== "Photos")
-    : navData;
 
   return (
     <header className={`${headerVisibility} z-10 w-full`}>
@@ -46,16 +28,16 @@ export const Header = () => {
         </Link>
 
         {/* Nav */}
-        <nav className="hidden md:absolute md:left-0 md:flex md:w-full md:justify-center lg:text-md">
+        <nav className="hidden  md:absolute md:left-0 md:flex md:w-full md:justify-center lg:text-md">
           <ul className="flex gap-3">
-            {filteredNavData.map((link) => (
-              <li key={link.name}>
+            {navData.map((link) => (
+              <li key={link.name} className={link.name === "Photos" ? "md:hidden" : ""}>
                 <Link
                   href={link.href}
                   className={
-                    "relative w-fit block after:block after:content-[''] after:absolute after:h-[2px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-500 after:origin-left font-medium" +
+                    "relative font-medium w-fit block after:block after:content-[''] after:absolute after:h-[2px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-500 after:origin-left " +
                     (pathname === link.href
-                      ? " border-b-[2px] border-black"
+                      ? " border-b-[2px] border-black "
                       : "")
                   }
                 >
