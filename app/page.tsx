@@ -46,6 +46,8 @@ export default function Home() {
               src={img}
               alt="yyy"
               className="size-full scale-125 object-cover object-center"
+              priority
+              placeholder="blur"
             />
             <div className="absolute inset-0 bg-black opacity-50"></div>
           </div>
