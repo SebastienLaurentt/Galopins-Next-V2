@@ -15,7 +15,7 @@ const DownloadButton = ({
 }: DownloadButtonProps) => {
   return (
     <div className={`${classname}`}>
-      <Button variant="download">
+      <Button variant="green">
         <a href={href} download={fileName}>
           {linkName}
         </a>

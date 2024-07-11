@@ -66,7 +66,7 @@ export const Header = () => {
           </ul>
         </nav>
 
-        <Button asChild className="z-30 hidden bg-green-700 text-white md:flex">
+        <Button asChild variant="green" className="z-30 hidden md:flex">
           <Link href="/photos">Nos Photos</Link>
         </Button>
 

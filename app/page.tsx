@@ -4,8 +4,10 @@ import ParcoursCard from "@/components/Card/ParcoursCard/ParcoursCard";
 import ClubIcon from "@/components/ClubIcon/ClubIcon";
 import Section from "@/components/Section/Section";
 import SectionHeader from "@/components/Section/SectionHeader/SectionHeader";
+import { Button } from "@/components/ui/button";
 import { CalendarCheck, Mountain, Users } from "lucide-react";
 import { Metadata } from "next";
+import Link from "next/link";
 import logoArdeche from "../public/images/Ardeche.webp";
 import logoDrome from "../public/images/Drome.webp";
 import img from "../public/images/Home.webp";
@@ -30,6 +32,9 @@ export default function Home() {
             <br />
             Découvrez notre histoire, nos parcours ou nos dernières photos !
           </p>
+          <Button asChild variant="green" className="z-30 flex md:hidden">
+            <Link href="/photos">Nos Photos</Link>
+          </Button>
         </div>
       </Section>
 
