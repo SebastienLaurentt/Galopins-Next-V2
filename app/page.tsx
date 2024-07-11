@@ -7,6 +7,7 @@ import SectionHeader from "@/components/Section/SectionHeader/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { CalendarCheck, Mountain, Users } from "lucide-react";
 import { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import logoArdeche from "../public/images/Ardeche.webp";
 import logoDrome from "../public/images/Drome.webp";
@@ -38,12 +39,12 @@ export default function Home() {
         </div>
       </Section>
 
-      <section className="parallax-container mx-auto mt-4 flex lg:mt-5 xl:hidden">
-        <div
-          className="parallax relative mx-auto h-[300px] w-full overflow-hidden md:h-[400px] lg:h-[500px]"
-          style={{ backgroundImage: `url(${img.src})` }}
-        >
-          <div className="parallax-overlay absolute inset-0 z-0 bg-black opacity-50"></div>
+      <section className="mt-4 xl:hidden">
+        <div>
+          <div className="relative mx-auto w-full overflow-hidden ">
+            <Image src={img} alt="yyy" className="w-full" />
+            <div className="absolute inset-0 bg-black opacity-50"></div>
+          </div>
         </div>
       </section>
 
