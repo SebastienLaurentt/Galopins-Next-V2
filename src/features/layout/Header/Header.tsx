@@ -46,7 +46,7 @@ export const Header = () => {
         </Link>
 
         {/* Nav */}
-        <nav className="hidden md:block lg:text-md">
+        <nav className="hidden md:absolute md:left-0 md:flex md:w-full md:justify-center lg:text-md">
           <ul className="flex gap-3">
             {filteredNavData.map((link) => (
               <li key={link.name}>
@@ -71,7 +71,7 @@ export const Header = () => {
         </Button>
 
         {/* BurgerMenu Component */}
-        <div className="flex h-8 items-center md:h-10 md:hidden ">
+        <div className="flex h-8 items-center md:hidden md:h-10 ">
           <BurgerMenu isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>
       </div>
