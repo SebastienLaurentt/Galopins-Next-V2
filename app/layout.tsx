@@ -17,6 +17,7 @@ export const metadata: Metadata = {
   title: "Les Galopins de Montélimar",
   description:
     "Bienvenue sur le site de notre club de randonnée pédestre situé à Montélimar !",
+    metadataBase: new URL("https://lesgalopinsdemontelimar.com/"),
 };
 
 export default function RootLayout({
