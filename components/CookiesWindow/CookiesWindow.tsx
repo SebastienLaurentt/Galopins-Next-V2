@@ -8,7 +8,7 @@ export default function CookiesWindow() {
   const [isClose, setIsClose] = useState(true);
 
   const displayClass = !isClose
-    ? "left-6 md:left-10 xl:left-16 2xl:left-10"
+    ? "left-4 md:left-10 xl:left-16 2xl:left-10"
     : "-left-full";
 
   function handleClick() {
