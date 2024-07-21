@@ -1,4 +1,3 @@
-import LinkButton from "@/components/Button/LinkButton/LinkButton";
 import ParcoursCard from "@/components/Card/ParcoursCard/ParcoursCard";
 import PageTitle from "@/components/PageTitle/PageTitle";
 import ParcoursTags from "@/components/ParcoursTags/ParcoursTags";
@@ -7,8 +6,10 @@ import Section from "@/components/Section/Section";
 import SectionHeader from "@/components/Section/SectionHeader/SectionHeader";
 import SubSection from "@/components/SubSection/SubSection";
 
+import { Button } from "@/components/ui/button";
 import { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import parcoursImg from "../../public/images/Parcours.webp";
 
 export const metadata: Metadata = {
@@ -102,12 +103,17 @@ function Parcours() {
               le parking en face du 95 Route de Valence (Bar le Provence) avec
               une heure de départ fixée à 13h30.
             </p>
-            <LinkButton
-              href="https://www.google.fr/maps/@44.5748529,4.7550546,3a,75y,247.31h,73.37t/data=!3m6!1e1!3m4!1s2s3LYTC7lpNn_U2tl5-w3A!2e0!7i16384!8i8192?entry=tts"
-              targetBlank="_blank"
-              linkName="Voir sur Google Maps"
-              classname="mb-6 md:mb-8"
-            />
+
+            <div className="flex flex-row justify-start">
+              <Button asChild className="mb-2">
+                <Link
+                  target="_blank"
+                  href="https://www.google.fr/maps/@44.5748529,4.7550546,3a,75y,247.31h,73.37t/data=!3m6!1e1!3m4!1s2s3LYTC7lpNn_U2tl5-w3A!2e0!7i16384!8i8192?entry=tts"
+                >
+                  Voir sur Google Maps
+                </Link>
+              </Button>
+            </div>
             <p>
               Le vendredi, les lieux de rendez-vous et de départ seront précisés
               par mail ou sur le site par l&apos;accompagnateur.

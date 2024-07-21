@@ -31,7 +31,10 @@ export const Header = () => {
         <nav className="hidden  md:absolute md:left-0 md:flex md:w-full md:justify-center lg:text-md">
           <ul className="flex gap-3">
             {navData.map((link) => (
-              <li key={link.name} className={link.name === "Photos" ? "md:hidden" : ""}>
+              <li
+                key={link.name}
+                className={link.name === "Photos" ? "md:hidden" : ""}
+              >
                 <Link
                   href={link.href}
                   className={
@@ -48,7 +51,7 @@ export const Header = () => {
           </ul>
         </nav>
 
-        <Button asChild variant="green" className="z-30 hidden md:flex">
+        <Button asChild className="z-30 hidden md:flex">
           <Link href="/photos">Nos Photos</Link>
         </Button>
 

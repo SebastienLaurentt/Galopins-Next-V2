@@ -1,4 +1,3 @@
-import LinkButton from "@/components/Button/LinkButton/LinkButton";
 import AreaCard from "@/components/Card/AreaCard/AreaCard";
 import ParcoursCard from "@/components/Card/ParcoursCard/ParcoursCard";
 import ClubIcon from "@/components/ClubIcon/ClubIcon";
@@ -33,7 +32,7 @@ export default function Home() {
             <br />
             Découvrez notre histoire, nos parcours ou nos dernières photos !
           </p>
-          <Button asChild variant="green" className="flex md:hidden">
+          <Button asChild className="flex md:hidden">
             <Link href="/photos">Nos Photos</Link>
           </Button>
         </div>
@@ -125,49 +124,47 @@ export default function Home() {
           titleDescription="Chaque semaine, plusieurs types de randonnées sont organisés le
           Lundi après-midi et le Vendredi pour la journée entière."
         />
-        <div>
-          <ul className="flex flex-col gap-y-10 lg:flex-row lg:justify-center lg:gap-x-16 xl:gap-y-0">
-            <li>
-              <ParcoursCard
-                parcoursTitle="Lundi | Après-Midi"
-                area="Drôme ou Ardèche"
-                frequency="2 types de randonnées"
-                case1={
-                  <>
-                    <strong>&#x2022; Cool :</strong> 5 - 9 km
-                  </>
-                }
-                case2={
-                  <>
-                    <strong>&#x2022; Classique :</strong> 10 - 14 km
-                  </>
-                }
-              />
-            </li>
-            <li>
-              <ParcoursCard
-                parcoursTitle="Vendredi | Journée"
-                area="Vaucluse ou Gard"
-                frequency="En alternance"
-                case1={
-                  <>
-                    <strong>&#x2022; Semaine A :</strong> Jusqu&apos;à 15 km
-                  </>
-                }
-                case2={
-                  <>
-                    <strong>&#x2022; Semaine B : </strong> De 15 à 20 km
-                  </>
-                }
-              />
-            </li>
-          </ul>
+        <ul className="flex flex-col gap-y-10 lg:flex-row lg:justify-center lg:gap-x-16 xl:gap-y-0">
+          <li>
+            <ParcoursCard
+              parcoursTitle="Lundi | Après-Midi"
+              area="Drôme ou Ardèche"
+              frequency="2 types de randonnées"
+              case1={
+                <>
+                  <strong>&#x2022; Cool :</strong> 5 - 9 km
+                </>
+              }
+              case2={
+                <>
+                  <strong>&#x2022; Classique :</strong> 10 - 14 km
+                </>
+              }
+            />
+          </li>
+          <li>
+            <ParcoursCard
+              parcoursTitle="Vendredi | Journée"
+              area="Vaucluse ou Gard"
+              frequency="En alternance"
+              case1={
+                <>
+                  <strong>&#x2022; Semaine A :</strong> Jusqu&apos;à 15 km
+                </>
+              }
+              case2={
+                <>
+                  <strong>&#x2022; Semaine B : </strong> De 15 à 20 km
+                </>
+              }
+            />
+          </li>
+        </ul>
+        <div className="mt-8 flex flex-row justify-center">
+          <Button asChild>
+            <Link href="/parcours">Plus d&apos;infos</Link>
+          </Button>
         </div>
-        <LinkButton
-          seeMoreButton={true}
-          href="/parcours"
-          linkName="Plus d'infos"
-        />
       </Section>
 
       {/* Club Section */}
@@ -176,29 +173,29 @@ export default function Home() {
           title="Quelques chiffres sur notre "
           titleHighlight="club"
         />
-        <div>
-          <div></div>
-          <div>
-            <ul className="flex flex-col gap-y-8 lg:flex-row lg:justify-center lg:gap-x-16 lg:gap-y-0">
-              <li className="">
-                <ClubIcon iconDescription="Créé en Septembre 2004">
-                  <CalendarCheck className="clubIcon" />
-                </ClubIcon>
-              </li>
-              <li className="">
-                <ClubIcon iconDescription="83 adhérents en 2024">
-                  <Users className="clubIcon" />
-                </ClubIcon>
-              </li>
-              <li className="">
-                <ClubIcon iconDescription="+200 randonnées en 2023">
-                  <Mountain className="clubIcon" />
-                </ClubIcon>
-              </li>
-            </ul>
-          </div>
+
+        <ul className="flex flex-col gap-y-8 lg:flex-row lg:justify-center lg:gap-x-16 lg:gap-y-0">
+          <li className="">
+            <ClubIcon iconDescription="Créé en Septembre 2004">
+              <CalendarCheck className="clubIcon" />
+            </ClubIcon>
+          </li>
+          <li className="">
+            <ClubIcon iconDescription="83 adhérents en 2024">
+              <Users className="clubIcon" />
+            </ClubIcon>
+          </li>
+          <li className="">
+            <ClubIcon iconDescription="+200 randonnées en 2023">
+              <Mountain className="clubIcon" />
+            </ClubIcon>
+          </li>
+        </ul>
+        <div className="mt-8 flex flex-row justify-center">
+          <Button asChild>
+            <Link href="/club">Plus d&apos;infos</Link>
+          </Button>
         </div>
-        <LinkButton seeMoreButton={true} href="/club" linkName="Plus d'infos" />
       </Section>
     </main>
   );

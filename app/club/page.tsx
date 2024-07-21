@@ -3,9 +3,10 @@ import Section from "@/components/Section/Section";
 import SectionHeader from "@/components/Section/SectionHeader/SectionHeader";
 import Image from "next/image";
 
-import LinkButton from "@/components/Button/LinkButton/LinkButton";
 import SubSection from "@/components/SubSection/SubSection";
+import { Button } from "@/components/ui/button";
 import { Metadata } from "next";
+import Link from "next/link";
 import imgAbbaye from "../../public/images/AbbayeSenanque.png";
 import imgDigue from "../../public/images/Digue.webp";
 import imgEquipe from "../../public/images/PhotoEquipe.png";
@@ -101,11 +102,11 @@ function Club() {
           accessibles à tous, destinées à la découverte de la nature dans la
           bonne humeur et la convivialité.
         </p>
-        <LinkButton
-          seeMoreButton={true}
-          href="/mentions"
-          linkName="Voir les mentions"
-        />
+        <div className="mt-8 flex flex-row justify-center">
+          <Button asChild>
+            <Link href="/mentions">Voir les mentions</Link>
+          </Button>
+        </div>
       </Section>
     </main>
   );
