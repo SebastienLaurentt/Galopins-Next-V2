@@ -1,13 +1,19 @@
 "use client";
 
 import { useAuth } from "@/components/AccountComponent/Auth/Auth";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import axios from "axios";
 import Cookies from "js-cookie";
+import { ArrowLeftToLine } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { BiArrowBack, BiHide, BiShow } from "react-icons/bi";
-import AccountLinkButton from "../../../components/AccountComponent/Button/AccountLinkButton";
-import ValidationButton from "../../../components/AccountComponent/Button/ValidationButton";
+import { BiHide, BiShow } from "react-icons/bi";
+import imgEquipe from "/public/images/PhotoEquipe.png";
+import logo from "/public/images/logoGalopins.png";
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -20,7 +26,6 @@ export default function Login() {
   };
 
   const { isLogged, login } = useAuth();
-  console.log(`Is Logged = ${isLogged}`);
 
   const router = useRouter();
 
@@ -62,58 +67,85 @@ export default function Login() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center gap-y-4 bg-stone-300 text-white">
-      <div className="rounded-md bg-slate-900 p-8">
-        <h3 className="text-center">Les Galopins</h3>
-        <form onSubmit={handleSubmit} className="flex flex-col gap-y-4">
-          <div className="flex flex-col items-center gap-y-1">
-            <label htmlFor="username">Nom d&apos;utilisateur</label>
-            <input
-              type="username"
-              id="username"
-              className="rounded-md p-1 text-black"
-              value={username}
-              onChange={(e) => {
-                setUsername(e.target.value);
-                setError(null);
-              }}
-              required
-            />
+    <main className="flex flex-col-reverse items-center  text-white md:flex-col xl:mx-40 xl:flex-row">
+      <div className="mt-4 flex w-full flex-col items-center text-foreground md:mb-4 md:mt-0 xl:mb-0 xl:w-1/2 xl:items-start xl:p-8">
+        <div className=" w-[300px] md:w-[400px]">
+          <Image
+            src={logo}
+            alt="Logo Galopins"
+            className="mb-4 hidden w-24 text-white lg:w-28 xl:flex"
+          />
+          <div className="mb-6 flex flex-col gap-y-2 text-center xl:text-left">
+            <span className=" text-2xl font-bold leading-[40px]  md:text-3xl md:leading-[44px] xl:text-4xl xl:leading-[48px]">
+              Les Galopins de Montélimar
+            </span>
+            <span className="text-md font-medium xl:text-lg">
+              Espace Administrateur{" "}
+            </span>
           </div>
-          <div className="relative flex flex-col items-center gap-y-1">
-            <label htmlFor="password">Mot de passe</label>
-            <input
-              type={showPassword ? "text" : "password"}
-              id="password"
-              className="rounded-md p-1 text-black"
-              value={password}
-              onChange={(e) => {
-                setPassword(e.target.value);
-                setError(null);
-              }}
-              required
-            />
-            {/* Icône pour afficher/masquer le mot de passe */}
-            <button
-              type="button"
-              className="absolute inset-y-9 right-0 flex items-center p-2 text-black"
-              onClick={togglePasswordVisibility}
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col items-center gap-y-3 xl:items-start "
+          >
+            <div className="flex w-full flex-col items-center space-y-1 xl:items-start">
+              <Label htmlFor="username">Nom d&apos;utilisateur</Label>
+              <Input
+                type="username"
+                id="username"
+                value={username}
+                onChange={(e) => {
+                  setUsername(e.target.value);
+                  setError(null);
+                }}
+                required
+              />
+            </div>
+
+            <div className="flex w-full flex-col items-center space-y-1 xl:items-start">
+              <Label htmlFor="password">Mot de passe</Label>
+              <div className="relative w-full">
+                <Input
+                  type={showPassword ? "text" : "password"}
+                  id="password"
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                    setError(null);
+                  }}
+                  required
+                />
+                {/* Icône pour afficher/masquer le mot de passe */}
+                <button
+                  type="button"
+                  className="absolute inset-y-0 right-0 flex items-center p-2 text-black"
+                  onClick={togglePasswordVisibility}
+                >
+                  {showPassword ? <BiHide /> : <BiShow />}
+                </button>
+              </div>
+            </div>
+
+            {error && <p className="text-red-500">{error}</p>}
+            <Button className="w-full">Se connecter</Button>
+            <Link
+              href="/"
+              className="flex flex-row items-center gap-x-1 hover:font-bold"
             >
-              {showPassword ? <BiHide /> : <BiShow />}
-            </button>
-          </div>
-          {error && <p className="text-red-500">{error}</p>}
-          <ValidationButton buttonName="Se connecter" />
-        </form>
+              <ArrowLeftToLine size={20} /> Retour site
+            </Link>
+          </form>
+        </div>
       </div>
 
-      <AccountLinkButton
-        bgColor="bg-sky-800"
-        href="/"
-        linkName="Retourner sur les Galopins"
-        logo={<BiArrowBack />}
-        classname="md:hover:bg-sky-600"
-      />
+      <div className="w-full xl:w-3/4 xl:p-4">
+        <Image
+          src={imgEquipe}
+          alt="Carrières d'Ocre de Rustrel"
+          className="lg:rounded-lg"
+          priority
+          placeholder="blur"
+        />
+      </div>
     </main>
   );
 }
