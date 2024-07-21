@@ -4,13 +4,11 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 
-
 import { useAuth } from "@/components/AccountComponent/Auth/Auth";
-import { useParams, useRouter } from "next/navigation";
-import AccountHeader from "@/components/AccountComponent/AccountHeader";
+import ValidationButton from "@/components/AccountComponent/Button/ValidationButton";
 import Input from "@/components/AccountComponent/Form/Input";
 import Textarea from "@/components/AccountComponent/Form/Textarea";
-import ValidationButton from "@/components/AccountComponent/Button/ValidationButton";
+import { useParams, useRouter } from "next/navigation";
 
 const AccountNewsUpdate = () => {
   const { id } = useParams(); // Obtenir l'ID de la nouvelle depuis l'URL
@@ -113,7 +111,6 @@ const AccountNewsUpdate = () => {
 
   return (
     <div className="min-h-screen bg-stone-300 p-4 ">
-      <AccountHeader />
       <main className="text-white">
         <h3 className="m-4 text-center text-black">
           Formulaire de mise à jour de l&apos;information

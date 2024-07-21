@@ -1,6 +1,5 @@
 "use client";
 
-import AccountHeader from "@/components/AccountComponent/AccountHeader";
 import { useAuth } from "@/components/AccountComponent/Auth/Auth";
 import ValidationButton from "@/components/AccountComponent/Button/ValidationButton";
 import Input from "@/components/AccountComponent/Form/Input";
@@ -11,7 +10,6 @@ import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AiOutlinePicture } from "react-icons/ai";
 import { RotatingLines } from "react-loader-spinner";
-
 
 const AccountRandoUpdate = () => {
   const { id } = useParams(); // Récupère l'ID de la randonnée depuis l'URL
@@ -190,7 +188,6 @@ const AccountRandoUpdate = () => {
 
   return (
     <div className="min-h-screen bg-stone-300 p-4 ">
-      <AccountHeader />
       <main className="text-white">
         <h3 className="m-4 text-center text-black">
           Formulaire de mise à jour de la randonnée

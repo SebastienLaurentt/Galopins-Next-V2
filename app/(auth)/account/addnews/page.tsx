@@ -3,17 +3,13 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
-// import { useNavigate } from 'react-router';
 import { useAuth } from "@/components/AccountComponent/Auth/Auth";
-import { useRouter } from "next/navigation";
-import AccountHeader from "@/components/AccountComponent/AccountHeader";
+import ValidationButton from "@/components/AccountComponent/Button/ValidationButton";
 import Input from "@/components/AccountComponent/Form/Input";
 import Textarea from "@/components/AccountComponent/Form/Textarea";
-import ValidationButton from "@/components/AccountComponent/Button/ValidationButton";
-
+import { useRouter } from "next/navigation";
 
 const AccountNewsAdd = () => {
-  // const navigate = useNavigate();
 
   const [date, setDate] = useState("");
   const [title, setTitle] = useState("");
@@ -74,7 +70,6 @@ const AccountNewsAdd = () => {
 
   return (
     <div className="min-h-screen bg-stone-300 p-4 ">
-      <AccountHeader />
       <main className="text-white">
         <h3 className="m-8  text-center text-black">
           Formulaire d&apos;ajout d&apos;une nouvelle information
