@@ -2,9 +2,8 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { RiAddCircleLine } from "react-icons/ri";
 import { RotatingLines } from "react-loader-spinner";
-import AccountLinkButton from "./Button/AccountLinkButton";
+import { Button } from "../ui/button";
 
 interface InfoDataProps {
   id: number;
@@ -60,15 +59,13 @@ function AccountRando() {
 
   return (
     <div className="flex flex-col ">
-      <h5 className="mb-4 text-center text-xl"> Tableau de gestion des randonnées </h5>
+      <h4> Photos randonnées </h4>
       <div className="mb-2 flex items-start justify-start">
-        <AccountLinkButton
-          bgColor="bg-green-800"
-          href="/account/addrando"
-          linkName="Créer une nouvelle randonnée"
-          logo={<RiAddCircleLine />}
-          classname="md:hover:bg-green-600"
-        />
+        <Button asChild>
+          <Link href="/account/addrando" aria-label="Ajouter des photos">
+            Ajouter Photos
+          </Link>
+        </Button>
       </div>
       {loading ? (
         <span className="flex justify-center">

@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import Link from "next/link";
 import { Button } from "../ui/button";
@@ -12,7 +12,7 @@ function AccountHeader() {
   };
 
   return (
-    <header className="bg-stone-300 p-4 text-white">
+    <header className="p-4">
       <ul className="flex flex-wrap justify-center gap-4">
         <li>
           <Button variant="secondary" asChild>
@@ -24,7 +24,6 @@ function AccountHeader() {
         <li>
           <Button variant="secondary" asChild>
             <Link
-             
               href="/account"
               aria-label="Allez sur l'espace administrateur"
             >

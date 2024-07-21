@@ -57,6 +57,10 @@
     @apply text-lg md:text-2xl leading-8 md:leading-10  mb-4 md:mb-6 lg:mb-8 text-primary font-bold;
   }
 
+  h4 {
+    @apply mb-4 text-left text-xl;
+  }
+
   p {
     @apply text-sm md:text-md leading-5 md:leading-6;
   }

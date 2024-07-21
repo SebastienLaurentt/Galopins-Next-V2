@@ -9,7 +9,7 @@ export default async function RootLayout({
   return (
     <div className="flex min-h-screen flex-col">
       <AccountHeader />
-      <div className="flex flex-1 flex-col justify-center">{children} </div>
+      <div className="flex-1">{children} </div>
     </div>
   );
 }

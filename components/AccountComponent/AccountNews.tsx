@@ -1,10 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { RiAddCircleLine } from "react-icons/ri";
 
 import Cookies from "js-cookie";
 import Link from "next/link";
-import AccountLinkButton from "./Button/AccountLinkButton";
+import { Button } from "../ui/button";
 
 interface InfoDataProps {
   id: number;
@@ -56,18 +55,16 @@ function AccountNews() {
 
   return (
     <div className="">
-      <h5 className="mb-4 text-center text-xl">
-        {" "}
-        Tableau de gestion des dernières infos{" "}
-      </h5>
+      <h4>Dernières infos</h4>
       <div className="mb-2 flex items-start justify-start">
-        <AccountLinkButton
-          bgColor="bg-green-800"
-          href="/account/addnews"
-          linkName="Créer une nouvelle information"
-          logo={<RiAddCircleLine />}
-          classname="md:hover:bg-green-600"
-        />
+        <Button asChild>
+          <Link
+            href="/account/addnews"
+            aria-label="Ajouter une nouvelle informations"
+          >
+            Ajouter Info
+          </Link>
+        </Button>
       </div>
       <table className="mb-2">
         <thead>
