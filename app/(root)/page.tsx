@@ -8,10 +8,10 @@ import { CalendarCheck, Mountain, Users } from "lucide-react";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import logoArdeche from "../public/images/Ardeche.webp";
-import logoDrome from "../public/images/Drome.webp";
-import img from "../public/images/Home.webp";
-import logoVaucluse from "../public/images/Vaucluse.webp";
+import logoArdeche from "/public/images/Ardeche.webp";
+import logoDrome from "/public/images/Drome.webp";
+import img from "/public/images/Home.webp";
+import logoVaucluse from "/public/images/Vaucluse.webp";
 
 export const metadata: Metadata = {
   title: "Les Galopins de Montélimar",

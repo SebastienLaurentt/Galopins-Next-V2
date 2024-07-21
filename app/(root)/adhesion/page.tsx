@@ -7,7 +7,7 @@ import Contact from "@/components/Contact/Contact";
 import { Mail, Phone } from "lucide-react";
 import { Metadata } from "next";
 import Image from "next/image";
-import imgAdhesion from "../../public/images/Adhesion.webp";
+import imgAdhesion from "/public/images/Adhesion.webp";
 
 const admissionPdf = `/pdf/Admission_Galopins.pdf`;
 

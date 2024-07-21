@@ -1,12 +1,8 @@
 import { AuthProvider } from "@/components/AccountComponent/Auth/Auth";
-import ScrollToTopButton from "@/components/Button/ScrollToTopButton/ScrollToTopButton";
-import CookiesWindow from "@/components/CookiesWindow/CookiesWindow";
-import { Footer } from "@/src/features/layout/Footer/Footer";
-import { Header } from "@/src/features/layout/Header/Header";
 import clsx from "clsx";
+import { Metadata } from "next";
 import { Lato } from "next/font/google";
 import "./globals.css";
-import { Metadata } from "next";
 
 const lato = Lato({
   weight: ["400", "700"],
@@ -17,7 +13,7 @@ export const metadata: Metadata = {
   title: "Les Galopins de Montélimar",
   description:
     "Bienvenue sur le site de notre club de randonnée pédestre situé à Montélimar !",
-    metadataBase: new URL("https://lesgalopinsdemontelimar.com/"),
+  metadataBase: new URL("https://lesgalopinsdemontelimar.com/"),
 };
 
 export default function RootLayout({
@@ -53,11 +49,7 @@ export default function RootLayout({
         </head>
         <body className={clsx(lato.className, "h-full")}>
           <div className=" flex h-full flex-col">
-            <Header />
             <div className="flex-1">{children}</div>
-            <Footer />
-            <CookiesWindow />
-            <ScrollToTopButton />
           </div>
         </body>
       </html>

@@ -6,8 +6,8 @@ import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { BiArrowBack, BiHide, BiShow } from "react-icons/bi";
-import AccountLinkButton from "../../components/AccountComponent/Button/AccountLinkButton";
-import ValidationButton from "../../components/AccountComponent/Button/ValidationButton";
+import AccountLinkButton from "../../../components/AccountComponent/Button/AccountLinkButton";
+import ValidationButton from "../../../components/AccountComponent/Button/ValidationButton";
 
 export default function Login() {
   const [username, setUsername] = useState("");

@@ -7,9 +7,9 @@ import SubSection from "@/components/SubSection/SubSection";
 import { Button } from "@/components/ui/button";
 import { Metadata } from "next";
 import Link from "next/link";
-import imgAbbaye from "../../public/images/AbbayeSenanque.png";
-import imgDigue from "../../public/images/Digue.webp";
-import imgEquipe from "../../public/images/PhotoEquipe.png";
+import imgAbbaye from "/public/images/AbbayeSenanque.png";
+import imgDigue from "/public/images/Digue.webp";
+import imgEquipe from "/public/images/PhotoEquipe.png";
 
 export const metadata: Metadata = {
   title: "Les Galopins de Montélimar",
