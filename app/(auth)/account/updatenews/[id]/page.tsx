@@ -3,13 +3,14 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
-import AccountHeader from "../../../../components/AccountComponent/AccountHeader";
-import ValidationButton from "../../../../components/AccountComponent/Button/ValidationButton";
-import Input from "../../../../components/AccountComponent/Form/Input";
-import Textarea from "../../../../components/AccountComponent/Form/Textarea";
+
 
 import { useAuth } from "@/components/AccountComponent/Auth/Auth";
 import { useParams, useRouter } from "next/navigation";
+import AccountHeader from "@/components/AccountComponent/AccountHeader";
+import Input from "@/components/AccountComponent/Form/Input";
+import Textarea from "@/components/AccountComponent/Form/Textarea";
+import ValidationButton from "@/components/AccountComponent/Button/ValidationButton";
 
 const AccountNewsUpdate = () => {
   const { id } = useParams(); // Obtenir l'ID de la nouvelle depuis l'URL

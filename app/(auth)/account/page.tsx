@@ -1,11 +1,12 @@
 "use client";
 
+import AccountHeader from "@/components/AccountComponent/AccountHeader";
+import AccountNews from "@/components/AccountComponent/AccountNews";
+import AccountRando from "@/components/AccountComponent/AccountRando";
 import { useAuth } from "@/components/AccountComponent/Auth/Auth";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import AccountHeader from "../../components/AccountComponent/AccountHeader";
-import AccountNews from "../../components/AccountComponent/AccountNews";
-import AccountRando from "../../components/AccountComponent/AccountRando";
+
 
 function Account() {
   const [activeButton, setActiveButton] = useState("Dernières Infos");

@@ -6,10 +6,11 @@ import { useEffect, useState } from "react";
 // import { useNavigate } from 'react-router';
 import { useAuth } from "@/components/AccountComponent/Auth/Auth";
 import { useRouter } from "next/navigation";
-import AccountHeader from "../../../components/AccountComponent/AccountHeader";
-import ValidationButton from "../../../components/AccountComponent/Button/ValidationButton";
-import Input from "../../../components/AccountComponent/Form/Input";
-import Textarea from "../../../components/AccountComponent/Form/Textarea";
+import AccountHeader from "@/components/AccountComponent/AccountHeader";
+import Input from "@/components/AccountComponent/Form/Input";
+import Textarea from "@/components/AccountComponent/Form/Textarea";
+import ValidationButton from "@/components/AccountComponent/Button/ValidationButton";
+
 
 const AccountNewsAdd = () => {
   // const navigate = useNavigate();
