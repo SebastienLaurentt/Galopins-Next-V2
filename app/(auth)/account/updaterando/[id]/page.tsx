@@ -1,8 +1,8 @@
 "use client";
 
 import { useAuth } from "@/components/AccountComponent/Auth/Auth";
-import ValidationButton from "@/components/AccountComponent/Button/ValidationButton";
 import Input from "@/components/AccountComponent/Form/Input";
+import { Button } from "@/components/ui/button";
 import axios from "axios";
 import imageCompression from "browser-image-compression";
 import Cookies from "js-cookie";
@@ -305,7 +305,7 @@ const AccountRandoUpdate = () => {
               )}
               {/* Render the button outside the form to prevent it from re-rendering */}
               {!loadingSubmit && !showSuccessMessage && (
-                <ValidationButton buttonName="Mettre à jour la randonnée" />
+                <Button className="w-full">Mettre à jour</Button>
               )}
             </form>
           </div>

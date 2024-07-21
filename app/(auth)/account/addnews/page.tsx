@@ -1,16 +1,15 @@
 "use client";
 
-import axios from "axios";
-import Cookies from "js-cookie";
-import { useEffect, useState } from "react";
 import { useAuth } from "@/components/AccountComponent/Auth/Auth";
-import ValidationButton from "@/components/AccountComponent/Button/ValidationButton";
 import Input from "@/components/AccountComponent/Form/Input";
 import Textarea from "@/components/AccountComponent/Form/Textarea";
+import { Button } from "@/components/ui/button";
+import axios from "axios";
+import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const AccountNewsAdd = () => {
-
   const [date, setDate] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -69,12 +68,12 @@ const AccountNewsAdd = () => {
   };
 
   return (
-    <div className="min-h-screen bg-stone-300 p-4 ">
+    <div className=" p-4 ">
       <main className="text-white">
         <h3 className="m-8  text-center text-black">
           Formulaire d&apos;ajout d&apos;une nouvelle information
         </h3>
-        <div className=" mt-16 flex flex-col items-center justify-center bg-stone-300 p-4">
+        <div className=" mt-16 flex flex-col items-center justify-center  p-4">
           <form
             onSubmit={handleSubmit}
             className="flex flex-col gap-y-4 rounded-md bg-slate-900 p-8 text-center"
@@ -98,7 +97,7 @@ const AccountNewsAdd = () => {
               onChange={setDescription}
               placeholder="Description de l'information..."
             />
-            <ValidationButton buttonName="Créer la nouvelle information" />
+            <Button className="w-full">Ajouter Information</Button>
           </form>
         </div>
       </main>

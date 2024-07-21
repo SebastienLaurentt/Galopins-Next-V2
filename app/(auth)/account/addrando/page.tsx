@@ -1,8 +1,8 @@
 "use client";
 
 import { useAuth } from "@/components/AccountComponent/Auth/Auth";
-import ValidationButton from "@/components/AccountComponent/Button/ValidationButton";
 import Input from "@/components/AccountComponent/Form/Input";
+import { Button } from "@/components/ui/button";
 import axios from "axios";
 import imageCompression from "browser-image-compression";
 import Cookies from "js-cookie";
@@ -146,7 +146,7 @@ const AccountRandoAdd = () => {
   };
 
   return (
-    <div className="min-h-screen bg-stone-300 p-4 ">
+    <div className="min-h-screen  p-4 ">
       <main className="text-white">
         <h3 className="m-4 text-center text-black">
           Formulaire d&apos;ajout d&apos;une nouvelle randonnée
@@ -247,7 +247,7 @@ const AccountRandoAdd = () => {
             )}
             {/* Render the button outside the form to prevent it from re-rendering */}
             {!loadingSubmit && !showSuccessMessage && (
-              <ValidationButton buttonName="Créer la nouvelle information" />
+              <Button className="w-full">Ajouter Photos</Button>
             )}
           </form>
         </div>

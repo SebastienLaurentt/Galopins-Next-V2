@@ -5,9 +5,9 @@ import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 
 import { useAuth } from "@/components/AccountComponent/Auth/Auth";
-import ValidationButton from "@/components/AccountComponent/Button/ValidationButton";
 import Input from "@/components/AccountComponent/Form/Input";
 import Textarea from "@/components/AccountComponent/Form/Textarea";
+import { Button } from "@/components/ui/button";
 import { useParams, useRouter } from "next/navigation";
 
 const AccountNewsUpdate = () => {
@@ -165,7 +165,7 @@ const AccountNewsUpdate = () => {
               )}
               {/* Render the button outside the form to prevent it from re-rendering */}
               {!loadingSubmit && !showSuccessMessage && (
-                <ValidationButton buttonName="Mettre à jour l'information" />
+                <Button className="w-full">Mettre à jour</Button>
               )}
             </form>
           </div>
