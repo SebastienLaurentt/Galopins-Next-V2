@@ -33,7 +33,7 @@ function Account() {
       </div>
 
       <div className="flex flex-col items-center justify-center gap-x-4">
-        <span className="mb-2 text-md"> Sur quel élément du site souhaitez agir ? </span>
+        <span className="mb-2 text-md"> Sur quel élément du site souhaitez vous agir ? </span>
         <div className="mb-4 flex flex-row gap-x-2">
           <button
             className={`rounded-md border-2 border-solid border-zinc-600 p-2 md:hover:bg-zinc-600 md:hover:text-white ${
