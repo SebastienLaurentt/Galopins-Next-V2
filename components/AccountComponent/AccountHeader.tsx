@@ -1,7 +1,5 @@
-
-import { BiArrowBack } from "react-icons/bi";
-import { CiLogout } from "react-icons/ci";
-import AccountLinkButton from "./Button/AccountLinkButton";
+import Link from "next/link";
+import { Button } from "../ui/button";
 import { useAuth } from "./Auth/Auth";
 
 function AccountHeader() {
@@ -15,32 +13,32 @@ function AccountHeader() {
     <header className="bg-stone-300 p-4 text-white">
       <ul className="flex flex-wrap justify-center gap-4">
         <li>
-          <AccountLinkButton
-            bgColor="bg-sky-800"
-            href="/"
-            linkName="Retourner sur les Galopins"
-            logo={<BiArrowBack />}
-            classname="md:hover:bg-sky-600"
-          />
+          <Button variant="secondary" asChild>
+            <Link href="/" aria-label="Retourner sur le site des Galopins">
+              Retour Site
+            </Link>
+          </Button>
         </li>
         <li>
-          <AccountLinkButton
-            bgColor="bg-sky-800"
-            href="/account"
-            linkName="Espace Administrateur"
-            logo={<BiArrowBack />}
-            classname="md:hover:bg-sky-600"
-          />
+          <Button variant="secondary" asChild>
+            <Link
+             
+              href="/account"
+              aria-label="Allez sur l'espace administrateur"
+            >
+              Espace Administrateur
+            </Link>
+          </Button>
         </li>
         <li>
-          <AccountLinkButton
-            onClick={handleLogout}
-            bgColor="bg-red-800"
-            href="/login"
-            linkName="Deconnexion"
-            logo={<CiLogout />}
-            classname="md:hover:bg-red-600"
-          />
+          <Button asChild onClick={handleLogout} variant="destructive">
+            <Link
+              href="/"
+              aria-label="Se déconnecter de l'espace administrateur"
+            >
+              Déconnexion
+            </Link>
+          </Button>
         </li>
       </ul>
     </header>
