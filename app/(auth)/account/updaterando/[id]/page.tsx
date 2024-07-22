@@ -1,6 +1,5 @@
 "use client";
 
-import { useAuth } from "@/components/AccountComponent/Auth/Auth";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -8,7 +7,7 @@ import axios from "axios";
 import imageCompression from "browser-image-compression";
 import Cookies from "js-cookie";
 import { ImagePlus } from "lucide-react";
-import { useParams, useRouter } from "next/navigation";
+import { redirect, useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { RotatingLines } from "react-loader-spinner";
 
@@ -25,16 +24,7 @@ const AccountRandoUpdate = () => {
   const [loadingImages, setLoadingImages] = useState(false);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
-  const { isLogged } = useAuth();
-  const router = useRouter();
-
   useEffect(() => {
-    if (!isLogged) {
-      // Redirigez l'utilisateur vers la page de connexion s'il n'est pas connecté
-      router.push("/login");
-      return;
-    }
-
     const fetchData = async () => {
       try {
         const token = Cookies.get("token");
@@ -74,7 +64,7 @@ const AccountRandoUpdate = () => {
     };
 
     fetchData();
-  }, [id, isLogged, router]);
+  }, [id]);
 
   const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     setLoadingImages(true);
@@ -175,7 +165,7 @@ const AccountRandoUpdate = () => {
       // Hide success message after 2 seconds
       setTimeout(() => {
         setShowSuccessMessage(false);
-        router.push("/account");
+        redirect("/account");
       }, 3000);
     } catch (error) {
       console.error(

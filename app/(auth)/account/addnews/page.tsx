@@ -8,24 +8,16 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import axios from "axios";
 import Cookies from "js-cookie";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { redirect } from "next/navigation";
+
+import { useState } from "react";
 
 const AccountNewsAdd = () => {
   const [date, setDate] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
-  const { isLogged } = useAuth();
-  const router = useRouter();
 
-  useEffect(() => {
-    if (!isLogged) {
-      // Redirigez l'utilisateur vers la page de connexion s'il n'est pas connecté
-      router.push("/login");
-      return;
-    }
-  }, [isLogged, router]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -61,7 +53,7 @@ const AccountNewsAdd = () => {
       setTitle("");
       setDescription("");
 
-      router.push("/account");
+      redirect("/account");
     } catch (error) {
       console.error("Erreur lors de l'ajout d'informations :", error);
     }

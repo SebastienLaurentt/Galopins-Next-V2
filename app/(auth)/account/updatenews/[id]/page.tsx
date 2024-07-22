@@ -4,12 +4,11 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 
-import { useAuth } from "@/components/AccountComponent/Auth/Auth";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { useParams, useRouter } from "next/navigation";
+import { redirect, useParams } from "next/navigation";
 
 const AccountNewsUpdate = () => {
   const { id } = useParams(); // Obtenir l'ID de la nouvelle depuis l'URL
@@ -20,16 +19,7 @@ const AccountNewsUpdate = () => {
   const [loadingSubmit, setLoadingSubmit] = useState(false);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
-  const { isLogged } = useAuth();
-  const router = useRouter();
-
   useEffect(() => {
-    if (!isLogged) {
-      // Redirigez l'utilisateur vers la page de connexion s'il n'est pas connecté
-      router.push("/login");
-      return;
-    }
-
     const fetchData = async () => {
       try {
         const token = Cookies.get("token");
@@ -64,7 +54,7 @@ const AccountNewsUpdate = () => {
     };
 
     fetchData();
-  }, [id, isLogged, router]);
+  }, [id]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -101,7 +91,7 @@ const AccountNewsUpdate = () => {
       // Masquer le message de succès après 2 secondes et rediriger
       setTimeout(() => {
         setShowSuccessMessage(false);
-        router.push("/account");
+        redirect("/account");
       }, 2000);
     } catch (error) {
       console.error("Erreur lors de la mise à jour de la nouvelle :", error);
@@ -135,7 +125,6 @@ const AccountNewsUpdate = () => {
                   value={date}
                   onChange={(e) => setDate(e.target.value)}
                   placeholder="JJ/MM/AAAA"
-
                 />
               </div>
               <div className="space-y-1 text-left">

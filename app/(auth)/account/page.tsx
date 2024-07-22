@@ -2,27 +2,14 @@
 
 import AccountNews from "@/components/AccountComponent/AccountNews";
 import AccountRando from "@/components/AccountComponent/AccountRando";
-import { useAuth } from "@/components/AccountComponent/Auth/Auth";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function Account() {
   const [activeButton, setActiveButton] = useState("Infos");
 
-  const { isLogged } = useAuth();
-  const router = useRouter();
-
   const handleButtonClick = (buttonName: string) => {
     setActiveButton(buttonName);
   };
-
-  useEffect(() => {
-    if (!isLogged) {
-      // Redirigez l'utilisateur vers la page de connexion s'il n'est pas connecté
-      router.push("/login");
-      return;
-    }
-  }, [isLogged, router]);
 
   return (
     <main className="mt-12">
