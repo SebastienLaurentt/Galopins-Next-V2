@@ -81,17 +81,17 @@ function AccountRando() {
         <table className="">
           <thead>
             <tr className="border-b-2">
-              <th className="px-4 py-2">Date</th>
-              <th className="px-4 py-2">Destination</th>
-              <th className="px-4 py-2">Actions</th>
+              <th className="p-2 text-left md:px-4">Date</th>
+              <th className="p-2 text-left md:px-4">Destination</th>
+              <th className="mx-auto p-2 md:px-4">Actions</th>
             </tr>
           </thead>
           <tbody>
             {randosData.map((rando) => (
               <tr key={rando.id} className="border-b">
-                <td className="px-4 py-2">{rando.date}</td>
-                <td className="px-4 py-2 text-center">{rando.destination}</td>
-                <td className="flex px-4 py-2 text-center">
+                <td className="p-2 md:px-4">{rando.date}</td>
+                <td className="p-2 text-left md:px-4">{rando.destination}</td>
+                <td className="flex flex-col justify-center p-2 text-center md:flex-row md:px-4 ">
                   <div className="px-2 ">
                     <button
                       onClick={() => handleDelete(rando.id)}

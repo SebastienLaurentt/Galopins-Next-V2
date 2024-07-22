@@ -27,13 +27,16 @@ function Account() {
   return (
     <main className="mt-12">
       <div className="flex flex-col items-center">
-        <h3 className="w-[500px] text-center">
+        <h3 className="w-[300px] text-center md:w-[500px]">
           Bienvenue sur l&apos;espace administrateur des Galopins !
         </h3>
       </div>
 
       <div className="flex flex-col items-center justify-center gap-x-4">
-        <span className="mb-2 text-md"> Sur quel élément du site souhaitez vous agir ? </span>
+        <span className="mb-2 w-[220px] text-center md:w-[300px] md:text-md">
+          {" "}
+          Sur quel élément du site souhaitez vous agir ?{" "}
+        </span>
         <div className="mb-4 flex flex-row gap-x-2">
           <button
             className={`rounded-md border-2 border-solid border-zinc-600 p-2 md:hover:bg-zinc-600 md:hover:text-white ${
@@ -53,7 +56,7 @@ function Account() {
           </button>
         </div>
 
-        <div className="w-[800px] rounded-md bg-slate-900 p-4 text-white">
+        <div className=" mx-2 mb-8 rounded-md bg-slate-900 p-4 text-white md:mb-0 md:w-[700px] lg:w-[800px]">
           {activeButton === "Infos" && <AccountNews />}
           {activeButton === "Randos" && <AccountRando />}
         </div>

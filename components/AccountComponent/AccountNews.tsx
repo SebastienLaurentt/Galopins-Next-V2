@@ -69,17 +69,19 @@ function AccountNews() {
       <table className="mb-2">
         <thead>
           <tr className="border-b-2">
-            <th className="px-4 py-2">Date de l&apos;info</th>
-            <th className="px-4 py-2">Titre de l&apos;info</th>
-            <th className="px-4 py-2">Actions</th>
+            <th className="p-2 md:px-4 md:text-left">Date de l&apos;info</th>
+            <th className="p-2 md:px-4 md:text-left">Titre de l&apos;info</th>
+            <th className="p-2 md:px-4">Actions</th>
           </tr>
         </thead>
         <tbody>
           {infosData.map((info) => (
             <tr key={info.id} className="border-b">
-              <td className="px-4 py-2">{info.date}</td>
-              <td className="px-4 py-2">{info.title}</td>
-              <td className="flex px-4 py-2 text-center ">
+              <td className="p-2 md:px-4">{info.date}</td>
+              <td className="p-2 text-center md:px-4 md:text-left">
+                {info.title}
+              </td>
+              <td className="flex flex-col justify-center p-2 text-center md:flex-row md:px-4">
                 <div className="px-2">
                   <button
                     onClick={() => handleDelete(info.id)}
