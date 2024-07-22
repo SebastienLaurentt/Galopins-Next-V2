@@ -7,7 +7,7 @@ import axios from "axios";
 import imageCompression from "browser-image-compression";
 import Cookies from "js-cookie";
 import { ImagePlus } from "lucide-react";
-import { redirect } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { useState } from "react";
 import { RotatingLines } from "react-loader-spinner";
 
@@ -21,6 +21,8 @@ const AccountRandoAdd = () => {
   const [loadingImages, setLoadingImages] = useState(false);
   const [loadingSubmit, setLoadingSubmit] = useState(false);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+
+  const router = useRouter();
 
   const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     setLoadingImages(true);
@@ -125,7 +127,7 @@ const AccountRandoAdd = () => {
       // Hide success message after 2 seconds
       setTimeout(() => {
         setShowSuccessMessage(false);
-        redirect("/account");
+        router.push("/account");
       }, 3000);
     } catch (error) {
       console.error("Erreur lors de l'ajout d'informations :", error);

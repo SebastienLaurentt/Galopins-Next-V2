@@ -7,7 +7,7 @@ import axios from "axios";
 import imageCompression from "browser-image-compression";
 import Cookies from "js-cookie";
 import { ImagePlus } from "lucide-react";
-import { redirect, useParams } from "next/navigation";
+import { redirect, useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { RotatingLines } from "react-loader-spinner";
 
@@ -23,6 +23,8 @@ const AccountRandoUpdate = () => {
   const [loadingSubmit, setLoadingSubmit] = useState(false);
   const [loadingImages, setLoadingImages] = useState(false);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+
+  const router = useRouter();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -165,7 +167,7 @@ const AccountRandoUpdate = () => {
       // Hide success message after 2 seconds
       setTimeout(() => {
         setShowSuccessMessage(false);
-        redirect("/account");
+        router.push("/account");
       }, 3000);
     } catch (error) {
       console.error(

@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { redirect, useParams } from "next/navigation";
+import { redirect, useParams, useRouter } from "next/navigation";
 
 const AccountNewsUpdate = () => {
   const { id } = useParams(); // Obtenir l'ID de la nouvelle depuis l'URL
@@ -19,6 +19,8 @@ const AccountNewsUpdate = () => {
   const [loadingSubmit, setLoadingSubmit] = useState(false);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
+  const router = useRouter();
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -91,7 +93,7 @@ const AccountNewsUpdate = () => {
       // Masquer le message de succès après 2 secondes et rediriger
       setTimeout(() => {
         setShowSuccessMessage(false);
-        redirect("/account");
+        router.push("/account");
       }, 2000);
     } catch (error) {
       console.error("Erreur lors de la mise à jour de la nouvelle :", error);

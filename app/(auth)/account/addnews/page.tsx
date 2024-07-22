@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import axios from "axios";
 import Cookies from "js-cookie";
-import { redirect } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 
 import { useState } from "react";
 
@@ -17,7 +17,7 @@ const AccountNewsAdd = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
-
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -53,7 +53,7 @@ const AccountNewsAdd = () => {
       setTitle("");
       setDescription("");
 
-      redirect("/account");
+      router.push("/account");
     } catch (error) {
       console.error("Erreur lors de l'ajout d'informations :", error);
     }
