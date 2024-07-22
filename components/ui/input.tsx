@@ -1,12 +1,14 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
+import { isNumber } from "util";
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   isDate?: boolean; // Prop pour spécifier si l'input est une date
+  isNumber?: boolean; // Prop pour spécifier si l'input est numérique
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type, isDate, ...props }, ref) => {
+  ({ className, type, isDate, isNumber, ...props }, ref) => {
     // Fonction pour formater l'entrée de la date
     const formatDate = (value: string) => {
       const cleaned = value.replace(/\D+/g, ""); // Supprimer les caractères non numériques
@@ -52,7 +54,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
     // Fonction pour empêcher l'entrée de caractères non numériques
     const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-      if (isDate) {
+      if (isDate || isNumber) {
         if (!/[0-9\/]/.test(e.key) && e.key !== 'Backspace' && e.key !== 'Tab') {
           e.preventDefault();
         }

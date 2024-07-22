@@ -181,7 +181,7 @@ const AccountRandoAdd = () => {
                 value={memberNumber}
                 onChange={(e) => setMemberNumber(e.target.value)}
                 placeholder="Nombre de Galopins..."
-                type="number"
+                isNumber
               />
             </div>
             <div className="space-y-1 text-left">
@@ -190,7 +190,7 @@ const AccountRandoAdd = () => {
                 value={elevation}
                 onChange={(e) => setElevation(e.target.value)}
                 placeholder="Dénivelé de la randonnée..."
-                type="number"
+                isNumber
               />
             </div>
             <div className="space-y-1 text-left">
@@ -199,7 +199,7 @@ const AccountRandoAdd = () => {
                 value={distance}
                 onChange={(e) => setDistance(e.target.value)}
                 placeholder="Distance de la randonnée..."
-                type="number"
+                isNumber
               />
             </div>
             <div className="flex flex-col gap-y-1 text-md">
