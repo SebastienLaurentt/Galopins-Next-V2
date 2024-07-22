@@ -66,11 +66,11 @@ function AccountNews() {
           </Link>
         </Button>
       </div>
-      <table className="mb-2">
-        <thead>
-          <tr className="border-b-2">
-            <th className="p-2 md:px-4 md:text-left">Date de l&apos;info</th>
-            <th className="p-2 md:px-4 md:text-left">Titre de l&apos;info</th>
+      <table className="mb-2 w-full">
+        <thead >
+          <tr className="border-b-2 ">
+            <th className="p-2 md:px-4 md:text-left">Date </th>
+            <th className="p-2 md:px-4 md:text-left">Titre </th>
             <th className="p-2 md:px-4">Actions</th>
           </tr>
         </thead>

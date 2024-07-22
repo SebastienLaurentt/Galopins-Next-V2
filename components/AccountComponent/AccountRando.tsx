@@ -78,7 +78,7 @@ function AccountRando() {
           />
         </span>
       ) : (
-        <table className="">
+        <table>
           <thead>
             <tr className="border-b-2">
               <th className="p-2 text-left md:px-4">Date</th>
