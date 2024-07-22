@@ -1,9 +1,11 @@
 "use client";
 
 import { useAuth } from "@/components/AccountComponent/Auth/Auth";
-import Input from "@/components/AccountComponent/Form/Input";
-import Textarea from "@/components/AccountComponent/Form/Textarea";
+
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
@@ -59,8 +61,6 @@ const AccountNewsAdd = () => {
       setTitle("");
       setDescription("");
 
-      console.log(response);
-
       router.push("/account");
     } catch (error) {
       console.error("Erreur lors de l'ajout d'informations :", error);
@@ -68,35 +68,42 @@ const AccountNewsAdd = () => {
   };
 
   return (
-    <div className=" p-4 ">
+    <div className="p-4">
       <main className="text-white">
-        <h3 className="m-8  text-center text-black">
+        <h3 className="m-8 mx-auto text-center text-black md:w-[400px] lg:w-[500px]">
           Formulaire d&apos;ajout d&apos;une nouvelle information
         </h3>
-        <div className=" mt-16 flex flex-col items-center justify-center  p-4">
+        <div className="mt-16 flex flex-col items-center justify-center p-4">
           <form
             onSubmit={handleSubmit}
-            className="flex flex-col gap-y-4 rounded-md bg-slate-900 p-8 text-center"
+            className="flex w-[300px] flex-col gap-y-4 rounded-md bg-slate-900 p-8 text-center md:w-[400px] lg:w-[500px]"
           >
-            <Input
-              inputName="Date"
-              value={date}
-              setter={setDate}
-              placeholder="JJ/MM/AAAA"
-              isDate={true}
-            />
-            <Input
-              inputName="Titre"
-              value={title}
-              setter={setTitle}
-              placeholder="Titre de l'information..."
-            />
-            <Textarea
-              textareaName="Description"
-              value={description}
-              onChange={setDescription}
-              placeholder="Description de l'information..."
-            />
+            <div className="space-y-1 text-left">
+              <Label>Date</Label>
+              <Input
+                value={date}
+                placeholder="JJ/MM/AAAA"
+                onChange={(e) => setDate(e.target.value)}
+                isDate
+              />
+            </div>
+            <div className="space-y-1 text-left">
+              <Label>Titre</Label>
+              <Input
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                placeholder="Titre de l'information..."
+              />
+            </div>
+            <div className="space-y-1 text-left">
+              <Label>Description</Label>
+              <Textarea
+                onChange={(e) => setDescription(e.target.value)}
+                value={description}
+                placeholder="Description de l'information..."
+                rows={5}
+              />
+            </div>
             <Button className="w-full">Ajouter Information</Button>
           </form>
         </div>

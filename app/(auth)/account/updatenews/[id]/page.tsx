@@ -5,9 +5,10 @@ import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 
 import { useAuth } from "@/components/AccountComponent/Auth/Auth";
-import Input from "@/components/AccountComponent/Form/Input";
-import Textarea from "@/components/AccountComponent/Form/Textarea";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import { useParams, useRouter } from "next/navigation";
 
 const AccountNewsUpdate = () => {
@@ -110,45 +111,50 @@ const AccountNewsUpdate = () => {
   };
 
   return (
-    <div className="min-h-screen bg-stone-300 p-4 ">
+    <div className="p-4">
       <main className="text-white">
-        <h3 className="m-4 text-center text-black">
+        <h3 className="m-8 mx-auto text-center text-black md:w-[400px] lg:w-[500px]">
           Formulaire de mise à jour de l&apos;information
         </h3>
 
         {loadingData ? (
           <div className="flex flex-col items-center gap-y-4">
             <p className="text-black">
-              {" "}
               Chargement des données de l&apos;information
             </p>
           </div>
         ) : (
-          <div className="mt-8 flex flex-col items-center justify-center bg-stone-300 p-4">
+          <div className="mt-8 flex flex-col items-center justify-center p-4">
             <form
               onSubmit={handleSubmit}
-              className="flex flex-col gap-y-4 rounded-md bg-slate-900 p-8 text-center"
+              className="flex w-[300px] flex-col gap-y-4 rounded-md bg-slate-900 p-8 text-center md:w-[400px] lg:w-[500px]"
             >
-              <Input
-                inputName="Date"
-                value={date}
-                setter={setDate}
-                placeholder="JJ/MM/AAAA"
-                isDate={true}
-              />
-              <Input
-                inputName="Titre"
-                value={title}
-                setter={setTitle}
-                placeholder="Titre de la nouvelle"
-              />
-              <Textarea
-                textareaName="Description"
-                value={description}
-                onChange={setDescription}
-                placeholder="Description de la nouvelle"
-              />
+              <div className="space-y-1 text-left">
+                <Label>Date</Label>
+                <Input
+                  value={date}
+                  onChange={(e) => setDate(e.target.value)}
+                  placeholder="JJ/MM/AAAA"
 
+                />
+              </div>
+              <div className="space-y-1 text-left">
+                <Label>Titre</Label>
+                <Input
+                  value={title}
+                  placeholder="Titre de la nouvelle"
+                  onChange={(e) => setTitle(e.target.value)}
+                />
+              </div>
+              <div className="space-y-1 text-left">
+                <Label>Description</Label>
+                <Textarea
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                  placeholder="Description de la nouvelle"
+                  rows={5}
+                />
+              </div>
               {/* Conditionally render the Loader based on the loading state */}
               {
                 loadingSubmit ? (
