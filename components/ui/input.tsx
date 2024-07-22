@@ -1,24 +1,23 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
-import { isNumber } from "util";
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  isDate?: boolean; // Prop pour spécifier si l'input est une date
-  isNumber?: boolean; // Prop pour spécifier si l'input est numérique
+  isDate?: boolean; // Prop to specify if the input is a date
+  isNumber?: boolean; // Prop to specify if the input is numeric
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, type, isDate, isNumber, ...props }, ref) => {
-    // Fonction pour formater l'entrée de la date
+    // Function to format the date input
     const formatDate = (value: string) => {
-      const cleaned = value.replace(/\D+/g, ""); // Supprimer les caractères non numériques
+      const cleaned = value.replace(/\D+/g, ""); // Remove non-numeric characters
 
-      // Construire le format DD/MM/YYYY
+      // Build the DD/MM/YYYY format
       const day = cleaned.slice(0, 2);
       const month = cleaned.slice(2, 4);
       const year = cleaned.slice(4, 8);
 
-      // Concaténer les parties avec les séparateurs
+      // Concatenate the parts with separators
       let formattedValue = day;
       if (day.length === 2) formattedValue += '/';
       if (month.length > 0) formattedValue += month;
@@ -31,7 +30,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       let value = e.target.value;
 
-      // Limiter la longueur de l'entrée totale à 30 caractères
+      // Limit the total input length to 30 characters
       if (value.length > 30) {
         value = value.slice(0, 30);
       }
@@ -39,7 +38,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       if (isDate) {
         value = formatDate(value);
 
-        // Limiter la longueur après formatage à 30 caractères
+        // Limit the length after formatting to 30 characters
         if (value.length > 30) {
           value = value.slice(0, 30);
         }
@@ -52,14 +51,22 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       }
     };
 
-    // Fonction pour empêcher l'entrée de caractères non numériques
+    // Function to prevent non-numeric character input
     const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
       if (isDate || isNumber) {
-        if (!/[0-9\/]/.test(e.key) && e.key !== 'Backspace' && e.key !== 'Tab') {
-          e.preventDefault();
+        if (isNumber) {
+          // Allow numbers, periods, backspace, and tab
+          if (!/[0-9.]/.test(e.key) && e.key !== 'Backspace' && e.key !== 'Tab') {
+            e.preventDefault();
+          }
+        } else {
+          // Allow numbers, slashes, backspace, and tab for date input
+          if (!/[0-9\/]/.test(e.key) && e.key !== 'Backspace' && e.key !== 'Tab') {
+            e.preventDefault();
+          }
         }
       } else {
-        // Pour les autres types d'input, empêcher les caractères non valides
+        // For other input types, prevent invalid characters
         if (!/[0-9a-zA-Z]/.test(e.key) && e.key !== 'Backspace' && e.key !== 'Tab') {
           e.preventDefault();
         }
