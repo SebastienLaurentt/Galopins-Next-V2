@@ -117,7 +117,7 @@ const AccountRandoUpdate = () => {
       );
     } else if (pictures.length > 0) {
       return (
-        <span className="flex flex-row justify-center text-sm text-green-600">
+        <span className="mt-2 flex flex-row justify-center text-sm text-green-600">
           {pictures.length}{" "}
           {pictures.length === 1
             ? "image sélectionnée"
