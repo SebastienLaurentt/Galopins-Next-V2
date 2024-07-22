@@ -7,9 +7,9 @@ import { Label } from "@/components/ui/label";
 import axios from "axios";
 import imageCompression from "browser-image-compression";
 import Cookies from "js-cookie";
+import { ImagePlus } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { AiOutlinePicture } from "react-icons/ai";
 import { RotatingLines } from "react-loader-spinner";
 
 const AccountRandoAdd = () => {
@@ -77,13 +77,13 @@ const AccountRandoAdd = () => {
   const renderSelectedImageCount = () => {
     if (!loadingSubmit && !showSuccessMessage && pictures.length === 0) {
       return (
-        <span className="mt-2 text-md text-red-500">
+        <span className="mt-2 flex flex-row justify-center text-sm text-red-500">
           Aucune image sélectionnée
         </span>
       );
     } else if (pictures.length > 0) {
       return (
-        <span className="mt-2 text-md text-green-600">
+        <span className="mt-2 flex flex-row justify-center text-sm text-green-600">
           {pictures.length}{" "}
           {pictures.length === 1
             ? "image sélectionnée"
@@ -156,7 +156,7 @@ const AccountRandoAdd = () => {
         <div className="mt-3 flex flex-col items-center justify-center  p-4">
           <form
             onSubmit={handleSubmit}
-            className="flex w-[300px] flex-col gap-y-4 rounded-md bg-slate-900 p-8 text-center md:w-[400px] lg:w-[500px]"
+            className="flex w-[300px] flex-col gap-y-4 rounded-md bg-slate-900 px-8 py-4 text-center md:w-[400px] lg:w-[500px]"
           >
             <div className="space-y-1 text-left">
               <Label>Date</Label>
@@ -202,25 +202,27 @@ const AccountRandoAdd = () => {
                 isNumber
               />
             </div>
-            <div className="flex flex-col gap-y-1 text-sm">
-              <label>
-                <span className="font-bold">Images</span>
-                <div className="flex cursor-pointer flex-col items-center justify-center">
-                  <AiOutlinePicture size={64} />
-                  <p className="mb-0">
-                    <span className="text-sm">
-                      Cliquer pour sélectionner les images
+            <div>
+              <div className="space-y-1 text-left">
+                <Label>
+                  Photos
+                  <div className="flex h-32 cursor-pointer flex-col items-center justify-center rounded-md border-2 border-dashed border-white ">
+                    <ImagePlus size={48} />
+                    <span className="mx-auto mt-2 w-[260px] text-center text-sm font-medium leading-4">
+                      <span className="font-bold">Cliquer</span> pour{" "}
+                      <span className="font-bold">ajouter</span> les photos
+                      séléctionnées
                     </span>
-                  </p>
-                </div>
-                <input
-                  type="file"
-                  accept="image/*"
-                  onChange={handleImageChange}
-                  className="hidden"
-                  multiple
-                />
-              </label>
+                  </div>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleImageChange}
+                    className="hidden"
+                    multiple
+                  />
+                </Label>
+              </div>
               {/* Conditionally render the Loader based on the loading state */}
               {loadingImages && (
                 <span className="flex justify-center">

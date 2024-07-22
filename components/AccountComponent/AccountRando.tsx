@@ -59,7 +59,7 @@ function AccountRando() {
 
   return (
     <div className="flex flex-col ">
-      <h4> Photos randonnées </h4>
+      <h4 className="text-center md:text-left"> Photos randonnées </h4>
       <div className="mb-2 flex items-start justify-start">
         <Button asChild>
           <Link href="/account/addrando" aria-label="Ajouter des photos">

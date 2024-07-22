@@ -55,7 +55,7 @@ function AccountNews() {
 
   return (
     <div className="">
-      <h4>Dernières infos</h4>
+      <h4 className="text-center md:text-left">Dernières infos</h4>
       <div className="mb-2 flex items-start justify-start">
         <Button asChild>
           <Link
