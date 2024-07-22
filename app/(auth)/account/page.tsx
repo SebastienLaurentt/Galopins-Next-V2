@@ -42,11 +42,11 @@ function Account() {
             Photos Randos
           </button>
         </div>
+      </div>
 
-        <div className=" mx-2 mb-8 rounded-md bg-slate-900 p-4 text-white md:mb-0 md:w-[700px] lg:w-[800px]">
-          {activeButton === "Infos" && <AccountNews />}
-          {activeButton === "Randos" && <AccountRando />}
-        </div>
+      <div className="mx-auto mb-8 rounded-md bg-slate-900 p-4 text-white md:mb-0 md:w-[700px] lg:w-[800px]">
+        {activeButton === "Infos" && <AccountNews />}
+        {activeButton === "Randos" && <AccountRando />}
       </div>
     </main>
   );

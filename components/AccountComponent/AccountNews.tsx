@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import Link from "next/link";
 import { Button } from "../ui/button";
+import { RotatingLines } from "react-loader-spinner";
 
 interface InfoDataProps {
   id: number;
@@ -12,7 +13,8 @@ interface InfoDataProps {
 }
 
 function AccountNews() {
-  const [infosData, setInfosData] = useState<InfoDataProps[]>([]); // State with all Rando Data
+  const [infosData, setInfosData] = useState<InfoDataProps[]>([]); // State with all Infos Data
+  const [loading, setLoading] = useState(true);
 
   const handleDelete = async (id: number) => {
     try {
@@ -44,12 +46,13 @@ function AccountNews() {
     }
   };
 
-  // Fetch all Randos Data
+  // Fetch all Info Data
   useEffect(() => {
     axios
       .get("https://young-oasis-97886-5eb78d4cde61.herokuapp.com/api/infos/")
       .then((response) => {
         setInfosData(response.data.data);
+        setLoading(false);
       });
   }, []);
 
@@ -66,6 +69,17 @@ function AccountNews() {
           </Link>
         </Button>
       </div>
+      {loading ? (
+        <span className="flex justify-center">
+          <RotatingLines
+            strokeColor="green"
+            strokeWidth="5"
+            animationDuration="0.5"
+            width="32"
+            visible={true}
+          />
+        </span>
+      ) : (
       <table className="mb-2 w-full">
         <thead >
           <tr className="border-b-2 ">
@@ -103,6 +117,7 @@ function AccountNews() {
           ))}
         </tbody>
       </table>
+      )}
     </div>
   );
 }
