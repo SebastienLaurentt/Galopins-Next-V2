@@ -1,7 +1,7 @@
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import Cookies from "js-cookie";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import Loader from "../Loader/Loader";
 import { Button } from "../ui/button";
 
@@ -11,55 +11,69 @@ interface InfoDataProps {
   destination: string;
 }
 
-function AccountRando() {
-  const [randosData, setRandosData] = useState<InfoDataProps[]>([]); // State with all Rando Data
-  const [loading, setLoading] = useState(true);
+const fetchRandos = async (): Promise<InfoDataProps[]> => {
+  const response = await axios.get(
+    "https://young-oasis-97886-5eb78d4cde61.herokuapp.com/api/randos/"
+  );
+  if (response.status !== 200) {
+    throw new Error("Erreur lors de la récupération des données.");
+  }
+  return response.data.data;
+};
 
-  const handleDelete = async (id: number) => {
-    try {
-      // Get token cookie for Authorization
-      const token = Cookies.get("token");
+const deleteRando = async (id: number): Promise<void> => {
+  const token = Cookies.get("token");
+  if (!token) {
+    throw new Error("Le token n'est pas disponible.");
+  }
 
-      // Error gestion if token not available
-      if (!token) {
-        console.error("Le token n'est pas disponible.");
-        return;
-      }
-
-      // Delete request
-      await axios.delete(
-        `https://young-oasis-97886-5eb78d4cde61.herokuapp.com/api/randos/${id}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-
-      // Mettez à jour l'état pour refléter la suppression
-      setRandosData((prevData) => prevData.filter((rando) => rando.id !== id));
-    } catch (error) {
-      console.error("Erreur lors de la suppression :", error);
+  const response = await axios.delete(
+    `https://young-oasis-97886-5eb78d4cde61.herokuapp.com/api/randos/${id}`,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     }
+  );
+
+  if (response.status !== 200) {
+    throw new Error("Erreur lors de la suppression.");
+  }
+};
+
+function AccountRando() {
+  const queryClient = useQueryClient();
+
+  // Fetch Randos Data
+  const {
+    data: randosData,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ["randos"],
+    queryFn: fetchRandos,
+  });
+
+  // Delete Rando
+  const mutation = useMutation({
+    mutationFn: deleteRando,
+    onSuccess: () => {
+      // Invalidate the 'randos' query to refetch data
+      queryClient.invalidateQueries({ queryKey: ["randos"] });
+    },
+  });
+
+  const handleDelete = (id: number) => {
+    mutation.mutate(id);
   };
 
-  // Fetch all Randos Data
-  useEffect(() => {
-    axios
-      .get("https://young-oasis-97886-5eb78d4cde61.herokuapp.com/api/randos/")
-      .then((response) => {
-        setRandosData(response.data.data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Erreur lors de la récupération des données :", error);
-        setLoading(false);
-      });
-  }, []);
+  if (isError) {
+    return <span>Erreur lors de la récupération des données.</span>;
+  }
 
   return (
-    <div className="flex flex-col ">
-      <h4 className="text-center md:text-left"> Photos randonnées </h4>
+    <div className="flex flex-col">
+      <h4 className="text-center md:text-left">Photos randonnées</h4>
       <div className="mb-2 flex items-start justify-start">
         <Button asChild>
           <Link href="/account/addrando" aria-label="Ajouter des photos">
@@ -67,7 +81,7 @@ function AccountRando() {
           </Link>
         </Button>
       </div>
-      {loading ? (
+      {isLoading ? (
         <span className="flex justify-center">
           <Loader />
         </span>
@@ -81,12 +95,12 @@ function AccountRando() {
             </tr>
           </thead>
           <tbody>
-            {randosData.map((rando) => (
+            {randosData?.map((rando) => (
               <tr key={rando.id} className="border-b">
                 <td className="p-2 md:px-4">{rando.date}</td>
                 <td className="p-2 text-left md:px-4">{rando.destination}</td>
-                <td className="flex flex-col justify-center p-2 text-center md:flex-row md:px-4 ">
-                  <div className="px-2 ">
+                <td className="flex flex-col justify-center p-2 text-center md:flex-row md:px-4">
+                  <div className="px-2">
                     <button
                       onClick={() => handleDelete(rando.id)}
                       className="text-red-500 md:hover:font-bold"

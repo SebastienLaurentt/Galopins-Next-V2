@@ -1,6 +1,4 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import Cookies from "js-cookie";
 import Link from "next/link";
 import Loader from "../Loader/Loader";
@@ -12,52 +10,67 @@ interface InfoDataProps {
   title: string;
 }
 
-function AccountNews() {
-  const [infosData, setInfosData] = useState<InfoDataProps[]>([]); // State with all Infos Data
-  const [loading, setLoading] = useState(true);
+const fetchInfos = async (): Promise<InfoDataProps[]> => {
+  const response = await fetch(
+    "https://young-oasis-97886-5eb78d4cde61.herokuapp.com/api/infos/"
+  );
+  if (!response.ok) {
+    throw new Error("Erreur lors de la récupération des informations.");
+  }
+  const data = await response.json();
+  return data.data;
+};
 
-  const handleDelete = async (id: number) => {
-    try {
-      // Get token cookie for Authorization
-      const token = Cookies.get("token");
+const deleteInfo = async (id: number): Promise<void> => {
+  const token = Cookies.get("token");
+  if (!token) {
+    throw new Error("Le token n'est pas disponible.");
+  }
 
-      console.log(token);
-
-      // Error gestion if token not available
-      if (!token) {
-        console.error("Le token n'est pas disponible.");
-        return;
-      }
-
-      // Delete request
-      await axios.delete(
-        `https://young-oasis-97886-5eb78d4cde61.herokuapp.com/api/infos/${id}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-
-      // Mettez à jour l'état pour refléter la suppression
-      setInfosData((prevData) => prevData.filter((info) => info.id !== id));
-    } catch (error) {
-      console.error("Erreur lors de la suppression :", error);
+  const response = await fetch(
+    `https://young-oasis-97886-5eb78d4cde61.herokuapp.com/api/infos/${id}`,
+    {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     }
+  );
+
+  if (!response.ok) {
+    throw new Error("Erreur lors de la suppression.");
+  }
+};
+
+function AccountNews() {
+  const queryClient = useQueryClient();
+
+  const {
+    data: infosData,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ["infos"],
+    queryFn: fetchInfos,
+  });
+
+  const mutation = useMutation({
+    mutationFn: deleteInfo,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["infos"] });
+    },
+  });
+
+  const handleDelete = (id: number) => {
+    mutation.mutate(id);
   };
 
-  // Fetch all Info Data
-  useEffect(() => {
-    axios
-      .get("https://young-oasis-97886-5eb78d4cde61.herokuapp.com/api/infos/")
-      .then((response) => {
-        setInfosData(response.data.data);
-        setLoading(false);
-      });
-  }, []);
+  if (isError) {
+    return <span>Erreur lors de la récupération des informations.</span>;
+  }
 
   return (
-    <div className="">
+    <div>
       <h4 className="text-center md:text-left">Dernières infos</h4>
       <div className="mb-2 flex items-start justify-start">
         <Button asChild>
@@ -69,21 +82,21 @@ function AccountNews() {
           </Link>
         </Button>
       </div>
-      {loading ? (
+      {isLoading ? (
         <span className="flex justify-center">
           <Loader />
         </span>
       ) : (
         <table className="mb-2 w-full">
           <thead>
-            <tr className="border-b-2 ">
-              <th className="p-2 md:px-4 md:text-left">Date </th>
-              <th className="p-2 md:px-4 md:text-left">Titre </th>
+            <tr className="border-b-2">
+              <th className="p-2 md:px-4 md:text-left">Date</th>
+              <th className="p-2 md:px-4 md:text-left">Titre</th>
               <th className="p-2 md:px-4">Actions</th>
             </tr>
           </thead>
           <tbody>
-            {infosData.map((info) => (
+            {infosData?.map((info) => (
               <tr key={info.id} className="border-b">
                 <td className="p-2 md:px-4">{info.date}</td>
                 <td className="p-2 text-center md:px-4 md:text-left">
