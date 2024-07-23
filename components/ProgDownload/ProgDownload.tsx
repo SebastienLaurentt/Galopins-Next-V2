@@ -9,10 +9,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useState } from "react";
-import DownloadButton from "../Button/DownloadButton/DownloadButton";
-import { Button } from "../ui/button";
 import Link from "next/link";
+import { useState } from "react";
+import { Button } from "../ui/button";
 
 const TRIMESTRE1_2024 = `/pdf/TRIMESTRE1_2024.pdf`;
 const TRIMESTRE2_2024 = `/pdf/TRIMESTRE2_2024.pdf`;
