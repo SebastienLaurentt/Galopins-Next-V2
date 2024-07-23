@@ -11,6 +11,8 @@ import {
 } from "@/components/ui/select";
 import { useState } from "react";
 import DownloadButton from "../Button/DownloadButton/DownloadButton";
+import { Button } from "../ui/button";
+import Link from "next/link";
 
 const TRIMESTRE1_2024 = `/pdf/TRIMESTRE1_2024.pdf`;
 const TRIMESTRE2_2024 = `/pdf/TRIMESTRE2_2024.pdf`;
@@ -59,12 +61,11 @@ const ProgDownload = () => {
         </SelectContent>
       </Select>
       {selectedPDF && (
-        <DownloadButton
-          href={selectedPDF}
-          fileName={selectedPDF.split("/").pop() ?? ""}
-          linkName="Télécharger le programme"
-          classname=""
-        />
+        <Button asChild>
+          <Link href={selectedPDF} target="_blank">
+            Télécharger le programme
+          </Link>
+        </Button>
       )}
     </div>
   );

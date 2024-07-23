@@ -2,11 +2,12 @@ import PageTitle from "@/components/PageTitle/PageTitle";
 import Section from "@/components/Section/Section";
 import SectionHeader from "@/components/Section/SectionHeader/SectionHeader";
 
-import DownloadButton from "@/components/Button/DownloadButton/DownloadButton";
 import Contact from "@/components/Contact/Contact";
+import { Button } from "@/components/ui/button";
 import { Mail, Phone } from "lucide-react";
 import { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import imgAdhesion from "/public/images/Adhesion.webp";
 
 const admissionPdf = `/pdf/Admission_Galopins.pdf`;
@@ -57,12 +58,13 @@ function Adhesion() {
               Un montant de 15€ ainsi que le formulaire d&apos;inscription
               ci-dessous seront demandés afin de valider l&apos;adhésion.
             </p>
-            <DownloadButton
-              href={admissionPdf}
-              fileName="Admission_Galopins.pdf"
-              linkName="Télécharger le formulaire"
-              classname="mt-4"
-            />
+            <div className="mt-4 flex flex-col items-start ">
+              <Button asChild>
+                <Link href={admissionPdf} target="_blank">
+                  Télécharger le formulaire
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </Section>

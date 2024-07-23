@@ -44,6 +44,19 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         }
       }
 
+      // Handle numeric inputs to allow only one period or comma
+      if (isNumber) {
+        const cleaned = value.replace(/[^0-9.,]/g, "");
+        const parts = cleaned.split(/[,\.]/);
+
+        if (parts.length > 2) {
+          // If more than one period or comma, keep only the first one
+          value = `${parts[0]}.${parts.slice(1).join('')}`;
+        } else {
+          value = cleaned;
+        }
+      }
+
       e.target.value = value;
 
       if (props.onChange) {
@@ -55,8 +68,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
       if (isDate || isNumber) {
         if (isNumber) {
-          // Allow numbers, periods, backspace, and tab
-          if (!/[0-9.]/.test(e.key) && e.key !== 'Backspace' && e.key !== 'Tab') {
+          // Allow numbers, periods, commas, backspace, and tab
+          if (!/[0-9.,]/.test(e.key) && e.key !== 'Backspace' && e.key !== 'Tab') {
             e.preventDefault();
           }
         } else {
