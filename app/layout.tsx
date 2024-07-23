@@ -3,6 +3,8 @@ import clsx from "clsx";
 import { Metadata } from "next";
 import { Lato } from "next/font/google";
 import "./globals.css";
+import Providers from "@/components/Providers/Providers";
+import { Toaster } from "@/components/ui/toaster";
 
 const lato = Lato({
   weight: ["400", "700"],
@@ -47,11 +49,13 @@ export default function RootLayout({
           <meta name="msapplication-TileColor" content="#ffffff" />
           <meta name="theme-color" content="#ffffff" />
         </head>
-        <body className={clsx(lato.className, "h-full")}>
-          <div className=" flex h-full flex-col">
-            <div className="flex-1">{children}</div>
-          </div>
-        </body>
+        <Providers>
+          <body className={clsx(lato.className, "h-full")}>
+            <div className=" flex h-full flex-col">
+              <div className="flex-1">{children} <Toaster /></div>
+            </div>
+          </body>
+        </Providers>
       </html>
     </AuthProvider>
   );
