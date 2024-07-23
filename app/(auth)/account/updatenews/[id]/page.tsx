@@ -20,7 +20,6 @@ const AccountNewsUpdate = () => {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   const router = useRouter();
-
   useEffect(() => {
     const fetchData = async () => {
       try {

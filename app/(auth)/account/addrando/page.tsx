@@ -4,12 +4,47 @@ import Loader from "@/components/Loader/Loader";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import axios from "axios";
+import { toast } from "@/components/ui/use-toast";
+import { useMutation } from "@tanstack/react-query";
 import imageCompression from "browser-image-compression";
 import Cookies from "js-cookie";
 import { ImagePlus } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+
+const uploadRando = async (randoData: {
+  date: string;
+  destination: string;
+  memberNumber: string;
+  elevation: string;
+  distance: string;
+  pictures: string[];
+}) => {
+  const token = Cookies.get("token");
+
+  if (!token) {
+    throw new Error("Token is not available");
+  }
+
+  const response = await fetch(
+    "https://young-oasis-97886-5eb78d4cde61.herokuapp.com/api/randos",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(randoData),
+    }
+  );
+
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(error.message || "Une erreur est survenue");
+  }
+
+  return response.json();
+};
 
 const AccountRandoAdd = () => {
   const [date, setDate] = useState("");
@@ -19,10 +54,30 @@ const AccountRandoAdd = () => {
   const [distance, setDistance] = useState("");
   const [pictures, setPictures] = useState<string[]>([]);
   const [loadingImages, setLoadingImages] = useState(false);
-  const [loadingSubmit, setLoadingSubmit] = useState(false);
-  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-
   const router = useRouter();
+
+  const { mutate: uploadRandoMutation, isPending } = useMutation({
+    mutationFn: uploadRando,
+    onSuccess: () => {
+      toast({
+        title: "Randonnée ajoutée avec succès !",
+      });
+      setDate("");
+      setDestination("");
+      setMemberNumber("");
+      setElevation("");
+      setDistance("");
+      setPictures([]);
+      router.push("/account");
+    },
+    onError: (error: any) => {
+      toast({
+        variant: "destructive",
+        title: "Erreur lors de l'ajout de la randonnée",
+        description: error.message,
+      });
+    },
+  });
 
   const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     setLoadingImages(true);
@@ -65,7 +120,7 @@ const AccountRandoAdd = () => {
   };
 
   const renderSelectedImageCount = () => {
-    if (!loadingSubmit && !showSuccessMessage && pictures.length === 0) {
+    if (!isPending && pictures.length === 0) {
       return (
         <span className="mt-2 flex flex-row justify-center text-sm text-red-500">
           Aucune image sélectionnée
@@ -85,55 +140,16 @@ const AccountRandoAdd = () => {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    try {
-      setLoadingSubmit(true);
-      const token = Cookies.get("token");
-
-      if (!token) {
-        console.error("Le token n'est pas disponible.");
-        return;
-      }
-
-      const response = await axios.post(
-        "https://young-oasis-97886-5eb78d4cde61.herokuapp.com/api/randos",
-        {
-          date,
-          destination,
-          memberNumber,
-          elevation,
-          distance,
-          pictures,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-
-      setDate("");
-      setDestination("");
-      setMemberNumber(""), setElevation(""), setDistance(""), setPictures([]);
-
-      console.log(response.data);
-
-      // Show success message
-      setShowSuccessMessage(true);
-
-      // Hide success message after 2 seconds
-      setTimeout(() => {
-        setShowSuccessMessage(false);
-        router.push("/account");
-      }, 3000);
-    } catch (error) {
-      console.error("Erreur lors de l'ajout d'informations :", error);
-    } finally {
-      setLoadingSubmit(false);
-    }
+    uploadRandoMutation({
+      date,
+      destination,
+      memberNumber,
+      elevation,
+      distance,
+      pictures,
+    });
   };
 
   return (
@@ -143,7 +159,7 @@ const AccountRandoAdd = () => {
           Formulaire d&apos;ajout d&apos;une nouvelle randonnée
         </h3>
 
-        <div className="mt-3 flex flex-col items-center justify-center  p-4">
+        <div className="mt-3 flex flex-col items-center justify-center p-4">
           <form
             onSubmit={handleSubmit}
             className="flex w-[300px] flex-col gap-y-4 rounded-md bg-slate-900 px-8 py-4 text-center md:w-[400px] lg:w-[500px]"
@@ -196,12 +212,12 @@ const AccountRandoAdd = () => {
               <div className="space-y-1 text-left">
                 <Label>
                   Photos
-                  <div className="flex h-32 cursor-pointer flex-col items-center justify-center rounded-md border-2 border-dashed border-white ">
+                  <div className="flex h-32 cursor-pointer flex-col items-center justify-center rounded-md border-2 border-dashed border-white">
                     <ImagePlus size={48} />
                     <span className="mx-auto mt-2 w-[260px] text-center text-sm font-medium leading-4">
                       <span className="font-bold">Cliquer</span> pour{" "}
                       <span className="font-bold">ajouter</span> les photos
-                      séléctionnées
+                      sélectionnées
                     </span>
                   </div>
                   <input
@@ -223,22 +239,14 @@ const AccountRandoAdd = () => {
               {renderSelectedImageCount()}
             </div>
             {/* Conditionally render the Loader based on the loading state */}
-            {
-              loadingSubmit ? (
-                <span className="flex justify-center">
-                  <Loader />
-                </span>
-              ) : null /* Don't render the button if loadingSubmit is true */
-            }
-            {/* Conditionally render the success message */}
-            {showSuccessMessage && (
-              <span className="mt-2 text-md text-green-600">
-                Rando créée ! Vous allez être redirigé.
+            {isPending ? (
+              <span className="flex justify-center">
+                <Loader />
               </span>
-            )}
-            {/* Render the button outside the form to prevent it from re-rendering */}
-            {!loadingSubmit && !showSuccessMessage && (
-              <Button className="w-full">Ajouter Photos</Button>
+            ) : (
+              <Button className="w-full" type="submit">
+                Ajouter Photos
+              </Button>
             )}
           </form>
         </div>

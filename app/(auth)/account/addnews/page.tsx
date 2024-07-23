@@ -7,54 +7,59 @@ import { Textarea } from "@/components/ui/textarea";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
-
 import { useState } from "react";
+import { useMutation } from "@tanstack/react-query";
+import { toast } from "@/components/ui/use-toast";
+
+const addNews = async (newsData: { date: string; title: string; description: string }) => {
+  const token = Cookies.get("token");
+
+  if (!token) {
+    throw new Error("Token is not available");
+  }
+
+  const response = await axios.post(
+    "https://young-oasis-97886-5eb78d4cde61.herokuapp.com/api/infos",
+    newsData,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+
+  return response.data;
+};
 
 const AccountNewsAdd = () => {
   const [date, setDate] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-
   const router = useRouter();
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    try {
-      // Get token cookie for Authorization
-      const token = Cookies.get("token");
-      console.log(token);
-
-      // Error gestion if token not available
-      if (!token) {
-        console.error("Le token n'est pas disponible.");
-        return;
-      }
-
-      // POST request to add new Info
-      const response = await axios.post(
-        "https://young-oasis-97886-5eb78d4cde61.herokuapp.com/api/infos",
-        {
-          date,
-          title,
-          description,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-
-      // Reset form after submit success
+  const { mutate: addNewsMutation, isPending } = useMutation({
+    mutationFn: addNews,
+    onSuccess: () => {
+      toast({
+        title: "Information ajoutée avec succès !",
+      });
       setDate("");
       setTitle("");
       setDescription("");
-
       router.push("/account");
-    } catch (error) {
-      console.error("Erreur lors de l'ajout d'informations :", error);
-    }
+    },
+    onError: (error: any) => {
+      toast({
+        variant: "destructive",
+        title: "Erreur lors de l'ajout de l'information",
+        description: error.message,
+      });
+    },
+  });
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    addNewsMutation({ date, title, description });
   };
 
   return (
@@ -94,7 +99,9 @@ const AccountNewsAdd = () => {
                 rows={5}
               />
             </div>
-            <Button className="w-full">Ajouter Information</Button>
+            <Button className="w-full" type="submit" disabled={isPending}>
+              {isPending ? "Chargement..." : "Ajouter Information"}
+            </Button>
           </form>
         </div>
       </main>
