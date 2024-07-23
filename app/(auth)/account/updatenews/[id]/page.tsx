@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { redirect, useParams, useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 
 const AccountNewsUpdate = () => {
   const { id } = useParams(); // Obtenir l'ID de la nouvelle depuis l'URL
@@ -20,7 +20,7 @@ const AccountNewsUpdate = () => {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   const router = useRouter();
-  
+
   useEffect(() => {
     const fetchData = async () => {
       try {

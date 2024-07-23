@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 
 import Cookies from "js-cookie";
 import Link from "next/link";
+import Loader from "../Loader/Loader";
 import { Button } from "../ui/button";
-import { RotatingLines } from "react-loader-spinner";
 
 interface InfoDataProps {
   id: number;
@@ -71,52 +71,46 @@ function AccountNews() {
       </div>
       {loading ? (
         <span className="flex justify-center">
-          <RotatingLines
-            strokeColor="green"
-            strokeWidth="5"
-            animationDuration="0.5"
-            width="32"
-            visible={true}
-          />
+          <Loader />
         </span>
       ) : (
-      <table className="mb-2 w-full">
-        <thead >
-          <tr className="border-b-2 ">
-            <th className="p-2 md:px-4 md:text-left">Date </th>
-            <th className="p-2 md:px-4 md:text-left">Titre </th>
-            <th className="p-2 md:px-4">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {infosData.map((info) => (
-            <tr key={info.id} className="border-b">
-              <td className="p-2 md:px-4">{info.date}</td>
-              <td className="p-2 text-center md:px-4 md:text-left">
-                {info.title}
-              </td>
-              <td className="flex flex-col justify-center p-2 text-center md:flex-row md:px-4">
-                <div className="px-2">
-                  <button
-                    onClick={() => handleDelete(info.id)}
-                    className="text-red-500 md:hover:font-bold"
-                  >
-                    Supprimer
-                  </button>
-                </div>
-                <div className="px-2">
-                  <Link
-                    href={`/account/updatenews/${info.id}`}
-                    className="text-cyan-500 md:hover:font-bold"
-                  >
-                    Modifier
-                  </Link>
-                </div>
-              </td>
+        <table className="mb-2 w-full">
+          <thead>
+            <tr className="border-b-2 ">
+              <th className="p-2 md:px-4 md:text-left">Date </th>
+              <th className="p-2 md:px-4 md:text-left">Titre </th>
+              <th className="p-2 md:px-4">Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {infosData.map((info) => (
+              <tr key={info.id} className="border-b">
+                <td className="p-2 md:px-4">{info.date}</td>
+                <td className="p-2 text-center md:px-4 md:text-left">
+                  {info.title}
+                </td>
+                <td className="flex flex-col justify-center p-2 text-center md:flex-row md:px-4">
+                  <div className="px-2">
+                    <button
+                      onClick={() => handleDelete(info.id)}
+                      className="text-red-500 md:hover:font-bold"
+                    >
+                      Supprimer
+                    </button>
+                  </div>
+                  <div className="px-2">
+                    <Link
+                      href={`/account/updatenews/${info.id}`}
+                      className="text-cyan-500 md:hover:font-bold"
+                    >
+                      Modifier
+                    </Link>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       )}
     </div>
   );

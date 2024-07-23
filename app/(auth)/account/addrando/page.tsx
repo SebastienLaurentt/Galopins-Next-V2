@@ -1,5 +1,6 @@
 "use client";
 
+import Loader from "@/components/Loader/Loader";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -7,9 +8,8 @@ import axios from "axios";
 import imageCompression from "browser-image-compression";
 import Cookies from "js-cookie";
 import { ImagePlus } from "lucide-react";
-import { redirect, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { RotatingLines } from "react-loader-spinner";
 
 const AccountRandoAdd = () => {
   const [date, setDate] = useState("");
@@ -216,13 +216,7 @@ const AccountRandoAdd = () => {
               {/* Conditionally render the Loader based on the loading state */}
               {loadingImages && (
                 <span className="flex justify-center">
-                  <RotatingLines
-                    strokeColor="green"
-                    strokeWidth="5"
-                    animationDuration="0.5"
-                    width="32"
-                    visible={true}
-                  />
+                  <Loader />
                 </span>
               )}
               {/* Display number of images selected */}
@@ -232,13 +226,7 @@ const AccountRandoAdd = () => {
             {
               loadingSubmit ? (
                 <span className="flex justify-center">
-                  <RotatingLines
-                    strokeColor="green"
-                    strokeWidth="5"
-                    animationDuration="0.5"
-                    width="32"
-                    visible={true}
-                  />
+                  <Loader />
                 </span>
               ) : null /* Don't render the button if loadingSubmit is true */
             }

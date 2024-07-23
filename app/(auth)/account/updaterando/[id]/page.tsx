@@ -1,5 +1,6 @@
 "use client";
 
+import Loader from "@/components/Loader/Loader";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -7,9 +8,8 @@ import axios from "axios";
 import imageCompression from "browser-image-compression";
 import Cookies from "js-cookie";
 import { ImagePlus } from "lucide-react";
-import { redirect, useParams, useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { RotatingLines } from "react-loader-spinner";
 
 const AccountRandoUpdate = () => {
   const { id } = useParams(); // Récupère l'ID de la randonnée depuis l'URL
@@ -188,13 +188,7 @@ const AccountRandoUpdate = () => {
 
         {loadingData ? (
           <div className="flex flex-col items-center gap-y-4">
-            <RotatingLines
-              strokeColor="green"
-              strokeWidth="5"
-              animationDuration="0.5"
-              width="64"
-              visible={true}
-            />
+            <Loader />
             <p className="text-black">
               Chargement des informations de la randonnée...
             </p>
@@ -275,13 +269,7 @@ const AccountRandoUpdate = () => {
                 {/* Conditionally render the Loader based on the loading state */}
                 {loadingImages && (
                   <span className="flex justify-center">
-                    <RotatingLines
-                      strokeColor="green"
-                      strokeWidth="5"
-                      animationDuration="0.5"
-                      width="32"
-                      visible={true}
-                    />
+                    <Loader />
                   </span>
                 )}
                 {/* Display number of images selected */}
@@ -292,13 +280,7 @@ const AccountRandoUpdate = () => {
               {
                 loadingSubmit ? (
                   <div className="flex justify-center">
-                    <RotatingLines
-                      strokeColor="green"
-                      strokeWidth="5"
-                      animationDuration="0.5"
-                      width="32"
-                      visible={true}
-                    />
+                    <Loader />
                   </div>
                 ) : null /* Don't render the button if loadingSubmit is true */
               }

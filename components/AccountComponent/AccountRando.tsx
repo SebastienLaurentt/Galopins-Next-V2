@@ -2,7 +2,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { RotatingLines } from "react-loader-spinner";
+import Loader from "../Loader/Loader";
 import { Button } from "../ui/button";
 
 interface InfoDataProps {
@@ -69,13 +69,7 @@ function AccountRando() {
       </div>
       {loading ? (
         <span className="flex justify-center">
-          <RotatingLines
-            strokeColor="green"
-            strokeWidth="5"
-            animationDuration="0.5"
-            width="32"
-            visible={true}
-          />
+          <Loader />
         </span>
       ) : (
         <table>
