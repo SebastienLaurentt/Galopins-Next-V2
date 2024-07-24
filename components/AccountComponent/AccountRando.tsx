@@ -1,5 +1,4 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import axios from "axios";
 import Cookies from "js-cookie";
 import Link from "next/link";
 import Loader from "../Loader/Loader";
@@ -12,13 +11,21 @@ interface InfoDataProps {
 }
 
 const fetchRandos = async (): Promise<InfoDataProps[]> => {
-  const response = await axios.get(
-    "https://young-oasis-97886-5eb78d4cde61.herokuapp.com/api/randos/"
-  );
-  if (response.status !== 200) {
-    throw new Error("Erreur lors de la récupération des données.");
+  try {
+    const response = await fetch(
+      "https://young-oasis-97886-5eb78d4cde61.herokuapp.com/api/randos/"
+    );
+
+    if (!response.ok) {
+      throw new Error("Erreur lors de la récupération des données.");
+    }
+
+    const data = await response.json();
+    return data.data;
+  } catch (error) {
+    console.error("Fetch randos error:", error);
+    throw error;
   }
-  return response.data.data;
 };
 
 const deleteRando = async (id: number): Promise<void> => {
@@ -27,24 +34,29 @@ const deleteRando = async (id: number): Promise<void> => {
     throw new Error("Le token n'est pas disponible.");
   }
 
-  const response = await axios.delete(
-    `https://young-oasis-97886-5eb78d4cde61.herokuapp.com/api/randos/${id}`,
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  );
+  try {
+    const response = await fetch(
+      `https://young-oasis-97886-5eb78d4cde61.herokuapp.com/api/randos/${id}`,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
 
-  if (response.status !== 200) {
-    throw new Error("Erreur lors de la suppression.");
+    if (!response.ok) {
+      throw new Error("Erreur lors de la suppression.");
+    }
+  } catch (error) {
+    console.error("Fetch delete rando error:", error);
+    throw error;
   }
 };
 
 function AccountRando() {
   const queryClient = useQueryClient();
 
-  // Fetch Randos Data
   const {
     data: randosData,
     isLoading,
@@ -54,11 +66,9 @@ function AccountRando() {
     queryFn: fetchRandos,
   });
 
-  // Delete Rando
   const mutation = useMutation({
     mutationFn: deleteRando,
     onSuccess: () => {
-      // Invalidate the 'randos' query to refetch data
       queryClient.invalidateQueries({ queryKey: ["randos"] });
     },
   });

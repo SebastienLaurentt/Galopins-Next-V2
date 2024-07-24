@@ -52,10 +52,10 @@ export default function Login() {
     mutationKey: ['login'],
     mutationFn: () => loginRequest(username, password),
     onSuccess: (data) => {
-      // Save token in cookies
+
       Cookies.set("token", data.token, { expires: 1 / 24 }); // 1/24 represents 1 hour
 
-      // Log in and redirect
+  
       login();
       router.push("/account");
     },
