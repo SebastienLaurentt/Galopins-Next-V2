@@ -12,28 +12,14 @@ function AccountHeader() {
   };
 
   return (
-    <header className=" flex w-full flex-row items-center justify-center gap-x-2 px-6 py-3 md:px-10 xl:mx-auto xl:max-w-screen-xl xl:px-16 ">
-      <ul className="mr-auto flex gap-x-2">
-        <li>
-          <Button variant="secondary" asChild>
-            <Link href="/" aria-label="Retourner sur le site des Galopins">
-              Retour Site
-            </Link>
-          </Button>
-        </li>
-        <li>
-          <Button variant="secondary" asChild>
-            <Link
-              href="/account"
-              aria-label="Allez sur l'espace administrateur"
-            >
-              Tableau de Bord
-            </Link>
-          </Button>
-        </li>
-      </ul>
-      <span className="absolute hidden text-lg font-semibold lg:flex">
-        Espace Administrateur
+    <header className=" flex w-full flex-row items-center  justify-between gap-x-2 px-2 py-4 md:justify-center md:px-10 lg:py-6 xl:mx-auto xl:max-w-screen-xl xl:px-16 ">
+      <Button variant="secondary" asChild className="md:mr-auto">
+        <Link href="/account" aria-label="Allez sur l'espace administrateur">
+          Tableau de Bord
+        </Link>
+      </Button>
+      <span className="absolute hidden font-semibold md:flex md:text-md lg:text-lg">
+        Espace Administrateur Galopins
       </span>
       <Button asChild onClick={handleLogout} variant="destructive">
         <Link href="/" aria-label="Se déconnecter de l'espace administrateur">

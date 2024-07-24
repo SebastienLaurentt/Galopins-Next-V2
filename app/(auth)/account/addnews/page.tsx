@@ -68,9 +68,9 @@ const AccountNewsAdd = () => {
     <div className="p-4">
       <main className="text-white">
         <h3 className="m-8 mx-auto text-center text-black md:w-[400px] lg:w-[500px]">
-          Formulaire d&apos;ajout d&apos;une nouvelle information
+          Ajout d&apos;une nouvelle information
         </h3>
-        <div className="mt-16 flex flex-col items-center justify-center p-4">
+        <div className="mt-12 flex flex-col items-center justify-center p-4">
           <form
             onSubmit={handleSubmit}
             className="flex w-[300px] flex-col gap-y-4 rounded-md bg-slate-900 p-8 text-center md:w-[400px] lg:w-[500px]"
