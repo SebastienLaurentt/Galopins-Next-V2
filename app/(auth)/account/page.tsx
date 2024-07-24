@@ -40,7 +40,7 @@ function Account() {
         </div>
       </div>
 
-      <div className="mx-2 px-2 py-4 md:mx-6  lg:py-6 xl:mx-auto xl:max-w-screen-xl xl:px-16">
+      <div className="mx-2 px-2 md:mx-6 xl:mx-auto xl:max-w-screen-xl xl:px-16">
         <div className="min-h-[500px] rounded-lg bg-slate-900">
           <div className="mb-8 rounded-md  px-4 py-8 text-white md:mx-auto md:mb-0 md:w-[700px] lg:w-[800px]">
             {activeButton === "Infos" && <AccountNews />}
