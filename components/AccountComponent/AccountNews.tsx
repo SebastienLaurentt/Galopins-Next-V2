@@ -1,5 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import Cookies from "js-cookie";
+import { Newspaper } from "lucide-react";
 import Link from "next/link";
 import Loader from "../Loader/Loader";
 import { Button } from "../ui/button";
@@ -73,7 +74,9 @@ function AccountNews() {
 
   return (
     <div>
-      <h4 className="text-center md:text-left">Dernières infos</h4>
+      <h4 className="mb-8 flex flex-row items-center justify-center gap-x-2 text-center md:justify-start md:text-left">
+        <Newspaper /> <span> Dernières infos</span>
+      </h4>
       <div className="mb-2 flex items-start justify-start">
         <Button asChild>
           <Link
