@@ -3,6 +3,7 @@ import Cookies from "js-cookie";
 import Link from "next/link";
 import Loader from "../Loader/Loader";
 import { Button } from "../ui/button";
+import { toast } from "../ui/use-toast";
 
 interface InfoDataProps {
   id: number;
@@ -58,6 +59,7 @@ function AccountNews() {
     mutationFn: deleteInfo,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["infos"] });
+      toast({ title: "Information supprimée avec succès !" });
     },
   });
 

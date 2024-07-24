@@ -3,6 +3,7 @@ import Cookies from "js-cookie";
 import Link from "next/link";
 import Loader from "../Loader/Loader";
 import { Button } from "../ui/button";
+import { toast } from "../ui/use-toast";
 
 interface InfoDataProps {
   id: number;
@@ -70,6 +71,7 @@ function AccountRando() {
     mutationFn: deleteRando,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["randos"] });
+      toast({ title: "Randonnée supprimée avec succès !" });
     },
   });
 
