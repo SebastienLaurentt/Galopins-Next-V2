@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import axios from "axios";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -18,17 +17,20 @@ const addNews = async (newsData: { date: string; title: string; description: str
     throw new Error("Token is not available");
   }
 
-  const response = await axios.post(
-    "https://young-oasis-97886-5eb78d4cde61.herokuapp.com/api/infos",
-    newsData,
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  );
+  const response = await fetch("https://young-oasis-97886-5eb78d4cde61.herokuapp.com/api/infos", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(newsData),
+  });
 
-  return response.data;
+  if (!response.ok) {
+    throw new Error("Failed to add news");
+  }
+
+  return response.json();
 };
 
 const AccountNewsAdd = () => {
