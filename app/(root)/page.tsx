@@ -181,7 +181,7 @@ export default function Home() {
           isTitleCentered
         />
 
-        <ul className="flex flex-col gap-y-8 md:flex-row md:justify-center md:gap-x-8 lg:gap-x-16 lg:gap-y-0">
+        <ul className="flex flex-wrap justify-center gap-y-8 md:flex-row md:gap-x-8 lg:gap-x-16 lg:gap-y-0">
           <li className="">
             <ClubIcon iconDescription="Créé en Septembre 2004">
               <CalendarCheck className="clubIcon" />
