@@ -10,6 +10,8 @@ import Image from "next/image";
 import Link from "next/link";
 import logoArdeche from "/public/images/Ardeche.webp";
 import logoDrome from "/public/images/Drome.webp";
+import imgVadrouille from "/public/images/Hiking-bro.svg";
+import imgRandos from "/public/images/Ecosystem-bro.svg";
 import img from "/public/images/Home.webp";
 import logoVaucluse from "/public/images/Vaucluse.webp";
 
@@ -79,6 +81,8 @@ export default function Home() {
           les départements de la Drôme, de l'Ardèche et du Gard.
           Cependant, le Vaucluse et la Lozère peuvent également être choisis
           pour des randonnées plus lointaines."
+          imgSrc={imgVadrouille}
+          imgClassname="md:-right-6 md:-top-12 md:w-[300px] lg:w-[350px] xl:w-[400px] lg:-top-16 xl:-top-20 "
         />
         <div>
           <ul>
@@ -123,6 +127,8 @@ export default function Home() {
           titleHighlight="semaine"
           titleDescription="Chaque semaine, plusieurs types de randonnées sont organisés le
           Lundi après-midi et le Vendredi pour la journée entière."
+          imgSrc={imgRandos}
+          imgClassname="md:right-0 md:-top-4 md:w-[300px] lg:w-[350px] xl:w-[400px] xl:right-8 lg:-top-10 xl:-top-16 "
         />
         <ul className="flex flex-col gap-y-10 lg:flex-row lg:justify-center lg:gap-x-16 xl:gap-y-0">
           <li>

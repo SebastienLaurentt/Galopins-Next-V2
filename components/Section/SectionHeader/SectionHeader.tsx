@@ -1,22 +1,35 @@
+import Image, { StaticImageData } from "next/image";
 import React from "react";
 
 interface SectionHeaderProps {
   title: string;
   titleHighlight: string;
   titleDescription?: string;
+  imgSrc?: StaticImageData;
+  imgClassname?: string;
 }
 
 const SectionHeader: React.FC<SectionHeaderProps> = ({
   title,
   titleHighlight,
   titleDescription,
+  imgSrc,
+  imgClassname
 }) => {
   return (
-    <div className="mb-12 md:mb-24">
+    <div className="relative mb-12 w-full md:mb-24">
       <h2>
         {title} <span className="text-accent">{titleHighlight}</span>
       </h2>
-      <p className="">{titleDescription}</p>
+      <p className="md:w-[400px] lg:w-[560px] xl:w-[700px]">{titleDescription}</p>
+     
+      {imgSrc && (
+        <Image
+          src={imgSrc}
+          alt="line"
+          className={`hidden md:absolute md:flex ${imgClassname}`}
+        />
+      )}
     </div>
   );
 };
