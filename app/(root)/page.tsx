@@ -82,7 +82,7 @@ export default function Home() {
           Cependant, le Vaucluse et la Lozère peuvent également être choisis
           pour des randonnées plus lointaines."
           imgSrc={imgVadrouille}
-          imgClassname="md:-right-6 md:-top-12 md:w-[300px] lg:w-[350px] xl:w-[400px] lg:-top-16 xl:-top-20 "
+          imgClassname="md:-right-6 md:-top-12 md:w-[300px] lg:w-[350px] xl:w-[400px] lg:-top-16 xl:-top-28"
         />
         <div>
           <ul>
@@ -121,7 +121,7 @@ export default function Home() {
       </Section>
 
       {/* Parcours Section */}
-      <Section marginBottom={true} marginTop={true} classname="">
+      <Section marginBottom={true} marginTop={false} classname="">
         <SectionHeader
           title="Plusieurs randonnées chaque "
           titleHighlight="semaine"

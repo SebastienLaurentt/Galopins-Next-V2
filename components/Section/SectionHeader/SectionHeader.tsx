@@ -22,9 +22,9 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
   const titleClassname = isTitleCentered ? "mx-auto text-center" : "";
 
   return (
-    <div className="relative mb-12 w-full md:mb-24">
+    <div className="relative mb-12 w-full md:mb-20 lg:mb-24">
       <h2 className={`${titleClassname}`}>
-        {title}
+        {title}{" "} 
         <span className="text-accent">{titleHighlight}</span>
       </h2>
       <p className="md:w-[400px] lg:w-[560px] xl:w-[700px]">
