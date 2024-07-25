@@ -1,6 +1,7 @@
 "use client";
 
 import AccountSectionHeader from "@/components/AccountComponent/AccountSectionHeader";
+import FileUploader from "@/components/AccountComponent/FileUploader";
 import Loader from "@/components/Loader/Loader";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -9,7 +10,6 @@ import { toast } from "@/components/ui/use-toast";
 import { useMutation } from "@tanstack/react-query";
 import imageCompression from "browser-image-compression";
 import Cookies from "js-cookie";
-import { ImagePlus } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -208,26 +208,16 @@ const AccountRandoAdd = () => {
                 />
               </div>
               <div>
-                <div className="space-y-1 text-left">
-                  <Label>
-                    Photos
-                    <div className="flex h-32 cursor-pointer flex-col items-center justify-center rounded-md border-2 border-dashed border-white">
-                      <ImagePlus size={48} />
-                      <span className="mx-auto mt-2 w-[260px] text-center text-sm font-medium leading-4">
-                        <span className="font-bold">Cliquer</span> pour{" "}
-                        <span className="font-bold">ajouter</span> les photos
-                        sélectionnées
-                      </span>
-                    </div>
-                    <input
-                      type="file"
-                      accept="image/*"
-                      onChange={handleImageChange}
-                      className="hidden"
-                      multiple
-                    />
-                  </Label>
-                </div>
+                <FileUploader
+                  onChange={handleImageChange}
+                  content={
+                    <>
+                      <span className="font-bold">Cliquer</span> pour{" "}
+                      <span className="font-bold">ajouter</span> les photos
+                      sélectionnées
+                    </>
+                  }
+                />
                 {/* Conditionally render the Loader based on the loading state */}
                 {loadingImages && (
                   <span className="flex justify-center">
