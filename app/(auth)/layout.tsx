@@ -1,4 +1,3 @@
-
 import AccountHeader from "@/components/AccountComponent/AccountHeader";
 
 export default async function RootLayout({

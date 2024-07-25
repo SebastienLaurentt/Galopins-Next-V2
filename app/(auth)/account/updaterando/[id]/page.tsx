@@ -1,5 +1,6 @@
 "use client";
 
+import Loader from "@/components/Loader/Loader";
 import { useQuery } from "@tanstack/react-query";
 import Cookies from "js-cookie";
 import { useParams } from "next/navigation";
@@ -56,18 +57,28 @@ const HikingFetch = () => {
     enabled: !!token && !!id,
   });
 
+  const renderContent = (message: string, showLoader: boolean) => (
+    <div className="mt-48 flex flex-col items-center gap-y-6">
+      <p className="mx-auto w-[300px] text-center text-md font-semibold leading-6">
+        {message}
+      </p>
+      {showLoader && <Loader />}
+    </div>
+  );
+
   if (isLoading) {
-    return (
-      <div className="flex flex-col items-center gap-y-4">
-        <p className="text-black">Chargement des données de la randonnée</p>
-      </div>
+    return renderContent("Chargement des données de la randonnée", true);
+  }
+
+  if (isError) {
+    return renderContent(
+      "Erreur lors de la récupération des données de la randonnée",
+      false
     );
   }
 
-  if (isError || !randoData) {
-    return (
-      <div>Erreur lors de la récupération des données de la randonnée</div>
-    );
+  if (!randoData) {
+    return null;
   }
 
   return <RandoFormUpdate randoData={randoData} id={id} />;
