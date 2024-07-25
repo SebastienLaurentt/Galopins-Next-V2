@@ -48,7 +48,7 @@ export default function CookiesWindow() {
       <div className="flex ">
         <Button
           onClick={handleClick}
-          className="bg-green-700 text-xs text-white hover:bg-accent "
+          className="bg-accent text-xs text-white hover:bg-accent/90"
         >
           Ok !
         </Button>
