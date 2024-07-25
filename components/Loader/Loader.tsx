@@ -1,14 +1,6 @@
-import { RotatingLines } from "react-loader-spinner";
-
 const Loader = () => {
   return (
-    <RotatingLines
-      strokeColor="green"
-      strokeWidth="5"
-      animationDuration="0.5"
-      width="48"
-      visible={true}
-    />
+    <div className="size-10 animate-spin rounded-full border-4 border-gray-200 border-t-green-700" />
   );
 };
 
