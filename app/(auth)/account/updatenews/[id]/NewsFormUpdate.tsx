@@ -90,48 +90,46 @@ const NewsFormUpdate: React.FC<NewsFormUpdateProps> = ({ newsData, id }) => {
   };
 
   return (
-    <div className="p-4">
-      <main className="text-white">
-        <AccountSectionHeader title="Mise à jour de l'information" />
-        <div className="mx-2 px-2 md:mx-6 xl:mx-auto xl:max-w-screen-xl xl:px-16">
-          <div className="mt-6 flex flex-col items-center justify-center rounded-lg bg-slate-900 p-4">
-            <form
-              onSubmit={handleSubmit}
-              className="flex w-[300px] flex-col gap-y-4  p-8 text-center md:w-[400px] lg:w-[500px]"
-            >
-              <div className="space-y-1 text-left">
-                <Label>Date</Label>
-                <Input
-                  value={date}
-                  onChange={(e) => setDate(e.target.value)}
-                  placeholder="JJ/MM/AAAA"
-                />
-              </div>
-              <div className="space-y-1 text-left">
-                <Label>Titre</Label>
-                <Input
-                  value={title}
-                  onChange={(e) => setTitle(e.target.value)}
-                  placeholder="Titre de la nouvelle"
-                />
-              </div>
-              <div className="space-y-1 text-left">
-                <Label>Description</Label>
-                <Textarea
-                  value={description}
-                  onChange={(e) => setDescription(e.target.value)}
-                  placeholder="Description de la nouvelle"
-                  rows={5}
-                />
-              </div>
-              <Button className="w-full" type="submit" disabled={isPending}>
-                {isPending ? "Chargement..." : "Mettre à jour"}
-              </Button>
-            </form>
-          </div>
+    <main className="text-white">
+      <AccountSectionHeader title="Mise à jour de l'information" />
+      <div className="mx-2 md:mx-6 xl:mx-auto xl:max-w-screen-xl xl:px-16">
+        <div className="mt-2 flex flex-col items-center justify-center rounded-lg bg-slate-900 p-4">
+          <form
+            onSubmit={handleSubmit}
+            className="flex w-[300px] flex-col gap-y-4  px-2 py-4 text-center md:w-[400px] md:px-4 lg:w-[500px]"
+          >
+            <div className="space-y-1 text-left">
+              <Label>Date</Label>
+              <Input
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+                placeholder="JJ/MM/AAAA"
+              />
+            </div>
+            <div className="space-y-1 text-left">
+              <Label>Titre</Label>
+              <Input
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                placeholder="Titre de la nouvelle"
+              />
+            </div>
+            <div className="space-y-1 text-left">
+              <Label>Description</Label>
+              <Textarea
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                placeholder="Description de la nouvelle"
+                rows={5}
+              />
+            </div>
+            <Button className="w-full" type="submit" disabled={isPending}>
+              {isPending ? "Chargement..." : "Mettre à jour"}
+            </Button>
+          </form>
         </div>
-      </main>
-    </div>
+      </div>
+    </main>
   );
 };
 

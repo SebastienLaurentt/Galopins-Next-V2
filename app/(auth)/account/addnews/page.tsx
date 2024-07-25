@@ -73,49 +73,47 @@ const AccountNewsAdd = () => {
   };
 
   return (
-    <div className="p-4">
-      <main className="text-white">
-        <AccountSectionHeader title="Ajout d'une nouvelle information" />
-        <div className="mx-2 px-2 md:mx-6 xl:mx-auto xl:max-w-screen-xl xl:px-16">
-          <div className="mt-12 flex flex-col items-center justify-center rounded-lg bg-slate-900 p-4">
-            <form
-              onSubmit={handleSubmit}
-              className="flex w-[300px] flex-col gap-y-4  p-8 text-center md:w-[400px] lg:w-[500px]"
-            >
-              <div className="space-y-1 text-left">
-                <Label>Date</Label>
-                <Input
-                  value={date}
-                  placeholder="JJ/MM/AAAA"
-                  onChange={(e) => setDate(e.target.value)}
-                  isDate
-                />
-              </div>
-              <div className="space-y-1 text-left">
-                <Label>Titre</Label>
-                <Input
-                  value={title}
-                  onChange={(e) => setTitle(e.target.value)}
-                  placeholder="Titre de l'information..."
-                />
-              </div>
-              <div className="space-y-1 text-left">
-                <Label>Description</Label>
-                <Textarea
-                  onChange={(e) => setDescription(e.target.value)}
-                  value={description}
-                  placeholder="Description de l'information..."
-                  rows={5}
-                />
-              </div>
-              <Button className="w-full" type="submit" disabled={isPending}>
-                {isPending ? "Chargement..." : "Ajouter Information"}
-              </Button>
-            </form>
-          </div>
+    <main className="text-white">
+      <AccountSectionHeader title="Ajout d'une nouvelle information" />
+      <div className="mx-2 md:mx-6 xl:mx-auto xl:max-w-screen-xl xl:px-16">
+        <div className="mt-2 flex flex-col items-center justify-center rounded-lg bg-slate-900 p-4">
+          <form
+            onSubmit={handleSubmit}
+            className="flex w-[300px] flex-col gap-y-4  px-2 py-4 text-center md:w-[400px] md:px-4 lg:w-[500px]"
+          >
+            <div className="space-y-1 text-left">
+              <Label>Date</Label>
+              <Input
+                value={date}
+                placeholder="JJ/MM/AAAA"
+                onChange={(e) => setDate(e.target.value)}
+                isDate
+              />
+            </div>
+            <div className="space-y-1 text-left">
+              <Label>Titre</Label>
+              <Input
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                placeholder="Titre de l'information..."
+              />
+            </div>
+            <div className="space-y-1 text-left">
+              <Label>Description</Label>
+              <Textarea
+                onChange={(e) => setDescription(e.target.value)}
+                value={description}
+                placeholder="Description de l'information..."
+                rows={5}
+              />
+            </div>
+            <Button className="w-full" type="submit" disabled={isPending}>
+              {isPending ? "Chargement..." : "Ajouter Information"}
+            </Button>
+          </form>
         </div>
-      </main>
-    </div>
+      </div>
+    </main>
   );
 };
 

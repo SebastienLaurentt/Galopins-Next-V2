@@ -4,7 +4,7 @@ interface AccountSectionHeaderProps {
 
 const AccountSectionHeader = ({ title }: AccountSectionHeaderProps) => {
   return (
-    <h3 className="m-1 mx-auto text-center text-black md:w-[400px] lg:w-[500px]">
+    <h3 className="mx-auto mb-4 mt-6 text-center text-black md:mb-6 md:w-[400px] lg:w-[500px]">
       {title}
     </h3>
   );

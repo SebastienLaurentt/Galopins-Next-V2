@@ -154,94 +154,92 @@ const AccountRandoAdd = () => {
   };
 
   return (
-    <div className="p-4">
-      <main className="text-white">
-        <AccountSectionHeader title="Ajout d'une nouvelle randonnée" />
-        <div className="mx-2 px-2 md:mx-6 xl:mx-auto xl:max-w-screen-xl xl:px-16">
-          <div className="mt-2 flex flex-col items-center justify-center rounded-md bg-slate-900 p-4">
-            <form
-              onSubmit={handleSubmit}
-              className="flex w-[300px] flex-col gap-y-4  p-8 text-center md:w-[400px] lg:w-[500px]"
-            >
-              <div className="space-y-1 text-left">
-                <Label>Date</Label>
-                <Input
-                  value={date}
-                  onChange={(e) => setDate(e.target.value)}
-                  placeholder="JJ/MM/AAAA"
-                  isDate
-                />
-              </div>
-              <div className="space-y-1 text-left">
-                <Label>Destination</Label>
-                <Input
-                  value={destination}
-                  onChange={(e) => setDestination(e.target.value)}
-                  placeholder="Destination de la randonnée..."
-                />
-              </div>
-              <div className="space-y-1 text-left">
-                <Label>Nombre de Galopins</Label>
-                <Input
-                  value={memberNumber}
-                  onChange={(e) => setMemberNumber(e.target.value)}
-                  placeholder="Nombre de Galopins..."
-                  isNumber
-                />
-              </div>
-              <div className="space-y-1 text-left">
-                <Label>Dénivelé (en m)</Label>
-                <Input
-                  value={elevation}
-                  onChange={(e) => setElevation(e.target.value)}
-                  placeholder="Dénivelé de la randonnée..."
-                  isNumber
-                />
-              </div>
-              <div className="space-y-1 text-left">
-                <Label>Distance (en km)</Label>
-                <Input
-                  value={distance}
-                  onChange={(e) => setDistance(e.target.value)}
-                  placeholder="Distance de la randonnée..."
-                  isNumber
-                />
-              </div>
-              <div>
-                <FileUploader
-                  onChange={handleImageChange}
-                  content={
-                    <>
-                      <span className="font-bold">Cliquer</span> pour{" "}
-                      <span className="font-bold">ajouter</span> les photos
-                      sélectionnées
-                    </>
-                  }
-                />
-                {/* Conditionally render the Loader based on the loading state */}
-                {loadingImages && (
-                  <span className="flex justify-center">
-                    <Loader />
-                  </span>
-                )}
-                {/* Display number of images selected */}
-                {renderSelectedImageCount()}
-              </div>
+    <main className="text-white">
+      <AccountSectionHeader title="Ajout d'une nouvelle randonnée" />
+      <div className="mx-2 md:mx-6 xl:mx-auto xl:max-w-screen-xl xl:px-16">
+        <div className="mt-2 flex flex-col items-center justify-center rounded-md bg-slate-900 p-4">
+          <form
+            onSubmit={handleSubmit}
+            className="flex w-[300px] flex-col gap-y-4 px-2 py-4 text-center md:w-[400px] md:px-4 lg:w-[500px]"
+          >
+            <div className="space-y-1 text-left">
+              <Label>Date</Label>
+              <Input
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+                placeholder="JJ/MM/AAAA"
+                isDate
+              />
+            </div>
+            <div className="space-y-1 text-left">
+              <Label>Destination</Label>
+              <Input
+                value={destination}
+                onChange={(e) => setDestination(e.target.value)}
+                placeholder="Destination de la randonnée..."
+              />
+            </div>
+            <div className="space-y-1 text-left">
+              <Label>Nombre de Galopins</Label>
+              <Input
+                value={memberNumber}
+                onChange={(e) => setMemberNumber(e.target.value)}
+                placeholder="Nombre de Galopins..."
+                isNumber
+              />
+            </div>
+            <div className="space-y-1 text-left">
+              <Label>Dénivelé (en m)</Label>
+              <Input
+                value={elevation}
+                onChange={(e) => setElevation(e.target.value)}
+                placeholder="Dénivelé de la randonnée..."
+                isNumber
+              />
+            </div>
+            <div className="space-y-1 text-left">
+              <Label>Distance (en km)</Label>
+              <Input
+                value={distance}
+                onChange={(e) => setDistance(e.target.value)}
+                placeholder="Distance de la randonnée..."
+                isNumber
+              />
+            </div>
+            <div>
+              <FileUploader
+                onChange={handleImageChange}
+                content={
+                  <>
+                    <span className="font-bold">Cliquer</span> pour{" "}
+                    <span className="font-bold">ajouter</span> les photos
+                    sélectionnées
+                  </>
+                }
+              />
               {/* Conditionally render the Loader based on the loading state */}
-              {isPending ? (
+              {loadingImages && (
                 <span className="flex justify-center">
                   <Loader />
                 </span>
-              ) : (
-                <Button className="w-full" type="submit">
-                  Ajouter Photos
-                </Button>
               )}
-            </form>
-          </div>
+              {/* Display number of images selected */}
+              {renderSelectedImageCount()}
+            </div>
+            {/* Conditionally render the Loader based on the loading state */}
+            {isPending ? (
+              <span className="flex justify-center">
+                <Loader />
+              </span>
+            ) : (
+              <Button className="w-full" type="submit">
+                Ajouter Photos
+              </Button>
+            )}
+          </form>
         </div>
-      </main>
-    </div>
+      </div>
+    </main>
   );
 };
 
