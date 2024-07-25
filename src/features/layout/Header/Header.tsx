@@ -28,8 +28,8 @@ export const Header = () => {
         </Link>
 
         {/* Nav */}
-        <nav className="hidden  md:absolute md:left-0 md:flex md:w-full md:justify-center lg:text-md">
-          <ul className="flex gap-3">
+        <nav className="hidden md:absolute md:left-0 md:flex md:w-full md:justify-center">
+          <ul className="flex gap-1">
             {navData.map((link) => (
               <li
                 key={link.name}
@@ -37,12 +37,9 @@ export const Header = () => {
               >
                 <Link
                   href={link.href}
-                  className={
-                    "relative font-medium w-fit block after:block after:content-[''] after:absolute after:h-[2px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-500 after:origin-left " +
-                    (pathname === link.href
-                      ? " border-b-[2px] border-black "
-                      : "")
-                  }
+                  className={`rounded-full px-6 py-2 font-semibold hover:bg-slate-950 hover:text-white ${
+                    pathname === link.href ? "bg-slate-950 text-white" : ""
+                  }`}
                 >
                   {link.name}
                 </Link>
