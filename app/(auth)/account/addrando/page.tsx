@@ -1,5 +1,6 @@
 "use client";
 
+import AccountSectionHeader from "@/components/AccountComponent/AccountSectionHeader";
 import Loader from "@/components/Loader/Loader";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -155,10 +156,7 @@ const AccountRandoAdd = () => {
   return (
     <div className="p-4">
       <main className="text-white">
-        <h3 className="m-1 mx-auto w-[500px] text-center text-black">
-          Ajout d&apos;une nouvelle randonnée
-        </h3>
-
+        <AccountSectionHeader title="Ajout d'une nouvelle randonnée" />
         <div className="mx-2 px-2 md:mx-6 xl:mx-auto xl:max-w-screen-xl xl:px-16">
           <div className="mt-2 flex flex-col items-center justify-center rounded-md bg-slate-900 p-4">
             <form

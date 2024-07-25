@@ -1,5 +1,6 @@
 "use client";
 
+import AccountSectionHeader from "@/components/AccountComponent/AccountSectionHeader";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -91,9 +92,7 @@ const NewsFormUpdate: React.FC<NewsFormUpdateProps> = ({ newsData, id }) => {
   return (
     <div className="p-4">
       <main className="text-white">
-        <h3 className="m-4 mx-auto text-center text-black md:w-[400px] lg:w-[500px]">
-          Mise à jour de l&apos;information
-        </h3>
+        <AccountSectionHeader title="Mise à jour de l'information" />
         <div className="mx-2 px-2 md:mx-6 xl:mx-auto xl:max-w-screen-xl xl:px-16">
           <div className="mt-6 flex flex-col items-center justify-center rounded-lg bg-slate-900 p-4">
             <form

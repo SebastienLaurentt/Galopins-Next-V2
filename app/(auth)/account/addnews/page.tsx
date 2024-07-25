@@ -1,5 +1,6 @@
 "use client";
 
+import AccountSectionHeader from "@/components/AccountComponent/AccountSectionHeader";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -74,9 +75,7 @@ const AccountNewsAdd = () => {
   return (
     <div className="p-4">
       <main className="text-white">
-        <h3 className="m-8 mx-auto text-center text-black md:w-[400px] lg:w-[500px]">
-          Ajout d&apos;une nouvelle information
-        </h3>
+        <AccountSectionHeader title="Ajout d'une nouvelle information" />
         <div className="mx-2 px-2 md:mx-6 xl:mx-auto xl:max-w-screen-xl xl:px-16">
           <div className="mt-12 flex flex-col items-center justify-center rounded-lg bg-slate-900 p-4">
             <form

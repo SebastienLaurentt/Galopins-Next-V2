@@ -1,3 +1,4 @@
+import AccountSectionHeader from "@/components/AccountComponent/AccountSectionHeader";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -157,9 +158,7 @@ const RandoFormUpdate: React.FC<RandoFormUpdateProps> = ({ randoData, id }) => {
   return (
     <div className="p-4">
       <main className="text-white">
-        <h3 className="m-1 mx-auto text-center text-black md:w-[400px] lg:w-[500px]">
-          Mise à jour de la randonnée
-        </h3>
+        <AccountSectionHeader title="Mise à jour de la randonnée" />
         <div className="mx-2 px-2 md:mx-6 xl:mx-auto xl:max-w-screen-xl xl:px-16">
           <div className="mt-2 flex flex-col items-center justify-center rounded-lg bg-slate-900 p-4">
             <form
