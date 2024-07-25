@@ -159,7 +159,7 @@ const RandoFormUpdate: React.FC<RandoFormUpdateProps> = ({ randoData, id }) => {
     <main className="text-white">
       <AccountSectionHeader title="Mise à jour de la randonnée" />
       <div className="mx-2 md:mx-6 xl:mx-auto xl:max-w-screen-xl xl:px-16">
-        <div className="mt-2 flex flex-col items-center justify-center rounded-lg bg-slate-900 ">
+        <div className="mt-2 flex flex-col items-center justify-center rounded-lg bg-slate-900 p-4 ">
           <form
             onSubmit={handleSubmit}
             className="flex w-[300px] flex-col gap-y-4  px-2 py-4  text-center md:w-[400px] md:px-4 lg:w-[500px]"
