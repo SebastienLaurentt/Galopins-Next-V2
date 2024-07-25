@@ -98,7 +98,7 @@ function AccountRando() {
         </Button>
       </div>
       {isLoading ? (
-        <span className="flex justify-center">
+        <span className="mt-24 flex justify-center">
           <Loader />
         </span>
       ) : (

@@ -32,7 +32,6 @@ const fetchHiking = async (id: string, token: string): Promise<RandoData> => {
     }
 
     const data = await response.json();
-    console.log("Fetched data:", data);
     return data.data;
   } catch (error) {
     console.error("Fetch hiking error:", error);
@@ -43,9 +42,6 @@ const fetchHiking = async (id: string, token: string): Promise<RandoData> => {
 const HikingFetch = () => {
   const { id } = useParams<{ id: string }>();
   const token = Cookies.get("token") || "";
-
-  console.log("ID:", id);
-  console.log("Token:", token);
 
   const {
     data: randoData,
