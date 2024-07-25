@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 function Photos() {
   return (
-    <main className="mb-20 md:mb-24 lg:mb-32">
+    <main className="mainMb">
       <PageTitle title="Nos Photos" />
       <Section marginBottom={true} marginTop={false} classname="">
         <SectionHeader

@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="mb-20 md:mb-24 lg:mb-32">
+    <main className="mainMb">
       {/* Hero Section */}
 
       <Section>

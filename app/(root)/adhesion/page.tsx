@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 function Adhesion() {
   return (
-    <main className="mb-20 md:mb-24 lg:mb-32">
+    <main className="mainMb">
       <PageTitle
         title="Adhésion"
         titleDescription="Nos conseils et recommandations si vous souhaitez nous rejoindre !"

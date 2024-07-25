@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 function Mentions() {
   return (
-    <main className="mb-20 md:mb-24 lg:mb-32">
+    <main className="mainMb">
       <Section marginBottom={false} marginTop={true}>
         <PageTitle title='Statuts de l&apos;association'/>
         <h2 className="mentionsH2">Article 1 : Constitution et dénomination</h2>

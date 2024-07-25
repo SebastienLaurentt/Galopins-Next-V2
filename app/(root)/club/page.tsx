@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 function Club() {
   return (
-    <main className="mb-20 md:mb-24 lg:mb-32">
+    <main className="mainMb">
       <PageTitle
         title="Le Club"
         titleDescription="Pour en apprendre davantage sur les status de notre club mais aussi les activités en dehors des randonnées !"

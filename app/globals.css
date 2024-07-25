@@ -87,6 +87,11 @@
     @apply text-3xl md:text-4xl 2xl:text-5xl;
   }
 
+  .mainMb {
+    @apply mb-20 md:mb-24 lg:mb-32;
+  }
+
+
   .parallax {
     background-attachment: fixed;
     background-position: center;

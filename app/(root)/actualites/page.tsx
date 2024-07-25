@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 function Actualites() {
   return (
-    <main className="mb-20 md:mb-24 lg:mb-32">
+    <main className="mainMb">
       <PageTitle
         title="Les Dernières Actualités"
         titleDescription="Pour en savoir plus sur les dernières actualités du club !"
