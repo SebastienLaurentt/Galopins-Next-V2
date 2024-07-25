@@ -3,7 +3,6 @@ import { NextResponse } from "next/server";
 // Allow protected routes only if the user is logged in
 export function middleware(request) {
   const cookies = request.cookies;
-  console.log("Cookies:", cookies); 
 
   const isLogged = cookies.get("isLogged")?.value.trim() === "true"; 
 
