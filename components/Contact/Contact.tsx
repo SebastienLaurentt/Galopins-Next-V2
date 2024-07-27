@@ -99,7 +99,7 @@ export default function Form() {
           placeholder="Nom - Prénom"
           className={`w-full rounded-md border ${
             formErrors.name ? "border-red-500" : "border-gray-300"
-          } bg-white px-6 py-3 text-base font-medium text-gray-700 outline-none focus:border-accent focus:shadow-md`}
+          } bg-white px-6 py-3 text-base font-medium text-gray-700 outline-none focus:border-primary focus:shadow-md`}
         />
         {/* If name is null when submit */}
         {formErrors.name && (
@@ -123,7 +123,7 @@ export default function Form() {
           placeholder="exemple@email.com"
           className={`w-full rounded-md border ${
             formErrors.email ? "border-red-500" : "border-gray-300"
-          } bg-white px-6 py-3 text-base font-medium text-gray-700 outline-none focus:border-accent focus:shadow-md`}
+          } bg-white px-6 py-3 text-base font-medium text-gray-700 outline-none focus:border-primary focus:shadow-md`}
         />
         {/* If email is null when submit */}
         {formErrors.email && (
@@ -147,7 +147,7 @@ export default function Form() {
           placeholder="Description de votre demande"
           className={`w-full resize-none rounded-md border ${
             formErrors.message ? "border-red-500" : "border-gray-300"
-          } bg-white px-6 py-3 text-base font-medium text-gray-700 outline-none focus:border-accent focus:shadow-md`}
+          } bg-white px-6 py-3 text-base font-medium text-gray-700 outline-none focus:border-primary focus:shadow-md`}
         />
         {/* If textarea is null when submit */}
         {formErrors.message && (
@@ -159,7 +159,6 @@ export default function Form() {
         <Button
           type="submit"
           aria-label="Envoyer le formulaire"
-          className="bg-green-700 text-white hover:bg-accent"
         >
           Envoyer
         </Button>

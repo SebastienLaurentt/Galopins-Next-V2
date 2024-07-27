@@ -10,7 +10,7 @@ export const Footer = () => {
   const footerVisibility = /^\/(login|account)/.test(pathname) ? "hidden" : "";
 
   return (
-    <footer className={` ${footerVisibility} bg-secondary text-white`}>
+    <footer className={` ${footerVisibility} bg-primary text-white`}>
       <div className="flex items-center justify-between px-6 py-4 text-xs md:px-10 md:text-sm xl:mx-auto xl:max-w-screen-xl xl:px-16 ">
         <span className="">@2024 - Les Galopins</span>
         <span className="">

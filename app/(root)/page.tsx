@@ -76,7 +76,7 @@ export default function Home() {
           titleHighlight="région"
           titleDescription="Les Galopins sortent en groupe pour randonner principalement dans
           les départements de la Drôme, de l'Ardèche et du Gard.
-          Cependant, le Vaucluse et la Lozère peuvent également être choisis
+          Le Vaucluse et la Lozère peuvent également être choisis
           pour des randonnées plus lointaines."
           imgSrc={imgVadrouille}
           imgClassname="md:-right-6 md:-top-12 md:w-[300px] lg:w-[350px] xl:w-[400px] lg:-top-16 xl:-top-28"
