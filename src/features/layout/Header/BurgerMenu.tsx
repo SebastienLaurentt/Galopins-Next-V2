@@ -81,7 +81,7 @@ export default function BurgerMenu({ isOpen, setIsOpen }: BurgerMenuProps) {
           </ul>
 
           <div
-            className={`flex flex-col items-end bg-secondary py-3 text-lg italic leading-7 text-white delay-500 duration-500 ease-out ${
+            className={`flex flex-col items-end bg-primary py-3 text-lg italic leading-7 text-white delay-500 duration-500 ease-out ${
               isOpen ? "opacity-100" : "opacity-0"
             }`}
           >
