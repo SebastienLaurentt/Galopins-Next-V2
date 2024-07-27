@@ -126,43 +126,47 @@ function Parcours() {
           title="Programme de la saison "
           titleHighlight="2023/2024"
         />
-        <p>
-          Les programmes des randonnées sont établis pour une période de 4 mois.
-          Vous pouvez choisir puis télécharger le programme que vous souhaitez
-          ci-dessous.
-        </p>
-        <ProgDownload />
-        <p className="pb-4 pt-8">
-          Les randonnées y sont classées par code couleur.
-        </p>
-        <ul className="flex flex-wrap justify-around gap-6">
-          <li>
-            <ParcoursTags
-              tagColor="bg-white border"
-              tagDescription="Cool du Lundi en Drôme ou Ardèche"
-            />
-          </li>
-          <li>
-            {" "}
-            <ParcoursTags
-              tagColor="bg-yellow-500 text-white"
-              tagDescription="Classiques du Lundi en Ardèche"
-            />{" "}
-          </li>
-          <li>
-            <ParcoursTags
-              tagColor="bg-cyan-700 text-white"
-              tagDescription="Classiques du Lundi en Drôme "
-            />
-          </li>
-          <li>
-            {" "}
-            <ParcoursTags
-              tagColor="bg-green-700 text-white"
-              tagDescription="Randos du Vendredi"
-            />{" "}
-          </li>
-        </ul>
+        <div className="flex flex-col lg:flex-row lg:items-center  lg:gap-x-6">
+          <div className="mb-4 lg:w-1/2 xl:w-2/3 xl:pr-4">
+            <p>
+              Les programmes des randonnées sont établis pour une période de 4
+              mois. Vous pouvez choisir puis télécharger le programme que vous
+              souhaitez ci-dessous.
+            </p>
+            <ProgDownload />
+            <p className="mt-8">
+              Les randonnées y sont classées par code couleur.
+            </p>
+          </div>
+          <ul className="flex flex-wrap justify-around gap-6 lg:w-1/2 xl:w-1/3">
+            <li>
+              <ParcoursTags
+                tagColor="bg-white border"
+                tagDescription="Cool du Lundi en Drôme ou Ardèche"
+              />
+            </li>
+            <li>
+              {" "}
+              <ParcoursTags
+                tagColor="bg-yellow-500 text-white"
+                tagDescription="Classiques du Lundi en Ardèche"
+              />{" "}
+            </li>
+            <li>
+              <ParcoursTags
+                tagColor="bg-cyan-700 text-white"
+                tagDescription="Classiques du Lundi en Drôme "
+              />
+            </li>
+            <li>
+              {" "}
+              <ParcoursTags
+                tagColor="bg-green-700 text-white"
+                tagDescription="Randos du Vendredi"
+              />{" "}
+            </li>
+          </ul>
+        </div>
       </Section>
     </main>
   );
