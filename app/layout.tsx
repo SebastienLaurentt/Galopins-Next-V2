@@ -1,15 +1,9 @@
 import { AuthProvider } from "@/components/AccountComponent/Auth/Auth";
-import clsx from "clsx";
-import { Metadata } from "next";
-import { Lato } from "next/font/google";
-import "./globals.css";
 import Providers from "@/components/Providers/Providers";
 import { Toaster } from "@/components/ui/toaster";
-
-const lato = Lato({
-  weight: ["400", "700"],
-  subsets: ["latin"],
-});
+import { Metadata } from "next";
+import "./globals.css";
+import { lato } from "@/lib/font";
 
 export const metadata: Metadata = {
   title: "Les Galopins de Montélimar",
@@ -50,9 +44,11 @@ export default function RootLayout({
           <meta name="theme-color" content="#ffffff" />
         </head>
         <Providers>
-          <body className={clsx(lato.className, "h-full")}>
+          <body className={`${lato} h-full`}>
             <div className=" flex h-full flex-col">
-              <div className="flex-1">{children} <Toaster /></div>
+              <div className="flex-1">
+                {children} <Toaster />
+              </div>
             </div>
           </body>
         </Providers>

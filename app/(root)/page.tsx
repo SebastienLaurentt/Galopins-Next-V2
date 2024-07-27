@@ -4,14 +4,15 @@ import ClubIcon from "@/components/ClubIcon/ClubIcon";
 import Section from "@/components/Section/Section";
 import SectionHeader from "@/components/Section/SectionHeader/SectionHeader";
 import { Button } from "@/components/ui/button";
+import { anton } from "@/lib/font";
 import { CalendarCheck, Mountain, Users } from "lucide-react";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import logoArdeche from "/public/images/Ardeche.webp";
 import logoDrome from "/public/images/Drome.webp";
-import imgVadrouille from "/public/images/Hiking-bro.svg";
 import imgRandos from "/public/images/Ecosystem-bro.svg";
+import imgVadrouille from "/public/images/Hiking-bro.svg";
 import img from "/public/images/Home.webp";
 import logoVaucluse from "/public/images/Vaucluse.webp";
 
@@ -27,12 +28,10 @@ export default function Home() {
       {/* Hero Section */}
 
       <Section>
-        <div className="mx-auto mt-16 flex max-w-[340px] flex-col items-center space-y-2 text-center md:max-w-[570px] lg:mb-4 lg:mt-32 lg:max-w-[680px] lg:space-y-4 xl:hidden">
-          <h1> Les Galopins de Montélimar </h1>
+        <div className="mx-auto mt-20 flex max-w-[340px] flex-col items-center space-y-2 text-center md:max-w-[570px] lg:mb-4 lg:mt-32 lg:max-w-[680px] lg:space-y-4 xl:hidden">
+          <h1 className={`${anton}`}> LES GALOPINS DE MONTELIMAR </h1>
           <p className="text-sm leading-5 md:text-md md:leading-6">
-            Bienvenue sur le site de notre club.
-            <br />
-            Découvrez notre histoire, nos parcours ou nos dernières photos !
+            Club de randonnée pédestre en Rhône-Alpes.
           </p>
           <Button asChild className="flex md:hidden">
             <Link href="/photos">Nos Photos</Link>
@@ -40,9 +39,9 @@ export default function Home() {
         </div>
       </Section>
 
-      <section className="mt-4 xl:hidden">
+      <section className="mt-4 md:mt-6 lg:mt-8 xl:hidden">
         <div>
-          <div className="relative mx-auto h-[300px] w-full overflow-hidden md:h-[400px] lg:h-[500px]">
+          <div className="relative mx-auto h-[300px] w-full overflow-hidden md:h-[450px] lg:h-[550px]">
             <Image
               src={img}
               alt="yyy"
@@ -62,11 +61,9 @@ export default function Home() {
         >
           <div className="parallax-overlay absolute bg-black opacity-50"></div>
           <div className="relative mx-auto text-center text-white lg:space-y-4 xl:mt-72 xl:max-w-[800px] ">
-            <h1>Les Galopins de Montélimar</h1>
+            <h1 className={`${anton}`}>LES GALOPINS DE MONTELIMAR</h1>
             <p className="text-md leading-6">
-              Bienvenue sur le site de notre club.
-              <br />
-              Découvrez notre histoire, nos parcours ou nos dernières photos !
+              Club de randonnée pédestre en Rhône-Alpes
             </p>
           </div>
         </div>
