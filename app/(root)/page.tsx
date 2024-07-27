@@ -56,13 +56,13 @@ export default function Home() {
 
       <section className="parallax-container mx-auto mt-8 hidden xl:flex xl:px-4">
         <div
-          className="parallax relative mx-auto w-full overflow-hidden rounded-md xl:h-[800px]"
+          className="parallax relative mx-auto w-full overflow-hidden rounded-md xl:h-[780px]"
           style={{ backgroundImage: `url(${img.src})` }}
         >
           <div className="parallax-overlay absolute bg-black opacity-50"></div>
           <div className="relative mx-auto text-center text-white lg:space-y-4 xl:mt-72 xl:max-w-[800px] ">
             <h1 className={`${anton}`}>LES GALOPINS DE MONTELIMAR</h1>
-            <p className="text-md leading-6">
+            <p className="text-lg leading-6">
               Club de randonnée pédestre en Rhône-Alpes
             </p>
           </div>

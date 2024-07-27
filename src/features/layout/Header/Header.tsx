@@ -18,7 +18,7 @@ export const Header = () => {
   return (
     <header className={`${headerVisibility} z-10 w-full`}>
       {/* Logo */}
-      <div className="flex items-center justify-between px-6 py-3 md:px-10 xl:mx-auto xl:max-w-screen-xl xl:px-16 ">
+      <div className="flex items-center justify-between px-6 py-4 md:px-10 md:py-6 xl:mx-auto xl:max-w-screen-xl xl:px-16 xl:py-4 ">
         <Link href="/">
           <Image
             src={logo}
