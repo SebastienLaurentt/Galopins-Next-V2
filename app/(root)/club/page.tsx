@@ -66,7 +66,7 @@ function Club() {
         </SubSection>
 
         <SubSection
-          marginBottom={false}
+          marginBottom={true}
           marginTop={false}
           classname=""
           title="Des événements conviviaux"
@@ -88,7 +88,7 @@ function Club() {
         </SubSection>
       </Section>
 
-      <Section marginBottom={true} marginTop={false} classname="">
+      {/* <Section marginBottom={true} marginTop={false} classname="">
         <SectionHeader
           title="Une association à but "
           titleHighlight="non lucratif"
@@ -107,7 +107,7 @@ function Club() {
             <Link href="/mentions">Voir les mentions</Link>
           </Button>
         </div>
-      </Section>
+      </Section> */}
     </main>
   );
 }
