@@ -111,7 +111,7 @@ function AccountNews() {
                   <div className="px-2">
                     <button
                       onClick={() => handleDelete(info.id)}
-                      className="text-red-500 md:hover:font-bold"
+                      className="text-red-500 transition duration-300 md:hover:text-red-700"
                     >
                       Supprimer
                     </button>
@@ -119,7 +119,7 @@ function AccountNews() {
                   <div className="px-2">
                     <Link
                       href={`/account/updatenews/${info.id}`}
-                      className="text-cyan-500 md:hover:font-bold"
+                      className="text-cyan-500 transition duration-300 md:hover:text-cyan-700"
                     >
                       Modifier
                     </Link>
