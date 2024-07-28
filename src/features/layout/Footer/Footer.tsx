@@ -11,7 +11,7 @@ export const Footer = () => {
 
   return (
     <footer
-      className={` ${footerVisibility}  bg-accent pb-6 pt-8 xl:pb-10 xl:pt-12 text-white  `}
+      className={` ${footerVisibility}  bg-accent pb-6 pt-8 text-white xl:pb-10 xl:pt-12  `}
     >
       <div className="flex flex-col gap-y-5 px-6 md:px-10 xl:mx-auto xl:max-w-screen-xl  xl:px-16 ">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between ">
@@ -48,7 +48,7 @@ export const Footer = () => {
             </li>
             <li className="md:w-[75px] xl:w-[100px]">
               <Link href="/actualites" className="xl:hover:font-bold">
-                Actualites
+                Actualités
               </Link>
             </li>
             <li className="md:w-[75px] xl:w-[100px]">
