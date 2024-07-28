@@ -5,7 +5,7 @@ import Section from "@/components/Section/Section";
 import SectionHeader from "@/components/Section/SectionHeader/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { anton } from "@/lib/font";
-import { CalendarCheck, Mountain, Users } from "lucide-react";
+import { CalendarCheck, Check, Mountain, Users } from "lucide-react";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -132,15 +132,21 @@ export default function Home() {
             <ParcoursCard
               parcoursTitle="Lundi | Après-Midi"
               area="Drôme ou Ardèche"
-              frequency="2 types de randonnées"
+              frequency="Au choix"
               case1={
                 <>
-                  <strong>&#x2022; Cool :</strong> 5 - 9 km
+                  <span className="flex flex-row items-center gap-x-1">
+                    <Check strokeWidth={3} color="#1A3636" />
+                    <strong> Rando Cool :</strong> 5 - 9 km
+                  </span>
                 </>
               }
               case2={
                 <>
-                  <strong>&#x2022; Classique :</strong> 10 - 14 km
+                  <span className="flex flex-row items-center gap-x-1">
+                    <Check strokeWidth={3} color="#1A3636" />
+                    <strong> Rando Classique :</strong> 10 - 14 km
+                  </span>
                 </>
               }
             />
@@ -152,12 +158,18 @@ export default function Home() {
               frequency="En alternance"
               case1={
                 <>
-                  <strong>&#x2022; Semaine A :</strong> Jusqu&apos;à 15 km
+                  <span className="flex flex-row items-center gap-x-1">
+                    <Check strokeWidth={3} color="#1A3636" />
+                    <strong> Semaine A :</strong> Jusqu&apos;à 15 km
+                  </span>
                 </>
               }
               case2={
                 <>
-                  <strong>&#x2022; Semaine B : </strong> De 15 à 20 km
+                  <span className="flex flex-row items-center gap-x-1">
+                    <Check strokeWidth={3} color="#1A3636" />
+                    <strong> Semaine B : </strong> De 15 à 20 km
+                  </span>
                 </>
               }
             />
