@@ -17,7 +17,7 @@ const ParcoursCard = ({
 }: ParcoursCardProps) => {
   return (
     <div className="mx-auto flex max-w-[360px] flex-col text-center md:max-w-[480px] lg:w-[420px] xl:max-w-screen-xl">
-      <div className="bg-secondary py-4 text-white">
+      <div className="bg-accent py-4 text-white">
         <h3 className="mb-1 text-white">{parcoursTitle}</h3>
         <span className="mb-2 md:text-md">{area}</span>
       </div>

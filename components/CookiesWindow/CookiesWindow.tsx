@@ -36,7 +36,7 @@ export default function CookiesWindow() {
 
   return (
     <div
-      className={`fixed bg-accent text-white ${displayClass} bottom-14 max-w-[280px] rounded-xl p-4 text-xs shadow-lg duration-700 md:bottom-16`}
+      className={`fixed border-accent border-2  ${displayClass} bottom-14 max-w-[280px] rounded-xl p-4 text-xs shadow-lg duration-700 md:bottom-16`}
     >
       <div className="mb-4">
         <p className=" mb-0 text-xs leading-normal">
