@@ -8,7 +8,7 @@ export default function CookiesWindow() {
   const [isClose, setIsClose] = useState(true);
 
   const displayClass = !isClose
-    ? "left-4 md:left-10 xl:left-16 2xl:left-10"
+    ? " md:left-10 xl:left-16 2xl:left-10"
     : "-left-full";
 
   function handleClick() {
@@ -36,7 +36,7 @@ export default function CookiesWindow() {
 
   return (
     <div
-      className={`fixed border-accent border-2  ${displayClass} bottom-14 max-w-[280px] rounded-xl p-4 text-xs shadow-lg duration-700 md:bottom-16`}
+      className={` fixed mx-16 border-2 border-accent bg-background md:mx-0 ${displayClass} bottom-14 flex flex-col  rounded-xl p-4 text-xs shadow-lg duration-700 md:bottom-16 md:max-w-[280px]`}
     >
       <div className="mb-4">
         <p className=" mb-0 text-xs leading-normal">
@@ -45,13 +45,7 @@ export default function CookiesWindow() {
         </p>
       </div>
 
-      <div className="flex ">
-        <Button
-          onClick={handleClick}
-        >
-          Ok !
-        </Button>
-      </div>
+      <Button onClick={handleClick}>Ok !</Button>
     </div>
   );
 }
