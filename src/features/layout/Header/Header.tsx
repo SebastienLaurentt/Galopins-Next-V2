@@ -6,7 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import navData from "../../../../data/navData";
-import logo from "../../../../public/images/galopins.svg";
+import logo from "../../../../public/images/logoGalopins.png";
 import BurgerMenu from "./BurgerMenu";
 
 export const Header = () => {
@@ -23,7 +23,7 @@ export const Header = () => {
           <Image
             src={logo}
             alt="Logo Galopins"
-            className="w-24 text-white lg:w-56"
+            className="w-24 text-white lg:w-28"
           />
         </Link>
 
