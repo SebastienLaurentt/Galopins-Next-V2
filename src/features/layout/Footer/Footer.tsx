@@ -13,7 +13,7 @@ export const Footer = () => {
     <footer
       className={` ${footerVisibility}  bg-accent pb-6 pt-8 text-white  `}
     >
-      <div className="flex flex-col gap-y-5 md:px-10 xl:mx-auto xl:max-w-screen-xl  xl:px-16 ">
+      <div className="flex flex-col gap-y-5 px-6 md:px-10 xl:mx-auto xl:max-w-screen-xl  xl:px-16 ">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between ">
           <div className="mb-5 flex flex-col items-center md:mb-0 md:w-1/2 md:items-start">
             <span
@@ -25,33 +25,33 @@ export const Footer = () => {
               Club de randonnée pédestre en Rhônes Alpes{" "}
             </span>
           </div>
-          <ul className="mx-auto flex w-[240px] flex-wrap justify-center gap-x-4 gap-y-1 md:mx-0 md:w-[160px] md:justify-end xl:w-[200px] xl:text-md ">
-            <li>
-              <Link href="/" className="xl:hover:font-bold">
+          <ul className="mx-auto flex w-[240px] flex-wrap justify-center gap-x-4 gap-y-1 md:mx-0 md:w-[180px] md:justify-end xl:w-[250px] xl:text-md ">
+            <li className="md:w-[75px] xl:w-[100px]">
+              <Link href="/" className=" xl:hover:font-bold">
                 Accueil
               </Link>
             </li>
-            <li>
+            <li className="md:w-[75px] xl:w-[100px]">
               <Link href="/club" className="xl:hover:font-bold">
                 Club
               </Link>
             </li>
-            <li>
+            <li className="md:w-[75px] xl:w-[100px]">
               <Link href="/parcours" className="xl:hover:font-bold">
                 Parcours
               </Link>
             </li>
-            <li>
+            <li className="md:w-[75px] xl:w-[100px]">
               <Link href="/photos" className="xl:hover:font-bold">
                 Photos
               </Link>
             </li>
-            <li>
+            <li className="md:w-[75px] xl:w-[100px]">
               <Link href="/actualites" className="xl:hover:font-bold">
                 Actualites
               </Link>
             </li>
-            <li>
+            <li className="md:w-[75px] xl:w-[100px]">
               <Link href="/adhesion" className="xl:hover:font-bold">
                 Adhésion
               </Link>
