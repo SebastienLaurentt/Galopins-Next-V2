@@ -36,7 +36,7 @@ export default function CookiesWindow() {
 
   return (
     <div
-      className={`fixed bg-primary text-white ${displayClass} bottom-14 max-w-[280px] rounded-xl p-4 text-xs shadow-lg duration-700 md:bottom-16`}
+      className={`fixed bg-accent text-white ${displayClass} bottom-14 max-w-[280px] rounded-xl p-4 text-xs shadow-lg duration-700 md:bottom-16`}
     >
       <div className="mb-4">
         <p className=" mb-0 text-xs leading-normal">
@@ -48,7 +48,6 @@ export default function CookiesWindow() {
       <div className="flex ">
         <Button
           onClick={handleClick}
-          className="bg-accent text-xs text-white hover:bg-accent/90"
         >
           Ok !
         </Button>
