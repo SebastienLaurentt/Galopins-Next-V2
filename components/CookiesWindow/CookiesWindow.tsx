@@ -9,7 +9,7 @@ export default function CookiesWindow() {
 
   const displayClass = !isClose
     ? " md:left-10 xl:left-16 2xl:left-10"
-    : "-left-full";
+    : "hidden";
 
   function handleClick() {
     setIsClose(true);
