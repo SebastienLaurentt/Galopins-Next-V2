@@ -98,7 +98,7 @@ const PhotosDisplay = () => {
             <h3 className="text-center">
               {selectedRandoData.destination}
             </h3>
-            <ul className="flex justify-center text-secondary md:gap-x-4 ">
+            <ul className="flex justify-center text-foreground md:gap-x-4 ">
               <li>
                 <PhotoIcon
                   number={selectedRandoData.distance + " km"}
