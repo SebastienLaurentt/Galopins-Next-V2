@@ -15,7 +15,7 @@ const addNews = async (newsData: {
   title: string;
   description: string;
 }) => {
-  const response = await fetch("http://localhost:5000/api/infos/", {
+  const response = await fetch("https://galopinsback.onrender.com/api/infos/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

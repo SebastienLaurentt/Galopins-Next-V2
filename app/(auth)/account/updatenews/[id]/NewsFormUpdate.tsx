@@ -24,7 +24,7 @@ const updateNews = async ({
   data: NewsData;
 }): Promise<boolean> => {
   try {
-    const response = await fetch(`http://localhost:5000/api/infos/${id}`, {
+    const response = await fetch(`https://galopinsback.onrender.com/api/infos/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
