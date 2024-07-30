@@ -7,7 +7,6 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/components/ui/use-toast";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -19,25 +18,19 @@ interface NewsData {
 
 const updateNews = async ({
   id,
-  token,
   data,
 }: {
   id: string;
-  token: string;
   data: NewsData;
 }): Promise<boolean> => {
   try {
-    const response = await fetch(
-      `https://young-oasis-97886-5eb78d4cde61.herokuapp.com/api/infos/${id}`,
-      {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(data),
-      }
-    );
+    const response = await fetch(`http://localhost:5000/api/infos/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
 
     if (!response.ok) {
       throw new Error("Network response was not ok");
@@ -62,12 +55,11 @@ const NewsFormUpdate: React.FC<NewsFormUpdateProps> = ({ newsData, id }) => {
   const [description, setDescription] = useState<string>(newsData.description);
 
   const router = useRouter();
-  const token = Cookies.get("token") || "";
 
   const queryClient = useQueryClient();
 
   const { mutate: updateNewsMutation, isPending } = useMutation({
-    mutationFn: (newData: NewsData) => updateNews({ id, token, data: newData }),
+    mutationFn: (newData: NewsData) => updateNews({ id, data: newData }),
     onSuccess: () => {
       toast({
         title: "Information mise à jour avec succès !",

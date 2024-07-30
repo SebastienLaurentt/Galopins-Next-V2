@@ -2,7 +2,6 @@
 
 import Loader from "@/components/Loader/Loader";
 import { useQuery } from "@tanstack/react-query";
-import Cookies from "js-cookie";
 import { useParams } from "next/navigation";
 import NewsFormUpdate from "./NewsFormUpdate";
 
@@ -12,24 +11,18 @@ interface NewsData {
   description: string;
 }
 
-const fetchNews = async (id: string, token: string): Promise<NewsData> => {
+const fetchNews = async (id: string): Promise<NewsData> => {
   try {
-    const response = await fetch(
-      `https://young-oasis-97886-5eb78d4cde61.herokuapp.com/api/infos/${id}`,
-      {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
+    const response = await fetch(`http://localhost:5000/api/infos/${id}`, {
+      method: "GET",
+    });
 
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
 
     const data = await response.json();
-    return data.data;
+    return data;
   } catch (error) {
     console.error("Fetch news error:", error);
     throw error;
@@ -38,7 +31,6 @@ const fetchNews = async (id: string, token: string): Promise<NewsData> => {
 
 const AccountNewsFetch = () => {
   const { id } = useParams<{ id: string }>();
-  const token = Cookies.get("token") || "";
 
   const {
     data: newsData,
@@ -46,8 +38,8 @@ const AccountNewsFetch = () => {
     isError,
   } = useQuery<NewsData, Error>({
     queryKey: ["news", id],
-    queryFn: () => fetchNews(id, token),
-    enabled: !!token && !!id,
+    queryFn: () => fetchNews(id),
+    enabled: !!id,
   });
 
   const renderContent = (message: string, showLoader: boolean) => (

@@ -50,7 +50,6 @@ function AccountNews() {
     queryKey: ["infos"],
     queryFn: fetchInfos,
   });
-  console.log(infosData);
 
   const mutation = useMutation({
     mutationFn: deleteInfo,
