@@ -9,7 +9,6 @@ import { Label } from "@/components/ui/label";
 import { toast } from "@/components/ui/use-toast";
 import { useMutation } from "@tanstack/react-query";
 import imageCompression from "browser-image-compression";
-import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -21,19 +20,12 @@ const uploadRando = async (randoData: {
   distance: string;
   pictures: string[];
 }) => {
-  const token = Cookies.get("token");
-
-  if (!token) {
-    throw new Error("Token is not available");
-  }
-
   const response = await fetch(
-    "https://young-oasis-97886-5eb78d4cde61.herokuapp.com/api/randos",
+    "https://galopinsback.onrender.com/api/randos/",
     {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(randoData),
     }

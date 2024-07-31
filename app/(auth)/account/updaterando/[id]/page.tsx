@@ -15,15 +15,12 @@ interface RandoData {
   pictures: string[];
 }
 
-const fetchHiking = async (id: string, token: string): Promise<RandoData> => {
+const fetchHiking = async (id: string): Promise<RandoData> => {
   try {
     const response = await fetch(
-      `https://young-oasis-97886-5eb78d4cde61.herokuapp.com/api/randos/${id}`,
+      `https://galopinsback.onrender.com/api/randos/${id}`,
       {
         method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
       }
     );
 
@@ -32,7 +29,7 @@ const fetchHiking = async (id: string, token: string): Promise<RandoData> => {
     }
 
     const data = await response.json();
-    return data.data;
+    return data;
   } catch (error) {
     console.error("Fetch hiking error:", error);
     throw error;
@@ -41,7 +38,7 @@ const fetchHiking = async (id: string, token: string): Promise<RandoData> => {
 
 const HikingFetch = () => {
   const { id } = useParams<{ id: string }>();
-  const token = Cookies.get("token") || "";
+
 
   const {
     data: randoData,
@@ -49,8 +46,8 @@ const HikingFetch = () => {
     isError,
   } = useQuery<RandoData, Error>({
     queryKey: ["randos", id],
-    queryFn: () => fetchHiking(id, token),
-    enabled: !!token && !!id,
+    queryFn: () => fetchHiking(id),
+    enabled:   !!id,
   });
 
   const renderContent = (message: string, showLoader: boolean) => (

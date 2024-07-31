@@ -6,7 +6,6 @@ import { Label } from "@/components/ui/label";
 import { toast } from "@/components/ui/use-toast";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import imageCompression from "browser-image-compression";
-import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -26,21 +25,18 @@ interface RandoFormUpdateProps {
 
 const updateRando = async ({
   id,
-  token,
   data,
 }: {
   id: string;
-  token: string;
   data: RandoData;
 }): Promise<void> => {
   try {
     const response = await fetch(
-      `https://young-oasis-97886-5eb78d4cde61.herokuapp.com/api/randos/${id}`,
+      `https://galopinsback.onrender.com/api/randos/${id}`,
       {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(data),
       }
@@ -68,13 +64,11 @@ const RandoFormUpdate: React.FC<RandoFormUpdateProps> = ({ randoData, id }) => {
   const [loadingImages, setLoadingImages] = useState(false);
 
   const router = useRouter();
-  const token = Cookies.get("token") || "";
 
   const queryClient = useQueryClient();
 
   const { mutate: updateRandoMutation, isPending } = useMutation({
-    mutationFn: (newData: RandoData) =>
-      updateRando({ id, token, data: newData }),
+    mutationFn: (newData: RandoData) => updateRando({ id, data: newData }),
     onSuccess: () => {
       toast({ title: "Randonnée mise à jour avec succès !" });
       queryClient.invalidateQueries({ queryKey: ["randos", id] });
