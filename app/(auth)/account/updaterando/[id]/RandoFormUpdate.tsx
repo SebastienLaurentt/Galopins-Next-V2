@@ -1,11 +1,11 @@
 import AccountSectionHeader from "@/components/AccountComponent/AccountSectionHeader";
 import FileUploader from "@/components/AccountComponent/FileUploader";
+import Loader from "@/components/Loader/Loader";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "@/components/ui/use-toast";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import imageCompression from "browser-image-compression";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -15,13 +15,39 @@ interface RandoData {
   memberNumber: string;
   elevation: string;
   distance: string;
-  pictures: string[];
+  images: string[];
+}
+
+interface ImageUploadResponse {
+  imageUrls: string[];
 }
 
 interface RandoFormUpdateProps {
   randoData: RandoData;
   id: string;
 }
+
+const uploadImages = async (images: File[]): Promise<ImageUploadResponse> => {
+  const formData = new FormData();
+  images.forEach((image) => formData.append("images", image));
+
+  const response = await fetch(
+    "https://galopinsbackv2.onrender.com/api/upload-images",
+    {
+      method: "POST",
+      body: formData,
+    }
+  );
+
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(
+      error.message || "Une erreur est survenue lors de l'upload des images"
+    );
+  }
+
+  return response.json();
+};
 
 const updateRando = async ({
   id,
@@ -30,25 +56,20 @@ const updateRando = async ({
   id: string;
   data: RandoData;
 }): Promise<void> => {
-  try {
-    const response = await fetch(
-      `https://galopinsbackv2.onrender.com/api/randos/${id}`,
-      {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      }
-    );
-
-    const result = await response.json();
-
-    if (!response.ok || !result.success) {
-      throw new Error(result.message || "Update failed");
+  const response = await fetch(
+    `https://galopinsbackv2.onrender.com/api/randos/${id}`,
+    {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
     }
-  } catch (error) {
-    console.error("Rando news error:", error);
+  );
+
+  if (!response.ok) {
+    const result = await response.json();
+    throw new Error(result.message || "Update failed");
   }
 };
 
@@ -60,103 +81,80 @@ const RandoFormUpdate: React.FC<RandoFormUpdateProps> = ({ randoData, id }) => {
   );
   const [elevation, setElevation] = useState<string>(randoData.elevation);
   const [distance, setDistance] = useState<string>(randoData.distance);
-  const [pictures, setPictures] = useState<string[]>(randoData.pictures);
+  const [images, setImages] = useState<File[]>([]);
   const [loadingImages, setLoadingImages] = useState(false);
 
   const router = useRouter();
-
   const queryClient = useQueryClient();
 
-  const { mutate: updateRandoMutation, isPending } = useMutation({
-    mutationFn: (newData: RandoData) => updateRando({ id, data: newData }),
-    onSuccess: () => {
-      toast({ title: "Randonnée mise à jour avec succès !" });
-      queryClient.invalidateQueries({ queryKey: ["randos", id] });
-      router.push("/account");
-    },
-    onError: (error: any) => {
-      toast({
-        variant: "destructive",
-        title: "Erreur lors de la mise à jour",
-        description: error.message,
-      });
-    },
-  });
+  const { mutate: updateRandoMutation, isPending: isPendingRando } =
+    useMutation({
+      mutationFn: (newData: RandoData) => updateRando({ id, data: newData }),
+      onSuccess: () => {
+        toast({ title: "Randonnée mise à jour avec succès !" });
+        queryClient.invalidateQueries({ queryKey: ["randos", id] });
+        router.push("/account");
+      },
+      onError: (error: any) => {
+        toast({
+          variant: "destructive",
+          title: "Erreur lors de la mise à jour",
+          description: error.message,
+        });
+      },
+    });
+
+  const { mutate: uploadImagesMutation, isPending: isPendingImages } =
+    useMutation({
+      mutationFn: uploadImages,
+      onSuccess: (data: ImageUploadResponse) => {
+        updateRandoMutation({
+          date,
+          destination,
+          memberNumber,
+          elevation,
+          distance,
+          images: data.imageUrls,
+        });
+      },
+      onError: (error: any) => {
+        toast({
+          variant: "destructive",
+          title: "Erreur lors de l'upload des images",
+          description: error.message,
+        });
+      },
+    });
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    updateRandoMutation({
-      date,
-      destination,
-      memberNumber,
-      elevation,
-      distance,
-      pictures,
-    });
-  };
-
-  const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    setLoadingImages(true);
-    const files = e.target.files;
-
-    if (files) {
-      const imageArray = await Promise.all(
-        Array.from(files).map(async (file) => {
-          try {
-            const compressedImage = await imageCompression(file, {
-              maxSizeMB: 0.1,
-            });
-            const base64Image = await convertToBase64(compressedImage);
-            return base64Image;
-          } catch (error) {
-            console.error("Erreur lors de la compression de l'image :", error);
-            return null;
-          }
-        })
-      );
-
-      const filteredImages = imageArray.filter(
-        (image) => image !== null
-      ) as string[];
-
-      setPictures(filteredImages);
-      setLoadingImages(false);
+    if (images.length > 0) {
+      setLoadingImages(true);
+      uploadImagesMutation(images);
+    } else {
+      updateRandoMutation({
+        date,
+        destination,
+        memberNumber,
+        elevation,
+        distance,
+        images: randoData.images,
+      });
     }
   };
 
-  const convertToBase64 = (file: Blob): Promise<string> => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        resolve(reader.result as string);
-      };
-      reader.onerror = reject;
-      reader.readAsDataURL(file);
-    });
-  };
-
-  const renderSelectedImageCount = () => {
-    if (pictures && pictures.length > 0) {
-      return (
-        <span className="mt-2 flex flex-row justify-center text-sm text-green-600">
-          {pictures.length}{" "}
-          {pictures.length === 1
-            ? "image sélectionnée"
-            : "images sélectionnées"}
-        </span>
-      );
-    }
-    return null;
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setImages(Array.from(e.target.files || []));
   };
 
   return (
     <main className="text-white">
       <AccountSectionHeader title="Mise à jour de la randonnée" />
       <div className="mx-2 md:mx-6 xl:mx-auto xl:max-w-screen-xl xl:px-16">
-        <div className="mt-2 flex flex-col items-center justify-center rounded-lg bg-slate-900 p-4 ">
+        <div className="mt-2 flex flex-col items-center justify-center rounded-lg bg-slate-900 p-4">
           <form
             onSubmit={handleSubmit}
-            className="flex w-[300px] flex-col gap-y-4  px-2 py-4  text-center md:w-[400px] md:px-4 lg:w-[500px]"
+            className="flex w-[300px] flex-col gap-y-4 px-2 py-4 text-center md:w-[400px] md:px-4 lg:w-[500px]"
           >
             <div className="space-y-1 text-left">
               <Label>Date</Label>
@@ -209,12 +207,27 @@ const RandoFormUpdate: React.FC<RandoFormUpdateProps> = ({ randoData, id }) => {
                   </>
                 }
               />
-
-              {/* Display number of images selected */}
-              {renderSelectedImageCount()}
+              {loadingImages && (
+                <span className="flex justify-center">
+                  <Loader />
+                </span>
+              )}
             </div>
-            <Button type="submit" disabled={isPending || loadingImages}>
-              {isPending || loadingImages ? "Chargement..." : "Mettre à jour"}
+            <div className="text-center">
+              {images.length === 0 ? (
+                <span className="text-destructive">
+                  Aucune image sélectionnée
+                </span>
+              ) : (
+                <span className="text-green-500">
+                  {images.length} images sélectionnées
+                </span>
+              )}
+            </div>
+            <Button type="submit" disabled={isPendingRando || isPendingImages}>
+              {isPendingRando || isPendingImages
+                ? "Chargement..."
+                : "Mettre à jour"}
             </Button>
           </form>
         </div>

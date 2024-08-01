@@ -12,7 +12,7 @@ interface RandoData {
   memberNumber: string;
   elevation: string;
   distance: string;
-  pictures: string[];
+  images: string[];
 }
 
 const fetchHiking = async (id: string): Promise<RandoData> => {

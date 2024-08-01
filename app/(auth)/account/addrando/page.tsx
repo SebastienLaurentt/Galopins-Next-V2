@@ -18,7 +18,7 @@ interface RandoData {
   memberNumber: string;
   elevation: string;
   distance: string;
-  images?: string[];
+  images: string[];
 }
 
 interface ImageUploadResponse {
