@@ -196,25 +196,20 @@ const AccountRandoAdd: React.FC = () => {
                   </>
                 }
               />
-              {/* Conditionally render the Loader based on the loading state */}
-              {loadingImages && (
-                <span className="flex justify-center">
-                  <Loader />
-                </span>
-              )}
             </div>
-            <div className="text-center">
-              {images.length === 0 ? (
-                <span className="text-destructive">
-                  Aucune image sélectionnée
-                </span>
+            <div className="mt-2 text-center">
+              {loadingImages || isPendingImages ? (
+                <div className="flex justify-center">
+                  <Loader />
+                </div>
               ) : (
                 <span className="text-green-500">
-                  {images.length} images sélectionnées
+                  {images.length === 0
+                    ? "Aucune image sélectionnée"
+                    : `${images.length} images sélectionnées`}
                 </span>
               )}
             </div>
-            {/* Conditionally render the Loader based on the loading state */}
             <Button
               type="submit"
               className="mt-2 w-full md:w-auto"

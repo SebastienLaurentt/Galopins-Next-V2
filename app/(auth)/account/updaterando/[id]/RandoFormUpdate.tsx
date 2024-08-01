@@ -76,13 +76,12 @@ const updateRando = async ({
 const RandoFormUpdate: React.FC<RandoFormUpdateProps> = ({ randoData, id }) => {
   const [date, setDate] = useState<string>(randoData.date);
   const [destination, setDestination] = useState<string>(randoData.destination);
-  const [memberNumber, setMemberNumber] = useState<string>(
-    randoData.memberNumber
-  );
+  const [memberNumber, setMemberNumber] = useState<string>(randoData.memberNumber);
   const [elevation, setElevation] = useState<string>(randoData.elevation);
   const [distance, setDistance] = useState<string>(randoData.distance);
-  const [images, setImages] = useState<File[]>([]);
+  const [newImages, setNewImages] = useState<File[]>([]); // Only File[] for new images
   const [loadingImages, setLoadingImages] = useState(false);
+  const [imageCountFeedback, setImageCountFeedback] = useState<string>(`${randoData.images.length} image(s) actuelle(s)`);
 
   const router = useRouter();
   const queryClient = useQueryClient();
@@ -114,7 +113,7 @@ const RandoFormUpdate: React.FC<RandoFormUpdateProps> = ({ randoData, id }) => {
           memberNumber,
           elevation,
           distance,
-          images: data.imageUrls,
+          images: data.imageUrls, // Replace old images with new ones
         });
       },
       onError: (error: any) => {
@@ -128,10 +127,12 @@ const RandoFormUpdate: React.FC<RandoFormUpdateProps> = ({ randoData, id }) => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (images.length > 0) {
+
+    if (newImages.length > 0) {
       setLoadingImages(true);
-      uploadImagesMutation(images);
+      uploadImagesMutation(newImages);
     } else {
+      // No new images, keep the existing ones
       updateRandoMutation({
         date,
         destination,
@@ -144,7 +145,9 @@ const RandoFormUpdate: React.FC<RandoFormUpdateProps> = ({ randoData, id }) => {
   };
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setImages(Array.from(e.target.files || []));
+    const selectedFiles = Array.from(e.target.files || []);
+    setNewImages(selectedFiles); // Replace old images with new ones
+    setImageCountFeedback(`${selectedFiles.length} image(s) sélectionnée(s)`);
   };
 
   return (
@@ -203,24 +206,21 @@ const RandoFormUpdate: React.FC<RandoFormUpdateProps> = ({ randoData, id }) => {
                   <>
                     <span className="font-bold">Cliquer</span> pour{" "}
                     <span className="font-bold">modifier</span> les photos
-                    séléctionnées
+                    sélectionnées
                   </>
                 }
               />
-              {loadingImages && (
+            </div>
+            <div className="text-center">
+              {loadingImages || isPendingImages ? (
                 <span className="flex justify-center">
                   <Loader />
                 </span>
-              )}
-            </div>
-            <div className="text-center">
-              {images.length === 0 ? (
-                <span className="text-destructive">
-                  Aucune image sélectionnée
-                </span>
               ) : (
                 <span className="text-green-500">
-                  {images.length} images sélectionnées
+                  {newImages.length === 0
+                    ? imageCountFeedback
+                    : `${newImages.length} ${newImages.length === 1 ? "image sélectionnée" : "images sélectionnées"}`}
                 </span>
               )}
             </div>
