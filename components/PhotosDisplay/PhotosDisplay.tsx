@@ -2,7 +2,7 @@
 
 import { useQuery } from '@tanstack/react-query';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BsPeopleFill } from 'react-icons/bs';
 import { GiHiking, GiPathDistance } from 'react-icons/gi';
 import ImgAnimation from '../ImgAnimation/ImgAnimation';
@@ -33,13 +33,20 @@ const fetchRandos = async (): Promise<RandoData[]> => {
 };
 
 const PhotosDisplay = () => {
-  const [selectedRandoDestination, setSelectedRandoDestination] = useState("");
+  const [selectedRandoDestination, setSelectedRandoDestination] = useState<string>("");
   const animation = "https://lottie.host/5b46926b-3fb0-4a93-b3a6-a96ffb7c537b/ZaidZSakBt.json";
 
   const { data: randosData, isLoading, isError } = useQuery({
     queryKey: ['randos'],
     queryFn: fetchRandos,
   });
+
+  // Effect to set the last rando as selected by default
+  useEffect(() => {
+    if (randosData && randosData.length > 0) {
+      setSelectedRandoDestination(randosData[randosData.length - 1].destination);
+    }
+  }, [randosData]);
 
   const handleRandoChange = (newValue: string) => {
     setSelectedRandoDestination(newValue);
@@ -61,13 +68,13 @@ const PhotosDisplay = () => {
   }
 
   if (isError) {
-    return <div>Something went wrong</div>;
+    return <div>Quelque chose s&apos;est mal passé</div>;
   }
 
   return (
     <div className="flex flex-col items-center gap-y-4">
       <div className="flex justify-center">
-        <Select onValueChange={handleRandoChange}>
+        <Select onValueChange={handleRandoChange} value={selectedRandoDestination}>
           <SelectTrigger
             className="w-[233px]"
             aria-label="Choisir une randonnée"
