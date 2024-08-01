@@ -23,13 +23,13 @@ interface RandoData {
   memberNumber: string;
   elevation: string;
   distance: string;
-  pictures?: string[];
+  images?: string[];
 }
 
 const fetchRandos = async (): Promise<RandoData[]> => {
-  const response = await fetch('https://young-oasis-97886-5eb78d4cde61.herokuapp.com/api/randos/');
+  const response = await fetch('https://galopinsbackv2.onrender.com/api/randos');
   const data = await response.json();
-  return data.data;
+  return data;
 };
 
 const PhotosDisplay = () => {
@@ -92,7 +92,7 @@ const PhotosDisplay = () => {
         </Select>
       </div>
 
-      {selectedRandoData && selectedRandoData.pictures && (
+      {selectedRandoData && selectedRandoData.images && (
         <div>
           <div className="my-8 md:mb-12 md:mt-16">
             <h3 className="text-center">
@@ -127,10 +127,10 @@ const PhotosDisplay = () => {
           </div>
 
           <div className="flex flex-col gap-4">
-            {selectedRandoData.pictures.map((picture, index) => (
+            {selectedRandoData.images.map((picture, index) => (
               <div key={index} className="mx-auto">
                 <Image
-                  src={picture}
+                  src={`https://galopinsbackv2.onrender.com${picture}`}
                   alt={`Randonnée image ${index + 1}`}
                   width={1000}
                   height={200}
