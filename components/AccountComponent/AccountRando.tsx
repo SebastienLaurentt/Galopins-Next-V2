@@ -15,7 +15,7 @@ interface InfoDataProps {
 const fetchRandos = async (): Promise<InfoDataProps[]> => {
   try {
     const response = await fetch(
-      "https://galopinsback.onrender.com/api/randos"
+      "https://galopinsbackv2.onrender.com/api/randos"
     );
 
     if (!response.ok) {
@@ -35,7 +35,7 @@ const deleteRando = async (_id: number): Promise<void> => {
 
   try {
     const response = await fetch(
-      `https://galopinsback.onrender.com/api/randos/${_id}`,
+      `https://galopinsbackv2.onrender.com/api/randos/${_id}`,
       {
         method: "DELETE",
       }

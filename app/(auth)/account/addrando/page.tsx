@@ -8,20 +8,46 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "@/components/ui/use-toast";
 import { useMutation } from "@tanstack/react-query";
-import imageCompression from "browser-image-compression";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 
-const uploadRando = async (randoData: {
+// Define types for your form state and responses
+interface RandoData {
   date: string;
   destination: string;
   memberNumber: string;
   elevation: string;
   distance: string;
-  pictures: string[];
-}) => {
+  images?: string[];
+}
+
+interface ImageUploadResponse {
+  imageUrls: string[];
+}
+
+const uploadImages = async (images: File[]): Promise<ImageUploadResponse> => {
+  const formData = new FormData();
+  images.forEach((image) => formData.append("images", image));
+
   const response = await fetch(
-    "https://galopinsback.onrender.com/api/randos/",
+    "https://galopinsbackv2.onrender.com/api/upload-images",
+    {
+      method: "POST",
+      body: formData,
+    }
+  );
+
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(error.message || "Une erreur est survenue");
+  }
+
+  return response.json();
+};
+
+const uploadRando = async (randoData: RandoData): Promise<RandoData> => {
+  const response = await fetch(
+    "https://galopinsbackv2.onrender.com/api/randos/",
     {
       method: "POST",
       headers: {
@@ -39,110 +65,71 @@ const uploadRando = async (randoData: {
   return response.json();
 };
 
-const AccountRandoAdd = () => {
-  const [date, setDate] = useState("");
-  const [destination, setDestination] = useState("");
-  const [memberNumber, setMemberNumber] = useState("");
-  const [elevation, setElevation] = useState("");
-  const [distance, setDistance] = useState("");
-  const [pictures, setPictures] = useState<string[]>([]);
-  const [loadingImages, setLoadingImages] = useState(false);
+const AccountRandoAdd: React.FC = () => {
+  const [date, setDate] = useState<string>("");
+  const [destination, setDestination] = useState<string>("");
+  const [memberNumber, setMemberNumber] = useState<string>("");
+  const [elevation, setElevation] = useState<string>("");
+  const [distance, setDistance] = useState<string>("");
+  const [images, setImages] = useState<File[]>([]);
+  const [loadingImages, setLoadingImages] = useState<boolean>(false);
   const router = useRouter();
 
-  const { mutate: uploadRandoMutation, isPending } = useMutation({
-    mutationFn: uploadRando,
-    onSuccess: () => {
-      toast({
-        title: "Randonnée ajoutée avec succès !",
-      });
-      setDate("");
-      setDestination("");
-      setMemberNumber("");
-      setElevation("");
-      setDistance("");
-      setPictures([]);
-      router.push("/account");
-    },
-    onError: (error: any) => {
-      toast({
-        variant: "destructive",
-        title: "Erreur lors de l'ajout de la randonnée",
-        description: error.message,
-      });
-    },
-  });
-
-  const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    setLoadingImages(true);
-    const files = e.target.files;
-
-    if (files) {
-      const imageArray = await Promise.all(
-        Array.from(files).map(async (file) => {
-          try {
-            const compressedImage = await imageCompression(file, {
-              maxSizeMB: 0.1,
-            });
-            const base64Image = await convertToBase64(compressedImage);
-            return base64Image;
-          } catch (error) {
-            console.error("Erreur lors de la compression de l'image :", error);
-            return null;
-          }
-        })
-      );
-
-      const filteredImages = imageArray.filter(
-        (image) => image !== null
-      ) as string[];
-
-      setPictures(filteredImages);
-      setLoadingImages(false);
-    }
-  };
-
-  const convertToBase64 = (file: Blob): Promise<string> => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        resolve(reader.result as string);
-      };
-      reader.onerror = reject;
-      reader.readAsDataURL(file);
+  const { mutate: uploadRandoMutation, isPending: isPendingRando } =
+    useMutation<RandoData, Error, RandoData>({
+      mutationFn: uploadRando,
+      onSuccess: () => {
+        toast({
+          title: "Randonnée ajoutée avec succès !",
+        });
+        setDate("");
+        setDestination("");
+        setMemberNumber("");
+        setElevation("");
+        setDistance("");
+        setImages([]);
+        router.push("/account");
+      },
+      onError: (error) => {
+        toast({
+          variant: "destructive",
+          title: "Erreur lors de l'ajout de la randonnée",
+          description: error.message,
+        });
+      },
     });
+
+  const { mutate: uploadImagesMutation, isPending: isPendingImages } =
+    useMutation<ImageUploadResponse, Error, File[]>({
+      mutationFn: uploadImages,
+      onSuccess: (data) => {
+        const imageUrls = data.imageUrls;
+        uploadRandoMutation({
+          date,
+          destination,
+          memberNumber,
+          elevation,
+          distance,
+          images: imageUrls,
+        });
+      },
+      onError: (error) => {
+        toast({
+          variant: "destructive",
+          title: "Erreur lors de l'upload des images",
+          description: error.message,
+        });
+      },
+    });
+
+  const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setImages(Array.from(e.target.files || []));
   };
 
-  const renderSelectedImageCount = () => {
-    if (!isPending && pictures.length === 0) {
-      return (
-        <span className="mt-2 flex flex-row justify-center text-sm text-red-500">
-          Aucune image sélectionnée
-        </span>
-      );
-    } else if (pictures.length > 0) {
-      return (
-        <span className="mt-2 flex flex-row justify-center text-sm text-green-600">
-          {pictures.length}{" "}
-          {pictures.length === 1
-            ? "image sélectionnée"
-            : "images sélectionnées"}
-        </span>
-      );
-    } else {
-      return null;
-    }
-  };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    uploadRandoMutation({
-      date,
-      destination,
-      memberNumber,
-      elevation,
-      distance,
-      pictures,
-    });
+    setLoadingImages(true);
+    uploadImagesMutation(images);
   };
 
   return (
@@ -215,19 +202,28 @@ const AccountRandoAdd = () => {
                   <Loader />
                 </span>
               )}
-              {/* Display number of images selected */}
-              {renderSelectedImageCount()}
+            </div>
+            <div className="text-center">
+              {images.length === 0 ? (
+                <span className="text-destructive">
+                  Aucune image sélectionnée
+                </span>
+              ) : (
+                <span className="text-green-500">
+                  {images.length} images sélectionnées
+                </span>
+              )}
             </div>
             {/* Conditionally render the Loader based on the loading state */}
-            {isPending ? (
-              <span className="flex justify-center">
-                <Loader />
-              </span>
-            ) : (
-              <Button className="w-full" type="submit">
-                Ajouter Photos
-              </Button>
-            )}
+            <Button
+              type="submit"
+              className="mt-2 w-full md:w-auto"
+              disabled={isPendingRando || isPendingImages}
+            >
+              {isPendingRando || isPendingImages
+                ? "Ajout en cours..."
+                : "Ajouter la randonnée"}
+            </Button>
           </form>
         </div>
       </div>

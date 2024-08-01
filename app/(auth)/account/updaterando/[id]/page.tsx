@@ -18,7 +18,7 @@ interface RandoData {
 const fetchHiking = async (id: string): Promise<RandoData> => {
   try {
     const response = await fetch(
-      `https://galopinsback.onrender.com/api/randos/${id}`,
+      `https://galopinsbackv2.onrender.com/api/randos/${id}`,
       {
         method: "GET",
       }

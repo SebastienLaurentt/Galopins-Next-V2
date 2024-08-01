@@ -13,7 +13,7 @@ interface NewsData {
 
 const fetchNews = async (id: string): Promise<NewsData> => {
   try {
-    const response = await fetch(`https://galopinsback.onrender.com/api/infos/${id}`, {
+    const response = await fetch(`https://galopinsbackv2.onrender.com/api/infos/${id}`, {
       method: "GET",
     });
 

@@ -32,7 +32,7 @@ const updateRando = async ({
 }): Promise<void> => {
   try {
     const response = await fetch(
-      `https://galopinsback.onrender.com/api/randos/${id}`,
+      `https://galopinsbackv2.onrender.com/api/randos/${id}`,
       {
         method: "PUT",
         headers: {

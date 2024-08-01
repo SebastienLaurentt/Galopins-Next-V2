@@ -12,7 +12,7 @@ interface InfoDataProps {
 }
 
 const fetchInfos = async (): Promise<InfoDataProps[]> => {
-  const response = await fetch("https://galopinsback.onrender.com/api/infos");
+  const response = await fetch("https://galopinsbackv2.onrender.com/api/infos");
   if (!response.ok) {
     throw new Error("Erreur lors de la récupération des informations.");
   }
@@ -21,7 +21,7 @@ const fetchInfos = async (): Promise<InfoDataProps[]> => {
 };
 
 const deleteInfo = async (_id: string): Promise<void> => {
-  const response = await fetch(`https://galopinsback.onrender.com/api/infos/${_id}`, {
+  const response = await fetch(`https://galopinsbackv2.onrender.com/api/infos/${_id}`, {
     method: "DELETE",
   });
 
