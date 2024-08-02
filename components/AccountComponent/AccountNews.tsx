@@ -1,4 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import Cookies from "js-cookie";
 import { Newspaper } from "lucide-react";
 import Link from "next/link";
 import Loader from "../Loader/Loader";
@@ -21,9 +22,21 @@ const fetchInfos = async (): Promise<InfoDataProps[]> => {
 };
 
 const deleteInfo = async (_id: string): Promise<void> => {
-  const response = await fetch(`https://galopinsbackv2.onrender.com/api/infos/${_id}`, {
-    method: "DELETE",
-  });
+  const token = Cookies.get("token");
+
+  if (!token) {
+    throw new Error("Token is not available");
+  }
+
+  const response = await fetch(
+    `https://galopinsbackv2.onrender.com/api/infos/${_id}`,
+    {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
 
   if (!response.ok) {
     throw new Error("Erreur lors de la suppression.");

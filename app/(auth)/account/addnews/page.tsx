@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/components/ui/use-toast";
 import { useMutation } from "@tanstack/react-query";
+import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -15,13 +16,23 @@ const addNews = async (newsData: {
   title: string;
   description: string;
 }) => {
-  const response = await fetch("https://galopinsbackv2.onrender.com/api/infos/", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(newsData),
-  });
+  const token = Cookies.get("token");
+
+  if (!token) {
+    throw new Error("Token is not available");
+  }
+
+  const response = await fetch(
+    "https://galopinsbackv2.onrender.com/api/infos/",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(newsData),
+    }
+  );
 
   if (!response.ok) {
     throw new Error("Failed to add news");

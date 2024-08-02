@@ -9,6 +9,7 @@ import { toast } from "@/components/ui/use-toast";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import Cookies from "js-cookie";
 
 interface NewsData {
   date: string;
@@ -23,11 +24,18 @@ const updateNews = async ({
   id: string;
   data: NewsData;
 }): Promise<boolean> => {
+  const token = Cookies.get("token");
+
+  if (!token) {
+    throw new Error("Token is not available");
+  }
+
   try {
     const response = await fetch(`https://galopinsbackv2.onrender.com/api/infos/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(data),
     });
