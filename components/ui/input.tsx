@@ -66,21 +66,19 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
     // Function to prevent non-numeric character input
     const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-      if (isDate || isNumber) {
-        if (isNumber) {
-          // Allow numbers, periods, commas, backspace, and tab
-          if (!/[0-9.,]/.test(e.key) && e.key !== 'Backspace' && e.key !== 'Tab') {
-            e.preventDefault();
-          }
-        } else {
-          // Allow numbers, slashes, backspace, and tab for date input
-          if (!/[0-9\/]/.test(e.key) && e.key !== 'Backspace' && e.key !== 'Tab') {
-            e.preventDefault();
-          }
+      if (isDate) {
+        // Allow numbers, slashes, backspace, and tab for date input
+        if (!/[0-9\/]/.test(e.key) && e.key !== 'Backspace' && e.key !== 'Tab') {
+          e.preventDefault();
+        }
+      } else if (isNumber) {
+        // Allow numbers, periods, commas, backspace, and tab
+        if (!/[0-9.,]/.test(e.key) && e.key !== 'Backspace' && e.key !== 'Tab') {
+          e.preventDefault();
         }
       } else {
-        // For other input types, prevent invalid characters
-        if (!/[0-9a-zA-Z]/.test(e.key) && e.key !== 'Backspace' && e.key !== 'Tab') {
+        // For other input types, prevent invalid characters except space
+        if (!/[0-9a-zA-Z\s]/.test(e.key) && e.key !== 'Backspace' && e.key !== 'Tab') {
           e.preventDefault();
         }
       }
