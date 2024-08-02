@@ -203,7 +203,11 @@ const AccountRandoAdd: React.FC = () => {
                   <Loader />
                 </div>
               ) : (
-                <span className="text-green-500">
+                <span
+                  className={
+                    images.length === 0 ? "text-destructive" : "text-green-500"
+                  }
+                >
                   {images.length === 0
                     ? "Aucune image sélectionnée"
                     : `${images.length} images sélectionnées`}
