@@ -20,7 +20,7 @@ interface LoginResponse {
 }
 
 const loginRequest = async (username: string, password: string): Promise<LoginResponse> => {
-  const response = await fetch("https://young-oasis-97886-5eb78d4cde61.herokuapp.com/api/login", {
+  const response = await fetch("https://galopinsbackv2.onrender.com/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
