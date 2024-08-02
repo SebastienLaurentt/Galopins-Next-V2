@@ -2,7 +2,7 @@
 
 import { useQuery } from '@tanstack/react-query';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BsPeopleFill } from 'react-icons/bs';
 import { GiHiking, GiPathDistance } from 'react-icons/gi';
 import ImgAnimation from '../ImgAnimation/ImgAnimation';
@@ -23,23 +23,30 @@ interface RandoData {
   memberNumber: string;
   elevation: string;
   distance: string;
-  pictures?: string[];
+  images?: string[];
 }
 
 const fetchRandos = async (): Promise<RandoData[]> => {
-  const response = await fetch('https://young-oasis-97886-5eb78d4cde61.herokuapp.com/api/randos/');
+  const response = await fetch('https://galopinsbackv2.onrender.com/api/randos');
   const data = await response.json();
-  return data.data;
+  return data;
 };
 
 const PhotosDisplay = () => {
-  const [selectedRandoDestination, setSelectedRandoDestination] = useState("");
+  const [selectedRandoDestination, setSelectedRandoDestination] = useState<string>("");
   const animation = "https://lottie.host/5b46926b-3fb0-4a93-b3a6-a96ffb7c537b/ZaidZSakBt.json";
 
   const { data: randosData, isLoading, isError } = useQuery({
     queryKey: ['randos'],
     queryFn: fetchRandos,
   });
+
+  // Effect to set the last rando as selected by default
+  useEffect(() => {
+    if (randosData && randosData.length > 0) {
+      setSelectedRandoDestination(randosData[0].destination);
+    }
+  }, [randosData]);
 
   const handleRandoChange = (newValue: string) => {
     setSelectedRandoDestination(newValue);
@@ -61,13 +68,13 @@ const PhotosDisplay = () => {
   }
 
   if (isError) {
-    return <div>Something went wrong</div>;
+    return <div>Quelque chose s&apos;est mal passé</div>;
   }
 
   return (
     <div className="flex flex-col items-center gap-y-4">
       <div className="flex justify-center">
-        <Select onValueChange={handleRandoChange}>
+        <Select onValueChange={handleRandoChange} value={selectedRandoDestination}>
           <SelectTrigger
             className="w-[233px]"
             aria-label="Choisir une randonnée"
@@ -92,7 +99,7 @@ const PhotosDisplay = () => {
         </Select>
       </div>
 
-      {selectedRandoData && selectedRandoData.pictures && (
+      {selectedRandoData && selectedRandoData.images && (
         <div>
           <div className="my-8 md:mb-12 md:mt-16">
             <h3 className="text-center">
@@ -127,10 +134,10 @@ const PhotosDisplay = () => {
           </div>
 
           <div className="flex flex-col gap-4">
-            {selectedRandoData.pictures.map((picture, index) => (
+            {selectedRandoData.images.map((picture, index) => (
               <div key={index} className="mx-auto">
                 <Image
-                  src={picture}
+                  src={`https://galopinsbackv2.onrender.com${picture}`}
                   alt={`Randonnée image ${index + 1}`}
                   width={1000}
                   height={200}

@@ -7,7 +7,7 @@ import { Button } from "../ui/button";
 import { toast } from "../ui/use-toast";
 
 interface InfoDataProps {
-  id: number;
+  _id: number;
   date: string;
   destination: string;
 }
@@ -15,7 +15,7 @@ interface InfoDataProps {
 const fetchRandos = async (): Promise<InfoDataProps[]> => {
   try {
     const response = await fetch(
-      "https://young-oasis-97886-5eb78d4cde61.herokuapp.com/api/randos/"
+      "https://galopinsbackv2.onrender.com/api/randos"
     );
 
     if (!response.ok) {
@@ -23,22 +23,23 @@ const fetchRandos = async (): Promise<InfoDataProps[]> => {
     }
 
     const data = await response.json();
-    return data.data;
+    return data;
   } catch (error) {
     console.error("Fetch randos error:", error);
     throw error;
   }
 };
 
-const deleteRando = async (id: number): Promise<void> => {
+const deleteRando = async (_id: number): Promise<void> => {
   const token = Cookies.get("token");
+
   if (!token) {
-    throw new Error("Le token n'est pas disponible.");
+    throw new Error("Token is not available");
   }
 
   try {
     const response = await fetch(
-      `https://young-oasis-97886-5eb78d4cde61.herokuapp.com/api/randos/${id}`,
+      `https://galopinsbackv2.onrender.com/api/randos/${_id}`,
       {
         method: "DELETE",
         headers: {
@@ -76,8 +77,8 @@ function AccountRando() {
     },
   });
 
-  const handleDelete = (id: number) => {
-    mutation.mutate(id);
+  const handleDelete = (_id: number) => {
+    mutation.mutate(_id);
   };
 
   if (isError) {
@@ -112,13 +113,13 @@ function AccountRando() {
           </thead>
           <tbody>
             {randosData?.map((rando) => (
-              <tr key={rando.id} className="border-b">
+              <tr key={rando._id} className="border-b">
                 <td className="p-2 md:px-4">{rando.date}</td>
                 <td className="p-2 text-left md:px-4">{rando.destination}</td>
                 <td className="flex flex-col justify-center p-2 text-center md:flex-row md:px-4">
                   <div className="px-2">
                     <button
-                      onClick={() => handleDelete(rando.id)}
+                      onClick={() => handleDelete(rando._id)}
                       className="text-red-500 md:hover:font-bold"
                     >
                       Supprimer
@@ -126,7 +127,7 @@ function AccountRando() {
                   </div>
                   <div className="px-2">
                     <Link
-                      href={`/account/updaterando/${rando.id}`}
+                      href={`/account/updaterando/${rando._id}`}
                       className="text-cyan-500 md:hover:font-bold"
                     >
                       Modifier

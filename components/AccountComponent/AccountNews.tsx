@@ -7,30 +7,29 @@ import { Button } from "../ui/button";
 import { toast } from "../ui/use-toast";
 
 interface InfoDataProps {
-  id: number;
+  _id: string;
   date: string;
   title: string;
 }
 
 const fetchInfos = async (): Promise<InfoDataProps[]> => {
-  const response = await fetch(
-    "https://young-oasis-97886-5eb78d4cde61.herokuapp.com/api/infos/"
-  );
+  const response = await fetch("https://galopinsbackv2.onrender.com/api/infos");
   if (!response.ok) {
     throw new Error("Erreur lors de la récupération des informations.");
   }
   const data = await response.json();
-  return data.data;
+  return data;
 };
 
-const deleteInfo = async (id: number): Promise<void> => {
+const deleteInfo = async (_id: string): Promise<void> => {
   const token = Cookies.get("token");
+
   if (!token) {
-    throw new Error("Le token n'est pas disponible.");
+    throw new Error("Token is not available");
   }
 
   const response = await fetch(
-    `https://young-oasis-97886-5eb78d4cde61.herokuapp.com/api/infos/${id}`,
+    `https://galopinsbackv2.onrender.com/api/infos/${_id}`,
     {
       method: "DELETE",
       headers: {
@@ -64,8 +63,8 @@ function AccountNews() {
     },
   });
 
-  const handleDelete = (id: number) => {
-    mutation.mutate(id);
+  const handleDelete = (_id: string) => {
+    mutation.mutate(_id);
   };
 
   if (isError) {
@@ -102,7 +101,7 @@ function AccountNews() {
           </thead>
           <tbody>
             {infosData?.map((info) => (
-              <tr key={info.id} className="border-b">
+              <tr key={info._id} className="border-b">
                 <td className="p-2 md:px-4">{info.date}</td>
                 <td className="p-2 text-center md:px-4 md:text-left">
                   {info.title}
@@ -110,7 +109,7 @@ function AccountNews() {
                 <td className="flex flex-col justify-center p-2 text-center md:flex-row md:px-4">
                   <div className="px-2">
                     <button
-                      onClick={() => handleDelete(info.id)}
+                      onClick={() => handleDelete(info._id)}
                       className="text-red-500 transition duration-300 md:hover:text-red-700"
                     >
                       Supprimer
@@ -118,7 +117,7 @@ function AccountNews() {
                   </div>
                   <div className="px-2">
                     <Link
-                      href={`/account/updatenews/${info.id}`}
+                      href={`/account/updatenews/${info._id}`}
                       className="text-cyan-500 transition duration-300 md:hover:text-cyan-700"
                     >
                       Modifier

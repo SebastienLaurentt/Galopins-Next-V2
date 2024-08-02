@@ -12,10 +12,10 @@ interface ActualitesFetchProps {
 
 const fetchActualites = async (): Promise<ActualitesFetchProps[]> => {
   const response = await fetch(
-    "https://young-oasis-97886-5eb78d4cde61.herokuapp.com/api/lastinfos"
+    "https://galopinsbackv2.onrender.com/api/infos"
   );
   const data = await response.json();
-  return data.data;
+  return data;
 };
 
 function ActualitesFetch() {
