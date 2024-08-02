@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "@/components/ui/use-toast";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -56,12 +57,19 @@ const updateRando = async ({
   id: string;
   data: RandoData;
 }): Promise<void> => {
+  const token = Cookies.get("token");
+
+  if (!token) {
+    throw new Error("Token is not available");
+  }
+
   const response = await fetch(
     `https://galopinsbackv2.onrender.com/api/randos/${id}`,
     {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(data),
     }
@@ -76,12 +84,16 @@ const updateRando = async ({
 const RandoFormUpdate: React.FC<RandoFormUpdateProps> = ({ randoData, id }) => {
   const [date, setDate] = useState<string>(randoData.date);
   const [destination, setDestination] = useState<string>(randoData.destination);
-  const [memberNumber, setMemberNumber] = useState<string>(randoData.memberNumber);
+  const [memberNumber, setMemberNumber] = useState<string>(
+    randoData.memberNumber
+  );
   const [elevation, setElevation] = useState<string>(randoData.elevation);
   const [distance, setDistance] = useState<string>(randoData.distance);
   const [newImages, setNewImages] = useState<File[]>([]); // Only File[] for new images
   const [loadingImages, setLoadingImages] = useState(false);
-  const [imageCountFeedback, setImageCountFeedback] = useState<string>(`${randoData.images.length} image(s) actuelle(s)`);
+  const [imageCountFeedback, setImageCountFeedback] = useState<string>(
+    `${randoData.images.length} image(s) actuelle(s)`
+  );
 
   const router = useRouter();
   const queryClient = useQueryClient();
@@ -220,7 +232,11 @@ const RandoFormUpdate: React.FC<RandoFormUpdateProps> = ({ randoData, id }) => {
                 <span className="text-green-500">
                   {newImages.length === 0
                     ? imageCountFeedback
-                    : `${newImages.length} ${newImages.length === 1 ? "image sélectionnée" : "images sélectionnées"}`}
+                    : `${newImages.length} ${
+                        newImages.length === 1
+                          ? "image sélectionnée"
+                          : "images sélectionnées"
+                      }`}
                 </span>
               )}
             </div>

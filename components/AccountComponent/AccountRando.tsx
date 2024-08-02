@@ -31,13 +31,20 @@ const fetchRandos = async (): Promise<InfoDataProps[]> => {
 };
 
 const deleteRando = async (_id: number): Promise<void> => {
+  const token = Cookies.get("token");
 
+  if (!token) {
+    throw new Error("Token is not available");
+  }
 
   try {
     const response = await fetch(
       `https://galopinsbackv2.onrender.com/api/randos/${_id}`,
       {
         method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       }
     );
 

@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "@/components/ui/use-toast";
 import { useMutation } from "@tanstack/react-query";
+import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import { ChangeEvent, FormEvent, useState } from "react";
 
@@ -46,12 +47,19 @@ const uploadImages = async (images: File[]): Promise<ImageUploadResponse> => {
 };
 
 const uploadRando = async (randoData: RandoData): Promise<RandoData> => {
+  const token = Cookies.get("token");
+
+  if (!token) {
+    throw new Error("Token is not available");
+  }
+
   const response = await fetch(
     "https://galopinsbackv2.onrender.com/api/randos/",
     {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(randoData),
     }
