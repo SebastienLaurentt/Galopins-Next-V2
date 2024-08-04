@@ -49,7 +49,7 @@ const PhotosDisplay = () => {
     queryFn: fetchRandos,
   });
 
-  // Effect to set the last rando as selected by default
+
   useEffect(() => {
     if (randosData && randosData.length > 0) {
       setSelectedRandoDestination(randosData[0].destination);
