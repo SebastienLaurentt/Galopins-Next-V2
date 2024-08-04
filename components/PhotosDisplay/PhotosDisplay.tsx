@@ -52,7 +52,7 @@ const PhotosDisplay = () => {
       <div>
         <div className="mb-4">
           <p className="text-center">
-            Les photos sont en cours de chargement ! Veuillez patienter ...
+            Les photos sont en cours de chargement ! <br />  Veuillez patienter ...
           </p>
         </div>
         <ImgAnimation animation={animation} />
