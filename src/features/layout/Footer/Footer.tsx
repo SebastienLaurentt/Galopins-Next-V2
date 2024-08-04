@@ -21,7 +21,7 @@ export const Footer = () => {
             >
               LES GALOPINS DE MONTELIMAR
             </span>
-            <span className="md:w-[250px] xl:text-md xl:leading-6">
+            <span className="text-center md:w-[250px] md:text-left xl:text-md xl:leading-6">
               Club de randonnée pédestre en Rhônes Alpes{" "}
             </span>
           </div>
