@@ -69,7 +69,8 @@ const PhotosDisplay = () => {
       <div>
         <div className="mb-4">
           <p className="mx-auto text-center leading-7">
-            Les photos sont en cours de chargement ! <br /> Veuillez patienter ...
+            Les photos sont en cours de chargement ! <br /> Veuillez patienter
+            ...
           </p>
         </div>
         <ImgAnimation animation={animation} />
@@ -112,8 +113,10 @@ const PhotosDisplay = () => {
       {selectedRandoData && selectedRandoData.images && (
         <div>
           <div className="my-8">
-            <h3 className="text-center text-xl md:text-3xl">{selectedRandoData.destination}</h3>
-            <ul className="flex justify-center text-foreground md:gap-x-8 gap-x-4">
+            <h3 className="text-center text-xl md:text-3xl">
+              {selectedRandoData.destination}
+            </h3>
+            <ul className="flex justify-center gap-x-4 text-foreground md:gap-x-8">
               <li>
                 <PhotoIcon
                   number={selectedRandoData.distance + " km"}
