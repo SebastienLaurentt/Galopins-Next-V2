@@ -84,7 +84,7 @@
   }
 
   .iconPhoto {
-    @apply text-3xl md:text-4xl 2xl:text-5xl;
+    @apply size-12 md:size-16;
   }
 
   .mainMb {
