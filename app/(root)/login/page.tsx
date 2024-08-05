@@ -53,9 +53,8 @@ export default function Login() {
     mutationFn: () => loginRequest(username, password),
     onSuccess: (data) => {
 
-      Cookies.set("token", data.token, { expires: 1 / 24 }); // 1/24 represents 1 hour
+      Cookies.set("token", data.token, { expires: 1 / 24 }); 
 
-  
       login();
       router.push("/account");
     },
