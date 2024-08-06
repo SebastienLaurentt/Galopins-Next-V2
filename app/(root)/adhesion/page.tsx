@@ -96,7 +96,7 @@ function Adhesion() {
                   <Mail size={48} />
                   <div className="flex flex-col">
                     <span>Email</span>
-                    <span>alain.bourseau@wanadoo.fr</span>
+                    <span>jeanalain.bourseau@sfr.fr</span>
                   </div>
                 </div>
               </li>
