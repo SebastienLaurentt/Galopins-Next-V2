@@ -13,9 +13,10 @@ import Link from "next/link";
 import { useState } from "react";
 import { Button } from "../ui/button";
 
-const TRIMESTRE1_2024 = `/pdf/TRIMESTRE1_2024.pdf`;
+
 const TRIMESTRE2_2024 = `/pdf/TRIMESTRE2_2024.pdf`;
-const TRIMESTRE3_2023 = `/pdf/TRIMESTRE3_2023.pdf`;
+const TRIMESTRE4_2024 = `/pdf/TRIMESTRE4_2024.pdf`;
+
 
 const ProgDownload = () => {
   // Selected pdf state
@@ -24,14 +25,11 @@ const ProgDownload = () => {
   // Set pdf selected state
   const handleSelection = (value: string) => {
     switch (value) {
+      case "4T2024":
+        setSelectedPDF(TRIMESTRE4_2024);
+        break;
       case "2T2024":
         setSelectedPDF(TRIMESTRE2_2024);
-        break;
-      case "1T2024":
-        setSelectedPDF(TRIMESTRE1_2024);
-        break;
-      case "3T2023":
-        setSelectedPDF(TRIMESTRE3_2023);
         break;
       default:
         setSelectedPDF("");
@@ -47,14 +45,11 @@ const ProgDownload = () => {
         <SelectContent>
           <SelectGroup>
             <SelectLabel>Programmes</SelectLabel>
+            <SelectItem value="4T2024">
+              4<sup>ème</sup> Trimestre 2024
+            </SelectItem>
             <SelectItem value="2T2024">
               2<sup>ème</sup> Trimestre 2024
-            </SelectItem>
-            <SelectItem value="1T2024">
-              1<sup>er</sup> Trimestre 2024
-            </SelectItem>
-            <SelectItem value="3T2023">
-              3<sup>ème</sup> Trimestre 2023
             </SelectItem>
           </SelectGroup>
         </SelectContent>
