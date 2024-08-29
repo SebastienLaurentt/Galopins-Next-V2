@@ -5,6 +5,11 @@ const navData = [
     burgerMenuName: "ACCUEIL",
   },
   {
+    href: "/actualites",
+    name: "Actualités",
+    burgerMenuName: "ACTUALITES",
+  },
+  {
     href: "/club",
     name: "Club",
     burgerMenuName: "CLUB",
@@ -19,11 +24,7 @@ const navData = [
     name: "Photos",
     burgerMenuName: "PHOTOS",
   },
-  {
-    href: "/actualites",
-    name: "Actualités",
-    burgerMenuName: "ACTUALITES",
-  },
+
   {
     href: "/adhesion",
     name: "Adhésion",
