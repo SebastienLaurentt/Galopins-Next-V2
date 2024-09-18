@@ -31,7 +31,16 @@ const fetchRandos = async (): Promise<RandoData[]> => {
     "https://galopinsbackv2.onrender.com/api/randos"
   );
   const data = await response.json();
-  return data;
+
+  return data.sort((a: RandoData, b: RandoData) => {
+    const [dayA, monthA, yearA] = a.date.split("/").map(Number);
+    const [dayB, monthB, yearB] = b.date.split("/").map(Number);
+
+    const dateA = new Date(yearA, monthA - 1, dayA); 
+    const dateB = new Date(yearB, monthB - 1, dayB);
+
+    return dateB.getTime() - dateA.getTime(); 
+  });
 };
 
 const PhotosDisplay = () => {
@@ -49,7 +58,6 @@ const PhotosDisplay = () => {
     queryFn: fetchRandos,
   });
 
-  // Effect to set the last rando as selected by default
   useEffect(() => {
     if (randosData && randosData.length > 0) {
       setSelectedRandoDestination(randosData[0].destination);

@@ -23,7 +23,16 @@ const fetchRandos = async (): Promise<InfoDataProps[]> => {
     }
 
     const data = await response.json();
-    return data;
+
+    // Tri des randonnées par date (de la plus récente à la plus ancienne)
+    return data.sort((a: InfoDataProps, b: InfoDataProps) => {
+      const [dayA, monthA, yearA] = a.date.split("/").map(Number);
+      const [dayB, monthB, yearB] = b.date.split("/").map(Number);
+      return (
+        new Date(yearB, monthB - 1, dayB).getTime() -
+        new Date(yearA, monthA - 1, dayA).getTime()
+      );
+    });
   } catch (error) {
     console.error("Fetch randos error:", error);
     throw error;
