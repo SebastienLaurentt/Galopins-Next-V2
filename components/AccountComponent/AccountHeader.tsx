@@ -12,11 +12,18 @@ function AccountHeader() {
   };
 
   return (
-    <header className=" flex w-full flex-row items-center  justify-between gap-x-2 px-2 py-4  md:px-10 lg:py-6 xl:mx-auto xl:max-w-screen-xl xl:px-16 ">
+    <header className=" flex w-full flex-row items-center  justify-between gap-x-2 px-2 py-4  md:px-10 md:py-6 xl:mx-auto xl:max-w-screen-xl xl:px-16 xl:py-4 ">
       <span className="hidden font-bold md:flex  md:text-md">
         Espace Administrateur
       </span>
       <ul className="flex w-full flex-row justify-between gap-x-2 md:w-fit md:justify-end">
+        <li>
+          <Button variant="secondary" asChild>
+            <Link href="/" aria-label="Allez sur l'espace administrateur">
+              Retour Site
+            </Link>
+          </Button>
+        </li>
         <li>
           <Button variant="secondary" asChild>
             <Link
