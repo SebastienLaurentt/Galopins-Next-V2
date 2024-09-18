@@ -78,7 +78,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         }
       } else {
         // For other input types, prevent invalid characters except space
-        if (!/[0-9a-zA-Z\s]/.test(e.key) && e.key !== 'Backspace' && e.key !== 'Tab') {
+        if (!/[0-9a-zA-Z\s#!?]/.test(e.key) && e.key !== 'Backspace' && e.key !== 'Tab') {
           e.preventDefault();
         }
       }
