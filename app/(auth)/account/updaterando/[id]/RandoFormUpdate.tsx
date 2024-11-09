@@ -29,8 +29,39 @@ interface RandoFormUpdateProps {
 }
 
 const uploadImages = async (images: File[]): Promise<ImageUploadResponse> => {
+  if (images[0]?.name.match(/^Image\d+\.jpg$/)) {
+    console.log("Détection d'images PowerPoint, utilisation de l'upload séquentiel");
+    const uploadedUrls = [];
+    
+    for (const image of images) {
+      const formData = new FormData();
+      formData.append("images", image);
+      
+      const response = await fetch(
+        "https://galopinsbackv2.onrender.com/api/upload-images",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+      
+      if (!response.ok) {
+        throw new Error("Erreur lors de l'upload");
+      }
+      
+      const result = await response.json();
+      uploadedUrls.push(...result.imageUrls);
+      
+      await new Promise(resolve => setTimeout(resolve, 100));
+    }
+    
+    return { imageUrls: uploadedUrls };
+  }
+  
   const formData = new FormData();
-  images.forEach((image) => formData.append("images", image));
+  images.forEach((image) => {
+    formData.append("images", image);
+  });
 
   const response = await fetch(
     "https://galopinsbackv2.onrender.com/api/upload-images",
@@ -42,12 +73,13 @@ const uploadImages = async (images: File[]): Promise<ImageUploadResponse> => {
 
   if (!response.ok) {
     const error = await response.json();
-    throw new Error(
-      error.message || "Une erreur est survenue lors de l'upload des images"
-    );
+    throw new Error(error.message || "Une erreur est survenue");
   }
 
-  return response.json();
+  const result = await response.json();
+  console.log("URLs reçues du serveur:", result.imageUrls);
+  console.log("Nombre d'URLs uniques:", new Set(result.imageUrls).size);
+  return result;
 };
 
 const updateRando = async ({
@@ -158,7 +190,19 @@ const RandoFormUpdate: React.FC<RandoFormUpdateProps> = ({ randoData, id }) => {
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFiles = Array.from(e.target.files || []);
-    setNewImages(selectedFiles); // Replace old images with new ones
+    
+    selectedFiles.forEach((file, index) => {
+      console.log(`Image ${index}:`, {
+        name: file.name,
+        size: file.size,
+        type: file.type,
+        lastModified: file.lastModified,
+        webkitRelativePath: file.webkitRelativePath,
+        path: (file as any).path,
+      });
+    });
+
+    setNewImages(selectedFiles);
     setImageCountFeedback(`${selectedFiles.length} image(s) sélectionnée(s)`);
   };
 
