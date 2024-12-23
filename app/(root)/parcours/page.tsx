@@ -121,7 +121,7 @@ function Parcours() {
           </div>
         </SubSection>
       </Section>
-      <Section marginBottom={true} marginTop={false} classname="">
+      <Section marginBottom={true} marginTop={false}>
         <SectionHeader
           title="Programme de la saison "
           titleHighlight="2023/2024"
