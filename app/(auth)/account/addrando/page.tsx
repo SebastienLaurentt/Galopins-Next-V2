@@ -27,9 +27,43 @@ interface ImageUploadResponse {
 }
 
 const uploadImages = async (images: File[]): Promise<ImageUploadResponse> => {
+  // Upload séquentiel pour les images PowerPoint
+  if (images[0]?.name.match(/^Image\d+\.jpg$/)) {
+    console.log("Détection d'images PowerPoint, utilisation de l'upload séquentiel");
+    const uploadedUrls = [];
+    
+    for (const image of images) {
+      const formData = new FormData();
+      formData.append("images", image);
+      
+      const response = await fetch(
+        "https://galopinsbackv2.onrender.com/api/upload-images",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+      
+      if (!response.ok) {
+        throw new Error("Erreur lors de l'upload");
+      }
+      
+      const result = await response.json();
+      uploadedUrls.push(...result.imageUrls);
+      
+      // Petit délai entre chaque upload
+      await new Promise(resolve => setTimeout(resolve, 100));
+    }
+    
+    return { imageUrls: uploadedUrls };
+  }
+  
+  // Upload normal pour les autres images
   const formData = new FormData();
-  images.forEach((image) => formData.append("images", image));
-
+  images.forEach((image) => {
+    formData.append("images", image);
+  });
+  
   const response = await fetch(
     "https://galopinsbackv2.onrender.com/api/upload-images",
     {
@@ -43,7 +77,10 @@ const uploadImages = async (images: File[]): Promise<ImageUploadResponse> => {
     throw new Error(error.message || "Une erreur est survenue");
   }
 
-  return response.json();
+  const result = await response.json();
+  console.log("URLs reçues du serveur:", result.imageUrls);
+  console.log("Nombre d'URLs uniques:", new Set(result.imageUrls).size);
+  return result;
 };
 
 const uploadRando = async (randoData: RandoData): Promise<RandoData> => {
@@ -131,11 +168,32 @@ const AccountRandoAdd: React.FC = () => {
     });
 
   const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setImages(Array.from(e.target.files || []));
+    const selectedFiles = Array.from(e.target.files || []);
+    
+    // Log détaillé pour comprendre la source des images
+    selectedFiles.forEach((file, index) => {
+      console.log(`Image ${index + 1}:`, {
+        name: file.name,
+        size: file.size,
+        type: file.type,
+        lastModified: file.lastModified,
+        // Ajoutons quelques propriétés supplémentaires
+        webkitRelativePath: file.webkitRelativePath,
+        path: (file as any).path, // Peut être undefined
+      });
+    });
+
+    setImages(selectedFiles);
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log("Images avant upload détaillées:", images.map(file => ({
+      name: file.name,
+      size: file.size,
+      type: file.type,
+      lastModified: file.lastModified
+    })));
     setLoadingImages(true);
     uploadImagesMutation(images);
   };
