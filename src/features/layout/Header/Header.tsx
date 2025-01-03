@@ -18,8 +18,8 @@ export const Header = () => {
   return (
     <header className={`${headerVisibility} z-10 w-full`}>
       {/* New Year Banner */}
-      <div className="bg-primary py-3 text-center text-white">
-        <p>
+      <div className="overflow-hidden whitespace-nowrap bg-primary py-2 text-white">
+        <p className="inline-block animate-marquee text-lg">
           🎉 🎊 Le club des Galopins vous souhaite une bonne et heureuse année
           2025 🎊 🎉
         </p>
