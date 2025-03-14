@@ -59,7 +59,7 @@ export const Footer = () => {
           </ul>
         </div>
         <div className="flex items-center justify-between text-[14px]  md:text-sm  ">
-          <span>@2024 - Les Galopins</span>
+          <span>&copy; {new Date().getFullYear()} - Les Galopins</span>
           <span>
             <Link href="/mentions"> Mentions légales </Link>
           </span>
