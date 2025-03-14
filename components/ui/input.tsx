@@ -1,7 +1,8 @@
-import * as React from "react";
 import { cn } from "@/lib/utils";
+import * as React from "react";
 
-export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
   isDate?: boolean; // Prop to specify if the input is a date
   isNumber?: boolean; // Prop to specify if the input is numeric
 }
@@ -19,9 +20,9 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
       // Concatenate the parts with separators
       let formattedValue = day;
-      if (day.length === 2) formattedValue += '/';
+      if (day.length === 2) formattedValue += "/";
       if (month.length > 0) formattedValue += month;
-      if (month.length === 2) formattedValue += '/';
+      if (month.length === 2) formattedValue += "/";
       if (year.length > 0) formattedValue += year;
 
       return formattedValue;
@@ -30,17 +31,17 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       let value = e.target.value;
 
-      // Limit the total input length to 30 characters
-      if (value.length > 30) {
-        value = value.slice(0, 30);
+      // Limit the total input length to 40 characters
+      if (value.length > 40) {
+        value = value.slice(0, 40);
       }
 
       if (isDate) {
         value = formatDate(value);
 
-        // Limit the length after formatting to 30 characters
-        if (value.length > 30) {
-          value = value.slice(0, 30);
+        // Limit the length after formatting to 40 characters
+        if (value.length > 40) {
+          value = value.slice(0, 40);
         }
       }
 
@@ -51,7 +52,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
         if (parts.length > 2) {
           // If more than one period or comma, keep only the first one
-          value = `${parts[0]}.${parts.slice(1).join('')}`;
+          value = `${parts[0]}.${parts.slice(1).join("")}`;
         } else {
           value = cleaned;
         }
@@ -68,17 +69,29 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
       if (isDate) {
         // Allow numbers, slashes, backspace, and tab for date input
-        if (!/[0-9\/]/.test(e.key) && e.key !== 'Backspace' && e.key !== 'Tab') {
+        if (
+          !/[0-9\/]/.test(e.key) &&
+          e.key !== "Backspace" &&
+          e.key !== "Tab"
+        ) {
           e.preventDefault();
         }
       } else if (isNumber) {
         // Allow numbers, periods, commas, backspace, and tab
-        if (!/[0-9.,]/.test(e.key) && e.key !== 'Backspace' && e.key !== 'Tab') {
+        if (
+          !/[0-9.,]/.test(e.key) &&
+          e.key !== "Backspace" &&
+          e.key !== "Tab"
+        ) {
           e.preventDefault();
         }
       } else {
         // For other input types, prevent invalid characters except space
-        if (!/[0-9a-zA-Z\s#!?]/.test(e.key) && e.key !== 'Backspace' && e.key !== 'Tab') {
+        if (
+          !/[0-9a-zA-Z\s#!?]/.test(e.key) &&
+          e.key !== "Backspace" &&
+          e.key !== "Tab"
+        ) {
           e.preventDefault();
         }
       }
