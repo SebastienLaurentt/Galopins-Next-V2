@@ -124,7 +124,7 @@ function Parcours() {
       <Section marginBottom={true} marginTop={false}>
         <SectionHeader
           title="Programme de la saison "
-          titleHighlight="2023/2024"
+          titleHighlight="2024/2025"
         />
         <div className="flex flex-col lg:flex-row lg:items-center  lg:gap-x-6">
           <div className="mb-4 lg:w-1/2 xl:w-2/3 xl:pr-4">
