@@ -69,7 +69,6 @@ function Adhesion() {
         </div>
       </Section>
 
-      {/* Second Section : Contact */}
       <Section marginBottom={true} marginTop={false} classname="">
         <SectionHeader
           title=" Des questions ?"
