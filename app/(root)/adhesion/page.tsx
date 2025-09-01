@@ -55,7 +55,7 @@ function Adhesion() {
               personnes mal équipées.
             </p>
             <p>
-              Un montant de 15€ ainsi que le formulaire d&apos;inscription
+              Un montant de 10€ ainsi que le formulaire d&apos;inscription
               ci-dessous seront demandés afin de valider l&apos;adhésion.
             </p>
             <div className="mt-4 flex flex-col items-start ">
