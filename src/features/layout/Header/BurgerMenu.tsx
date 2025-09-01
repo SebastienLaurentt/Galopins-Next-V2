@@ -15,14 +15,18 @@ export default function BurgerMenu({ isOpen, setIsOpen }: BurgerMenuProps) {
 
   useEffect(() => {
     // Disable scroll is BurgerMenu is open
-    if (isOpen) {
-      document.documentElement.classList.add("overflow-hidden");
-    } else {
-      document.documentElement.classList.remove("overflow-hidden");
+    if (typeof window !== "undefined") {
+      if (isOpen) {
+        document.documentElement.classList.add("overflow-hidden");
+      } else {
+        document.documentElement.classList.remove("overflow-hidden");
+      }
     }
 
     return () => {
-      document.documentElement.classList.remove("overflow-hidden");
+      if (typeof window !== "undefined") {
+        document.documentElement.classList.remove("overflow-hidden");
+      }
     };
   }, [isOpen]);
 
