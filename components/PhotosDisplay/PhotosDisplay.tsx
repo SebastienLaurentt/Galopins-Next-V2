@@ -38,7 +38,6 @@ const fetchRandos = async (): Promise<RandoData[]> => {
 
     const dateA = new Date(yearA, monthA - 1, dayA); 
     const dateB = new Date(yearB, monthB - 1, dayB);
-
     return dateB.getTime() - dateA.getTime(); 
   });
 };
