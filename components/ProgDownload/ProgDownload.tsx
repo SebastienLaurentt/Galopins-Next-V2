@@ -13,8 +13,8 @@ import Link from "next/link";
 import { useState } from "react";
 import { Button } from "../ui/button";
 
-const TRIMESTRE2_2025 = `/pdf/TRIMESTRE2_2025.pdf`;
-const TRIMESTRE4_2025 = `/pdf/TRIMESTRE4_2025.pdf`;
+const TRIMESTRE2_2025 = `/pdf/TRIMESTRE2_2025.pdf?v=2025-01-28`;
+const TRIMESTRE4_2025 = `/pdf/TRIMESTRE4_2025.pdf?v=2025-01-28`;
 
 
 const ProgDownload = () => {

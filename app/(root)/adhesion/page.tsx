@@ -10,7 +10,7 @@ import Image from "next/image";
 import Link from "next/link";
 import imgAdhesion from "/public/images/Adhesion.webp";
 
-const admissionPdf = `/pdf/Admission_Galopins.pdf`;
+const admissionPdf = `/pdf/Admission_Galopins.pdf?v=2025-01-28`;
 
 export const metadata: Metadata = {
   title: "Les Galopins de Montélimar",
